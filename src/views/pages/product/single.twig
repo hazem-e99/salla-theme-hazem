@@ -450,6 +450,21 @@
                     {% if product.is_giftable %}
                         <salla-gifting class="mt-5" widget-subtitle="{{ gifting_intro }}" product-id="{{ product.id }}" {{ product.is_require_shipping ? 'physical-products' : ''  }}></salla-gifting>
                     {% endif %}
+
+                    {# Delivery estimate + trust/payment content near the buy box, so
+                       shoppers see shipping expectations and accepted payments without
+                       leaving the product page. Real Salla components only. #}
+                    {% if product.is_require_shipping %}
+                        {# salla-delivery-promise reads the current product id from
+                           salla.config('page.id') internally -- no attribute needed. #}
+                        <div class="product-trust">
+                            <salla-delivery-promise></salla-delivery-promise>
+                        </div>
+                    {% endif %}
+                    <div class="product-trust product-trust--badges">
+                        <salla-trust-badges></salla-trust-badges>
+                        <salla-payments></salla-payments>
+                    </div>
                 </form>
 
                 {% hook 'product:single.description.end' %}

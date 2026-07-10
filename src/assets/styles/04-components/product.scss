@@ -368,10 +368,40 @@ salla-add-product-button[product-status="out-and-notify"],
 
     &-options-colors-wrapper{
       @apply flex flex-wrap gap-4;
-      
+
       .s-product-options-colors-item{
         @apply m-0 rtl:m-0 ltr:m-0 w-auto;
     }
+
+      /* Premium swatch treatment: larger touch target, visible ring on the
+         selected color, subtle hover lift. Confirmed DOM shape (radio input +
+         label + span:after as the color dot) via salla-page-component-safelist. */
+      input[type=radio] + label {
+        padding: var(--space-0-5);
+        border-radius: 50%;
+        transition: transform var(--duration-fast) var(--ease-standard);
+
+        &:hover { transform: scale(1.08); }
+      }
+
+      input[type=radio] + label span {
+        width: 2rem;
+        height: 2rem;
+        display: block;
+        border-radius: 50%;
+        box-shadow: inset 0 0 0 1px var(--color-border);
+
+        &:after { border-radius: 50%; }
+      }
+
+      input[type=radio]:checked + label {
+        box-shadow: 0 0 0 2px var(--surface-raised), 0 0 0 3.5px var(--color-ink);
+      }
+
+      input[type=radio]:disabled + label {
+        opacity: var(--opacity-disabled);
+        cursor: not-allowed;
+      }
   }
 }
 
@@ -559,7 +589,7 @@ salla-add-product-button[product-status="out-and-notify"],
   .product-page-layout--full-width-commerce {
     .container--product-details { max-width: var(--container-wide); }
     .container--product-details > div { gap: var(--space-6); align-items: stretch; }
-    .product-gallery { width: 62% !important; margin-inline: 0 !important; position: static; }
+    .product-gallery { width: 62% !important; margin-inline: 0 !important; }
     .product-purchase {
       width: 38% !important;
       padding: clamp(var(--space-6), 4vw, var(--space-12));
@@ -573,7 +603,7 @@ salla-add-product-button[product-status="out-and-notify"],
     .container--product-details { max-width: 1080px; }
     .container--product-details > div { gap: var(--space-8); align-items: start; }
     .product-gallery { width: 48% !important; margin-inline: 0 !important; }
-    .product-purchase { width: 52% !important; position: static; }
+    .product-purchase { width: 52% !important; }
     .product-purchase h1 { font-size: var(--text-h2); }
     .product-purchase .product__description { margin-block: var(--space-4); padding-block: var(--space-4); }
   }
@@ -839,6 +869,25 @@ body.product-image-ratio--landscape .s-product-card-entry .s-product-card-image-
         @apply block #{!important};
       
     }
+  }
+}
+
+/*
+* Delivery estimate + trust/payment content near the buy box (single.twig).
+* Real Salla components (salla-delivery-promise / salla-trust-badges /
+* salla-payments) self-gate their own rendering when the related store
+* feature is disabled, so no defensive :empty handling is needed here.
+*/
+.product-trust {
+  margin-top: var(--space-5);
+  padding-top: var(--space-5);
+  border-top: var(--hairline);
+
+  &--badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+    align-items: center;
   }
 }
 
