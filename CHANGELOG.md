@@ -1,5 +1,14 @@
 # Changelog
 
+## Unreleased — audit and performance hardening
+
+- Added premium native-search styling and a documented-capability search report.
+- Added the SDK-backed cart drawer with focus containment, live cart data and free-shipping progress.
+- Reduced global production CSS from 802 KiB to 507 KiB with deterministic Salla component inventories.
+- Route-scoped blog JavaScript, removed menu polling and moved brands stickiness to `IntersectionObserver`.
+- Hardened Safe HTML by dropping raw media/embed nodes in addition to scripts, handlers and unsafe URLs.
+- Added CSS, performance, RTL/LTR and accessibility audit reports.
+
 ## 2026-07-10 — Premium theme system foundation
 
 - Added four merchant-selectable visual presets: Editorial Luxe, Modern Minimal, Soft Premium, and Bold Commerce.

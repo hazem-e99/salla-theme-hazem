@@ -22,13 +22,8 @@ class App extends AppHelpers {
     this.initiateModals();
     this.initiateCollapse();
     
-    // Ensure #more-menu-dropdown exists before running changeMenuDirection
-    const menuDirInterval = setInterval(() => {
-      if (document.querySelector('#more-menu-dropdown')) {
-        this.changeMenuDirection();
-        clearInterval(menuDirInterval);
-      }
-    }, 100);
+    // The menu is rendered asynchronously by its custom element.
+    this.isElementLoaded('#more-menu-dropdown').then(() => this.changeMenuDirection());
 
     initTootTip();
     this.loadModalImgOnclick();
@@ -95,14 +90,17 @@ class App extends AppHelpers {
   }
 
 isElementLoaded(selector){
-  return new Promise((resolve=>{
-    const interval=setInterval(()=>{
-    if(document.querySelector(selector)){
-      clearInterval(interval)
-      return resolve(document.querySelector(selector))
-    }
-   },160)
-}))
+  return new Promise(resolve => {
+    const existing = document.querySelector(selector);
+    if (existing) return resolve(existing);
+    const observer = new MutationObserver(() => {
+      const element = document.querySelector(selector);
+      if (!element) return;
+      observer.disconnect();
+      resolve(element);
+    });
+    observer.observe(document.documentElement, { childList: true, subtree: true });
+  })
 
   
   };

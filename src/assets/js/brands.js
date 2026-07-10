@@ -10,10 +10,13 @@ class Brands extends BasePage {
             app.all('.brands-nav__item', el => app.toggleElementClassIf(el, 'is-selected', 'unselected', () => el == btn));
         });
 
-        window.addEventListener('scroll', () => {
-            let scrolAtTop = window.pageYOffset <= 200;
-            app.toggleClassIf('#brands-nav', 'is-not-sticky', 'is-sticky', () => scrolAtTop);
-        });
+        const stickySentinel = document.createElement('span');
+        stickySentinel.className = 'brands-sticky-sentinel';
+        stickySentinel.setAttribute('aria-hidden', 'true');
+        navWrap.before(stickySentinel);
+        new IntersectionObserver(([entry]) => {
+            app.toggleClassIf('#brands-nav', 'is-not-sticky', 'is-sticky', () => entry.isIntersecting);
+        }, { rootMargin: '-200px 0px 0px' }).observe(stickySentinel);
     }
 }
 

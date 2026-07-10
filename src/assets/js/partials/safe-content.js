@@ -3,20 +3,18 @@ const ALLOWED_TAGS = new Set([
   'H1', 'H2', 'H3', 'H4', 'H5', 'H6', 'P', 'SPAN', 'A', 'IMG', 'FIGURE',
   'FIGCAPTION', 'BLOCKQUOTE', 'STRONG', 'EM', 'B', 'I', 'SMALL', 'MARK',
   'UL', 'OL', 'LI', 'DL', 'DT', 'DD', 'TABLE', 'THEAD', 'TBODY', 'TFOOT',
-  'TR', 'TH', 'TD', 'CAPTION', 'VIDEO', 'SOURCE', 'BR', 'HR'
+  'TR', 'TH', 'TD', 'CAPTION', 'BR', 'HR'
 ]);
 const GLOBAL_ATTRIBUTES = new Set(['class', 'dir', 'lang', 'title', 'role', 'aria-label']);
 const TAG_ATTRIBUTES = {
   A: new Set(['href', 'target', 'rel']),
   IMG: new Set(['src', 'alt', 'width', 'height', 'loading']),
-  VIDEO: new Set(['src', 'poster', 'controls', 'muted', 'loop', 'preload', 'playsinline', 'width', 'height']),
-  SOURCE: new Set(['src', 'type', 'media']),
   TH: new Set(['scope', 'colspan', 'rowspan']),
   TD: new Set(['colspan', 'rowspan']),
 };
 const URL_ATTRIBUTES = new Set(['href', 'src', 'poster']);
 const SAFE_PROTOCOLS = new Set(['http:', 'https:', 'mailto:', 'tel:']);
-const DROP_WITH_CONTENT = new Set(['SCRIPT', 'STYLE', 'IFRAME', 'OBJECT', 'EMBED', 'SVG', 'MATH', 'TEMPLATE']);
+const DROP_WITH_CONTENT = new Set(['SCRIPT', 'STYLE', 'IFRAME', 'OBJECT', 'EMBED', 'SVG', 'MATH', 'TEMPLATE', 'VIDEO', 'AUDIO', 'SOURCE']);
 
 function isSafeUrl(value) {
   const candidate = value.trim();
@@ -54,7 +52,7 @@ function sanitizeTree(root) {
       element.setAttribute('loading', 'lazy');
       element.setAttribute('decoding', 'async');
     }
-    if (['IMG', 'VIDEO', 'SOURCE'].includes(element.tagName) && !element.hasAttribute('src')) element.remove();
+    if (element.tagName === 'IMG' && !element.hasAttribute('src')) element.remove();
   });
   return root;
 }
