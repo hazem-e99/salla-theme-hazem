@@ -50,7 +50,7 @@
 // Digital Rating(SVG)---------------------------
 .s-product-card-content-pie-svg-base{ 
   transition: stroke-dashoffset 1s linear;
-  stroke: #E8EDF2;
+  stroke: var(--color-border);
   stroke-width: 2px;
   stroke-linecap: round;
   fill: none;
@@ -83,7 +83,7 @@
   .pie-svg {
     circle {
       transition: stroke-dashoffset 1s linear;
-      stroke: #E8EDF2;
+      stroke: var(--color-border);
       stroke-width: 2px;
       stroke-linecap: round;
       fill: none;
@@ -315,7 +315,7 @@
       &-icon {
         @apply mb-1;
         i {
-          color: #7c8082;
+          color: var(--color-ink-muted);
           @apply text-xl;
         }
       }
@@ -809,11 +809,40 @@ body.product-image-ratio--landscape .s-product-card-entry .s-product-card-image-
 	@apply text-gray-500
 }
 
+.s-product-card-promotion-title,
+.s-product-card-quantity,
+.s-product-card-out-badge {
+  position: absolute;
+  inset-inline-start: var(--space-3);
+  top: var(--space-3);
+  z-index: 1;
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-md);
+  font-size: var(--text-caption);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-wide);
+}
+
 .s-product-card-promotion-title{
   background: var(--color-sale);
   color: #fff;
-  font-weight: var(--weight-semibold);
-  letter-spacing: var(--tracking-wide);
+}
+
+/* "X left in stock" urgency badge (shown when the merchant enables
+   show-quantity on cards -- see product-card.js getProductBadge()). */
+.s-product-card-quantity {
+  background: var(--color-warning-soft);
+  color: var(--color-warning);
+}
+
+/* Out-of-stock badge + dimmed image, shown when notify-when-available is on. */
+.s-product-card-out-badge {
+  background: var(--surface-sunken);
+  color: var(--color-out-of-stock);
+}
+
+.s-product-card-out-of-stock img.loaded {
+  opacity: var(--opacity-disabled);
 }
 
 .s-product-card-sale-price {
