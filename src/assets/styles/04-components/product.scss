@@ -533,6 +533,174 @@ salla-add-product-button[product-status="out-and-notify"],
   transform: translateY(0);
 }
 
+/* ======================================================================
+   MERCHANT PRODUCT-CARD COMPOSITIONS
+   Scoped to the established custom-element classes. Horizontal, donation,
+   special and full-image business variants keep their own structural rules.
+   Essential actions remain visible on touch and keyboard in every treatment.
+   ====================================================================== */
+
+/* Editorial Borderless is the image-led base treatment above. */
+.product-card-variant--editorial-borderless {
+  .s-product-card-entry.s-product-card-vertical {
+    .s-product-card-content { padding-inline: 0; }
+  }
+}
+
+/* Premium Card: elevated framed object with a padded content panel. */
+.product-card-variant--premium-card {
+  .s-product-card-entry.s-product-card-vertical {
+    overflow: hidden;
+    background: var(--surface-raised);
+    border: var(--border-width) solid var(--color-line);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-soft) !important;
+    transition: transform var(--duration-base) var(--ease-emphasized),
+                box-shadow var(--duration-base) var(--ease-standard),
+                border-color var(--duration-base) var(--ease-standard);
+
+    &:hover {
+      transform: translateY(-3px);
+      border-color: var(--color-line-strong);
+      box-shadow: var(--shadow-floating) !important;
+    }
+
+    .s-product-card-image { border-radius: var(--radius-lg) var(--radius-lg) 0 0; }
+    .s-product-card-content { padding: var(--card-space); }
+  }
+}
+
+/* Compact Commerce: square media, denser content and persistent CTA. */
+.product-card-variant--compact-commerce {
+  .s-product-card-entry.s-product-card-vertical {
+    background: var(--surface-raised);
+    border: var(--border-width) solid var(--color-line);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+
+    .s-product-card-image { aspect-ratio: 1 / 1; border-radius: 0; }
+    .s-product-card-content { padding: var(--space-3); }
+    .s-product-card-content-title { font-weight: var(--weight-semibold); }
+    .s-product-card-content-subtitle { display: none; }
+    .s-product-card-content-footer {
+      opacity: 1;
+      transform: none;
+      margin-top: var(--space-2);
+    }
+  }
+}
+
+/* Image Overlay: the content becomes a readable gradient caption over media.
+   This is limited to ordinary vertical cards so special product contracts are
+   never restructured. */
+.product-card-variant--image-overlay {
+  .s-product-card-entry.s-product-card-vertical:not(.s-product-card-special):not(.s-product-card-donation) {
+    position: relative;
+    min-height: 22rem;
+    overflow: hidden;
+    border-radius: var(--radius-md);
+    background: var(--color-ink);
+
+    .s-product-card-image {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      aspect-ratio: auto;
+      border-radius: inherit;
+    }
+
+    .s-product-card-content {
+      position: relative;
+      z-index: var(--z-raised);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      min-height: 22rem;
+      padding: clamp(var(--space-5), 5vw, var(--space-8));
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.82), rgba(0, 0, 0, 0) 68%);
+      color: #fff;
+      pointer-events: none;
+    }
+
+    .s-product-card-content a,
+    .s-product-card-content-title,
+    .s-product-card-content-subtitle,
+    .s-product-card-price,
+    .s-product-card-content-sub h4,
+    .s-rating-stars-reviews { color: #fff; }
+
+    .s-product-card-content-main,
+    .s-product-card-content-sub,
+    .s-product-card-content-footer { pointer-events: auto; }
+
+    .s-product-card-content-footer {
+      opacity: 1;
+      transform: none;
+    }
+  }
+}
+
+/* Minimal Grid: quiet square catalogue tiles with compact metadata. */
+.product-card-variant--minimal-grid {
+  .s-product-card-entry.s-product-card-vertical {
+    .s-product-card-image { aspect-ratio: 1 / 1; background: transparent; }
+    .s-product-card-content { padding-top: var(--space-2); }
+    .s-product-card-content-title,
+    .s-product-card-price,
+    .s-product-card-content-sub h4 { font-size: var(--text-caption); }
+    .s-product-card-content-subtitle,
+    .s-product-card-rating { display: none; }
+    .s-product-card-content-footer { margin-top: var(--space-2); }
+  }
+}
+
+/* Marketplace Dense: information-forward, bordered and permanently actionable. */
+.product-card-variant--marketplace-dense {
+  .s-product-card-entry.s-product-card-vertical {
+    overflow: hidden;
+    background: var(--surface-raised);
+    border: var(--border-width-strong) solid var(--color-line-strong);
+    border-radius: var(--radius-xs);
+
+    .s-product-card-image { aspect-ratio: 4 / 3; border-radius: 0; }
+    .s-product-card-content { padding: var(--space-3); }
+    .s-product-card-content-title {
+      min-height: calc(var(--text-body-sm) * var(--leading-snug) * 2);
+      font-weight: var(--weight-semibold);
+    }
+    .s-product-card-content-sub {
+      padding-top: var(--space-2);
+      border-top: var(--border-width) solid var(--color-line);
+    }
+    .s-product-card-price,
+    .s-product-card-content-sub h4 {
+      font-size: var(--text-price);
+      font-weight: var(--weight-bold);
+    }
+    .s-product-card-content-footer {
+      opacity: 1;
+      transform: none;
+      margin-top: var(--space-3);
+    }
+  }
+}
+
+@media (hover: none), (pointer: coarse) {
+  [class*="product-card-variant--"] .s-product-card-content-footer {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Explicit merchant ratio overrides the card variant's recommended default. */
+body.product-image-ratio--square .s-product-card-entry .s-product-card-image,
+body.product-image-ratio--square .s-product-card-entry .s-product-card-image-full { aspect-ratio: 1 / 1; }
+body.product-image-ratio--portrait .s-product-card-entry .s-product-card-image,
+body.product-image-ratio--portrait .s-product-card-entry .s-product-card-image-full { aspect-ratio: 4 / 5; }
+body.product-image-ratio--landscape .s-product-card-entry .s-product-card-image,
+body.product-image-ratio--landscape .s-product-card-entry .s-product-card-image-full { aspect-ratio: 4 / 3; }
+
 
 // Horizontal card
 .s-product-card-horizontal{

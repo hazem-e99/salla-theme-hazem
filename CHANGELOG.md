@@ -16,6 +16,13 @@
 - Preserved the existing menu custom element, mobile burger target, search/account/cart components, sticky JavaScript classes, scope and localization controls.
 - Desktop composition changes collapse to the proven mobile header grid where appropriate; Compact Sticky keeps a purpose-built 56 px mobile/desktop rail.
 
+### Product-card compositions
+
+- Implemented six real product-card treatments: Editorial Borderless, Premium Card, Compact Commerce, Image Overlay, Minimal Grid, and Marketplace Dense.
+- Kept custom-element rendering, product-type branches, price/status logic, wishlist, quantity and add-to-cart behavior unchanged.
+- Ensured essential CTAs remain visible for touch/coarse pointers and keyboard focus.
+- Made explicit merchant image-ratio selection override each variant's recommended media composition while preserving cover/contain behavior.
+
 <!-- ============================================================= -->
 <!-- PREMIUM REDESIGN (fork by hazem-e99) — Editorial Luxe          -->
 <!-- Entries below the upstream banner document this fork's work.   -->

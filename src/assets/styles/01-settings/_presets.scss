@@ -122,15 +122,6 @@
 
 .container { max-width: var(--container-max); }
 
-/* Media ratios affect the real custom product card while retaining the
-   merchant's cover/contain fit contract on the image itself. */
-.product-image-ratio--square .s-product-card-image,
-.product-image-ratio--square .s-product-card-image-full { aspect-ratio: 1 / 1; }
-.product-image-ratio--portrait .s-product-card-image,
-.product-image-ratio--portrait .s-product-card-image-full { aspect-ratio: 4 / 5; }
-.product-image-ratio--landscape .s-product-card-image,
-.product-image-ratio--landscape .s-product-card-image-full { aspect-ratio: 4 / 3; }
-
 /* Merchant controls intentionally override preset defaults. */
 .theme-density--compact {
   --section-y: clamp(2.5rem, 2rem + 2vw, 4.5rem);
