@@ -21,6 +21,13 @@ salla-button {
 .btn {
   @apply transition duration-300 flex-1 inline-flex justify-center items-center px-6 pb-2.5 pt-2 text-sm font-bold rounded-md hover:opacity-80 whitespace-nowrap;
 
+  /* Accessible focus ring (restores visibility disabled globally by
+     corePlugins.outline:false). Keyboard-only via :focus-visible. */
+  &:focus-visible {
+    outline: none;
+    box-shadow: var(--shadow-focus);
+  }
+
   .loader {
     width: 0;
     opacity: 0;

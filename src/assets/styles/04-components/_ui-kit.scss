@@ -1,0 +1,350 @@
+/* ==========================================================================
+   UI KIT  —  reusable premium primitives  (Editorial Luxe)
+   --------------------------------------------------------------------------
+   Token-driven, framework-agnostic building blocks. All classes are namespaced
+   with `u-` (or a clearly unique name) so they never collide with existing
+   theme/Salla classes. Nothing here overrides a Salla web-component's internals;
+   these are opt-in wrappers/utilities applied in redesigned surfaces.
+
+   Reference: DESIGN_SYSTEM.md · documented in COMPONENTS.md
+   ========================================================================== */
+
+/* ── Section title ─────────────────────────────────────────────────────
+   Editorial section header: eyebrow + display heading + optional link.   */
+.section-title {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-4);
+  margin-bottom: var(--space-8);
+
+  &__group { display: flex; flex-direction: column; gap: var(--space-2); }
+
+  &__eyebrow { @extend .type-eyebrow; color: var(--color-primary); }
+
+  &__heading {
+    font-family: var(--font-display);
+    font-size: var(--text-h2);
+    font-weight: var(--weight-semibold);
+    line-height: var(--leading-snug);
+    letter-spacing: var(--tracking-tight);
+    color: var(--color-ink);
+    margin: 0;
+  }
+
+  &__link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-1);
+    flex-shrink: 0;
+    font-size: var(--text-body-sm);
+    font-weight: var(--weight-semibold);
+    color: var(--color-primary);
+    transition: gap var(--duration-base) var(--ease-standard),
+                opacity var(--duration-base) var(--ease-standard);
+
+    &:hover { gap: var(--space-2); opacity: var(--opacity-hover); }
+    i { transition: transform var(--duration-base) var(--ease-standard); }
+  }
+
+  &--center {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    .section-title__group { align-items: center; }
+  }
+}
+
+/* ── Badge ─────────────────────────────────────────────────────────────
+   Small status/label pill. Variants map to semantic tokens.             */
+.u-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-full);
+  font-size: var(--text-eyebrow);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  line-height: 1;
+  white-space: nowrap;
+
+  &--neutral { background: var(--neutral-100); color: var(--color-ink-soft); }
+  &--primary { background: var(--color-primary-tint); color: var(--color-primary-dark, var(--color-primary)); }
+  &--success { background: var(--color-success-soft); color: var(--color-success); }
+  &--warning { background: var(--color-warning-soft); color: var(--color-warning); }
+  &--danger  { background: var(--color-danger-soft);  color: var(--color-danger); }
+  &--solid   { background: var(--color-ink); color: #fff; }
+
+  &--sm { padding: 2px var(--space-2); font-size: 0.625rem; }
+}
+
+/* ── Discount badge ────────────────────────────────────────────────────
+   Overlaid on product media (e.g. "-25%").                              */
+.u-discount-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-sm);
+  background: var(--color-sale);
+  color: #fff;
+  font-size: var(--text-caption);
+  font-weight: var(--weight-bold);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── Stock badge ───────────────────────────────────────────────────────
+   In-stock / low / out. Dot + label.                                    */
+.u-stock {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-caption);
+  font-weight: var(--weight-medium);
+
+  &::before {
+    content: "";
+    width: 7px; height: 7px;
+    border-radius: var(--radius-full);
+    background: currentColor;
+    flex-shrink: 0;
+  }
+  &--in   { color: var(--color-success); }
+  &--low  { color: var(--color-warning); }
+  &--out  { color: var(--color-ink-muted); }
+}
+
+/* ── Chip / Tag ────────────────────────────────────────────────────────
+   Filters, tags, selectable pills.                                      */
+.u-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: var(--space-2) var(--space-3);
+  border: var(--border-width) solid var(--color-line);
+  border-radius: var(--radius-full);
+  background: var(--surface-raised);
+  color: var(--color-ink-soft);
+  font-size: var(--text-body-sm);
+  font-weight: var(--weight-medium);
+  line-height: 1;
+  transition: var(--transition-base);
+  cursor: pointer;
+
+  &:hover { border-color: var(--color-line-strong); color: var(--color-ink); }
+  &.is-active,
+  &[aria-pressed="true"] {
+    border-color: var(--color-primary);
+    background: var(--color-primary-tint);
+    color: var(--color-primary-dark, var(--color-primary));
+  }
+}
+
+/* ── Price ─────────────────────────────────────────────────────────────
+   Unified price presentation (regular / sale / from).                   */
+.u-price {
+  display: inline-flex;
+  align-items: baseline;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+
+  &__current {
+    @extend .type-price;
+    font-size: var(--text-h4);
+    color: var(--color-ink);
+  }
+  &__original {
+    font-size: var(--text-body-sm);
+    color: var(--color-ink-muted);
+    text-decoration: line-through;
+    font-variant-numeric: tabular-nums;
+  }
+  &__from {
+    font-size: var(--text-caption);
+    color: var(--color-ink-muted);
+  }
+  &--sale .u-price__current { color: var(--color-sale); }
+}
+
+/* ── Rating ────────────────────────────────────────────────────────────
+   Compact star rating + count (visual only; data from Salla).           */
+.u-rating {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-size: var(--text-body-sm);
+  color: var(--color-ink-soft);
+
+  i { color: #e0a800; } /* warm gold star */
+  &__count { color: var(--color-ink-muted); font-size: var(--text-caption); }
+}
+
+/* ── Skeleton ──────────────────────────────────────────────────────────
+   Loading placeholders. Reuses the header shimmer keyframe pattern.     */
+@keyframes u-skel-shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+.u-skeleton {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--neutral-100);
+  background-image: linear-gradient(
+    90deg,
+    rgba(0,0,0,0) 0%,
+    rgba(0,0,0,0.06) 50%,
+    rgba(0,0,0,0) 100%
+  );
+  background-size: 200% 100%;
+  background-repeat: no-repeat;
+  animation: u-skel-shimmer 1.4s ease-in-out infinite;
+  border-radius: var(--radius-sm);
+
+  &--text   { height: 0.75rem; border-radius: var(--radius-full); }
+  &--title  { height: 1.25rem; border-radius: var(--radius-full); }
+  &--image  { aspect-ratio: 1 / 1; border-radius: var(--radius-md); }
+  &--circle { border-radius: var(--radius-full); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .u-skeleton { animation: none; }
+}
+
+/* ── Card shell ────────────────────────────────────────────────────────
+   Generic elevated surface for composed cards/panels.                   */
+.u-card {
+  background: var(--surface-raised);
+  border: var(--border-width) solid var(--color-line);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: box-shadow var(--duration-base) var(--ease-standard),
+              transform var(--duration-base) var(--ease-standard),
+              border-color var(--duration-base) var(--ease-standard);
+
+  &--interactive:hover {
+    box-shadow: var(--shadow-md);
+    border-color: var(--color-line-strong);
+  }
+  &--flat { border: none; box-shadow: none; }
+  &--sunken { background: var(--surface-sunken); }
+}
+
+/* ── Empty / error state ───────────────────────────────────────────────
+   Premium empty-state block (complements .no-content-placeholder).      */
+.u-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: var(--space-16) var(--space-4);
+  color: var(--color-ink-muted);
+
+  &__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 5rem; height: 5rem;
+    margin-bottom: var(--space-5);
+    border-radius: var(--radius-full);
+    background: var(--neutral-100);
+    color: var(--color-ink-muted);
+    font-size: 2rem;
+  }
+  &__title { @extend .type-h4; color: var(--color-ink); margin-bottom: var(--space-2); }
+  &__text  { max-width: 30rem; margin-bottom: var(--space-5); }
+}
+
+/* ── Trust badges row ──────────────────────────────────────────────────
+   Small reassurance strip (shipping, returns, secure payment…).         */
+.u-trust {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: var(--space-4);
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-4);
+    border: var(--border-width) solid var(--color-line);
+    border-radius: var(--radius-md);
+    background: var(--surface-raised);
+  }
+  &__icon { font-size: 1.5rem; color: var(--color-primary); flex-shrink: 0; }
+  &__title { font-size: var(--text-body-sm); font-weight: var(--weight-semibold); color: var(--color-ink); }
+  &__text  { font-size: var(--text-caption); color: var(--color-ink-muted); }
+}
+
+/* ── Newsletter ────────────────────────────────────────────────────────
+   Inline subscribe form shell (input + button). Salla form logic stays.  */
+.u-newsletter {
+  display: flex;
+  gap: var(--space-2);
+  max-width: 30rem;
+
+  &__input {
+    flex: 1;
+    min-width: 0;
+    padding: var(--space-3) var(--space-4);
+    border: var(--border-width) solid var(--color-line);
+    border-radius: var(--radius-sm);
+    background: var(--surface-raised);
+    font-size: var(--text-body-sm);
+    color: var(--color-ink);
+    transition: var(--transition-base);
+
+    &:focus-visible {
+      border-color: var(--color-primary);
+      box-shadow: var(--shadow-focus);
+      outline: none;
+    }
+  }
+}
+
+/* ── Accessible focus ring (global) ────────────────────────────────────
+   corePlugins.outline is disabled globally, which removes visible focus
+   (WCAG 2.4.7 failure). Restore it for KEYBOARD focus only via
+   :focus-visible so mouse/touch users see no ring. Applies to native
+   interactive elements and Salla web components that accept focus.       */
+a:focus-visible,
+button:focus-visible,
+[tabindex]:focus-visible,
+salla-button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+summary:focus-visible {
+  outline: none;
+  box-shadow: var(--shadow-focus);
+  border-radius: var(--radius-xs);
+}
+
+/* ── Divider ───────────────────────────────────────────────────────────
+   Hairline with optional centered label.                                */
+.u-divider {
+  border: 0;
+  height: var(--border-width);
+  background: var(--color-line);
+  margin: var(--space-8) 0;
+
+  &--label {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    height: auto;
+    background: none;
+    color: var(--color-ink-muted);
+    font-size: var(--text-caption);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+
+    &::before, &::after {
+      content: "";
+      flex: 1;
+      height: var(--border-width);
+      background: var(--color-line);
+    }
+  }
+}

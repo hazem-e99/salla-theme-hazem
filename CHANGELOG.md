@@ -7,6 +7,17 @@
 
 ## ✨ Premium Redesign — Unreleased
 
+### Phase 3 — Core Component Library
+- Added `04-components/_ui-kit.scss`: token-driven primitives —
+  `section-title`, `u-badge`, `u-discount-badge`, `u-stock`, `u-chip`,
+  `u-price`, `u-rating`, `u-skeleton`, `u-card`, `u-empty`, `u-trust`,
+  `u-newsletter`, `u-divider`. All namespaced, opt-in, no collisions.
+- Restored accessible keyboard focus ring (`:focus-visible` +
+  `--shadow-focus`) globally and on `.btn`, reversing the globally
+  disabled outline (WCAG 2.4.7) without affecting mouse/touch users.
+- Added `COMPONENTS.md` documenting the library and the Salla components
+  we style around but never reimplement.
+
 ### Phase 2 — Typography System
 - Added `01-settings/_typography.scss`: role-based type system (`display`, `h1–h4`,
   `subheading`, `body-lg/body/sm`, `caption`, `eyebrow`, `label`, `button`, `price`)
