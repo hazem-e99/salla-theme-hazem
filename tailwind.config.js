@@ -25,7 +25,14 @@ module.exports = {
         },
         extend    : {
             transitionTimingFunction: {
-              'elastic': 'cubic-bezier(0.55, 0, 0.1, 1)',
+              'elastic'    : 'cubic-bezier(0.55, 0, 0.1, 1)',
+              'standard'   : 'var(--ease-standard)',
+              'emphasized' : 'var(--ease-emphasized)',
+            },
+            transitionDuration: {
+              'fast': 'var(--duration-fast)',
+              'base': 'var(--duration-base)',
+              'slow': 'var(--duration-slow)',
             },
             gridTemplateColumns: {
                 'auto-fill'  : 'repeat(auto-fill, 290px)',
@@ -33,8 +40,37 @@ module.exports = {
             colors             : {
                 'dark'         : '#1D1F1F',
                 'darker'       : '#0E0F0F',
-                'danger'       : '#AE0A0A',
-                'primary-dark' : 'var(--color-primary-dark)'
+                'danger'       : 'var(--color-danger)',
+                'primary-dark' : 'var(--color-primary-dark)',
+
+                // --- Design-token colors (Editorial Luxe) ---
+                'ink'          : 'var(--color-ink)',
+                'ink-soft'     : 'var(--color-ink-soft)',
+                'ink-muted'    : 'var(--color-ink-muted)',
+                'line'         : 'var(--color-line)',
+                'line-strong'  : 'var(--color-line-strong)',
+                'canvas'       : 'var(--surface-canvas)',
+                'raised'       : 'var(--surface-raised)',
+                'sunken'       : 'var(--surface-sunken)',
+                'neutral': {
+                    50 : 'var(--neutral-50)',
+                    100: 'var(--neutral-100)',
+                    200: 'var(--neutral-200)',
+                    300: 'var(--neutral-300)',
+                    400: 'var(--neutral-400)',
+                    500: 'var(--neutral-500)',
+                    600: 'var(--neutral-600)',
+                    700: 'var(--neutral-700)',
+                    800: 'var(--neutral-800)',
+                    900: 'var(--neutral-900)',
+                },
+                'success'      : 'var(--color-success)',
+                'success-soft' : 'var(--color-success-soft)',
+                'warning'      : 'var(--color-warning)',
+                'warning-soft' : 'var(--color-warning-soft)',
+                'danger-soft'  : 'var(--color-danger-soft)',
+                'info'         : 'var(--color-info)',
+                'sale'         : 'var(--color-sale)',
             },
             spacing: {
               '3.75': '15px',
@@ -51,6 +87,18 @@ module.exports = {
                 'big'  : '40px',
                 'tiny' : '3px',
                 DEFAULT: '.75rem',
+                // --- token-backed radii (distinct names so built-in
+                //     rounded-sm/md/lg/xl are NOT silently reshaped) ---
+                'token-xs' : 'var(--radius-xs)',
+                'token-sm' : 'var(--radius-sm)',
+                'token-md' : 'var(--radius-md)',
+                'token-lg' : 'var(--radius-lg)',
+                'token-xl' : 'var(--radius-xl)',
+                'token-2xl': 'var(--radius-2xl)',
+            },
+            letterSpacing      : {
+                'tightest': 'var(--tracking-tight)',
+                'wider'   : 'var(--tracking-wide)',
             },
             fontSize           : {
                 'icon-lg'   : '33px',
@@ -75,6 +123,12 @@ module.exports = {
                 'huge'    : '0px 3px 6px #00000029',
                 'progress': '0 5px 15px rgba(92, 213, 196, 0.4)',
                 'mobile': 'rgb(0 0 0 / 9%) 0px 2px 1px, rgb(0 0 0 / 9%) 0px 4px 2px, rgb(0 0 0 / 9%) 0px 8px 4px, rgb(0 0 0 / 9%) 0px 16px 18px, rgb(0 0 0 / 9%) -15px 10px 7px, rgb(0 0 0 / 9%) -20px 10px 20px, rgb(0 0 0 / 9%) -20px 10px 20px, rgb(0 0 0 / 9%) -25px 20px 20px',
+                // --- token-backed elevation (distinct names) ---
+                'token-xs' : 'var(--shadow-xs)',
+                'token-sm' : 'var(--shadow-sm)',
+                'token-md' : 'var(--shadow-md)',
+                'token-lg' : 'var(--shadow-lg)',
+                'focus'    : 'var(--shadow-focus)',
             },
             width              : {
                 '18': '4.5rem',
@@ -104,6 +158,13 @@ module.exports = {
                 '1': '1',
                 '2': '2',
                 '-1': '-1',
+                // --- semantic layering (distinct names) ---
+                'sticky' : 'var(--z-sticky)',
+                'header' : 'var(--z-header)',
+                'drawer' : 'var(--z-drawer)',
+                'overlay': 'var(--z-overlay)',
+                'modal'  : 'var(--z-modal)',
+                'toast'  : 'var(--z-toast)',
             },
             screens            : {
                 'xxs': {'min': '380px', 'max': '479px'},
