@@ -1,103 +1,94 @@
+/* ==========================================================================
+   HEADER — "ATELIER" editorial identity
+   Slim monochrome utility strip + a 3-column main bar with a centered,
+   letter-spaced wordmark. No resting shadows/borders; a hairline only.
+   All Salla components + sticky class contract (app.js) preserved.
+   ========================================================================== */
 
-/* Top Nav */
+/* ── Utility strip ─────────────────────────────────────────────────── */
 .top-navbar {
-  @apply flex py-2 min-h-[48px];
+  @apply flex items-center;
+  min-height: 40px;
+  padding-block: var(--space-2);
+  background: var(--color-ink);
+  color: rgba(255, 255, 255, 0.72);
+  font-size: var(--text-eyebrow);
+  letter-spacing: var(--tracking-wide);
 
-  @screen lg {
-    @apply py-1.5;
-  }
+  a { color: inherit; }
 
-  .topnav-has-bg & {
-    @apply bg-[color:var(--topnav-bg)];
-  }
+  .topnav-has-bg &        { background: var(--topnav-bg); }
+  .topnav-has-text-color & { color: var(--topnav-text-color); }
 
-  .topnav-has-gradient & {
-    @apply bg-gradient-to-r from-[color:var(--topnav-gradient-from)] to-[color:var(--topnav-gradient-to)];
-  }
+  salla-contacts,
+  salla-contacts a { color: rgba(255, 255, 255, 0.72); }
 
-  .topnav-has-text-color & {
-    @apply text-[color:var(--topnav-text-color)];
-  }
-
-  .s-search-input{
-    @apply bg-gray-200/50 hover:bg-gray-200/70 border-none;
+  .s-search-input {
+    @apply border-none;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border-radius: 0;
   }
 
   @media (max-width: 640px) {
-    .s-search-results{
-      @apply w-screen max-w-[100vw] rtl:-left-2.5 ltr:-right-2.5; 
-    }
-  } 
-
-  .topnav-is-dark & {
-    @apply bg-dark text-gray-300;
-
-    .btn--circle-gray,
-    .btn--rounded-gray,
-    .s-search-input{
-      @apply bg-gray-100/10 hover:bg-gray-100/[0.15]
-    }
-
-    .topnav-link-item{
-      @apply border-gray-300/10;
-    }
-
-    .s-search-input{
-      @apply text-white;
-    }
-  }
-
-  .search-btn{
-    @apply grow sm:grow-0 justify-start md:justify-center;
+    .s-search-results { @apply w-screen max-w-[100vw] rtl:-left-2.5 ltr:-right-2.5; }
   }
 }
 
-// contacs menu items - pages menu items
-.topnav-link-item{
-  @apply inline-block transition duration-300 px-4 rtl:last:pl-0 ltr:last:pr-0 py-px text-sm leading-none ltr:border-r rtl:border-l border-gray-200 ltr:last:border-0 rtl:last:border-0 hover:opacity-80;
-
-  &.right-side{
-    @apply rtl:first:pr-0 ltr:first:pl-0
-  }
+// utility-strip menu items
+.topnav-link-item {
+  @apply inline-block transition;
+  padding-inline: var(--space-3);
+  font-size: var(--text-eyebrow);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: inherit;
+  opacity: 0.8;
+  &:hover { opacity: 1; }
 }
 
-/* Main Nav */
+/* ── Main bar ──────────────────────────────────────────────────────── */
 .main-nav-container {
-  @apply min-h-[68px] lg:min-h-[84px];
-  background: var(--surface-raised);
+  min-height: 64px;
+  background: var(--surface-canvas);
   border-bottom: var(--border-width) solid var(--color-line);
-  box-shadow: none;
 
-  // Custom background Color
+  @screen lg { min-height: 88px; }
+
   .has-bg &,
-  .has-bg & .sub-menu{
-    @apply bg-[color:var(--mainnav-bg)];
-  }
+  .has-bg & .sub-menu { @apply bg-[color:var(--mainnav-bg)]; }
+  .has-text-color &    { @apply text-[color:var(--mainnav-text-color)]; }
+}
 
-  // Custom text color
-  .has-text-color & {
-    @apply text-[color:var(--mainnav-text-color)];
-  }
+/* 3-column grid: [nav] [centered wordmark] [actions] */
+.header-grid {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  min-height: 64px;
+
+  @screen lg { min-height: 88px; }
+
+  &__start { justify-self: start; }
+  &__center { justify-self: center; }
+  &__end   { justify-self: end; gap: var(--space-2); }
 }
 
 .menu-item {
-  @apply flex items-center px-6 py-2.5 sm:text-sm text-gray-500 transition-colors duration-300 hover:bg-gray-200/30;
+  @apply flex items-center transition-colors;
+  padding: var(--space-3) var(--space-5);
+  font-size: var(--text-body-sm);
+  color: var(--color-ink-soft);
 
-  &.logout{
-    @apply text-red-400;
-  }
-
-  &.is-active{
-    @apply text-primary bg-gray-200/20;
-  }
+  &:hover   { color: var(--color-ink); }
+  &.logout  { color: var(--color-danger); }
+  &.is-active { color: var(--color-ink); }
 }
 
-/* Sticky Header */
+/* ── Sticky behaviour (classes toggled by app.js — keep names) ─────── */
 .main-nav-container {
-  &.animated {
-    .inner {
-      transition: top 0.5s, transform 0.5s, -webkit-transform 0.5s, opacity 0.4s;
-    }
+  &.animated .inner {
+    transition: transform 0.5s var(--ease-standard), opacity 0.4s var(--ease-standard);
   }
 
   &.fixed-pinned {
@@ -108,105 +99,92 @@
       left: 0;
       width: 100%;
       z-index: var(--z-header);
-      background: var(--surface-raised);
+      background: var(--surface-canvas);
+      border-bottom: var(--border-width) solid var(--color-line);
       box-shadow: var(--shadow-md);
       transform: translate3d(0, -100%, 0);
 
-      @media (max-width: 1024px){
-        transform: none;
-        top: -70px;
-      }
+      @media (max-width: 1024px) { transform: none; top: -70px; }
     }
 
-    .navbar-brand {
-      img {
-        max-height: 40px;
-      }
-
-      h4 {
-        line-height: 1;
-      }
-    }
-
-    .main-menu > li > a {
-      padding-top: 20px;
-      padding-bottom: 20px;
-    }
+    .navbar-brand img { max-height: 34px; }
+    .header-grid, .main-menu > li > a { min-height: 64px; }
   }
 
-  &.fixed-header {
-    .inner {
-      transform: translate3d(0, 0, 0);
-
-      @media (max-width: 1024px){
-        transform: none;
-        top: 0;
-      }
-    }
+  &.fixed-header .inner {
+    transform: translate3d(0, 0, 0);
+    @media (max-width: 1024px) { transform: none; top: 0; }
   }
 }
 
+/* ── Wordmark / brand ──────────────────────────────────────────────── */
 .navbar-brand {
-  @apply items-center flex my-2 lg:my-0;
+  @apply items-center flex;
 
   img {
-    @apply w-auto max-h-12 max-w-[100px] xs:max-w-[170px];
+    @apply w-auto;
+    max-height: 40px;
+    max-width: 180px;
+  }
+
+  .wordmark {
+    font-family: var(--font-display);
+    font-size: clamp(1.1rem, 0.9rem + 0.8vw, 1.6rem);
+    font-weight: var(--weight-semibold);
+    letter-spacing: var(--tracking-widest);
+    text-transform: uppercase;
+    color: var(--color-ink);
+    white-space: nowrap;
   }
 }
 
-// Mainnav cart icon
-.header-btn{
-  @apply border-none outline-none transition-opacity hover:opacity-80;
-
-  &__icon{
-    @apply text-xl w-10 h-10 flex items-center justify-center;
+/* ── Actions: search / account / cart ──────────────────────────────── */
+.header-search {
+  .s-search-input {
+    background: transparent;
     border: var(--border-width) solid var(--color-line);
-    border-radius: var(--radius-full);
-    color: var(--color-ink-soft);
+    border-radius: 0;
+    &:focus { border-color: var(--color-ink); }
+  }
+}
+
+.header-btn {
+  @apply border-none outline-none transition-opacity;
+  &:hover { opacity: var(--opacity-hover); }
+
+  &__icon {
+    @apply flex items-center justify-center;
+    width: 2.5rem; height: 2.5rem;
+    font-size: 1.35rem;
+    color: var(--color-ink);
+    border: none;
+    background: transparent;
     transition: var(--transition-base);
 
-    &:hover {
-      border-color: var(--color-primary);
-      color: var(--color-primary);
-      background: var(--color-primary-tint);
-    }
-
-    &.icon{
-      @apply mr-[9px] rtl:ml-[9px] rtl:mr-[unset];
-    }
+    &:hover { color: var(--color-ink); }
+    &.icon { @apply mr-[6px] rtl:ml-[6px] rtl:mr-[unset]; }
   }
 }
 
-.header-buttons .sicon-sar {
-  width: 0.65rem;
-  display: inline-block;
-min-height: 1.4rem;
-}
+#mainnav .sicon-menu { color: var(--color-ink); }
 
-#mainnav .sicon-menu {
-  width: 1rem;
-  display: inline-block
-}
+custom-main-menu { min-height: 64px; @screen lg { min-height: 88px; } }
 
-custom-main-menu {
-  min-height: 84px
-}
-
-salla-cart-summary {
-  min-width: 73px;
-  min-height: 40px
-}
-salla-user-menu{
-  @apply shrink-0;
-}
+.header-cart { min-width: 44px; min-height: 40px; }
+salla-cart-summary { min-height: 40px; }
+salla-user-menu { @apply shrink-0; }
 
 // cart summary
 .s-cart-summary-total{
-  @apply text-black font-[600];
+  color: var(--color-ink);
+  font-weight: var(--weight-semibold);
+  font-variant-numeric: tabular-nums;
 }
 
 .s-cart-summary-count{
-  @apply -top-0.5 ltr:-left-1.5 rtl:-right-1.5 bg-red-800;
+  @apply -top-0.5 ltr:-left-1.5 rtl:-right-1.5;
+  background: var(--color-ink);
+  color: #fff;
 }
 
 #nav-cart{

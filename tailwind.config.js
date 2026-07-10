@@ -83,12 +83,22 @@ module.exports = {
               '200' : '800px',
             },
             borderRadius       : {
-                'large': '22px',
-                'big'  : '40px',
-                'tiny' : '3px',
-                DEFAULT: '.75rem',
-                // --- token-backed radii (distinct names so built-in
-                //     rounded-sm/md/lg/xl are NOT silently reshaped) ---
+                // ATELIER editorial: sharp corners everywhere. The built-in
+                // scale is intentionally collapsed toward 0 so the whole store
+                // sheds Twilight's rounded look. rounded-full still available.
+                'none' : '0',
+                'tiny' : '0',
+                'sm'   : '0',
+                DEFAULT: '0',
+                'md'   : '1px',
+                'lg'   : '2px',
+                'xl'   : '2px',
+                '2xl'  : '3px',
+                '3xl'  : '3px',
+                'large': '2px',
+                'big'  : '3px',
+                'full' : '9999px',
+                // token-backed aliases (kept for any explicit references)
                 'token-xs' : 'var(--radius-xs)',
                 'token-sm' : 'var(--radius-sm)',
                 'token-md' : 'var(--radius-md)',

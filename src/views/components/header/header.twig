@@ -7,65 +7,73 @@
 #}
 {% set important_links = theme.settings.get('important_links') %}
 <header class="store-header">
-  {# Top Nav #}
+  {# ── Utility strip (quiet, editorial) ─────────────────────────────── #}
   <div class="top-navbar">
-    <div class="container flex justify-between">
-      <div class="flex-1 flex items-center gap-2">
-          {# Footer Menu #}
+    <div class="container flex items-center justify-between">
+      <div class="flex items-center gap-5 flex-1 min-w-0">
           {% if important_links %}
             <salla-menu source="footer" topnav></salla-menu>
           {% endif %}
 
-          {# Language & Currency Component #}
           <div class="header-buttons">
               {% if store.settings.is_multilingual or store.settings.currencies_enabled %}
                   <salla-localization-modal show-trigger></salla-localization-modal>
               {% endif %}
           </div>
 
-          {# Scopes | Branches #}
           {% if store.scope %}
-              <button class="btn--rounded-gray"
+              <button class="topnav-link-item flex items-center"
                       onclick="salla.event.dispatch('scopes::open', {'mode': 'default'})">
                   <i class="sicon-location rtl:ml-1 ltr:mr-1"></i> {{ store.scope.name }}
               </button>
           {% endif %}
-
-          {# Search bar #}
-          <div class="header-search flex-1">
-            <salla-search inline oval height="36"></salla-search>
-          </div>
       </div>
 
       <salla-contacts is-header></salla-contacts>
     </div>
   </div>
 
-  {# Main Nav #}
-  <div id="mainnav" class="main-nav-container shadow-default bg-white flex items-center">
-      <div class="inner bg-inherit w-full">
+  {# ── Main bar: [ nav | centered wordmark | actions ] ──────────────── #}
+  <div id="mainnav" class="main-nav-container flex items-center">
+      <div class="inner w-full">
           <div class="container">
-              <div class="flex items-stretch justify-between relative">
-                  <div class="flex items-center">
+              <div class="header-grid relative">
+
+                  {# start: burger (mobile) + inline menu (desktop) #}
+                  <div class="header-grid__start flex items-center">
                       <a class="lg:hidden mburger mburger--collapse leading-none rtl:ml-4 ltr:mr-4" href="#mobile-menu" aria-label="Open-menu">
-                        <i class="sicon-menu text-primary text-2xl"></i>
+                        <i class="sicon-menu text-2xl"></i>
                       </a>
+                      <custom-main-menu></custom-main-menu>
+                  </div>
+
+                  {# center: spaced editorial wordmark #}
+                  <div class="header-grid__center">
                       <a class="navbar-brand" href="{{ store.url }}">
-                          <img fetchpriority="high" width="100%" height="100%" loading="eager" src="{{ store.logo|cdn(175) }}" alt="{{ store.name }} logo">
+                          {% if store.logo %}
+                            <img fetchpriority="high" width="100%" height="100%" loading="eager" src="{{ store.logo|cdn(220) }}" alt="{{ store.name }} logo">
+                          {% else %}
+                            <span class="wordmark">{{ store.name }}</span>
+                          {% endif %}
                           {% if is_page('index') %}
                             <h1 class="sr-only">{{ store.name }}</h1>
                           {% else %}
                             <h2 class="sr-only">{{ store.name }}</h2>
                           {% endif %}
                       </a>
-                      <custom-main-menu></custom-main-menu>
                   </div>
-                  <div class="flex items-center justify-end my-2.5">
+
+                  {# end: search + account + cart #}
+                  <div class="header-grid__end flex items-center justify-end">
+                      <div class="header-search hidden md:block">
+                        <salla-search inline oval height="36"></salla-search>
+                      </div>
                       <salla-user-menu avatar-only show-header show-trigger></salla-user-menu>
-                      <salla-cart-summary class="ml-4 rtl:ml-[unset] rtl:mr-4">
+                      <salla-cart-summary class="header-cart">
                         <i slot="icon" class="header-btn__icon icon sicon-shopping-bag"></i>
                       </salla-cart-summary>
                   </div>
+
               </div>
           </div>
       </div>

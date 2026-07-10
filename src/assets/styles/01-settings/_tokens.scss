@@ -1,12 +1,16 @@
 /* ==========================================================================
-   DESIGN TOKENS  —  single source of truth  (Editorial Luxe)
+   DESIGN TOKENS  —  single source of truth  ("ATELIER" editorial identity)
    --------------------------------------------------------------------------
-   Everything downstream (SCSS + Tailwind) consumes these CSS custom
-   properties. Do not hardcode design values elsewhere; add/adjust here.
+   Zara / COS editorial DNA: monochrome ink-on-paper, extreme whitespace,
+   sharp corners (radius 0 by default), near-flat elevation, tiny wide-tracked
+   type. The merchant's runtime color is used as RARE punctuation only
+   (a single underline / one hover state), never as flat fills.
+
+   Everything downstream (SCSS + Tailwind) consumes these custom properties.
+   Do not hardcode design values elsewhere; add/adjust here.
 
    Salla injects --color-primary / -dark / -light / -reverse at runtime in
-   layouts/master.twig. We LAYER on top of that: we never redefine the
-   merchant primary, we only provide neutrals, surfaces, semantics, type,
+   layouts/master.twig. We LAYER on top: neutrals, surfaces, semantics, type,
    spacing, radius, shadow, motion, and usage tokens around it.
 
    See DESIGN_SYSTEM.md for the rationale behind every value.
@@ -16,27 +20,28 @@
   /* --- Brand / accent (merchant-driven, consumed) -----------------------
      Fallbacks only apply if Salla does not inject; master.twig normally
      overrides --color-primary et al. after this file loads.               */
-  --color-primary-fallback: #14110f;
-  --color-primary-tint: color-mix(in srgb, var(--color-primary, var(--color-primary-fallback)) 10%, #fff);
-  --color-primary-tint-strong: color-mix(in srgb, var(--color-primary, var(--color-primary-fallback)) 18%, #fff);
+  --color-primary-fallback: #111111;
+  --color-primary-tint: color-mix(in srgb, var(--color-primary, var(--color-primary-fallback)) 8%, #fff);
+  --color-primary-tint-strong: color-mix(in srgb, var(--color-primary, var(--color-primary-fallback)) 16%, #fff);
 
-  /* --- Ink & warm-neutral scale (theme-owned) --------------------------- */
-  --color-ink: #14110f;
-  --color-ink-soft: #413b36;
-  --color-ink-muted: #78706a;
-  --color-line: #e7e2dc;
-  --color-line-strong: #d8d1c8;
+  /* --- Ink & cool paper-neutral scale (theme-owned) --------------------
+     Editorial monochrome: pure paper, deep ink, restrained cool greys.   */
+  --color-ink: #111111;
+  --color-ink-soft: #383838;
+  --color-ink-muted: #6b6b6b;
+  --color-line: #e6e4e0;
+  --color-line-strong: #cfccc6;
 
-  --neutral-50:  #faf9f7;
-  --neutral-100: #f3f0eb;
-  --neutral-200: #e7e2dc;
-  --neutral-300: #d8d1c8;
-  --neutral-400: #b4aba1;
-  --neutral-500: #8b8178;
-  --neutral-600: #6b6259;
-  --neutral-700: #4a433d;
-  --neutral-800: #2c2723;
-  --neutral-900: #14110f;
+  --neutral-50:  #fbfbfa;
+  --neutral-100: #f4f3f1;
+  --neutral-200: #e6e4e0;
+  --neutral-300: #d3d0cb;
+  --neutral-400: #a8a5a0;
+  --neutral-500: #7c7a77;
+  --neutral-600: #5c5a56;
+  --neutral-700: #3f3d3a;
+  --neutral-800: #262523;
+  --neutral-900: #111111;
 
   /* --- Surfaces --------------------------------------------------------- */
   --surface-canvas:  var(--neutral-50);
@@ -79,14 +84,16 @@
   --weight-semibold: 600;
   --weight-bold:     700;
 
-  --tracking-tight:  -0.02em;
-  --tracking-normal: 0;
-  --tracking-wide:   0.08em;
+  /* Editorial tracking: display runs tight, labels run very wide. */
+  --tracking-tight:   -0.03em;
+  --tracking-normal:  0;
+  --tracking-wide:    0.14em;   /* uppercase labels / eyebrows */
+  --tracking-widest:  0.22em;   /* wordmark, spaced micro-labels */
 
-  --leading-tight:   1.1;
-  --leading-snug:    1.35;
-  --leading-normal:  1.6;
-  --leading-relaxed: 1.8;
+  --leading-tight:   1.05;
+  --leading-snug:    1.25;
+  --leading-normal:  1.65;
+  --leading-relaxed: 1.9;
 
   /* --- Spacing (8px base, 4px half-steps) ------------------------------ */
   --space-0:  0;
@@ -105,26 +112,31 @@
   --space-24: 6rem;     /* 96 */
   --space-32: 8rem;     /* 128 */
 
-  --section-y:  clamp(3rem, 2rem + 4vw, 6rem);
-  --block-gap:  var(--space-16);
+  /* Extreme editorial whitespace: larger section rhythm. */
+  --section-y:  clamp(4.5rem, 3rem + 7vw, 10rem);
+  --block-gap:  var(--space-24);
 
-  /* --- Radius ----------------------------------------------------------- */
+  /* --- Radius (SHARP editorial corners; near-zero by default) ---------
+     Kept token names for compatibility, but values collapse toward 0.
+     radius-full still available for the rare pill/avatar.               */
   --radius-none: 0;
-  --radius-xs:   4px;
-  --radius-sm:   8px;
-  --radius-md:   12px;
-  --radius-lg:   16px;
-  --radius-xl:   22px;
-  --radius-2xl:  32px;
+  --radius-xs:   0;
+  --radius-sm:   0;
+  --radius-md:   1px;
+  --radius-lg:   2px;
+  --radius-xl:   2px;
+  --radius-2xl:  3px;
   --radius-full: 9999px;
 
-  /* --- Shadow / elevation (soft, warm-tinted) -------------------------- */
+  /* --- Shadow / elevation (editorial = near-flat) ---------------------
+     Almost no shadow. Depth comes from whitespace and hairlines, not
+     drop-shadows. Focus ring stays crisp for a11y.                      */
   --shadow-none: none;
-  --shadow-xs:   0 1px 2px rgba(20, 17, 15, 0.04);
-  --shadow-sm:   0 2px 8px rgba(20, 17, 15, 0.05);
-  --shadow-md:   0 8px 24px rgba(20, 17, 15, 0.06);
-  --shadow-lg:   0 16px 48px rgba(20, 17, 15, 0.08);
-  --shadow-focus: 0 0 0 3px var(--color-primary-tint-strong);
+  --shadow-xs:   none;
+  --shadow-sm:   0 1px 0 rgba(17, 17, 17, 0.04);
+  --shadow-md:   0 6px 24px -12px rgba(17, 17, 17, 0.14);
+  --shadow-lg:   0 24px 60px -24px rgba(17, 17, 17, 0.18);
+  --shadow-focus: 0 0 0 2px var(--surface-canvas), 0 0 0 4px var(--color-ink);
 
   /* --- Border ----------------------------------------------------------- */
   --border-width:        1px;
