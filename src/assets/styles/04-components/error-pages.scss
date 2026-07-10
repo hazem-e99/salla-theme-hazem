@@ -1,0 +1,82 @@
+/*
+* 404 / not-found page
+*/
+.error-404 {
+  @apply flex items-center justify-center;
+  min-height: min(70vh, 640px);
+  padding-block: var(--section-y);
+}
+
+.error-404__inner {
+  @apply flex flex-col items-center text-center;
+  max-width: 34rem;
+  margin-inline: auto;
+}
+
+.error-404__code {
+  font-size: clamp(4rem, 3rem + 6vw, 7.5rem);
+  font-weight: var(--weight-light);
+  line-height: var(--leading-tight);
+  color: var(--color-line-strong);
+  letter-spacing: var(--tracking-tight);
+}
+
+.error-404__title {
+  font-size: var(--text-h2);
+  font-weight: var(--weight-semibold);
+  color: var(--color-ink);
+  margin-top: var(--space-4);
+}
+
+.error-404__text {
+  color: var(--color-ink-muted);
+  font-size: var(--text-body-lg);
+  line-height: var(--leading-relaxed);
+  margin-top: var(--space-3);
+}
+
+.error-404__actions {
+  @apply flex flex-col items-center;
+  gap: var(--space-5);
+  margin-top: var(--space-10);
+  width: 100%;
+}
+
+.error-404__search {
+  max-width: 26rem;
+  width: 100%;
+}
+
+/*
+* Account utility pages: wallet, notifications, addresses
+* Salla's <salla-wallet>/<salla-notifications>/<salla-addresses> render their own
+* internal markup; this styles the theme-owned wrapper/heading around them so
+* they read as one continuous premium surface with the rest of the account area.
+*/
+.account-section-header {
+  @apply flex items-start justify-between flex-wrap;
+  gap: var(--space-3);
+  margin-bottom: var(--space-6);
+}
+
+.account-section-header__text {
+  h1 {
+    font-size: var(--text-h4);
+    font-weight: var(--weight-semibold);
+    color: var(--color-ink);
+  }
+
+  p {
+    color: var(--color-ink-muted);
+    font-size: var(--text-body-sm);
+    margin-top: var(--space-1);
+  }
+}
+
+.account-section-body {
+  salla-wallet,
+  salla-notifications,
+  salla-addresses {
+    display: block;
+  }
+}

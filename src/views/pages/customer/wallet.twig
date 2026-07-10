@@ -7,5 +7,12 @@
 #}
 {% extends "layouts.customer" %}
 {% block inner_content %}
-    <salla-wallet></salla-wallet>
+    <div class="account-section-header">
+        <div class="account-section-header__text">
+            <h1>{{ page.title }}</h1>
+        </div>
+    </div>
+    <div class="account-section-body">
+        <salla-wallet></salla-wallet>
+    </div>
 {% endblock %}

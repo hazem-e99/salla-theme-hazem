@@ -1,0 +1,21 @@
+{#
+| Variable | Type   | Description |
+|----------|--------|-------------|
+| page     | object |             |
+#}
+{% extends "layouts.master" %}
+{% block content %}
+    <section class="error-404">
+        <div class="container error-404__inner">
+            <span class="error-404__code" aria-hidden="true">404</span>
+            <h1 class="error-404__title">{{ trans('common.errors.404') }}</h1>
+            <p class="error-404__text">{{ trans('common.errors.404_description') }}</p>
+            <div class="error-404__actions">
+                <salla-button href="{{ link('/') }}" color="primary" class="btn--rounded-full">
+                    {{ trans('common.elements.back_home') }}
+                </salla-button>
+                <salla-search inline oval class="error-404__search"></salla-search>
+            </div>
+        </div>
+    </section>
+{% endblock %}
