@@ -161,9 +161,92 @@ const safeContentDefinition = {
   ],
 };
 
-const components = [...coreComponents, ...editorialDefinitions, safeContentDefinition];
+const structuredCatalog = [
+  ['instagram-feed','07 · Social — Instagram Feed (Curated)','07 · اجتماعي — إنستغرام منسق',['Grid / شبكة','grid','Carousel / سلايدر','carousel','Minimal / بسيط','minimal']],
+  ['tiktok-feed','07 · Social — TikTok Feed (Curated)','07 · اجتماعي — تيك توك منسق',['Grid / شبكة','grid','Carousel / سلايدر','carousel','Cards / بطاقات','cards']],
+  ['ugc-gallery','07 · Social — UGC Gallery','07 · اجتماعي — محتوى العملاء',['Grid / شبكة','grid','Masonry / متداخل','masonry','Carousel / سلايدر','carousel']],
+  ['reels-carousel','07 · Social — Reels Carousel','07 · اجتماعي — سلايدر ريلز',['Carousel / سلايدر','carousel','Cards / بطاقات','cards','Minimal / بسيط','minimal']],
+  ['video-gallery','07 · Media — Video Gallery','07 · وسائط — معرض فيديو',['Grid / شبكة','grid','Carousel / سلايدر','carousel','Editorial / تحريري','editorial']],
+  ['youtube-section','07 · Media — YouTube','07 · وسائط — يوتيوب',['Contained / داخل الحاوية','contained','Full bleed / عرض كامل','full','Split / منقسم','split']],
+  ['social-gallery','07 · Social — Social Gallery','07 · اجتماعي — معرض اجتماعي',['Grid / شبكة','grid','Carousel / سلايدر','carousel','Cards / بطاقات','cards']],
+  ['announcement-bar','08 · Conversion — Announcement Bar','08 · تحويل — شريط إعلاني',['Static / ثابت','static','Marquee / متحرك','marquee','Cards / بطاقات','cards']],
+  ['countdown-banner','08 · Conversion — Countdown Banner','08 · تحويل — بنر عد تنازلي',['Contained / داخل الحاوية','contained','Full / كامل','full','Split / منقسم','split']],
+  ['flash-sale-countdown','08 · Conversion — Flash Sale Countdown','08 · تحويل — تخفيضات مؤقتة',['Bold / جريء','bold','Compact / مدمج','compact','Full / كامل','full']],
+  ['trust-badges','08 · Conversion — Trust Badges','08 · تحويل — شارات الثقة',['Inline / صف','inline','Cards / بطاقات','cards','Minimal / بسيط','minimal']],
+  ['store-features-premium','08 · Conversion — Store Features','08 · تحويل — مزايا المتجر',['Icons / أيقونات','icons','Cards / بطاقات','cards','Strip / شريط','strip']],
+  ['shipping-information','08 · Conversion — Shipping Information','08 · تحويل — معلومات الشحن',['Icons / أيقونات','icons','Cards / بطاقات','cards','Compact / مدمج','compact']],
+  ['payment-methods','08 · Conversion — Payment Methods','08 · تحويل — طرق الدفع',['Inline / صف','inline','Panel / لوحة','panel','Minimal / بسيط','minimal']],
+  ['guarantees','08 · Conversion — Guarantees','08 · تحويل — الضمانات',['Icons / أيقونات','icons','Cards / بطاقات','cards','Editorial / تحريري','editorial']],
+  ['free-shipping-progress','08 · Conversion — Free Shipping Progress','08 · تحويل — تقدم الشحن المجاني',['Card / بطاقة','card','Strip / شريط','strip','Minimal / بسيط','minimal']],
+  ['sticky-promotion','08 · Conversion — Sticky Promotion','08 · تحويل — عرض ثابت',['Bottom bar / شريط سفلي','bar','Compact / مدمج','compact','Bold / جريء','bold']],
+  ['floating-cta','08 · Conversion — Floating CTA','08 · تحويل — زر عائم',['Pill / كبسولة','pill','Card / بطاقة','card','Minimal / بسيط','minimal']],
+  ['whatsapp-cta','08 · Conversion — WhatsApp CTA','08 · تحويل — زر واتساب',['Pill / كبسولة','pill','Card / بطاقة','card','Minimal / بسيط','minimal']],
+  ['app-promotion','12 · App — App Promotion','12 · تطبيق — ترويج التطبيق',['Split / منقسم','split','Panel / لوحة','panel','Minimal / بسيط','minimal']],
+  ['premium-testimonials','09 · Reviews — Testimonials','09 · تقييمات — آراء العملاء',['Cards / بطاقات','cards','Editorial / تحريري','editorial','Carousel / سلايدر','carousel']],
+  ['customer-reviews','09 · Reviews — Customer Reviews','09 · تقييمات — تقييمات المتجر',['Cards / بطاقات','cards','Carousel / سلايدر','carousel','Minimal / بسيط','minimal']],
+  ['video-testimonials','09 · Reviews — Video Testimonials','09 · تقييمات — آراء فيديو',['Grid / شبكة','grid','Carousel / سلايدر','carousel','Spotlight / بارز','spotlight']],
+  ['faq','10 · Content — FAQ','10 · محتوى — الأسئلة الشائعة',['Accordion / أكورديون','accordion','Two columns / عمودان','two-columns','Minimal / بسيط','minimal']],
+  ['blog-posts','10 · Content — Blog Posts','10 · محتوى — مقالات المدونة',['Grid / شبكة','grid','Editorial / تحريري','editorial','Carousel / سلايدر','carousel']],
+  ['featured-article','10 · Content — Featured Article','10 · محتوى — مقالة مميزة',['Split / منقسم','split','Cover / غلاف','cover','Minimal / بسيط','minimal']],
+  ['newsletter','12 · Signup — Newsletter CTA','12 · تسجيل — دعوة للنشرة',['Banner / بنر','banner','Split / منقسم','split','Minimal / بسيط','minimal']],
+  ['rich-text','10 · Content — Rich Text','10 · محتوى — نص منسق',['Reading / قراءة','reading','Centered / متوسط','centered','Two columns / عمودان','two-columns']],
+  ['editorial-text','10 · Content — Editorial Text','10 · محتوى — نص تحريري',['Statement / عبارة','statement','Columns / أعمدة','columns','Minimal / بسيط','minimal']],
+  ['comparison-table','13 · Interactive — Comparison Table','13 · تفاعلي — جدول مقارنة',['Cards / بطاقات','cards','Table / جدول','table','Compact / مدمج','compact']],
+  ['tabs','13 · Interactive — Tabs','13 · تفاعلي — تبويبات',['Underline / خط سفلي','underline','Pills / كبسولات','pills','Minimal / بسيط','minimal']],
+  ['accordion','13 · Interactive — Accordion','13 · تفاعلي — أكورديون',['Bordered / بحدود','bordered','Minimal / بسيط','minimal','Cards / بطاقات','cards']],
+  ['statistics','11 · Business — Statistics','11 · أعمال — إحصائيات',['Large numbers / أرقام كبيرة','numbers','Cards / بطاقات','cards','Strip / شريط','strip']],
+  ['team-members','11 · Business — Team Members','11 · أعمال — فريق العمل',['Portraits / صور شخصية','portraits','Cards / بطاقات','cards','Minimal / بسيط','minimal']],
+  ['contact-information','11 · Business — Contact Information','11 · أعمال — معلومات التواصل',['Cards / بطاقات','cards','Split / منقسم','split','Minimal / بسيط','minimal']],
+  ['store-locations','11 · Business — Store Locations','11 · أعمال — فروع المتجر',['Cards / بطاقات','cards','List / قائمة','list','Editorial / تحريري','editorial']],
+  ['opening-hours','11 · Business — Opening Hours','11 · أعمال — ساعات العمل',['List / قائمة','list','Cards / بطاقات','cards','Compact / مدمج','compact']],
+];
+
+const structuredItems = (title) => ({
+  id:'items', type:'collection', format:'collection', label:'Items / العناصر', item_label:'Item / عنصر', required:false, minLength:0, maxLength:20,
+  value:[
+    {'items.title':{en:title,ar:'عنصر مميز'},'items.text':{en:'Add concise merchant content here.',ar:'أضف محتوى المتجر المختصر هنا.'},'items.icon':'sicon-star'},
+    {'items.title':{en:'Built for every screen',ar:'مصمم لكل الشاشات'},'items.text':{en:'Responsive, accessible and easy to scan.',ar:'متجاوب وسهل الوصول والقراءة.'},'items.icon':'sicon-mobile'},
+  ],
+  fields:[
+    image('items.image','Image / الصورة'), text('items.video','Video URL / رابط الفيديو'), text('items.title','Title / العنوان'),
+    text('items.text','Text / النص','textarea'), text('items.value','Value / القيمة'),
+    {id:'items.icon',type:'string',format:'icon',label:'Icon / الأيقونة',required:false,value:'sicon-star'}, variableLink('items.url','Link / الرابط'),
+  ],
+});
+
+const structuredDefinitions = structuredCatalog.map(([slug,en,ar,variantData],index) => {
+  const variants=[]; for(let i=0;i<variantData.length;i+=2) variants.push([variantData[i],variantData[i+1]]);
+  const titleField=text('title','Title / العنوان'); titleField.value={en:en.split(' — ').pop(),ar:ar.split(' — ').pop()};
+  const descriptionField=text('description','Description / الوصف','textarea'); descriptionField.value={en:'Present useful store information with a clear next action.',ar:'اعرض معلومات مفيدة للمتجر مع إجراء واضح.'};
+  return {
+    key:`premium-structured-${String(index+1).padStart(3,'0')}`, title:{en,ar}, icon:'sicon-layout', path:`home.${slug}`,
+    fields:[
+      {type:'static',format:'description',id:`${slug}-guide`,value:`${en} / ${ar}`},
+      dropdown('variant','Variant / التصميم',variants,variants[0]), ...common(), titleField,
+      text('subtitle','Eyebrow / العنوان الصغير'), descriptionField, text('video_id','YouTube video ID / معرّف يوتيوب'),
+      text('date','End date (ISO) / تاريخ الانتهاء'), text('cta_label','Button label / نص الزر'), variableLink('cta_url','Button link / رابط الزر'),
+      text('link_label','Link label / نص الرابط'), text('success_text','Success message / رسالة النجاح'),
+      text('remaining_text','Remaining message with {amount} / رسالة المتبقي'),
+      {id:'limit',type:'number',format:'integer',label:'Item count / عدد العناصر',value:8,minimum:2,maximum:20,required:false},
+      structuredItems(titleField.value.en),
+    ],
+  };
+});
+
+const wrapperDirectory = new URL('../src/views/components/home/', import.meta.url);
+structuredCatalog.forEach(([slug]) => fs.writeFileSync(new URL(`${slug}.twig`, wrapperDirectory), `{% set section_kind = '${slug}' %}{% include 'components.home._structured-family' %}\n`, 'utf8'));
+
+const components = [...coreComponents, ...editorialDefinitions, safeContentDefinition, ...structuredDefinitions];
 
 const managedPaths = new Set(components.map((component) => component.path));
-schema.components = [...(schema.components || []).filter((component) => !managedPaths.has(component.path)), ...components];
+schema.components = [
+    ...(schema.components || []).filter(
+        (component) =>
+            !managedPaths.has(component.path)
+            && !String(component.key || '').startsWith('premium-structured-')
+            && component.path !== 'home.testimonials'
+    ),
+    ...components
+];
 fs.writeFileSync(file, `${JSON.stringify(schema, null, 4)}\n`, 'utf8');
 console.log(`Synced ${components.length} premium components; total components: ${schema.components.length}`);

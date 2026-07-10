@@ -68,6 +68,14 @@
 - Added strict element/attribute/protocol/class allowlists and explicit removal of executable or embedding surfaces.
 - Added no raw JavaScript or unrestricted CSS capability; approved visual overrides remain bounded theme settings mapped to known design tokens/classes.
 
+### Complete structured section catalog
+
+- Added 37 bilingual Add Section entries for the remaining social/media, conversion, review, content, interactive and business requirements.
+- Added unique generated Twig wrappers backed by one semantic renderer to avoid duplicated markup.
+- Added real Salla-backed trust, payment, app, review, countdown and cart free-shipping components.
+- Added curated social media galleries without inventing undocumented Instagram/TikTok APIs.
+- Added accessible tabs and live free-shipping progress through a 5.6 KiB section-only entry; no structured-section JavaScript is loaded globally.
+
 <!-- ============================================================= -->
 <!-- PREMIUM REDESIGN (fork by hazem-e99) — Editorial Luxe          -->
 <!-- Entries below the upstream banner document this fork's work.   -->

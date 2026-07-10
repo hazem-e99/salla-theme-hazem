@@ -17,6 +17,7 @@ module.exports = {
         'add-product-toast': asset('js/partials/add-product-toast.js'),
         'digital-files': asset('js/partials/digital-files.js'),
         'safe-content': asset('js/partials/safe-content.js'),
+        'structured-sections': asset('js/partials/structured-sections.js'),
         checkout: [asset('js/cart.js'), asset('js/thankyou.js')],
         pages   : [asset('js/loyalty.js'), asset('js/brands.js'),],
         product : [asset('js/product.js'), asset('js/products.js')],

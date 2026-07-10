@@ -1,0 +1,61 @@
+{% set social_kinds = ['instagram-feed','tiktok-feed','ugc-gallery','reels-carousel','video-gallery','social-gallery'] %}
+{% set feature_kinds = ['store-features-premium','shipping-information','guarantees','statistics','team-members','contact-information','store-locations','opening-hours','comparison-table'] %}
+{% set cta_kinds = ['sticky-promotion','floating-cta','whatsapp-cta','newsletter'] %}
+{% if section_kind in ['free-shipping-progress','tabs'] %}<script defer src="{{ 'structured-sections.js'|asset }}"></script>{% endif %}
+
+<section class="premium-section structured-section structured-section--{{ section_kind }} structured-section--{{ component.variant|default('default') }} premium-section--spacing-{{ component.spacing|default('normal') }} premium-section--surface-{{ component.background|default('canvas') }}" aria-labelledby="structured-title-{{ section_kind }}-{{ position }}">
+  <div class="container {{ component.width == 'narrow' ? 'structured-section__narrow' : '' }}">
+    {% if component.title or component.description %}
+      <header class="premium-section__heading premium-section--align-{{ component.alignment|default('start') }}">
+        {% if component.subtitle %}<p class="premium-section__eyebrow">{{ component.subtitle }}</p>{% endif %}
+        {% if component.title %}<h2 id="structured-title-{{ section_kind }}-{{ position }}">{{ component.title }}</h2>{% endif %}
+        {% if component.description %}<p>{{ component.description }}</p>{% endif %}
+      </header>
+    {% endif %}
+
+    {% if section_kind in social_kinds %}
+      <div class="structured-media-grid">
+        {% for item in component.items %}
+          <article class="structured-media-card">
+            {% if section_kind in ['video-gallery','reels-carousel','tiktok-feed'] and item.video %}
+              <video controls preload="metadata" playsinline {% if item.image %}poster="{{ item.image }}"{% endif %}><source src="{{ item.video }}"></video>
+            {% elseif item.image %}<img src="{{ item.image }}" alt="{{ item.title|default('') }}" width="720" height="900" loading="lazy">{% endif %}
+            <div>{% if item.title %}<h3>{{ item.title }}</h3>{% endif %}{% if item.text %}<p>{{ item.text }}</p>{% endif %}{% if item.url %}<a href="{{ item.url }}" class="text-link">{{ component.link_label|default(item.title) }}</a>{% endif %}</div>
+          </article>
+        {% endfor %}
+      </div>
+    {% elseif section_kind == 'youtube-section' %}
+      <div class="structured-video">{% if component.video_id %}<lite-youtube videoid="{{ component.video_id|e('html_attr') }}" params="rel=0&modestbranding=1"></lite-youtube>{% endif %}</div>
+    {% elseif section_kind in ['countdown-banner','flash-sale-countdown'] %}
+      <div class="structured-countdown"><div>{% if component.title %}<h3>{{ component.title }}</h3>{% endif %}{% if component.description %}<p>{{ component.description }}</p>{% endif %}</div>{% if component.date %}<salla-count-down date="{{ component.date|e('html_attr') }}" labeled boxed></salla-count-down>{% endif %}{% if component.cta_url and component.cta_label %}<a class="btn btn--primary" href="{{ component.cta_url }}">{{ component.cta_label }}</a>{% endif %}</div>
+    {% elseif section_kind == 'trust-badges' %}
+      <salla-trust-badges></salla-trust-badges>
+    {% elseif section_kind == 'payment-methods' %}
+      <salla-payments></salla-payments>
+    {% elseif section_kind == 'app-promotion' %}
+      <div class="structured-app"><div><h3>{{ component.title }}</h3><p>{{ component.description }}</p></div><salla-apps-icons></salla-apps-icons></div>
+    {% elseif section_kind == 'free-shipping-progress' %}
+      <live-free-shipping class="structured-shipping" data-success="{{ component.success_text|e('html_attr') }}" data-remaining="{{ component.remaining_text|e('html_attr') }}">
+        <p class="structured-shipping__message" aria-live="polite">{{ component.description }}</p><div class="structured-shipping__track"><span></span></div>
+      </live-free-shipping>
+    {% elseif section_kind in cta_kinds %}
+      <div class="structured-cta"><div><h3>{{ component.title }}</h3><p>{{ component.description }}</p></div>{% if component.cta_url and component.cta_label %}<a class="btn btn--primary" href="{{ component.cta_url }}">{{ component.cta_label }}</a>{% endif %}</div>
+    {% elseif section_kind == 'announcement-bar' %}
+      <div class="structured-announcements">{% for item in component.items %}<p>{% if item.icon %}<i class="{{ item.icon }}"></i>{% endif %}{% if item.url %}<a href="{{ item.url }}">{{ item.title }}</a>{% else %}{{ item.title }}{% endif %}</p>{% endfor %}</div>
+    {% elseif section_kind in ['customer-reviews'] %}
+      <salla-reviews limit="{{ component.limit|default(8) }}" type="store"></salla-reviews>
+    {% elseif section_kind in ['testimonials','video-testimonials'] %}
+      <div class="structured-testimonials">{% for item in component.items %}<figure>{% if section_kind == 'video-testimonials' and item.video %}<video controls preload="metadata" playsinline {% if item.image %}poster="{{ item.image }}"{% endif %}><source src="{{ item.video }}"></video>{% elseif item.image %}<img src="{{ item.image }}" alt="" width="80" height="80" loading="lazy">{% endif %}<blockquote>{{ item.text }}</blockquote><figcaption>{{ item.title }}</figcaption></figure>{% endfor %}</div>
+    {% elseif section_kind in ['faq','accordion'] %}
+      <div class="structured-accordion">{% for item in component.items %}<details><summary>{{ item.title }}</summary><div>{{ item.text }}</div></details>{% endfor %}</div>
+    {% elseif section_kind == 'tabs' %}
+      <theme-tabs class="structured-tabs"><div role="tablist" aria-label="{{ component.title|e('html_attr') }}">{% for item in component.items %}<button type="button" role="tab" id="tab-{{ position }}-{{ loop.index }}" aria-controls="panel-{{ position }}-{{ loop.index }}" aria-selected="{{ loop.first ? 'true' : 'false' }}" tabindex="{{ loop.first ? '0' : '-1' }}">{{ item.title }}</button>{% endfor %}</div>{% for item in component.items %}<section role="tabpanel" id="panel-{{ position }}-{{ loop.index }}" aria-labelledby="tab-{{ position }}-{{ loop.index }}" {{ loop.first ? '' : 'hidden' }}>{{ item.text }}</section>{% endfor %}</theme-tabs>
+    {% elseif section_kind in ['rich-text','editorial-text'] %}
+      <div class="structured-prose"><p>{{ component.description }}</p></div>
+    {% elseif section_kind in ['blog-posts','featured-article'] %}
+      <div class="structured-articles">{% for item in component.items %}<article>{% if item.image %}<img src="{{ item.image }}" alt="{{ item.title|default('') }}" width="900" height="600" loading="lazy">{% endif %}<div><h3>{% if item.url %}<a href="{{ item.url }}">{{ item.title }}</a>{% else %}{{ item.title }}{% endif %}</h3><p>{{ item.text }}</p></div></article>{% endfor %}</div>
+    {% elseif section_kind in feature_kinds %}
+      <div class="structured-features">{% for item in component.items %}<article>{% if item.image %}<img src="{{ item.image }}" alt="" width="480" height="480" loading="lazy">{% elseif item.icon %}<i class="{{ item.icon }}" aria-hidden="true"></i>{% endif %}<div>{% if item.value %}<strong>{{ item.value }}</strong>{% endif %}<h3>{{ item.title }}</h3><p>{{ item.text }}</p>{% if item.url %}<a href="{{ item.url }}" class="text-link">{{ component.link_label|default(item.title) }}</a>{% endif %}</div></article>{% endfor %}</div>
+    {% endif %}
+  </div>
+</section>

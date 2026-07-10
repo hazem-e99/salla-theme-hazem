@@ -58,6 +58,26 @@ The theme continues to support existing Salla features and custom components for
 
 Template: `home.safe-html`. Supports bounded width, spacing and surface controls plus sanitized merchant markup. It uses a section-only JavaScript entry and the allowlist documented in `CUSTOM_HTML_SECURITY.md`. Raw JavaScript, inline handlers/styles, unsafe URLs, iframes, object/embed and dangerous SVG are not supported.
 
+## Social and media
+
+Editor entries: Instagram Feed (Curated), TikTok Feed (Curated), UGC Gallery, Reels Carousel, Video Gallery, YouTube, and Social Gallery.
+
+Instagram/TikTok/social entries use merchant-selected media and Salla-managed links; they do not claim an undocumented live social API. Variants include grid, horizontal carousel, cards, minimal and masonry compositions. Native video uses `preload="metadata"`; YouTube uses Lite YouTube and does not create an eager iframe.
+
+## Conversion
+
+Editor entries: Announcement Bar, Countdown Banner, Flash Sale Countdown, Trust Badges, Store Features, Shipping Information, Payment Methods, Guarantees, Free Shipping Progress, Sticky Promotion, Floating CTA, WhatsApp CTA, and App Promotion.
+
+Trust, payments, app links, countdown and reviews reuse native Salla web components. Free Shipping Progress progressively loads a 5.6 KiB section entry, reads the real cart summary and listens to Salla cart updates; it hides when the store has no free-shipping rule. Sticky/floating controls remain keyboard-accessible and avoid hover-only interaction.
+
+## Reviews, content and business
+
+Editor entries: Testimonials, Customer Reviews, Video Testimonials, FAQ, Blog Posts, Featured Article, Newsletter CTA, Rich Text, Editorial Text, Comparison Table, Tabs, Accordion, Statistics, Team Members, Contact Information, Store Locations and Opening Hours.
+
+Tabs provide roving tabindex, Home/End and direction-aware arrow navigation in the section-only structured bundle. FAQ/Accordion use native semantic `details` elements. Newsletter is deliberately a provider-link CTA because the documented Twilight storefront API has no native newsletter subscription endpoint.
+
+All structured entries share bounded width, spacing, surface, alignment, mobile-safe layout and multiple composition variants. Defaults include bilingual headings and starter items without category-specific demo products.
+
 ## Editorial family
 
 Each entry has its own Add Section item and Twig path while sharing one rendering partial.
