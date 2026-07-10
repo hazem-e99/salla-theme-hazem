@@ -269,6 +269,128 @@ schema.components = [
     ...(schema.components || []).filter((component) => !managedPaths.has(component.path)),
     ...components
 ];
+
+// ---------------------------------------------------------------------------
+// Default homepage composition
+// ---------------------------------------------------------------------------
+// Salla seeds a merchant's homepage at theme install/activation from whichever
+// components carry `is_default: true`, in the order they appear in this array
+// (there is no separate "order" field). This is the deliberate curated
+// storefront a fresh install shows, so it must be entirely premium
+// components with real settings and copy -- not an empty shell mixed with
+// legacy defaults left over from before this system existed.
+const defaultVariantValue = (fieldDef, value) => {
+  const match = fieldDef.options.find((o) => o.value === value);
+  if (!match) throw new Error(`Unknown option "${value}" for field "${fieldDef.id}"`);
+  fieldDef.selected = [match];
+};
+const setField = (component, id, value) => {
+  const field = component.fields.find((f) => f.id === id);
+  if (!field) throw new Error(`Component "${component.path}" has no field "${id}"`);
+  if (field.format === 'dropdown-list' && !field.multichoice) {
+    defaultVariantValue(field, value);
+  } else {
+    field.value = value;
+  }
+};
+
+const defaultHomepageSeed = [
+  ['home.announcement-bar', (c) => {
+    setField(c, 'variant', 'static');
+    setField(c, 'title', { en: 'Announcement', ar: 'إعلان' });
+    setField(c, 'items', [
+      { 'items.text': { en: 'Complimentary shipping on orders over 300 SAR', ar: 'شحن مجاني للطلبات فوق 300 ريال' } },
+      { 'items.text': { en: 'New arrivals every week', ar: 'وصل حديثاً كل أسبوع' } },
+    ]);
+  }],
+  ['home.premium-hero', (c) => {
+    setField(c, 'variant', 'editorial-split');
+    setField(c, 'width', 'full');
+    setField(c, 'spacing', 'none');
+    setField(c, 'alignment', 'start');
+    setField(c, 'subtitle', { en: 'New season', ar: 'الموسم الجديد' });
+    setField(c, 'title', { en: 'Considered pieces, made to last', ar: 'قطع مدروسة، مصمّمة لتدوم' });
+    setField(c, 'description', { en: 'A tightly edited collection built around quality materials and quiet, confident design.', ar: 'مجموعة منتقاة بعناية حول خامات عالية الجودة وتصميم هادئ وواثق.' });
+    setField(c, 'cta_label', { en: 'Shop the collection', ar: 'تسوّق المجموعة' });
+  }],
+  ['home.collection-showcase', (c) => {
+    setField(c, 'mode', 'grid');
+    setField(c, 'variant', 'portrait');
+    setField(c, 'title', { en: 'Shop by category', ar: 'تسوّق حسب التصنيف' });
+  }],
+  ['home.image-text', (c) => {
+    setField(c, 'variant', 'overlapping');
+    setField(c, 'subtitle', { en: 'Our approach', ar: 'نهجنا' });
+    setField(c, 'title', { en: 'Designed with intention', ar: 'مصمّم بروية' });
+    setField(c, 'description', { en: 'Every piece starts with a material we trust and a silhouette that earns its place in a considered wardrobe.', ar: 'تبدأ كل قطعة بخامة نثق بها وقصّة تستحق مكانها في خزانة مدروسة.' });
+    setField(c, 'cta_label', { en: 'Our story', ar: 'قصتنا' });
+  }],
+  ['home.product-showcase', (c) => {
+    setField(c, 'mode', 'grid');
+    setField(c, 'variant', 'editorial');
+    setField(c, 'title', { en: 'Featured products', ar: 'منتجات مميزة' });
+    setField(c, 'description', { en: 'A closer look at what is new this season.', ar: 'نظرة أقرب على ما هو جديد هذا الموسم.' });
+  }],
+  ['home.split-banner', (c) => {
+    setField(c, 'width', 'wide');
+    setField(c, 'title', { en: 'Two ways to wear it', ar: 'طريقتان للتنسيق' });
+    setField(c, 'description', { en: 'Editorial pairings from our styling team.', ar: 'إطلالات مختارة من فريق التنسيق لدينا.' });
+  }],
+  ['home.editorial-story', (c) => {
+    setField(c, 'width', 'contained');
+    setField(c, 'title', { en: 'A brand built on restraint', ar: 'علامة قائمة على الاتزان' });
+    setField(c, 'description', { en: 'We work with a small number of mills and workshops we trust, and we say no to far more than we say yes to.', ar: 'نعمل مع عدد محدود من المصانع وورش العمل التي نثق بها، ونرفض أكثر بكثير مما نقبل.' });
+    setField(c, 'quote', { en: 'Fewer, better things.', ar: 'أشياء أقل، وأفضل.' });
+  }],
+  ['home.masonry-gallery', (c) => {
+    setField(c, 'title', { en: 'In the studio', ar: 'في الاستوديو' });
+    setField(c, 'description', { en: 'A closer look at how each piece comes together.', ar: 'نظرة أقرب على كيفية تصنيع كل قطعة.' });
+  }],
+  ['home.lookbook', (c) => {
+    setField(c, 'title', { en: 'Lookbook', ar: 'كتاب الإطلالات' });
+    setField(c, 'description', { en: 'Full looks from the current collection.', ar: 'إطلالات كاملة من المجموعة الحالية.' });
+  }],
+  ['home.trust-badges', (c) => {
+    setField(c, 'variant', 'inline');
+    setField(c, 'items', [
+      { 'items.title': { en: 'Free returns', ar: 'إرجاع مجاني' }, 'items.text': { en: 'Within 14 days', ar: 'خلال 14 يوماً' }, 'items.icon': 'sicon-reverse-arrow' },
+      { 'items.title': { en: 'Secure checkout', ar: 'دفع آمن' }, 'items.text': { en: 'Encrypted payments', ar: 'مدفوعات مشفّرة' }, 'items.icon': 'sicon-shield-check' },
+      { 'items.title': { en: 'Nationwide shipping', ar: 'شحن لكل المملكة' }, 'items.text': { en: '2–5 business days', ar: '2-5 أيام عمل' }, 'items.icon': 'sicon-truck' },
+    ]);
+  }],
+  ['home.premium-testimonials', (c) => {
+    setField(c, 'variant', 'editorial');
+    setField(c, 'title', { en: 'What customers say', ar: 'آراء العملاء' });
+    setField(c, 'items', [
+      { 'items.title': { en: 'Sara A.', ar: 'سارة أ.' }, 'items.text': { en: 'The quality is immediately obvious the moment you touch the fabric.', ar: 'تظهر الجودة فور لمس القماش مباشرة.' } },
+      { 'items.title': { en: 'Faisal M.', ar: 'فيصل م.' }, 'items.text': { en: 'Understated pieces that actually get worn every week.', ar: 'قطع بسيطة تُلبس فعلياً كل أسبوع.' } },
+    ]);
+  }],
+  ['home.newsletter', (c) => {
+    setField(c, 'variant', 'banner');
+    setField(c, 'title', { en: 'Join the list', ar: 'انضم إلى قائمتنا' });
+    setField(c, 'description', { en: 'New arrivals and early access to limited pieces, occasionally.', ar: 'وصولات جديدة ووصول مبكر للقطع المحدودة، من حين لآخر.' });
+  }],
+];
+
+const defaultPaths = new Set(defaultHomepageSeed.map(([path]) => path));
+const byPath = new Map(schema.components.map((c) => [c.path, c]));
+
+for (const c of schema.components) {
+  if (c.is_default && !defaultPaths.has(c.path)) delete c.is_default;
+}
+for (const [path, applyDefaults] of defaultHomepageSeed) {
+  const component = byPath.get(path);
+  if (!component) throw new Error(`Default homepage references missing component path "${path}"`);
+  component.is_default = true;
+  applyDefaults(component);
+}
+
+const orderedDefaults = defaultHomepageSeed.map(([path]) => byPath.get(path));
+const rest = schema.components.filter((c) => !defaultPaths.has(c.path));
+schema.components = [...orderedDefaults, ...rest];
+
 fs.writeFileSync(file, `${JSON.stringify(schema, null, 4)}\n`, 'utf8');
 fs.writeFileSync(keyMapFile, `${JSON.stringify(keyMap, null, 2)}\n`, 'utf8');
 console.log(`Synced ${components.length} premium components; total components: ${schema.components.length}`);
+console.log('Default homepage:', defaultHomepageSeed.map(([path]) => path));
