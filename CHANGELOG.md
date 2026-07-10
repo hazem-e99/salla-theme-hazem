@@ -23,6 +23,12 @@
 - Ensured essential CTAs remain visible for touch/coarse pointers and keyboard focus.
 - Made explicit merchant image-ratio selection override each variant's recommended media composition while preserving cover/contain behavior.
 
+### Footer compositions
+
+- Implemented Editorial, Commerce Columns, Minimal, Dark Premium, and Newsletter Focused as distinct responsive hierarchies.
+- Added stable structural classes without changing Salla menus, contacts, trust badges, tax certificate, social links, app links, payments, or copyright hooks.
+- Did not add an undocumented newsletter form; Salla's current public Twilight documentation exposes no native newsletter subscription component or storefront endpoint.
+
 <!-- ============================================================= -->
 <!-- PREMIUM REDESIGN (fork by hazem-e99) — Editorial Luxe          -->
 <!-- Entries below the upstream banner document this fork's work.   -->

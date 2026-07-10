@@ -1,7 +1,7 @@
 <footer class="store-footer">
 	<div aria-label="footer" class="store-footer__inner">
 		<div class="container grid grid-col-1 lg:grid-cols-6 gap-8 lg:gap-6">
-			<div class="lg:col-span-2 rtl:lg:pl-20 ltr:lg:pr-20">
+			<div class="store-footer__brand lg:col-span-2 rtl:lg:pl-20 ltr:lg:pr-20">
 				<a href="{{ link('/') }}" class="flex items-center m-0">
 					<h2 class="type-h3 text-ink">{{store.name}}</h2>
 				</a>
@@ -45,12 +45,12 @@
         </div>
         </div>
 
-			<div>
+			<div class="store-footer__nav">
 				<h3 class="type-eyebrow mb-4">{{ trans('blocks.footer.pages_links') }}</h3>
 				<salla-menu source="footer" with-cookie-preferences></salla-menu>
 			</div>
 
-			<div>
+			<div class="store-footer__contact">
 				<salla-contacts></salla-contacts>
 
 				<div class="lg:hidden contact-social">
@@ -58,7 +58,7 @@
 				</div>
 			</div>
 
-			<salla-apps-icons class="lg:col-span-2 rtl:lg:pr-20 ltr:lg:pl-20"></salla-apps-icons>
+			<salla-apps-icons class="store-footer__apps lg:col-span-2 rtl:lg:pr-20 ltr:lg:pl-20"></salla-apps-icons>
 
 		</div>
 	</div>
