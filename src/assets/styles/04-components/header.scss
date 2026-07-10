@@ -64,7 +64,10 @@
 /* Main Nav */
 .main-nav-container {
   @apply min-h-[68px] lg:min-h-[84px];
-  
+  background: var(--surface-raised);
+  border-bottom: var(--border-width) solid var(--color-line);
+  box-shadow: none;
+
   // Custom background Color
   .has-bg &,
   .has-bg & .sub-menu{
@@ -104,8 +107,9 @@
       right: 0;
       left: 0;
       width: 100%;
-      z-index: 29;
-      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+      z-index: var(--z-header);
+      background: var(--surface-raised);
+      box-shadow: var(--shadow-md);
       transform: translate3d(0, -100%, 0);
 
       @media (max-width: 1024px){
@@ -155,7 +159,18 @@
   @apply border-none outline-none transition-opacity hover:opacity-80;
 
   &__icon{
-    @apply text-xl w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center text-gray-700;
+    @apply text-xl w-10 h-10 flex items-center justify-center;
+    border: var(--border-width) solid var(--color-line);
+    border-radius: var(--radius-full);
+    color: var(--color-ink-soft);
+    transition: var(--transition-base);
+
+    &:hover {
+      border-color: var(--color-primary);
+      color: var(--color-primary);
+      background: var(--color-primary-tint);
+    }
+
     &.icon{
       @apply mr-[9px] rtl:ml-[9px] rtl:mr-[unset];
     }

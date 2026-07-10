@@ -7,6 +7,21 @@
 
 ## ✨ Premium Redesign — Unreleased
 
+### Phase 4 — Header, Footer & Home Blocks
+- Footer: token-driven premium layout for both merchant dark/light modes;
+  refined hairlines, spacing rhythm, corrected heading hierarchy; removed
+  dead trailing markup; polished copyright/payments bar.
+- Header: main-nav on raised surface with hairline; elevated sticky-pinned
+  state (token shadow, z-header); premium cart/user icon buttons with
+  primary-tint hover.
+- Home blocks: elevated the shared `.s-block__title` (display-serif heading
+  + accent hairline underline) so all 21 blocks upgrade at once; premium
+  `__display-all` link with gap animation; restrained image-zoom on hover
+  for square banners (reduced-motion aware).
+- RTL: fixed logical-property lowering (postcss flattened
+  `inset/padding/border-inline-start` to physical `left`); added explicit
+  `[dir=rtl]` mirrors for the block accent underline and `.prose-editorial`.
+
 ### Phase 3 — Core Component Library
 - Added `04-components/_ui-kit.scss`: token-driven primitives —
   `section-title`, `u-badge`, `u-discount-badge`, `u-stock`, `u-chip`,
