@@ -33,12 +33,34 @@
             "description": "Changes typography, spacing, corners, elevation and motion across the storefront.",
             "icon": "sicon-palette",
             "required": true,
-            "selected": [{"label": "Editorial Luxe / تحريري فاخر", "value": "editorial-luxe", "key": "preset-editorial-luxe"}],
+            "selected": [
+                {
+                    "label": "Editorial Luxe / تحريري فاخر",
+                    "value": "editorial-luxe",
+                    "key": "preset-editorial-luxe"
+                }
+            ],
             "options": [
-                {"label": "Editorial Luxe / تحريري فاخر", "value": "editorial-luxe", "key": "preset-editorial-luxe"},
-                {"label": "Modern Minimal / عصري بسيط", "value": "modern-minimal", "key": "preset-modern-minimal"},
-                {"label": "Soft Premium / فاخر ناعم", "value": "soft-premium", "key": "preset-soft-premium"},
-                {"label": "Bold Commerce / تجاري جريء", "value": "bold-commerce", "key": "preset-bold-commerce"}
+                {
+                    "label": "Editorial Luxe / تحريري فاخر",
+                    "value": "editorial-luxe",
+                    "key": "preset-editorial-luxe"
+                },
+                {
+                    "label": "Modern Minimal / عصري بسيط",
+                    "value": "modern-minimal",
+                    "key": "preset-modern-minimal"
+                },
+                {
+                    "label": "Soft Premium / فاخر ناعم",
+                    "value": "soft-premium",
+                    "key": "preset-soft-premium"
+                },
+                {
+                    "label": "Bold Commerce / تجاري جريء",
+                    "value": "bold-commerce",
+                    "key": "preset-bold-commerce"
+                }
             ]
         },
         {
@@ -48,11 +70,29 @@
             "label": "Spacing density / كثافة المسافات",
             "icon": "sicon-layout-grid",
             "required": true,
-            "selected": [{"label": "Balanced / متوازن", "value": "balanced", "key": "density-balanced"}],
+            "selected": [
+                {
+                    "label": "Balanced / متوازن",
+                    "value": "balanced",
+                    "key": "density-balanced"
+                }
+            ],
             "options": [
-                {"label": "Compact / مدمج", "value": "compact", "key": "density-compact"},
-                {"label": "Balanced / متوازن", "value": "balanced", "key": "density-balanced"},
-                {"label": "Airy / واسع", "value": "airy", "key": "density-airy"}
+                {
+                    "label": "Compact / مدمج",
+                    "value": "compact",
+                    "key": "density-compact"
+                },
+                {
+                    "label": "Balanced / متوازن",
+                    "value": "balanced",
+                    "key": "density-balanced"
+                },
+                {
+                    "label": "Airy / واسع",
+                    "value": "airy",
+                    "key": "density-airy"
+                }
             ]
         },
         {
@@ -62,12 +102,34 @@
             "label": "Corner style / شكل الزوايا",
             "icon": "sicon-border-style",
             "required": true,
-            "selected": [{"label": "Use preset / حسب الهوية", "value": "preset", "key": "corners-preset"}],
+            "selected": [
+                {
+                    "label": "Use preset / حسب الهوية",
+                    "value": "preset",
+                    "key": "corners-preset"
+                }
+            ],
             "options": [
-                {"label": "Use preset / حسب الهوية", "value": "preset", "key": "corners-preset"},
-                {"label": "Square / حادة", "value": "square", "key": "corners-square"},
-                {"label": "Subtle / خفيفة", "value": "subtle", "key": "corners-subtle"},
-                {"label": "Soft / ناعمة", "value": "soft", "key": "corners-soft"}
+                {
+                    "label": "Use preset / حسب الهوية",
+                    "value": "preset",
+                    "key": "corners-preset"
+                },
+                {
+                    "label": "Square / حادة",
+                    "value": "square",
+                    "key": "corners-square"
+                },
+                {
+                    "label": "Subtle / خفيفة",
+                    "value": "subtle",
+                    "key": "corners-subtle"
+                },
+                {
+                    "label": "Soft / ناعمة",
+                    "value": "soft",
+                    "key": "corners-soft"
+                }
             ]
         },
         {
@@ -78,11 +140,29 @@
             "description": "The visitor's reduced-motion preference always takes priority.",
             "icon": "sicon-play",
             "required": true,
-            "selected": [{"label": "Subtle / هادئة", "value": "subtle", "key": "motion-subtle"}],
+            "selected": [
+                {
+                    "label": "Subtle / هادئة",
+                    "value": "subtle",
+                    "key": "motion-subtle"
+                }
+            ],
             "options": [
-                {"label": "Reduced / محدودة", "value": "reduced", "key": "motion-reduced"},
-                {"label": "Subtle / هادئة", "value": "subtle", "key": "motion-subtle"},
-                {"label": "Expressive / بارزة", "value": "expressive", "key": "motion-expressive"}
+                {
+                    "label": "Reduced / محدودة",
+                    "value": "reduced",
+                    "key": "motion-reduced"
+                },
+                {
+                    "label": "Subtle / هادئة",
+                    "value": "subtle",
+                    "key": "motion-subtle"
+                },
+                {
+                    "label": "Expressive / بارزة",
+                    "value": "expressive",
+                    "key": "motion-expressive"
+                }
             ]
         },
         {
@@ -92,11 +172,29 @@
             "label": "Content width / عرض المحتوى",
             "icon": "sicon-layout",
             "required": true,
-            "selected": [{"label": "Standard / قياسي", "value": "standard", "key": "width-standard"}],
+            "selected": [
+                {
+                    "label": "Standard / قياسي",
+                    "value": "standard",
+                    "key": "width-standard"
+                }
+            ],
             "options": [
-                {"label": "Narrow / ضيق", "value": "narrow", "key": "width-narrow"},
-                {"label": "Standard / قياسي", "value": "standard", "key": "width-standard"},
-                {"label": "Wide / عريض", "value": "wide", "key": "width-wide"}
+                {
+                    "label": "Narrow / ضيق",
+                    "value": "narrow",
+                    "key": "width-narrow"
+                },
+                {
+                    "label": "Standard / قياسي",
+                    "value": "standard",
+                    "key": "width-standard"
+                },
+                {
+                    "label": "Wide / عريض",
+                    "value": "wide",
+                    "key": "width-wide"
+                }
             ]
         },
         {
@@ -106,13 +204,39 @@
             "label": "Header layout / تصميم الرأس",
             "icon": "sicon-header",
             "required": true,
-            "selected": [{"label": "Editorial Centered / تحريري متوسط", "value": "editorial-centered", "key": "header-editorial"}],
+            "selected": [
+                {
+                    "label": "Editorial Centered / تحريري متوسط",
+                    "value": "editorial-centered",
+                    "key": "header-editorial"
+                }
+            ],
             "options": [
-                {"label": "Editorial Centered / تحريري متوسط", "value": "editorial-centered", "key": "header-editorial"},
-                {"label": "Classic Commerce / تجاري كلاسيكي", "value": "classic-commerce", "key": "header-classic"},
-                {"label": "Minimal Transparent / شفاف بسيط", "value": "minimal-transparent", "key": "header-transparent"},
-                {"label": "Mega Navigation / تنقل موسع", "value": "mega-navigation", "key": "header-mega"},
-                {"label": "Compact Sticky / مدمج وثابت", "value": "compact-sticky", "key": "header-compact"}
+                {
+                    "label": "Editorial Centered / تحريري متوسط",
+                    "value": "editorial-centered",
+                    "key": "header-editorial"
+                },
+                {
+                    "label": "Classic Commerce / تجاري كلاسيكي",
+                    "value": "classic-commerce",
+                    "key": "header-classic"
+                },
+                {
+                    "label": "Minimal Transparent / شفاف بسيط",
+                    "value": "minimal-transparent",
+                    "key": "header-transparent"
+                },
+                {
+                    "label": "Mega Navigation / تنقل موسع",
+                    "value": "mega-navigation",
+                    "key": "header-mega"
+                },
+                {
+                    "label": "Compact Sticky / مدمج وثابت",
+                    "value": "compact-sticky",
+                    "key": "header-compact"
+                }
             ]
         },
         {
@@ -122,13 +246,39 @@
             "label": "Footer layout / تصميم التذييل",
             "icon": "sicon-footer",
             "required": true,
-            "selected": [{"label": "Editorial / تحريري", "value": "editorial", "key": "footer-editorial"}],
+            "selected": [
+                {
+                    "label": "Editorial / تحريري",
+                    "value": "editorial",
+                    "key": "footer-editorial"
+                }
+            ],
             "options": [
-                {"label": "Editorial / تحريري", "value": "editorial", "key": "footer-editorial"},
-                {"label": "Commerce Columns / أعمدة تجارية", "value": "commerce-columns", "key": "footer-commerce"},
-                {"label": "Minimal / بسيط", "value": "minimal", "key": "footer-minimal"},
-                {"label": "Dark Premium / داكن فاخر", "value": "dark-premium", "key": "footer-dark"},
-                {"label": "Newsletter Focused / يركز على النشرة", "value": "newsletter-focused", "key": "footer-newsletter"}
+                {
+                    "label": "Editorial / تحريري",
+                    "value": "editorial",
+                    "key": "footer-editorial"
+                },
+                {
+                    "label": "Commerce Columns / أعمدة تجارية",
+                    "value": "commerce-columns",
+                    "key": "footer-commerce"
+                },
+                {
+                    "label": "Minimal / بسيط",
+                    "value": "minimal",
+                    "key": "footer-minimal"
+                },
+                {
+                    "label": "Dark Premium / داكن فاخر",
+                    "value": "dark-premium",
+                    "key": "footer-dark"
+                },
+                {
+                    "label": "Newsletter Focused / يركز على النشرة",
+                    "value": "newsletter-focused",
+                    "key": "footer-newsletter"
+                }
             ]
         },
         {
@@ -138,14 +288,44 @@
             "label": "Product card / بطاقة المنتج",
             "icon": "sicon-box",
             "required": true,
-            "selected": [{"label": "Editorial Borderless / تحريري بلا حدود", "value": "editorial-borderless", "key": "card-editorial"}],
+            "selected": [
+                {
+                    "label": "Editorial Borderless / تحريري بلا حدود",
+                    "value": "editorial-borderless",
+                    "key": "card-editorial"
+                }
+            ],
             "options": [
-                {"label": "Editorial Borderless / تحريري بلا حدود", "value": "editorial-borderless", "key": "card-editorial"},
-                {"label": "Premium Card / بطاقة فاخرة", "value": "premium-card", "key": "card-premium"},
-                {"label": "Compact Commerce / تجاري مدمج", "value": "compact-commerce", "key": "card-compact"},
-                {"label": "Image Overlay / نص فوق الصورة", "value": "image-overlay", "key": "card-overlay"},
-                {"label": "Minimal Grid / شبكة بسيطة", "value": "minimal-grid", "key": "card-minimal"},
-                {"label": "Marketplace Dense / سوق كثيف", "value": "marketplace-dense", "key": "card-marketplace"}
+                {
+                    "label": "Editorial Borderless / تحريري بلا حدود",
+                    "value": "editorial-borderless",
+                    "key": "card-editorial"
+                },
+                {
+                    "label": "Premium Card / بطاقة فاخرة",
+                    "value": "premium-card",
+                    "key": "card-premium"
+                },
+                {
+                    "label": "Compact Commerce / تجاري مدمج",
+                    "value": "compact-commerce",
+                    "key": "card-compact"
+                },
+                {
+                    "label": "Image Overlay / نص فوق الصورة",
+                    "value": "image-overlay",
+                    "key": "card-overlay"
+                },
+                {
+                    "label": "Minimal Grid / شبكة بسيطة",
+                    "value": "minimal-grid",
+                    "key": "card-minimal"
+                },
+                {
+                    "label": "Marketplace Dense / سوق كثيف",
+                    "value": "marketplace-dense",
+                    "key": "card-marketplace"
+                }
             ]
         },
         {
@@ -155,12 +335,34 @@
             "label": "Product page / صفحة المنتج",
             "icon": "sicon-shopping-bag",
             "required": true,
-            "selected": [{"label": "Editorial Gallery / معرض تحريري", "value": "editorial-gallery", "key": "product-editorial"}],
+            "selected": [
+                {
+                    "label": "Editorial Gallery / معرض تحريري",
+                    "value": "editorial-gallery",
+                    "key": "product-editorial"
+                }
+            ],
             "options": [
-                {"label": "Editorial Gallery / معرض تحريري", "value": "editorial-gallery", "key": "product-editorial"},
-                {"label": "Classic Sticky Purchase / شراء كلاسيكي ثابت", "value": "classic-sticky", "key": "product-classic"},
-                {"label": "Full Width Commerce / تجاري بعرض كامل", "value": "full-width-commerce", "key": "product-commerce"},
-                {"label": "Compact Product Focus / تركيز مدمج", "value": "compact-focus", "key": "product-compact"}
+                {
+                    "label": "Editorial Gallery / معرض تحريري",
+                    "value": "editorial-gallery",
+                    "key": "product-editorial"
+                },
+                {
+                    "label": "Classic Sticky Purchase / شراء كلاسيكي ثابت",
+                    "value": "classic-sticky",
+                    "key": "product-classic"
+                },
+                {
+                    "label": "Full Width Commerce / تجاري بعرض كامل",
+                    "value": "full-width-commerce",
+                    "key": "product-commerce"
+                },
+                {
+                    "label": "Compact Product Focus / تركيز مدمج",
+                    "value": "compact-focus",
+                    "key": "product-compact"
+                }
             ]
         },
         {
@@ -170,12 +372,34 @@
             "label": "Collection page / صفحة التصنيف",
             "icon": "sicon-grid",
             "required": true,
-            "selected": [{"label": "Editorial / تحريري", "value": "editorial", "key": "collection-editorial"}],
+            "selected": [
+                {
+                    "label": "Editorial / تحريري",
+                    "value": "editorial",
+                    "key": "collection-editorial"
+                }
+            ],
             "options": [
-                {"label": "Editorial / تحريري", "value": "editorial", "key": "collection-editorial"},
-                {"label": "Commerce Grid / شبكة تجارية", "value": "commerce-grid", "key": "collection-commerce"},
-                {"label": "Sidebar Filters / فلاتر جانبية", "value": "sidebar-filters", "key": "collection-sidebar"},
-                {"label": "Full Width Minimal / بسيط بعرض كامل", "value": "full-width-minimal", "key": "collection-minimal"}
+                {
+                    "label": "Editorial / تحريري",
+                    "value": "editorial",
+                    "key": "collection-editorial"
+                },
+                {
+                    "label": "Commerce Grid / شبكة تجارية",
+                    "value": "commerce-grid",
+                    "key": "collection-commerce"
+                },
+                {
+                    "label": "Sidebar Filters / فلاتر جانبية",
+                    "value": "sidebar-filters",
+                    "key": "collection-sidebar"
+                },
+                {
+                    "label": "Full Width Minimal / بسيط بعرض كامل",
+                    "value": "full-width-minimal",
+                    "key": "collection-minimal"
+                }
             ]
         },
         {
@@ -185,11 +409,29 @@
             "label": "Cart layout / تصميم السلة",
             "icon": "sicon-cart",
             "required": true,
-            "selected": [{"label": "Editorial / تحريري", "value": "editorial", "key": "cart-editorial"}],
+            "selected": [
+                {
+                    "label": "Editorial / تحريري",
+                    "value": "editorial",
+                    "key": "cart-editorial"
+                }
+            ],
             "options": [
-                {"label": "Editorial / تحريري", "value": "editorial", "key": "cart-editorial"},
-                {"label": "Commerce Summary / ملخص تجاري", "value": "commerce-summary", "key": "cart-commerce"},
-                {"label": "Compact Mobile / جوال مدمج", "value": "compact-mobile", "key": "cart-compact"}
+                {
+                    "label": "Editorial / تحريري",
+                    "value": "editorial",
+                    "key": "cart-editorial"
+                },
+                {
+                    "label": "Commerce Summary / ملخص تجاري",
+                    "value": "commerce-summary",
+                    "key": "cart-commerce"
+                },
+                {
+                    "label": "Compact Mobile / جوال مدمج",
+                    "value": "compact-mobile",
+                    "key": "cart-compact"
+                }
             ]
         },
         {
@@ -199,12 +441,34 @@
             "label": "Product image ratio / أبعاد صورة المنتج",
             "icon": "sicon-image",
             "required": true,
-            "selected": [{"label": "Adaptive / تلقائي", "value": "adaptive", "key": "ratio-adaptive"}],
+            "selected": [
+                {
+                    "label": "Adaptive / تلقائي",
+                    "value": "adaptive",
+                    "key": "ratio-adaptive"
+                }
+            ],
             "options": [
-                {"label": "Adaptive / تلقائي", "value": "adaptive", "key": "ratio-adaptive"},
-                {"label": "Square 1:1 / مربع", "value": "square", "key": "ratio-square"},
-                {"label": "Portrait 4:5 / طولي", "value": "portrait", "key": "ratio-portrait"},
-                {"label": "Landscape 4:3 / عرضي", "value": "landscape", "key": "ratio-landscape"}
+                {
+                    "label": "Adaptive / تلقائي",
+                    "value": "adaptive",
+                    "key": "ratio-adaptive"
+                },
+                {
+                    "label": "Square 1:1 / مربع",
+                    "value": "square",
+                    "key": "ratio-square"
+                },
+                {
+                    "label": "Portrait 4:5 / طولي",
+                    "value": "portrait",
+                    "key": "ratio-portrait"
+                },
+                {
+                    "label": "Landscape 4:3 / عرضي",
+                    "value": "landscape",
+                    "key": "ratio-landscape"
+                }
             ]
         },
         {
@@ -1310,6 +1574,1326 @@
                     "required": false,
                     "minLength": 1,
                     "maxLength": 30
+                }
+            ]
+        },
+        {
+            "key": "premium-system-hero-001",
+            "title": {
+                "en": "01 · Hero — Premium",
+                "ar": "01 · واجهة رئيسية فاخرة"
+            },
+            "icon": "sicon-image",
+            "path": "home.premium-hero",
+            "is_default": true,
+            "fields": [
+                {
+                    "type": "static",
+                    "format": "description",
+                    "id": "hero-guide",
+                    "value": "Hero / الواجهة الرئيسية — seven composition variants with responsive media."
+                },
+                {
+                    "id": "variant",
+                    "type": "items",
+                    "format": "dropdown-list",
+                    "label": "Hero variant / تصميم الواجهة",
+                    "description": null,
+                    "required": true,
+                    "selected": [
+                        {
+                            "label": "Full Screen / شاشة كاملة",
+                            "value": "full-screen",
+                            "key": "premium-full-screen"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "label": "Full Screen / شاشة كاملة",
+                            "value": "full-screen",
+                            "key": "premium-full-screen"
+                        },
+                        {
+                            "label": "Editorial Split / تقسيم تحريري",
+                            "value": "editorial-split",
+                            "key": "premium-editorial-split"
+                        },
+                        {
+                            "label": "Centered Overlay / محتوى متوسط",
+                            "value": "centered-overlay",
+                            "key": "premium-centered-overlay"
+                        },
+                        {
+                            "label": "Minimal Luxury / فاخر بسيط",
+                            "value": "minimal-luxury",
+                            "key": "premium-minimal-luxury"
+                        },
+                        {
+                            "label": "Product Spotlight / إبراز منتج",
+                            "value": "product-spotlight",
+                            "key": "premium-product-spotlight"
+                        },
+                        {
+                            "label": "Video Hero / واجهة فيديو",
+                            "value": "video",
+                            "key": "premium-video"
+                        },
+                        {
+                            "label": "Collage Hero / كولاج",
+                            "value": "collage",
+                            "key": "premium-collage"
+                        }
+                    ]
+                },
+                {
+                    "id": "width",
+                    "type": "items",
+                    "format": "dropdown-list",
+                    "label": "Width / العرض",
+                    "description": null,
+                    "required": true,
+                    "selected": [
+                        {
+                            "label": "Contained / داخل الحاوية",
+                            "value": "contained",
+                            "key": "premium-contained"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "label": "Contained / داخل الحاوية",
+                            "value": "contained",
+                            "key": "premium-contained"
+                        },
+                        {
+                            "label": "Narrow / ضيق",
+                            "value": "narrow",
+                            "key": "premium-narrow"
+                        },
+                        {
+                            "label": "Wide / عريض",
+                            "value": "wide",
+                            "key": "premium-wide"
+                        },
+                        {
+                            "label": "Full bleed / عرض كامل",
+                            "value": "full",
+                            "key": "premium-full"
+                        }
+                    ]
+                },
+                {
+                    "id": "spacing",
+                    "type": "items",
+                    "format": "dropdown-list",
+                    "label": "Vertical spacing / المسافة الرأسية",
+                    "description": null,
+                    "required": true,
+                    "selected": [
+                        {
+                            "label": "Normal / عادية",
+                            "value": "normal",
+                            "key": "premium-normal"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "label": "None / بدون",
+                            "value": "none",
+                            "key": "premium-none"
+                        },
+                        {
+                            "label": "Compact / مدمجة",
+                            "value": "compact",
+                            "key": "premium-compact"
+                        },
+                        {
+                            "label": "Normal / عادية",
+                            "value": "normal",
+                            "key": "premium-normal"
+                        },
+                        {
+                            "label": "Airy / واسعة",
+                            "value": "airy",
+                            "key": "premium-airy"
+                        }
+                    ]
+                },
+                {
+                    "id": "background",
+                    "type": "items",
+                    "format": "dropdown-list",
+                    "label": "Background / الخلفية",
+                    "description": null,
+                    "required": true,
+                    "selected": [
+                        {
+                            "label": "Canvas / أساسية",
+                            "value": "canvas",
+                            "key": "premium-canvas"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "label": "Canvas / أساسية",
+                            "value": "canvas",
+                            "key": "premium-canvas"
+                        },
+                        {
+                            "label": "Soft surface / سطح ناعم",
+                            "value": "soft",
+                            "key": "premium-soft"
+                        },
+                        {
+                            "label": "Inverse / داكنة",
+                            "value": "inverse",
+                            "key": "premium-inverse"
+                        }
+                    ]
+                },
+                {
+                    "id": "alignment",
+                    "type": "items",
+                    "format": "dropdown-list",
+                    "label": "Content alignment / محاذاة المحتوى",
+                    "description": null,
+                    "required": true,
+                    "selected": [
+                        {
+                            "label": "Start / البداية",
+                            "value": "start",
+                            "key": "premium-start"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "label": "Start / البداية",
+                            "value": "start",
+                            "key": "premium-start"
+                        },
+                        {
+                            "label": "Center / الوسط",
+                            "value": "center",
+                            "key": "premium-center"
+                        },
+                        {
+                            "label": "End / النهاية",
+                            "value": "end",
+                            "key": "premium-end"
+                        }
+                    ]
+                },
+                {
+                    "id": "animation",
+                    "type": "items",
+                    "format": "dropdown-list",
+                    "label": "Entrance motion / حركة الظهور",
+                    "description": null,
+                    "required": true,
+                    "selected": [
+                        {
+                            "label": "Fade / تلاشي",
+                            "value": "fade",
+                            "key": "premium-fade"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "label": "None / بدون",
+                            "value": "none",
+                            "key": "premium-none"
+                        },
+                        {
+                            "label": "Fade / تلاشي",
+                            "value": "fade",
+                            "key": "premium-fade"
+                        },
+                        {
+                            "label": "Reveal / كشف",
+                            "value": "reveal",
+                            "key": "premium-reveal"
+                        }
+                    ]
+                },
+                {
+                    "id": "title",
+                    "type": "string",
+                    "format": "text",
+                    "label": "Title / العنوان",
+                    "multilanguage": true,
+                    "required": true
+                },
+                {
+                    "id": "subtitle",
+                    "type": "string",
+                    "format": "text",
+                    "label": "Eyebrow / العنوان الصغير",
+                    "multilanguage": true,
+                    "required": false
+                },
+                {
+                    "id": "description",
+                    "type": "string",
+                    "format": "textarea",
+                    "label": "Description / الوصف",
+                    "multilanguage": true,
+                    "required": false
+                },
+                {
+                    "id": "image",
+                    "type": "string",
+                    "format": "image",
+                    "label": "Desktop image / صورة سطح المكتب",
+                    "required": true
+                },
+                {
+                    "id": "mobile_image",
+                    "type": "string",
+                    "format": "image",
+                    "label": "Mobile image / صورة الجوال",
+                    "required": false
+                },
+                {
+                    "id": "secondary_image",
+                    "type": "string",
+                    "format": "image",
+                    "label": "Secondary collage image / صورة الكولاج الثانية",
+                    "required": false
+                },
+                {
+                    "id": "video_id",
+                    "type": "string",
+                    "format": "text",
+                    "label": "YouTube video ID / معرّف فيديو يوتيوب",
+                    "multilanguage": true,
+                    "required": false
+                },
+                {
+                    "id": "products",
+                    "type": "items",
+                    "format": "dropdown-list",
+                    "label": "Spotlight products / منتجات مميزة",
+                    "source": "products",
+                    "searchable": true,
+                    "multichoice": true,
+                    "required": true,
+                    "minLength": 1,
+                    "maxLength": 4,
+                    "selected": [],
+                    "options": [],
+                    "value": []
+                },
+                {
+                    "id": "cta_label",
+                    "type": "string",
+                    "format": "text",
+                    "label": "Button label / نص الزر",
+                    "multilanguage": true,
+                    "required": false
+                },
+                {
+                    "id": "cta_url",
+                    "type": "items",
+                    "format": "variable-list",
+                    "label": "Button link / رابط الزر",
+                    "source": "custom",
+                    "searchable": true,
+                    "required": false,
+                    "value": null,
+                    "sources": [
+                        {
+                            "label": "Product / منتج",
+                            "key": "products",
+                            "value": "products"
+                        },
+                        {
+                            "label": "Category / تصنيف",
+                            "key": "categories",
+                            "value": "categories"
+                        },
+                        {
+                            "label": "Brand / علامة تجارية",
+                            "key": "brands",
+                            "value": "brands"
+                        },
+                        {
+                            "label": "Page / صفحة",
+                            "key": "pages",
+                            "value": "pages"
+                        },
+                        {
+                            "label": "Article / مقالة",
+                            "key": "blog_articles",
+                            "value": "blog_articles"
+                        },
+                        {
+                            "label": "Offers / العروض",
+                            "key": "offers_link",
+                            "value": "offers_link"
+                        },
+                        {
+                            "label": "Brands page / صفحة العلامات",
+                            "key": "brands_link",
+                            "value": "brands_link"
+                        },
+                        {
+                            "label": "Blog / المدونة",
+                            "key": "blog_link",
+                            "value": "blog_link"
+                        },
+                        {
+                            "label": "External link / رابط خارجي",
+                            "key": "custom",
+                            "value": "custom"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "premium-system-products-001",
+            "title": {
+                "en": "03 · Products — Grid or Carousel",
+                "ar": "03 · منتجات — شبكة أو سلايدر"
+            },
+            "icon": "sicon-shopping-bag",
+            "path": "home.product-showcase",
+            "is_default": true,
+            "fields": [
+                {
+                    "type": "static",
+                    "format": "description",
+                    "id": "products-guide",
+                    "value": "Selected Salla products rendered by the native product list/slider components."
+                },
+                {
+                    "id": "mode",
+                    "type": "items",
+                    "format": "dropdown-list",
+                    "label": "Display / طريقة العرض",
+                    "description": null,
+                    "required": true,
+                    "selected": [
+                        {
+                            "label": "Product grid / شبكة منتجات",
+                            "value": "grid",
+                            "key": "premium-grid"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "label": "Product grid / شبكة منتجات",
+                            "value": "grid",
+                            "key": "premium-grid"
+                        },
+                        {
+                            "label": "Product carousel / سلايدر منتجات",
+                            "value": "carousel",
+                            "key": "premium-carousel"
+                        }
+                    ]
+                },
+                {
+                    "id": "variant",
+                    "type": "items",
+                    "format": "dropdown-list",
+                    "label": "Variant / التصميم",
+                    "description": null,
+                    "required": true,
+                    "selected": [
+                        {
+                            "label": "Editorial / تحريري",
+                            "value": "editorial",
+                            "key": "premium-editorial"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "label": "Editorial / تحريري",
+                            "value": "editorial",
+                            "key": "premium-editorial"
+                        },
+                        {
+                            "label": "Minimal / بسيط",
+                            "value": "minimal",
+                            "key": "premium-minimal"
+                        },
+                        {
+                            "label": "Compact / مدمج",
+                            "value": "compact",
+                            "key": "premium-compact"
+                        },
+                        {
+                            "label": "Cards / بطاقات",
+                            "value": "cards",
+                            "key": "premium-cards"
+                        },
+                        {
+                            "label": "Marketplace / سوق",
+                            "value": "marketplace",
+                            "key": "premium-marketplace"
+                        },
+                        {
+                            "label": "Luxury / فاخر",
+                            "value": "luxury",
+                            "key": "premium-luxury"
+                        },
+                        {
+                            "label": "Standard carousel / سلايدر قياسي",
+                            "value": "standard",
+                            "key": "premium-standard"
+                        },
+                        {
+                            "label": "Peek carousel / سلايدر ظاهر جزئياً",
+                            "value": "peek",
+                            "key": "premium-peek"
+                        },
+                        {
+                            "label": "Full bleed carousel / سلايدر بعرض كامل",
+                            "value": "full-bleed",
+                            "key": "premium-full-bleed"
+                        },
+                        {
+                            "label": "Centered carousel / سلايدر متوسط",
+                            "value": "centered",
+                            "key": "premium-centered"
+                        }
+                    ]
+                },
+                {
+                    "id": "width",
+                    "type": "items",
+                    "format": "dropdown-list",
+                    "label": "Width / العرض",
+                    "description": null,
+                    "required": true,
+                    "selected": [
+                        {
+                            "label": "Contained / داخل الحاوية",
+                            "value": "contained",
+                            "key": "premium-contained"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "label": "Contained / داخل الحاوية",
+                            "value": "contained",
+                            "key": "premium-contained"
+                        },
+                        {
+                            "label": "Narrow / ضيق",
+                            "value": "narrow",
+                            "key": "premium-narrow"
+                        },
+                        {
+                            "label": "Wide / عريض",
+                            "value": "wide",
+                            "key": "premium-wide"
+                        },
+                        {
+                            "label": "Full bleed / عرض كامل",
+                            "value": "full",
+                            "key": "premium-full"
+                        }
+                    ]
+                },
+                {
+                    "id": "spacing",
+                    "type": "items",
+                    "format": "dropdown-list",
+                    "label": "Vertical spacing / المسافة الرأسية",
+                    "description": null,
+                    "required": true,
+                    "selected": [
+                        {
+                            "label": "Normal / عادية",
+                            "value": "normal",
+                            "key": "premium-normal"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "label": "None / بدون",
+                            "value": "none",
+                            "key": "premium-none"
+                        },
+                        {
+                            "label": "Compact / مدمجة",
+                            "value": "compact",
+                            "key": "premium-compact"
+                        },
+                        {
+                            "label": "Normal / عادية",
+                            "value": "normal",
+                            "key": "premium-normal"
+                        },
+                        {
+                            "label": "Airy / واسعة",
+                            "value": "airy",
+                            "key": "premium-airy"
+                        }
+                    ]
+                },
+                {
+                    "id": "background",
+                    "type": "items",
+                    "format": "dropdown-list",
+                    "label": "Background / الخلفية",
+                    "description": null,
+                    "required": true,
+                    "selected": [
+                        {
+                            "label": "Canvas / أساسية",
+                            "value": "canvas",
+                            "key": "premium-canvas"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "label": "Canvas / أساسية",
+                            "value": "canvas",
+                            "key": "premium-canvas"
+                        },
+                        {
+                            "label": "Soft surface / سطح ناعم",
+                            "value": "soft",
+                            "key": "premium-soft"
+                        },
+                        {
+                            "label": "Inverse / داكنة",
+                            "value": "inverse",
+                            "key": "premium-inverse"
+                        }
+                    ]
+                },
+                {
+                    "id": "alignment",
+                    "type": "items",
+                    "format": "dropdown-list",
+                    "label": "Content alignment / محاذاة المحتوى",
+                    "description": null,
+                    "required": true,
+                    "selected": [
+                        {
+                            "label": "Start / البداية",
+                            "value": "start",
+                            "key": "premium-start"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "label": "Start / البداية",
+                            "value": "start",
+                            "key": "premium-start"
+                        },
+                        {
+                            "label": "Center / الوسط",
+                            "value": "center",
+                            "key": "premium-center"
+                        },
+                        {
+                            "label": "End / النهاية",
+                            "value": "end",
+                            "key": "premium-end"
+                        }
+                    ]
+                },
+                {
+                    "id": "animation",
+                    "type": "items",
+                    "format": "dropdown-list",
+                    "label": "Entrance motion / حركة الظهور",
+                    "description": null,
+                    "required": true,
+                    "selected": [
+                        {
+                            "label": "Fade / تلاشي",
+                            "value": "fade",
+                            "key": "premium-fade"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "label": "None / بدون",
+                            "value": "none",
+                            "key": "premium-none"
+                        },
+                        {
+                            "label": "Fade / تلاشي",
+                            "value": "fade",
+                            "key": "premium-fade"
+                        },
+                        {
+                            "label": "Reveal / كشف",
+                            "value": "reveal",
+                            "key": "premium-reveal"
+                        }
+                    ]
+                },
+                {
+                    "id": "title",
+                    "type": "string",
+                    "format": "text",
+                    "label": "Title / العنوان",
+                    "multilanguage": true,
+                    "required": true
+                },
+                {
+                    "id": "description",
+                    "type": "string",
+                    "format": "textarea",
+                    "label": "Description / الوصف",
+                    "multilanguage": true,
+                    "required": false
+                },
+                {
+                    "id": "products",
+                    "type": "items",
+                    "format": "dropdown-list",
+                    "label": "Products / المنتجات",
+                    "source": "products",
+                    "searchable": true,
+                    "multichoice": true,
+                    "required": true,
+                    "minLength": 1,
+                    "maxLength": 24,
+                    "selected": [],
+                    "options": [],
+                    "value": []
+                },
+                {
+                    "id": "limit",
+                    "type": "number",
+                    "format": "integer",
+                    "label": "Product count / عدد المنتجات",
+                    "value": 8,
+                    "minimum": 2,
+                    "maximum": 24,
+                    "required": true
+                }
+            ]
+        },
+        {
+            "key": "premium-system-collections-001",
+            "title": {
+                "en": "04 · Collections — Categories",
+                "ar": "04 · مجموعات — تصنيفات"
+            },
+            "icon": "sicon-grid",
+            "path": "home.collection-showcase",
+            "is_default": true,
+            "fields": [
+                {
+                    "type": "static",
+                    "format": "description",
+                    "id": "collections-guide",
+                    "value": "Category grid or carousel using live Salla category data."
+                },
+                {
+                    "id": "mode",
+                    "type": "items",
+                    "format": "dropdown-list",
+                    "label": "Display / طريقة العرض",
+                    "description": null,
+                    "required": true,
+                    "selected": [
+                        {
+                            "label": "Category grid / شبكة تصنيفات",
+                            "value": "grid",
+                            "key": "premium-grid"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "label": "Category grid / شبكة تصنيفات",
+                            "value": "grid",
+                            "key": "premium-grid"
+                        },
+                        {
+                            "label": "Category carousel / سلايدر تصنيفات",
+                            "value": "carousel",
+                            "key": "premium-carousel"
+                        }
+                    ]
+                },
+                {
+                    "id": "variant",
+                    "type": "items",
+                    "format": "dropdown-list",
+                    "label": "Variant / التصميم",
+                    "description": null,
+                    "required": true,
+                    "selected": [
+                        {
+                            "label": "Portrait / طولي",
+                            "value": "portrait",
+                            "key": "premium-portrait"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "label": "Portrait / طولي",
+                            "value": "portrait",
+                            "key": "premium-portrait"
+                        },
+                        {
+                            "label": "Square / مربع",
+                            "value": "square",
+                            "key": "premium-square"
+                        },
+                        {
+                            "label": "Circle / دائري",
+                            "value": "circle",
+                            "key": "premium-circle"
+                        },
+                        {
+                            "label": "Editorial / تحريري",
+                            "value": "editorial",
+                            "key": "premium-editorial"
+                        },
+                        {
+                            "label": "Overlay / نص فوق الصورة",
+                            "value": "overlay",
+                            "key": "premium-overlay"
+                        },
+                        {
+                            "label": "Minimal text / نص بسيط",
+                            "value": "minimal-text",
+                            "key": "premium-minimal-text"
+                        }
+                    ]
+                },
+                {
+                    "id": "width",
+                    "type": "items",
+                    "format": "dropdown-list",
+                    "label": "Width / العرض",
+                    "description": null,
+                    "required": true,
+                    "selected": [
+                        {
+                            "label": "Contained / داخل الحاوية",
+                            "value": "contained",
+                            "key": "premium-contained"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "label": "Contained / داخل الحاوية",
+                            "value": "contained",
+                            "key": "premium-contained"
+                        },
+                        {
+                            "label": "Narrow / ضيق",
+                            "value": "narrow",
+                            "key": "premium-narrow"
+                        },
+                        {
+                            "label": "Wide / عريض",
+                            "value": "wide",
+                            "key": "premium-wide"
+                        },
+                        {
+                            "label": "Full bleed / عرض كامل",
+                            "value": "full",
+                            "key": "premium-full"
+                        }
+                    ]
+                },
+                {
+                    "id": "spacing",
+                    "type": "items",
+                    "format": "dropdown-list",
+                    "label": "Vertical spacing / المسافة الرأسية",
+                    "description": null,
+                    "required": true,
+                    "selected": [
+                        {
+                            "label": "Normal / عادية",
+                            "value": "normal",
+                            "key": "premium-normal"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "label": "None / بدون",
+                            "value": "none",
+                            "key": "premium-none"
+                        },
+                        {
+                            "label": "Compact / مدمجة",
+                            "value": "compact",
+                            "key": "premium-compact"
+                        },
+                        {
+                            "label": "Normal / عادية",
+                            "value": "normal",
+                            "key": "premium-normal"
+                        },
+                        {
+                            "label": "Airy / واسعة",
+                            "value": "airy",
+                            "key": "premium-airy"
+                        }
+                    ]
+                },
+                {
+                    "id": "background",
+                    "type": "items",
+                    "format": "dropdown-list",
+                    "label": "Background / الخلفية",
+                    "description": null,
+                    "required": true,
+                    "selected": [
+                        {
+                            "label": "Canvas / أساسية",
+                            "value": "canvas",
+                            "key": "premium-canvas"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "label": "Canvas / أساسية",
+                            "value": "canvas",
+                            "key": "premium-canvas"
+                        },
+                        {
+                            "label": "Soft surface / سطح ناعم",
+                            "value": "soft",
+                            "key": "premium-soft"
+                        },
+                        {
+                            "label": "Inverse / داكنة",
+                            "value": "inverse",
+                            "key": "premium-inverse"
+                        }
+                    ]
+                },
+                {
+                    "id": "alignment",
+                    "type": "items",
+                    "format": "dropdown-list",
+                    "label": "Content alignment / محاذاة المحتوى",
+                    "description": null,
+                    "required": true,
+                    "selected": [
+                        {
+                            "label": "Start / البداية",
+                            "value": "start",
+                            "key": "premium-start"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "label": "Start / البداية",
+                            "value": "start",
+                            "key": "premium-start"
+                        },
+                        {
+                            "label": "Center / الوسط",
+                            "value": "center",
+                            "key": "premium-center"
+                        },
+                        {
+                            "label": "End / النهاية",
+                            "value": "end",
+                            "key": "premium-end"
+                        }
+                    ]
+                },
+                {
+                    "id": "animation",
+                    "type": "items",
+                    "format": "dropdown-list",
+                    "label": "Entrance motion / حركة الظهور",
+                    "description": null,
+                    "required": true,
+                    "selected": [
+                        {
+                            "label": "Fade / تلاشي",
+                            "value": "fade",
+                            "key": "premium-fade"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "label": "None / بدون",
+                            "value": "none",
+                            "key": "premium-none"
+                        },
+                        {
+                            "label": "Fade / تلاشي",
+                            "value": "fade",
+                            "key": "premium-fade"
+                        },
+                        {
+                            "label": "Reveal / كشف",
+                            "value": "reveal",
+                            "key": "premium-reveal"
+                        }
+                    ]
+                },
+                {
+                    "id": "title",
+                    "type": "string",
+                    "format": "text",
+                    "label": "Title / العنوان",
+                    "multilanguage": true,
+                    "required": true
+                },
+                {
+                    "id": "categories",
+                    "type": "items",
+                    "format": "dropdown-list",
+                    "label": "Categories / التصنيفات",
+                    "source": "categories",
+                    "searchable": true,
+                    "multichoice": true,
+                    "required": true,
+                    "minLength": 1,
+                    "maxLength": 12,
+                    "selected": [],
+                    "options": [],
+                    "value": []
+                }
+            ]
+        },
+        {
+            "key": "premium-system-image-text-001",
+            "title": {
+                "en": "06 · Editorial — Image + Text",
+                "ar": "06 · تحريري — صورة ونص"
+            },
+            "icon": "sicon-layout",
+            "path": "home.image-text",
+            "is_default": true,
+            "fields": [
+                {
+                    "type": "static",
+                    "format": "description",
+                    "id": "image-text-guide",
+                    "value": "Editorial storytelling with six genuinely different compositions."
+                },
+                {
+                    "id": "variant",
+                    "type": "items",
+                    "format": "dropdown-list",
+                    "label": "Variant / التصميم",
+                    "description": null,
+                    "required": true,
+                    "selected": [
+                        {
+                            "label": "Image left / الصورة يسار",
+                            "value": "image-left",
+                            "key": "premium-image-left"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "label": "Image left / الصورة يسار",
+                            "value": "image-left",
+                            "key": "premium-image-left"
+                        },
+                        {
+                            "label": "Image right / الصورة يمين",
+                            "value": "image-right",
+                            "key": "premium-image-right"
+                        },
+                        {
+                            "label": "Overlapping / متداخل",
+                            "value": "overlapping",
+                            "key": "premium-overlapping"
+                        },
+                        {
+                            "label": "Full background / خلفية كاملة",
+                            "value": "full-background",
+                            "key": "premium-full-background"
+                        },
+                        {
+                            "label": "Editorial / تحريري",
+                            "value": "editorial",
+                            "key": "premium-editorial"
+                        },
+                        {
+                            "label": "Compact / مدمج",
+                            "value": "compact",
+                            "key": "premium-compact"
+                        }
+                    ]
+                },
+                {
+                    "id": "width",
+                    "type": "items",
+                    "format": "dropdown-list",
+                    "label": "Width / العرض",
+                    "description": null,
+                    "required": true,
+                    "selected": [
+                        {
+                            "label": "Contained / داخل الحاوية",
+                            "value": "contained",
+                            "key": "premium-contained"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "label": "Contained / داخل الحاوية",
+                            "value": "contained",
+                            "key": "premium-contained"
+                        },
+                        {
+                            "label": "Narrow / ضيق",
+                            "value": "narrow",
+                            "key": "premium-narrow"
+                        },
+                        {
+                            "label": "Wide / عريض",
+                            "value": "wide",
+                            "key": "premium-wide"
+                        },
+                        {
+                            "label": "Full bleed / عرض كامل",
+                            "value": "full",
+                            "key": "premium-full"
+                        }
+                    ]
+                },
+                {
+                    "id": "spacing",
+                    "type": "items",
+                    "format": "dropdown-list",
+                    "label": "Vertical spacing / المسافة الرأسية",
+                    "description": null,
+                    "required": true,
+                    "selected": [
+                        {
+                            "label": "Normal / عادية",
+                            "value": "normal",
+                            "key": "premium-normal"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "label": "None / بدون",
+                            "value": "none",
+                            "key": "premium-none"
+                        },
+                        {
+                            "label": "Compact / مدمجة",
+                            "value": "compact",
+                            "key": "premium-compact"
+                        },
+                        {
+                            "label": "Normal / عادية",
+                            "value": "normal",
+                            "key": "premium-normal"
+                        },
+                        {
+                            "label": "Airy / واسعة",
+                            "value": "airy",
+                            "key": "premium-airy"
+                        }
+                    ]
+                },
+                {
+                    "id": "background",
+                    "type": "items",
+                    "format": "dropdown-list",
+                    "label": "Background / الخلفية",
+                    "description": null,
+                    "required": true,
+                    "selected": [
+                        {
+                            "label": "Canvas / أساسية",
+                            "value": "canvas",
+                            "key": "premium-canvas"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "label": "Canvas / أساسية",
+                            "value": "canvas",
+                            "key": "premium-canvas"
+                        },
+                        {
+                            "label": "Soft surface / سطح ناعم",
+                            "value": "soft",
+                            "key": "premium-soft"
+                        },
+                        {
+                            "label": "Inverse / داكنة",
+                            "value": "inverse",
+                            "key": "premium-inverse"
+                        }
+                    ]
+                },
+                {
+                    "id": "alignment",
+                    "type": "items",
+                    "format": "dropdown-list",
+                    "label": "Content alignment / محاذاة المحتوى",
+                    "description": null,
+                    "required": true,
+                    "selected": [
+                        {
+                            "label": "Start / البداية",
+                            "value": "start",
+                            "key": "premium-start"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "label": "Start / البداية",
+                            "value": "start",
+                            "key": "premium-start"
+                        },
+                        {
+                            "label": "Center / الوسط",
+                            "value": "center",
+                            "key": "premium-center"
+                        },
+                        {
+                            "label": "End / النهاية",
+                            "value": "end",
+                            "key": "premium-end"
+                        }
+                    ]
+                },
+                {
+                    "id": "animation",
+                    "type": "items",
+                    "format": "dropdown-list",
+                    "label": "Entrance motion / حركة الظهور",
+                    "description": null,
+                    "required": true,
+                    "selected": [
+                        {
+                            "label": "Fade / تلاشي",
+                            "value": "fade",
+                            "key": "premium-fade"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "label": "None / بدون",
+                            "value": "none",
+                            "key": "premium-none"
+                        },
+                        {
+                            "label": "Fade / تلاشي",
+                            "value": "fade",
+                            "key": "premium-fade"
+                        },
+                        {
+                            "label": "Reveal / كشف",
+                            "value": "reveal",
+                            "key": "premium-reveal"
+                        }
+                    ]
+                },
+                {
+                    "id": "image",
+                    "type": "string",
+                    "format": "image",
+                    "label": "Image / الصورة",
+                    "required": true
+                },
+                {
+                    "id": "image_alt",
+                    "type": "string",
+                    "format": "text",
+                    "label": "Image alternative text / النص البديل",
+                    "multilanguage": true,
+                    "required": false
+                },
+                {
+                    "id": "title",
+                    "type": "string",
+                    "format": "text",
+                    "label": "Title / العنوان",
+                    "multilanguage": true,
+                    "required": true
+                },
+                {
+                    "id": "subtitle",
+                    "type": "string",
+                    "format": "text",
+                    "label": "Eyebrow / العنوان الصغير",
+                    "multilanguage": true,
+                    "required": false
+                },
+                {
+                    "id": "description",
+                    "type": "string",
+                    "format": "textarea",
+                    "label": "Description / الوصف",
+                    "multilanguage": true,
+                    "required": false
+                },
+                {
+                    "id": "cta_label",
+                    "type": "string",
+                    "format": "text",
+                    "label": "Button label / نص الزر",
+                    "multilanguage": true,
+                    "required": false
+                },
+                {
+                    "id": "cta_url",
+                    "type": "items",
+                    "format": "variable-list",
+                    "label": "Button link / رابط الزر",
+                    "source": "custom",
+                    "searchable": true,
+                    "required": false,
+                    "value": null,
+                    "sources": [
+                        {
+                            "label": "Product / منتج",
+                            "key": "products",
+                            "value": "products"
+                        },
+                        {
+                            "label": "Category / تصنيف",
+                            "key": "categories",
+                            "value": "categories"
+                        },
+                        {
+                            "label": "Brand / علامة تجارية",
+                            "key": "brands",
+                            "value": "brands"
+                        },
+                        {
+                            "label": "Page / صفحة",
+                            "key": "pages",
+                            "value": "pages"
+                        },
+                        {
+                            "label": "Article / مقالة",
+                            "key": "blog_articles",
+                            "value": "blog_articles"
+                        },
+                        {
+                            "label": "Offers / العروض",
+                            "key": "offers_link",
+                            "value": "offers_link"
+                        },
+                        {
+                            "label": "Brands page / صفحة العلامات",
+                            "key": "brands_link",
+                            "value": "brands_link"
+                        },
+                        {
+                            "label": "Blog / المدونة",
+                            "key": "blog_link",
+                            "value": "blog_link"
+                        },
+                        {
+                            "label": "External link / رابط خارجي",
+                            "key": "custom",
+                            "value": "custom"
+                        }
+                    ]
                 }
             ]
         }

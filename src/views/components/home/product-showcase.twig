@@ -1,0 +1,20 @@
+{% set mode = component.mode|default('grid') %}
+{% set variant = component.variant|default('editorial') %}
+{% set product_ids = component.products|default([])|map((product) => product.id)|join(',') %}
+<section class="premium-section product-showcase product-showcase--{{ mode }} product-showcase--{{ variant }} premium-section--width-{{ component.width|default('contained') }} premium-section--spacing-{{ component.spacing|default('normal') }} premium-section--surface-{{ component.background|default('canvas') }}" aria-labelledby="product-showcase-title-{{ position }}">
+  <div class="premium-section__inner container">
+    {% if component.title or component.description %}
+      <header class="premium-section__heading premium-section--align-{{ component.alignment|default('start') }}">
+        {% if component.title %}<h2 id="product-showcase-title-{{ position }}">{{ component.title }}</h2>{% endif %}
+        {% if component.description %}<p>{{ component.description }}</p>{% endif %}
+      </header>
+    {% endif %}
+    {% if product_ids %}
+      {% if mode == 'carousel' %}
+        <salla-products-slider source="selected" source-value="[{{ product_ids }}]" slider-id="product-showcase-{{ position }}" block-title=" "></salla-products-slider>
+      {% else %}
+        <salla-products-list source="selected" source-value="[{{ product_ids }}]" limit="{{ component.limit|default(8) }}"></salla-products-list>
+      {% endif %}
+    {% endif %}
+  </div>
+</section>

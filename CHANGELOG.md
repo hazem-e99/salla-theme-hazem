@@ -29,6 +29,14 @@
 - Added stable structural classes without changing Salla menus, contacts, trust badges, tax certificate, social links, app links, payments, or copyright hooks.
 - Did not add an undocumented newsletter form; Salla's current public Twilight documentation exposes no native newsletter subscription component or storefront endpoint.
 
+### Premium editor section foundation
+
+- Registered four bilingual editor components: Premium Hero, Product Grid/Carousel, Collection Grid/Carousel, and Editorial Image + Text.
+- Added seven hero compositions, ten product-showcase treatments, six category treatments, and six image/text compositions.
+- Wired selected products and categories through native Salla data objects and product/list/slider web components.
+- Added consistent width, spacing, surface, alignment and motion controls with responsive, RTL-safe native CSS.
+- Added a repeatable schema synchronization script so editor definitions remain deterministic and reviewable.
+
 <!-- ============================================================= -->
 <!-- PREMIUM REDESIGN (fork by hazem-e99) — Editorial Luxe          -->
 <!-- Entries below the upstream banner document this fork's work.   -->

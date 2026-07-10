@@ -1,0 +1,30 @@
+{% set mode = component.mode|default('grid') %}
+{% set variant = component.variant|default('portrait') %}
+<section class="premium-section collection-showcase collection-showcase--{{ mode }} collection-showcase--{{ variant }} premium-section--width-{{ component.width|default('contained') }} premium-section--spacing-{{ component.spacing|default('normal') }} premium-section--surface-{{ component.background|default('canvas') }}" aria-labelledby="collection-showcase-title-{{ position }}">
+  <div class="premium-section__inner container">
+    {% if component.title %}<header class="premium-section__heading premium-section--align-{{ component.alignment|default('start') }}"><h2 id="collection-showcase-title-{{ position }}">{{ component.title }}</h2></header>{% endif %}
+    {% if mode == 'carousel' %}
+      <salla-slider type="carousel" controls-outer id="collection-showcase-{{ position }}">
+        <div slot="items">
+          {% for category in component.categories %}
+            <div class="swiper-slide collection-showcase__slide">
+              <a class="collection-showcase__card" href="{{ category.url }}">
+                <span class="collection-showcase__media"><img src="{{ category.image|default('images/placeholder.png'|asset) }}" alt="{{ category.name }}" width="640" height="800" loading="lazy"></span>
+                <h3>{{ category.name }}</h3>
+              </a>
+            </div>
+          {% endfor %}
+        </div>
+      </salla-slider>
+    {% else %}
+      <div class="collection-showcase__grid">
+        {% for category in component.categories %}
+          <a class="collection-showcase__card" href="{{ category.url }}">
+            <span class="collection-showcase__media"><img src="{{ category.image|default('images/placeholder.png'|asset) }}" alt="{{ category.name }}" width="640" height="800" loading="lazy"></span>
+            <h3>{{ category.name }}</h3>
+          </a>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+</section>

@@ -1,0 +1,34 @@
+{# Configurable hero; all links and selected products are supplied by Salla's editor. #}
+{% set variant = component.variant|default('full-screen') %}
+{% set width = component.width|default('full') %}
+{% set spacing = component.spacing|default('none') %}
+{% set align = component.alignment|default('center') %}
+{% set product_ids = component.products|default([])|map((product) => product.id)|join(',') %}
+
+<section class="premium-section premium-hero premium-hero--{{ variant }} premium-section--width-{{ width }} premium-section--spacing-{{ spacing }} premium-section--align-{{ align }} premium-section--surface-{{ component.background|default('canvas') }} premium-section--motion-{{ component.animation|default('fade') }}" aria-labelledby="premium-hero-title-{{ position }}">
+  <div class="premium-hero__media" aria-hidden="true">
+    {% if variant == 'video' and component.video_id %}
+      <lite-youtube videoid="{{ component.video_id|e('html_attr') }}" params="rel=0&modestbranding=1"></lite-youtube>
+    {% else %}
+      <picture>
+        {% if component.mobile_image %}<source media="(max-width: 767px)" srcset="{{ component.mobile_image }}">{% endif %}
+        {% if component.image %}<img src="{{ component.image }}" alt="" width="1600" height="900" {{ position > 1 ? 'loading="lazy"' : 'fetchpriority="high"' }}>{% endif %}
+      </picture>
+      {% if variant == 'collage' and component.secondary_image %}
+        <img class="premium-hero__secondary" src="{{ component.secondary_image }}" alt="" width="720" height="900" loading="lazy">
+      {% endif %}
+    {% endif %}
+  </div>
+  <div class="premium-hero__overlay"></div>
+  <div class="premium-hero__content container">
+    {% if component.subtitle %}<p class="premium-section__eyebrow">{{ component.subtitle }}</p>{% endif %}
+    {% if component.title %}<h2 id="premium-hero-title-{{ position }}" class="premium-hero__title">{{ component.title }}</h2>{% endif %}
+    {% if component.description %}<p class="premium-hero__description">{{ component.description }}</p>{% endif %}
+    {% if component.cta_url and component.cta_label %}<a class="btn btn--primary" href="{{ component.cta_url }}">{{ component.cta_label }}</a>{% endif %}
+    {% if variant == 'product-spotlight' and product_ids %}
+      <div class="premium-hero__products">
+        <salla-products-slider source="selected" source-value="[{{ product_ids }}]" slider-id="hero-products-{{ position }}" show-controls="false"></salla-products-slider>
+      </div>
+    {% endif %}
+  </div>
+</section>

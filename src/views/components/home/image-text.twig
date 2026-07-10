@@ -1,0 +1,14 @@
+{% set variant = component.variant|default('image-left') %}
+<section class="premium-section image-text image-text--{{ variant }} premium-section--width-{{ component.width|default('contained') }} premium-section--spacing-{{ component.spacing|default('normal') }} premium-section--surface-{{ component.background|default('canvas') }}" aria-labelledby="image-text-title-{{ position }}">
+  <div class="image-text__inner container">
+    <div class="image-text__media">
+      {% if component.image %}<img src="{{ component.image }}" alt="{{ component.image_alt|default('') }}" width="900" height="1100" loading="lazy">{% endif %}
+    </div>
+    <div class="image-text__content premium-section--align-{{ component.alignment|default('start') }}">
+      {% if component.subtitle %}<p class="premium-section__eyebrow">{{ component.subtitle }}</p>{% endif %}
+      {% if component.title %}<h2 id="image-text-title-{{ position }}">{{ component.title }}</h2>{% endif %}
+      {% if component.description %}<p>{{ component.description }}</p>{% endif %}
+      {% if component.cta_url and component.cta_label %}<a class="btn btn--outline" href="{{ component.cta_url }}">{{ component.cta_label }}</a>{% endif %}
+    </div>
+  </div>
+</section>
