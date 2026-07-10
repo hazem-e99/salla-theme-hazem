@@ -7,6 +7,19 @@
 
 ## ✨ Premium Redesign — Unreleased
 
+### Phase 5 — Product Card, Product Page, Collection & SEO
+- Product card (renders via product-card.js, markup contract untouched):
+  premium hover lift + hairline, signature quiet image-zoom (reduced-motion
+  aware), refined blur wishlist button, tokenized sale/promotion colors
+  (`--color-sale` replaces muddy `red-800`); fixed semantically-wrong red
+  on "starting price".
+- Product page: display-serif `<h1>`, unified `.u-price` presentation for
+  both price blocks (all JS hooks `.total-price`/`.before-price`/
+  `.price_is_on_sale`/`.starting-or-normal-price` preserved), added
+  Product JSON-LD (schema.org) via head_scripts for rich results.
+- Collection page: editorial `<h1>`, `.u-chip` filter trigger, tokenized
+  sort label. `<salla-filters>`/`<salla-products-list>` untouched.
+
 ### Phase 4 — Header, Footer & Home Blocks
 - Footer: token-driven premium layout for both merchant dark/light modes;
   refined hairlines, spacing rhythm, corrected heading hierarchy; removed

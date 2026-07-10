@@ -308,7 +308,8 @@ salla-add-product-button[product-status="out-and-notify"],
   @apply justify-start gap-2.5;
 
   h4{
-    @apply text-red-800;
+    color: var(--color-ink);
+    font-variant-numeric: tabular-nums;
   }
 }
 
@@ -347,6 +348,57 @@ salla-add-product-button[product-status="out-and-notify"],
   @apply opacity-100;
 }
 
+/* ==========================================================================
+   PREMIUM PRODUCT CARD  (Editorial Luxe) — additive polish
+   Elevates the card rendered by product-card.js without changing its markup
+   contract or any Salla component. Effects are reduced-motion aware.
+   ========================================================================== */
+.s-product-card-entry{
+  border: var(--border-width) solid transparent;
+  border-radius: var(--radius-lg);
+  transition: box-shadow var(--duration-base) var(--ease-standard),
+              border-color var(--duration-base) var(--ease-standard),
+              transform var(--duration-base) var(--ease-standard);
+
+  &:hover{
+    border-color: var(--color-line);
+    box-shadow: var(--shadow-md);
+  }
+}
+
+/* Signature move: quiet image zoom on hover */
+.s-product-card-image,
+.s-product-card-image-full{
+  overflow: hidden;
+
+  img{
+    transition: transform var(--duration-slow) var(--ease-emphasized);
+    will-change: transform;
+  }
+}
+@media (prefers-reduced-motion: no-preference){
+  .s-product-card-entry:hover .s-product-card-image img,
+  .s-product-card-entry:hover .s-product-card-image-full img{
+    transform: scale(1.06);
+  }
+}
+
+/* Wishlist button — premium resting + hover, sits above the zoom */
+.s-product-card-wishlist-btn{
+  z-index: var(--z-raised);
+  backdrop-filter: blur(4px);
+  background: rgba(255, 255, 255, 0.85);
+  border-color: transparent;
+  transition: var(--transition-base);
+
+  &:hover{ background: #fff; transform: scale(1.06); }
+}
+
+/* Add-to-cart reveal: keep it visible, just refine the footer spacing */
+.s-product-card-content-footer{
+  margin-top: var(--space-3);
+}
+
 
 // Horizontal card
 .s-product-card-horizontal{
@@ -370,16 +422,22 @@ salla-add-product-button[product-status="out-and-notify"],
 }
 
 .s-product-card-promotion-title{
-  @apply bg-red-800 text-white;
+  background: var(--color-sale);
+  color: #fff;
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-wide);
 }
 
 .s-product-card-sale-price {
   h4{
-    @apply text-red-800 #{!important};
+    color: var(--color-sale) !important;
+    font-variant-numeric: tabular-nums;
   }
 
   span{
     @apply text-inherit;
+    text-decoration: line-through;
+    color: var(--color-ink-muted);
   }
 }
 
