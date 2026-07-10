@@ -1,0 +1,65 @@
+/* ==========================================================================
+   COLLECTION / FILTERS — "ATELIER" editorial chrome
+   Styles the theme-owned collection header + filter/sort controls.
+   <salla-filters> and <salla-products-list> render/behave via Salla.
+   ========================================================================== */
+
+.collection-head{
+  align-items: flex-end;
+}
+
+.collection-title{
+  font-family: var(--font-display);
+  font-size: var(--text-h2);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-tight);
+  line-height: var(--leading-tight);
+  color: var(--color-ink);
+}
+
+/* Mobile filter trigger — minimal ink glyph + label */
+.collection-filter-btn{
+  @apply inline-flex items-center gap-2;
+  font-size: var(--text-eyebrow);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-ink);
+  padding-bottom: 2px;
+  border-bottom: 1px solid var(--color-ink);
+  i{ font-size: 1rem; }
+}
+
+/* Sort select — borderless editorial control */
+#product-filter{
+  border: 0;
+  border-bottom: var(--border-width) solid var(--color-ink);
+  border-radius: 0;
+  background-color: transparent;
+  font-size: var(--text-body-sm);
+  color: var(--color-ink);
+  padding-inline: 0;
+  &:focus{ box-shadow: none; }
+}
+
+/* Sparse editorial product grid: tight columns, generous vertical rhythm.
+   Applies to Salla's rendered product-list grid without changing its DOM. */
+salla-products-list{
+  .s-products-list-wrapper,
+  [class*="grid"]{
+    gap: var(--space-4) var(--space-4) !important;
+  }
+  @screen md{
+    .s-products-list-wrapper,
+    [class*="grid"]{
+      row-gap: var(--space-12) !important;
+    }
+  }
+}
+
+/* Filter sidebar labels — quiet uppercase to match the identity */
+salla-filters{
+  .s-filter-title,
+  [class*="title"]{
+    letter-spacing: var(--tracking-wide);
+  }
+}

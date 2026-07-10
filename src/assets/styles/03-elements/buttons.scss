@@ -19,7 +19,16 @@ salla-button {
 }
 
 .btn {
-  @apply transition duration-300 flex-1 inline-flex justify-center items-center px-6 pb-2.5 pt-2 text-sm font-bold rounded-md hover:opacity-80 whitespace-nowrap;
+  @apply transition duration-300 flex-1 inline-flex justify-center items-center whitespace-nowrap;
+  /* Editorial button: sharp, uppercase, wide-tracked, quiet weight */
+  padding: var(--space-3) var(--space-6);
+  border-radius: 0;
+  font-size: var(--text-body-sm);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+
+  &:hover { opacity: var(--opacity-hover); }
 
   /* Accessible focus ring (restores visibility disabled globally by
      corePlugins.outline:false). Keyboard-only via :focus-visible. */
@@ -141,11 +150,15 @@ salla-button {
   }
 
   &--primary {
-    @apply text-primary-reverse border border-primary bg-primary;
+    background: var(--color-ink);
+    border: var(--border-width) solid var(--color-ink);
+    color: #fff;
   }
 
   &--outline-primary {
-    @apply border border-primary text-primary hover:bg-primary hover:text-primary-reverse;
+    border: var(--border-width) solid var(--color-ink);
+    color: var(--color-ink);
+    &:hover { background: var(--color-ink); color: #fff; opacity: 1; }
   }
 
   &--outline {

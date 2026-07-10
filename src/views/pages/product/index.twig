@@ -42,12 +42,12 @@
 		{% endif %}
 
 		<div class="main-content flex-1 w-full {{ filters ? 'ltr:lg:ml-8 rtl:lg:mr-8' : '' }}">
-			<div class="mb-6 sm:mb-8 flex justify-between items-center gap-4">
-				<h1 class="type-h2 text-balance text-ink rtl:pl-3 ltr:pr-3" id="page-main-title">{{ page.title|raw }}</h1>
-				<div class="flex items-center space-x-2 rtl:space-x-reverse shrink-0">
+			<div class="collection-head mb-8 sm:mb-12 pb-6 border-b border-line flex justify-between items-end gap-4">
+				<h1 class="collection-title text-balance" id="page-main-title">{{ page.title|raw }}</h1>
+				<div class="flex items-center space-x-4 rtl:space-x-reverse shrink-0">
 					{% if filters %}
-						<a href="#filters-menu" class="filters-trigger u-chip lg:hidden" aria-label="{{ trans('pages.categories.filter') }}">
-							<i class="sicon-filter text-lg"></i>
+						<a href="#filters-menu" class="filters-trigger collection-filter-btn lg:hidden" aria-label="{{ trans('pages.categories.filter') }}">
+							<i class="sicon-filter"></i>
 						</a>
 					{% endif %}
 					{% if sort_options|length %}

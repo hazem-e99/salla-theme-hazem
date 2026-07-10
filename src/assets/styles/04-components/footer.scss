@@ -24,12 +24,23 @@
     @screen lg { padding-block: var(--space-20); }
   }
 
-  /* Store name (now an h2.type-h3) + section labels */
-  h2 { color: #fff; margin-bottom: var(--space-4); }
+  /* Store name — spaced editorial wordmark */
+  h2 {
+    color: #fff;
+    margin-bottom: var(--space-5);
+    font-family: var(--font-display);
+    letter-spacing: var(--tracking-widest);
+    text-transform: uppercase;
+    font-size: var(--text-h4);
+  }
 
+  /* Section labels — tiny, wide, quiet */
   h3 {
-    color: rgba(255, 255, 255, 0.55);
-    margin-bottom: var(--space-4);
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: var(--space-5);
+    font-size: var(--text-eyebrow);
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
   }
 
   /* Salla menu links inside the footer */

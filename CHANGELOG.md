@@ -7,6 +7,33 @@
 
 ## ✨ Premium Redesign — Unreleased
 
+### V2 — "Atelier" full editorial identity (complete visual transformation)
+A ground-up visual identity replacing the polished-Twilight look with a
+Zara/COS editorial system. **Business logic, Salla components, and all JS
+hooks preserved; only the visual layer is rebuilt.**
+
+- **Tokens**: monochrome ink-on-paper palette, sharp corners (radius → ~0
+  store-wide, incl. Tailwind built-ins), near-flat elevation, wide tracking,
+  much larger section rhythm (extreme whitespace).
+- **Header**: markup + SCSS rebuilt into a 3-column bar with a centered,
+  letter-spaced wordmark, slim ink utility strip, hairline-only main bar,
+  inline search, minimal ink icon buttons. Sticky contract + components kept.
+- **Product card**: borderless, image-led 3:4 media, tiny quiet type, minimal
+  ink wishlist glyph; add-to-cart recedes until hover (hover-capable ≥768px
+  only — never hidden on touch; revealed on focus for keyboard).
+- **Home**: full-bleed immersive hero (soft bottom scrim, no dark wash),
+  centered tiny uppercase section titles, taller framed editorial banners.
+- **Product page**: hairline separations instead of grey card fills, large
+  ink tabular price, uppercase micro-labels, sharp gallery, bold ink CTA.
+  All price-update JS hooks preserved.
+- **Collection**: editorial serif title + hairline head, borderless sort
+  select, minimal filter trigger, sparser grid rhythm.
+- **Footer & buttons**: spaced uppercase headings; sharp uppercase
+  wide-tracked buttons with an ink primary.
+- Verified all JS-critical selectors (cart price hooks, product-card render
+  classes, `#mainnav`/`#mobile-menu`/`custom-main-menu` sticky + mobile-menu
+  flow) remain intact.
+
 ### Phase 8 — Documentation & Handover
 - Added `ARCHITECTURE.md` (how the theme is built & why), `THEME_STRUCTURE.md`
   (full file map + contracts), and a premium fork section atop `README.md`
