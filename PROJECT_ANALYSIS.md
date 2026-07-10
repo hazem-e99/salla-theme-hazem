@@ -1,146 +1,135 @@
-# PROJECT_ANALYSIS.md
+# Project analysis
 
-> Deep analysis of the current Salla theme (fork of the official **theme-raed**) prior to the premium redesign.
-> Generated before any code changes. The build was verified to compile successfully (`pnpm run production` → 9 warnings, 0 errors) so this is our known-good baseline.
+Audit date: 2026-07-10  
+Baseline branch: `feat/premium-theme-system`  
+Upstream: Salla Raed/Twilight (`@salla.sa/twilight` 2.14.491)
 
----
+## Executive summary
 
-## 1. Architecture Overview
+This repository is a functioning Salla Twilight theme with a sound server-rendered architecture and an in-progress editorial redesign. The safe path is evolutionary: preserve every Twig contract, Salla web component, hook, setting key, script entry, event, and JavaScript selector while replacing the visual layer with configurable tokens and composition variants.
 
-This is a fork of Salla's official **Raed** starter theme (`"name": "theme-raed"`, `v1.358.0`). It is a mature, professionally-structured theme — **not** amateur code. The redesign strategy is therefore **enhancement, not rescue**: we keep the solid bones (Twig data contracts, Twilight web components, ITCSS layering) and invest almost entirely in the **design layer** (tokens, typography, spacing, color, motion, component polish).
+The current source already contains an Editorial/Atelier token layer, fluid type roles, reusable CSS primitives, redesigned header/footer/product surfaces, reduced-motion rules, and focus styles. It is not yet a theme system: only 22 global settings and 6 custom editor components are declared; there is no merchant-selectable preset, header/footer/product-card/page-layout variant, approved-variable override layer, custom HTML section, or broad categorized section library. The compiled `app.css` is approximately 1.0 MB, so performance work must accompany expansion.
 
-### Tech stack
+## Architecture and build
 
-| Layer | Technology | Notes |
-|-------|-----------|-------|
-| Templating | **Twig** (Salla Twilight server-rendered) | 44 `.twig` files. Data comes from Salla; we must never break the variable contracts documented in each file's header comment. |
-| Components | **Twilight web components** (`<salla-*>`) | Cart, search, wishlist, user-menu, product-options, comments, rating, etc. are Salla-owned custom elements. We style *around* them; we don't reimplement them. |
-| Styling | **SCSS** in strict **ITCSS** order + **TailwindCSS 3.4** via `@apply` | 37 `.scss` files. Tailwind classes are consumed inside SCSS with `@apply` "to simplify the DOM" (per `app.scss` header). |
-| JS | **ES classes**, Babel-transpiled, bundled by **Webpack 5** | 24 source `.js` files. Page-scoped classes extend `BasePage` and self-initialize via `initiateWhenReady([pages])`. |
-| Build | **Webpack 5** + `mini-css-extract` + `css-minimizer` + Salla `ThemeWatcher` | Multi-entry (see below). Output → `public/`. |
-| Package mgr | **pnpm** (enforced via `only-allow`) | |
+| Layer | Implementation | Contract / implication |
+| --- | --- | --- |
+| Rendering | 44 Twig templates under `src/views` | Server-rendered by Twilight; variables, hooks, includes, and component paths are API contracts. |
+| Store UI | Salla web components (`salla-*`) | Cart, search, filters, wishlist, auth, product options, reviews, localization, payments, and related features remain platform-owned. |
+| Styling | 41 SCSS files, ITCSS ordering, Tailwind 3/PostCSS | Tokens can be layered before generic/elements/components without rewriting functional markup. |
+| Runtime | 24 JavaScript modules and custom elements | Page controllers and custom product/menu/wishlist elements depend on stable selectors and Salla events. |
+| Bundling | Webpack 5, Babel, MiniCssExtract, CSS minimizer, CopyPlugin, ThemeWatcher | Output is written to `public/`; entry names are referenced by Twig and must not change. |
+| Editor | `twilight.json` | 17 features, 22 settings, 6 custom home components; JSON and existing setting IDs are compatibility contracts. |
+| Localization | `src/locales/ar.json`, `src/locales/en.json` | Both must stay valid and key-compatible; theme-editor labels currently mix localized objects and Arabic-only strings. |
 
-### Build entry points (`webpack.config.js`)
+### Required webpack entries
 
-`app` (global css+js+wishlist+blog), `home`, `product-card`, `main-menu`, `wishlist-card`, `add-product-toast`, `digital-files`, `checkout` (cart+thankyou), `pages` (loyalty+brands), `product` (product+products), `order`, `testimonials`. **These entry names are contracts** — twig files reference them via `{{ 'name.js'|asset }}`. Renaming an entry breaks a page.
+`app`, `home`, `product-card`, `main-menu`, `wishlist-card`, `add-product-toast`, `digital-files`, `checkout`, `pages`, `product`, `order`, and `testimonials` are required output contracts. The `checkout` bundle combines cart and thank-you behavior; `product` combines product detail and product listing behavior.
 
-### SCSS layering (ITCSS — already correct)
+### Rendering model
 
-```
-01-settings   → tailwind import, fonts, global CSS vars, breakpoints
-02-generic    → reset, common, tooltip, animations, lazyload, rtl, ltr, mixins
-03-elements   → form, buttons, radio, radio-images
-04-components → header, footer, menus, product, brands, slider, home-blocks, … (18 files)
-05-utilities  → chat-bots, swal, safari-fixes, font-customization
-```
+- `layouts/master.twig` owns document metadata, global assets, runtime CSS variables, body classes, header/footer, global modals, search, and Salla hooks.
+- `pages/index.twig` delegates to `{% component home %}`. Merchant section order is platform-driven; home templates must remain independent.
+- Product, collection/search, cart, customer, blog, brands, testimonials, landing, static, and order pages are real Twig surfaces rather than SPA routes.
+- `public/` is generated output. At audit time it contains uncommitted build changes; source edits must be committed separately so those user-visible generated changes are not accidentally discarded.
 
-This is a genuine strength. Our new **design-token layer slots cleanly into `01-settings`** without disturbing the cascade.
+## Existing reusable components
 
-### Rendering model (critical to preserve)
+- `custom-salla-product-card` is the central product renderer and already supports vertical, horizontal, full-image, minimal, special, and donation paths.
+- `custom-main-menu`, wishlist card, add-product toast, `BasePage`, `AppHelpers`, and the global `app` controller are reusable runtime building blocks.
+- CSS primitives in `_ui-kit.scss` cover section headings, badges, discount/stock states, chips, prices, ratings, skeletons, cards, empty states, trust items, newsletters, dividers, and focus rings.
+- Existing home templates include sliders, product lists, banners, category links, brands, testimonials, YouTube, features, parallax, and fixed/product-feature compositions.
+- Header, footer, buttons, forms, filters, menus, product UI, and customer UI are shared style modules.
 
-- **Homepage** (`pages/index.twig`) is *not* hand-authored. It renders `{% component home %}` — merchant-configured blocks assembled from `views/components/home/*.twig` (21 block templates). We redesign the **blocks**, not a monolithic homepage.
-- **Product / cart / customer** pages are server-rendered Twig with embedded `<salla-*>` components + a page-scoped JS class.
-- **Theme settings** (`twilight.json`, 53 KB) drive conditional rendering via `theme.settings.get('key')`. These keys are a contract with the merchant dashboard.
+## Salla component dependencies
 
----
+The theme relies on, among others: `salla-search`, `salla-cart-summary`, `salla-user-menu`, `salla-menu`, `salla-contacts`, `salla-localization-modal`, `salla-products-list`, `salla-products-slider`, `salla-filters`, `salla-product-options`, `salla-quantity-input`, `salla-add-product-button`, `salla-rating-stars`, `salla-comments`, `salla-breadcrumb`, `salla-slider`, `salla-social-share`, `salla-installment`, `salla-gifting`, `salla-offer`, `salla-quick-order`, `salla-trust-badges`, `salla-payments`, and authentication/account/order components. These must be composed and styled, never replaced with static lookalikes.
 
-## 2. Reusable Components (inventory)
+## JavaScript-critical contracts
 
-### Existing reusable assets (keep & elevate)
+The complete selector inventory remains in source and must be checked before each template change. Highest-risk selectors include:
 
-| Component | Location | Reuse status |
-|-----------|----------|--------------|
-| `custom-salla-product-card` | `js/partials/product-card.js` | **Central reusable unit.** Web component with variants: vertical, horizontal, full-image, minimal, special, donation. Used everywhere products appear. Highest-leverage redesign target. |
-| `BasePage` | `js/base-page.js` | Base class for page controllers. Clean pattern — reuse as-is. |
-| `AppHelpers` / `app` | `js/app-helpers.js`, `js/app.js` | Global DOM helper toolkit (`toggleElementClassIf`, `onClick`, `watchElements`, `anime`…). Reuse heavily. |
-| Header / Footer | `components/header/`, `components/footer/` | Single shared instances via `{% component %}`. Redesign once, applies globally. |
-| Home blocks (21) | `components/home/*.twig` | Each is an independent, merchant-composable section. |
-| Button system | `03-elements/buttons.scss` | `.btn` + modifiers (`--primary`, `--outline`, `--icon`, `--rounded-gray`…). A de-facto button library already. |
+| Area | Stable selectors / attributes / events |
+| --- | --- |
+| Product detail | `.product-form`, `.total-price`, `.before-price`, `.price_is_on_sale`, `.starting-or-normal-price`, `.out-of-stock`, `.sticky-product-bar`, `#btn-show-more`, `#more-content`, `#details-slider-*`, `[data-fslightbox]`, product option IDs and upload attributes. |
+| Product cards | Custom-element attributes, `.add-to-cart`, wishlist `data-id`, quantity controls, image/status/price nodes, `salla-add-product-button`, and Salla cart/wishlist events. |
+| Collection/search | `#filters-menu`, `.filters-trigger`, `.close-filters`, `#product-filter`, `salla-products-list[filters-Results]`, and the listing/filter events in `products.js`. |
+| Cart/checkout | Cart item IDs, quantity/remove controls, coupon and summary hooks, plus `salla.cart.*` and cart event listeners. |
+| Header/navigation | `#mainnav`, `#mobile-menu`, `.mburger`, `custom-main-menu`, `window.header_is_sticky`, `window.enable_more_menu`, scope dispatch, and Salla menu/search/cart components. |
+| Shared interactions | `data-show`, modal IDs, tab `data-target` / `data-component-id`, lazy `data-src` / `data-bg`, and `salla.event.*` dispatch/listen calls. |
 
-### Missing reusable primitives (to be created)
+Inline `onclick`/`onsubmit` attributes that invoke Salla APIs are functional contracts, not candidates for cosmetic cleanup unless equivalently migrated and tested.
 
-Badge, Chip/Tag, Skeleton (only header has one), Empty-state (partial), Section-title, Price component (logic is duplicated in twig **and** JS), Rating (twig **and** JS), Stock badge, Discount badge, Toast (uses SweetAlert), Breadcrumb wrapper, Trust-badge row, Newsletter — these currently live as ad-hoc markup repeated across files.
+## Technical debt and limitations
 
----
+1. The current design is effectively one hard-coded Editorial Luxe identity. Token values collapse radii and shadows globally, preventing category-appropriate identities.
+2. Merchant editor coverage is very small: 22 settings and 6 custom sections cannot deliver the requested store-to-store variation.
+3. Several setting labels/default strings show mojibake when read through the current console, and most editor copy is Arabic-only. Encoding and bilingual labels need a controlled migration.
+4. Tokens are concentrated in one file rather than split by concern. This is workable now but needs a documented boundary before the library grows.
+5. `--font-main` still falls back to DINNextLTArabic while `theme.font.path` is supplied by Salla. The requested Alexandria/IBM Plex + balanced Latin system cannot be guaranteed without licensed/local assets or supported editor font sources.
+6. Typography uses wide tracking and uppercase roles that require explicit Arabic overrides.
+7. Repeated title/wrapper patterns remain across home templates; not every primitive is connected to real templates.
+8. Price and rating presentation exists in both JavaScript-rendered cards and Twig pages. Visual tokens can be shared, but business rendering cannot be blindly consolidated across execution contexts.
+9. Sass `@import` is deprecated. Migration to modules is possible but should be isolated from visual work.
+10. Tailwind's Salla safelist and legacy utility surface produce a very large stylesheet. Removing it without a rendered-page inventory is high risk.
+11. There is no automated test suite. Build success only proves compilation, not Salla runtime behavior.
 
-## 3. Technical Debt
+## High-risk functional areas
 
-| # | Debt | Location | Severity | Impact |
-|---|------|----------|----------|--------|
-| D1 | **Color system is muddy & self-overriding.** `--color-primary` is declared twice in `global.scss` (`#5cd5c4` then immediately `#414042`), so the mint brand is dead-on-arrival and the theme is grey. No semantic color scale (success/warning/danger are one-off Tailwind classes like `text-red-800`). | `01-settings/global.scss` | **High** | The single biggest reason the theme looks generic. |
-| D2 | **No typography system.** `01-settings/fonts.scss` is **empty (1 line)**. There is no type scale, no display/heading/body role separation. Font sizes are scattered magic numbers in `tailwind.config.js` (`title-size:42px`, `22px`, `xxs`, `xxxs`). | `fonts.scss`, `tailwind.config.js` | **High** | No consistent visual hierarchy. |
-| D3 | **Design values hardcoded everywhere.** Shadows, radii, spacing use one-off pixel values (`#2B2D340D`, `22px`, `232px`, `15px`) instead of a token scale. | `tailwind.config.js`, many `.scss` | **High** | Impossible to reskin consistently. |
-| D4 | **Duplicated price + rating logic.** Price rendering exists in `product-card.js` (`getProductPrice`) **and** in `product/single.twig` **and** cart. Rating stars duplicated in twig + JS. | multiple | Medium | Inconsistent behavior, double maintenance. |
-| D5 | **`important: false` but liberal `!important` in SCSS** (`#{!important}`, `!text-red-800`, `!mt-0`). | buttons/product scss | Medium | Specificity wars; fragile overrides. |
-| D6 | **Inconsistent naming / dead structure.** Trailing empty `<span>` in footer, commented-out code (`// app.anime(...)`), inconsistent indentation (tabs vs spaces in footer.twig). | footer.twig, cart.js | Low | Readability. |
-| D7 | **`app.css` is 707 KiB.** Largely the Twilight tailwind safelist (`safe-list-css.txt`) pulled in wholesale via `content`. | build output | Medium | Performance budget blown (see §7). |
-| D8 | **SCSS `@import` deprecated** (Dart Sass 3.0 will remove). 31 deprecation warnings on build. | `app.scss` | Low (future) | Will break on a future Sass major. |
-| D9 | **Magic timers / polling.** `setInterval(…,100)` for menu direction, `setInterval(…,160)` in `isElementLoaded`. | `app.js` | Low | Wasteful; acceptable but improvable. |
+- Product option and variant price updates, file/note inputs, availability, preorder, gifting, and sticky add-to-cart.
+- Product card custom-element rendering across all Salla product types.
+- Filter/sort/list updates and pagination/infinite loading owned by Salla components.
+- Cart quantity/removal/coupon/checkout flow and the shared `checkout` entry.
+- Header mega-menu/mobile menu behavior and global search/auth/cart overlays.
+- Theme editor JSON migrations: removing or renaming existing IDs can invalidate merchant configuration.
+- Raw merchant HTML: Twig cannot safely sanitize arbitrary markup by itself. A safe section must use a platform sanitizer/allowlist; otherwise only structured fields can be offered.
 
----
+## Design and editor gaps
 
-## 4. Scalability & Maintainability Issues
+- No global preset selector or preset modifiers.
+- No density, radius, motion, image-ratio, card, header, footer, product-page, collection-page, or cart-layout selectors.
+- No shared section setting schema; current custom components expose unrelated fields and legacy preview assets.
+- No custom HTML or approved custom-property editor.
+- No complete starter-home composition defined in this repository; Salla's installation/default-component behavior constrains what can be prepopulated.
+- Existing section variants are mostly separate templates or component capabilities, not a coherent merchant-facing system.
 
-- **No token indirection**: because there's no `--space-*`, `--radius-*`, `--shadow-*`, `--text-*` scale, every new component reinvents values. Adding a second brand/skin is currently a find-and-replace nightmare. → **Phase 1 fixes this.**
-- **Tailwind `extend` is a junk drawer**: arbitrary `spacing['58']=232px`, `height['banner']=200px`. These leak implementation detail into class names. → migrate to a semantic scale in Phase 1, keep old keys as aliases so nothing breaks.
-- **Home blocks share no base partial**: each of the 21 blocks re-declares section title / wrapper markup. → introduce a shared `section-title` + `s-block` wrapper (Phase 4).
-- **Documentation drift**: `README.md`/`CHANGELOG.md` describe the upstream Raed theme, not this fork's design intent. → new docs (this file, plan, design system).
+## Performance audit baseline
 
----
+- Production output observed before this phase: `app.css` ~1,006,505 bytes, `app.js` ~349 KB, `product.js` ~123 KB, `home.js` ~65 KB, and several 30–65 KB auxiliary entries.
+- Strengths: page-scoped entries, deferred scripts, lazy media in many templates, Lite YouTube, CDN image transforms, and reduced-motion CSS.
+- Bottlenecks: broad Tailwind safelist, duplicated/legacy styles, global app bundle composition, font/icon stylesheets in the critical path, missing dimensions/aspect ratios in some merchant sections, and animation/polling legacy code.
+- Lighthouse targets cannot be honestly certified without a running Salla preview, production data, network throttling, and browser traces. Build-time budgets and static checks will be added; platform limitations will remain documented.
 
-## 5. Performance Issues
+## Accessibility findings
 
-| Issue | Detail | Fix phase |
-|-------|--------|-----------|
-| CSS weight | `app.css` = 707 KiB (safelist + full twilight theme). | P1/P7 — audit safelist usage, purge. |
-| No explicit image dimensions in some blocks | CLS risk. Product card `<img>` has `loading="lazy"` ✓ but no width/height in several home blocks. | P5/P7 |
-| Render-blocking font CSS | `theme.font.path` + `sallaicons.css` loaded in `<head>` without `preload`/`font-display` guarantee. | P7 |
-| Multiple defer scripts in head | product-card, main-menu, add-product-toast. Acceptable (deferred) but reviewable. | P7 |
-| Polling intervals | see D9. | P6 |
+- A skip link, semantic main/header/footer landmarks, focus-visible styling, and reduced-motion guards now exist.
+- Icon labels are inconsistent and some are English-only; localized accessible names are required.
+- Native and Salla-component focus trapping must be verified in the live browser rather than assumed from markup.
+- Grey utility colors and merchant-selected primary colors can fail AA. Semantic foreground tokens and contrast-safe button treatments are required.
+- Touch targets and hover-revealed product actions need a no-hover/mobile pass.
+- Heading order, form errors, carousel announcements, dynamic focus restoration, and empty states need page-by-page verification.
 
-**Strengths already present**: `fetchpriority="high"` on logo & first product image, `loading="lazy"` on below-fold images, deferred scripts, lazyload placeholder styles.
+## RTL/LTR findings
 
----
+- Document `dir` is correct and Tailwind RTL/LTR utilities are widely used.
+- Legacy physical `left/right`, margins, borders, transforms, icon direction, and drawer placement remain in SCSS/Twig.
+- Arabic-specific tracking and line-height are not fully enforced. Wide Latin eyebrow tracking must be neutralized under `lang="ar"`.
+- Long Arabic merchant content, mixed numerals/currency, and 320 px layouts need visual verification.
 
-## 6. Accessibility Issues
+## Recommended refactoring strategy
 
-- Icon-only buttons mostly have `aria-label` ✓, but some (`.btn--icon` wishlist in card) rely on generic labels ("Add or remove to wishlist") — fine, but focus states are weak (`corePlugins.outline: false` **globally disables outline**). → **Must add visible focus-ring tokens** (WCAG 2.4.7).
-- Heading hierarchy is mostly correct (`h1` store name on index, `h1` product name) but footer uses `<h3>` for store name with no `h2` above → hierarchy gap.
-- Color contrast: grey-on-grey (`text-gray-400` on white) fails AA for small text in several spots. → token-driven text colors in Phase 1/2.
-- `prefers-reduced-motion` is **not** respected anywhere. → add global guard in Phase 6.
+1. Add merchant-selectable presets and safe global controls as body modifiers and CSS-variable overrides; keep one template tree.
+2. Normalize semantic tokens and language-specific typography before expanding components.
+3. Introduce shared Twig macros/partials only where no platform component already owns behavior.
+4. Build section families from proven Salla data sources, with common layout attributes and meaningful composition variants.
+5. Apply variants incrementally to header/footer, cards, product, collection, cart, and search, preserving selectors first and changing composition second.
+6. Treat custom HTML as a security feature: use structured safe content unless Salla exposes a documented sanitizer.
+7. Add JSON/locales validation, selector-contract checks, and asset budgets to the build workflow.
+8. Run browser QA against a real preview for Arabic/English, RTL/LTR, keyboard, touch, reduced motion, empty states, sale/out-of-stock, and product-option permutations before claiming completion.
 
----
+## Phase 0 acceptance baseline
 
-## 7. SEO Issues
-
-- Semantic landmarks present (`<header>`, `<main role="main">`, `<footer>`, `<nav>`) ✓.
-- `h1`/`h2` sr-only pattern on index is correct ✓.
-- **Missing**: structured data (Product / BreadcrumbList / Organization JSON-LD) is left to Salla defaults — opportunity to add `schema.org` markup in product/breadcrumb (Phase 5, additive, no risk).
-- Meta description / OG tags are injected by Salla hooks (`{% hook head %}`) — leave to platform.
-
----
-
-## 8. What We Will NOT Touch (Salla contracts)
-
-To honor "never break Salla functionality", these are **off-limits for behavioral change** (styling around them is fine):
-
-- All `<salla-*>` web components (cart, search, wishlist, user-menu, product-options, comments, rating, installment, gifting, offer, localization, payments, social, quantity-input, add-product-button…).
-- Twig data variables & the `{% hook %}`, `{% component %}`, `{% include %}` directives.
-- `onsubmit="return salla.form.onSubmit(...)"`, `salla.cart.*`, `salla.wishlist.*`, `salla.event.*` calls.
-- Webpack **entry names** and the `public/` output contract.
-- `theme.settings.get(...)` keys defined in `twilight.json`.
-- `twilight.json` `features` array.
-
----
-
-## 9. Baseline Verification
-
-- ✅ `pnpm run production` compiles: **9 warnings, 0 errors**.
-- Warnings are: SCSS `@import` deprecation (cosmetic), and asset-size budget (`app.css` 707 KiB). Both pre-existing, non-breaking.
-- This is our **green baseline**. Every phase must keep this green.
-
----
-
-## 10. Summary Verdict
-
-The theme's **engineering** is solid (ITCSS, component model, data contracts). Its **design** is generic and, worse, actively muted by a broken color declaration (D1). The highest-leverage work is a **design-token foundation → typography → color → component polish**, layered in without touching Salla's rendering. The plan in `IMPLEMENTATION_PLAN.md` sequences this so the build stays green at every commit.
+- Existing source contracts were inventoried.
+- `twilight.json`, locale JSON, build entries, SCSS/Twig/JS structure, current documentation, and generated bundle sizes were inspected.
+- Production changes have not been made during this analysis.
+- The implementation sequence is defined in `IMPLEMENTATION_ROADMAP.md`.
