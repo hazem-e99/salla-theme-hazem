@@ -1,0 +1,201 @@
+/* ==========================================================================
+   GLOBAL VISUAL PRESETS
+   One DOM and one component tree; presets only remap semantic design tokens.
+   Merchant controls are emitted as body modifier classes in master.twig.
+   ========================================================================== */
+
+/* Editorial Luxe — deliberate whitespace, fine rules, typographic product
+   storytelling. Uses the merchant font for Arabic safety; a supported serif
+   may be selected through Salla's font setting for Latin storefronts. */
+.theme-preset--editorial-luxe {
+  --surface-canvas: #fbfbfa;
+  --surface-raised: #ffffff;
+  --surface-sunken: #f4f3f1;
+  --color-ink: #111111;
+  --color-ink-soft: #383838;
+  --color-ink-muted: #6b6b6b;
+  --color-line: #e6e4e0;
+  --color-line-strong: #bdb9b2;
+  --font-display: var(--font-body);
+  --section-y: clamp(4.5rem, 3rem + 7vw, 10rem);
+  --card-space: var(--space-5);
+  --radius-xs: 0;
+  --radius-sm: 0;
+  --radius-md: 1px;
+  --radius-lg: 2px;
+  --shadow-sm: none;
+  --shadow-md: 0 8px 28px -22px rgba(17, 17, 17, 0.28);
+  --duration-base: 300ms;
+  --ease-emphasized: cubic-bezier(0.2, 0, 0, 1);
+}
+
+/* Modern Minimal — geometric, technical and crisp. */
+.theme-preset--modern-minimal {
+  --surface-canvas: #ffffff;
+  --surface-raised: #ffffff;
+  --surface-sunken: #f3f5f7;
+  --color-ink: #0a0d12;
+  --color-ink-soft: #303640;
+  --color-ink-muted: #66707c;
+  --color-line: #dde1e6;
+  --color-line-strong: #aab1bb;
+  --font-display: var(--font-body);
+  --tracking-tight: -0.045em;
+  --section-y: clamp(3.5rem, 2.5rem + 4.5vw, 7rem);
+  --card-space: var(--space-4);
+  --radius-xs: 0;
+  --radius-sm: 0;
+  --radius-md: 2px;
+  --radius-lg: 4px;
+  --shadow-sm: none;
+  --shadow-md: 0 12px 32px -26px rgba(10, 13, 18, 0.42);
+  --duration-base: 220ms;
+  --ease-emphasized: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Soft Premium — cool pearl surfaces, rounded tactility and quiet depth. */
+.theme-preset--soft-premium {
+  --surface-canvas: #f8f8fb;
+  --surface-raised: #ffffff;
+  --surface-sunken: #f0f1f6;
+  --color-ink: #25242a;
+  --color-ink-soft: #4c4a54;
+  --color-ink-muted: #74717d;
+  --color-line: #e4e3ea;
+  --color-line-strong: #c6c3cf;
+  --font-display: var(--font-body);
+  --tracking-tight: -0.025em;
+  --section-y: clamp(4rem, 3rem + 5vw, 8rem);
+  --card-space: var(--space-6);
+  --radius-xs: 6px;
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --shadow-sm: 0 6px 20px -14px rgba(52, 45, 68, 0.24);
+  --shadow-md: 0 20px 48px -26px rgba(52, 45, 68, 0.34);
+  --duration-base: 320ms;
+  --ease-emphasized: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Bold Commerce — dense merchandising, decisive borders and price-led type. */
+.theme-preset--bold-commerce {
+  --surface-canvas: #f6f8fb;
+  --surface-raised: #ffffff;
+  --surface-sunken: #e9edf3;
+  --color-ink: #121827;
+  --color-ink-soft: #2e374a;
+  --color-ink-muted: #626d80;
+  --color-line: #d7dde7;
+  --color-line-strong: #929daf;
+  --font-display: var(--font-body);
+  --weight-semibold: 700;
+  --weight-bold: 800;
+  --tracking-tight: -0.035em;
+  --section-y: clamp(2.75rem, 2rem + 3vw, 5.25rem);
+  --card-space: var(--space-4);
+  --radius-xs: 3px;
+  --radius-sm: 5px;
+  --radius-md: 8px;
+  --radius-lg: 10px;
+  --shadow-sm: 0 4px 14px -10px rgba(18, 24, 39, 0.36);
+  --shadow-md: 0 16px 34px -22px rgba(18, 24, 39, 0.5);
+  --duration-base: 180ms;
+  --ease-emphasized: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* Rebind semantic aliases after every preset remaps its foundations. */
+[class*="theme-preset--"] {
+  --neutral-50: var(--surface-canvas);
+  --neutral-100: var(--surface-sunken);
+  --neutral-900: var(--color-ink);
+  --surface-inverse: var(--color-ink);
+  --color-paper: var(--surface-canvas);
+  --color-surface: var(--surface-sunken);
+  --color-surface-elevated: var(--surface-raised);
+  --color-muted: var(--color-ink-muted);
+  --color-border: var(--color-line);
+  --color-border-strong: var(--color-line-strong);
+  background: var(--surface-canvas);
+  color: var(--color-ink);
+}
+
+.container { max-width: var(--container-max); }
+
+/* Media ratios affect the real custom product card while retaining the
+   merchant's cover/contain fit contract on the image itself. */
+.product-image-ratio--square .s-product-card-image,
+.product-image-ratio--square .s-product-card-image-full { aspect-ratio: 1 / 1; }
+.product-image-ratio--portrait .s-product-card-image,
+.product-image-ratio--portrait .s-product-card-image-full { aspect-ratio: 4 / 5; }
+.product-image-ratio--landscape .s-product-card-image,
+.product-image-ratio--landscape .s-product-card-image-full { aspect-ratio: 4 / 3; }
+
+/* Merchant controls intentionally override preset defaults. */
+.theme-density--compact {
+  --section-y: clamp(2.5rem, 2rem + 2vw, 4.5rem);
+  --card-space: var(--space-3);
+  --block-gap: var(--space-12);
+}
+.theme-density--balanced {
+  --block-gap: var(--space-20);
+}
+.theme-density--airy {
+  --section-y: clamp(5rem, 3.5rem + 7vw, 10rem);
+  --card-space: var(--space-6);
+  --block-gap: var(--space-32);
+}
+
+.theme-corners--square {
+  --radius-xs: 0; --radius-sm: 0; --radius-md: 0; --radius-lg: 0; --radius-xl: 0;
+}
+.theme-corners--subtle {
+  --radius-xs: 2px; --radius-sm: 4px; --radius-md: 6px; --radius-lg: 8px; --radius-xl: 12px;
+}
+.theme-corners--soft {
+  --radius-xs: 6px; --radius-sm: 10px; --radius-md: 14px; --radius-lg: 20px; --radius-xl: 28px;
+}
+
+.theme-motion--reduced {
+  --duration-fast: 0ms; --duration-base: 0ms; --duration-normal: 0ms; --duration-slow: 0ms;
+}
+.theme-motion--expressive {
+  --duration-fast: 180ms; --duration-base: 360ms; --duration-normal: 360ms; --duration-slow: 620ms;
+  --ease-emphasized: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.theme-width--narrow { --container-max: 1120px; --container-wide: 1280px; }
+.theme-width--standard { --container-max: 1280px; --container-wide: 1536px; }
+.theme-width--wide { --container-max: 1536px; --container-wide: 1760px; }
+
+/* Language-specific typography: Arabic needs more leading and no artificial
+   Latin tracking. Fonts are resolved from Salla's selected/served font first
+   when Alexandria or IBM Plex Sans Arabic is not available. */
+html[lang="ar"] {
+  --font-body: var(--font-family-arabic);
+  --font-display: var(--font-family-arabic);
+  --leading-tight: 1.25;
+  --leading-snug: 1.45;
+  --leading-normal: 1.8;
+  --leading-relaxed: 2;
+  --tracking-tight: 0;
+  --tracking-wide: 0;
+  --tracking-widest: 0;
+}
+
+html[lang="en"] {
+  --font-body: var(--font-family-latin);
+}
+
+/* Global surfaces prove preset integration on real templates immediately. */
+.theme-preset--soft-premium .store-header,
+.theme-preset--soft-premium .store-footer__inner { box-shadow: var(--shadow-sm); }
+.theme-preset--bold-commerce .store-header { border-bottom: 2px solid var(--color-line-strong); }
+.theme-preset--bold-commerce .section-title__heading { font-weight: var(--weight-black); }
+.theme-preset--modern-minimal .store-footer__inner { border-top: 1px solid var(--color-line-strong); }
+
+@media (prefers-reduced-motion: reduce) {
+  [class*="theme-motion--"] {
+    --duration-fast: 0ms; --duration-base: 0ms; --duration-normal: 0ms; --duration-slow: 0ms;
+  }
+}

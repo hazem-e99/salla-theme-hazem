@@ -26,6 +26,188 @@
     ],
     "settings": [
         {
+            "id": "theme_preset",
+            "type": "items",
+            "format": "dropdown-list",
+            "label": "Visual preset / الهوية البصرية",
+            "description": "Changes typography, spacing, corners, elevation and motion across the storefront.",
+            "icon": "sicon-palette",
+            "required": true,
+            "selected": [{"label": "Editorial Luxe / تحريري فاخر", "value": "editorial-luxe", "key": "preset-editorial-luxe"}],
+            "options": [
+                {"label": "Editorial Luxe / تحريري فاخر", "value": "editorial-luxe", "key": "preset-editorial-luxe"},
+                {"label": "Modern Minimal / عصري بسيط", "value": "modern-minimal", "key": "preset-modern-minimal"},
+                {"label": "Soft Premium / فاخر ناعم", "value": "soft-premium", "key": "preset-soft-premium"},
+                {"label": "Bold Commerce / تجاري جريء", "value": "bold-commerce", "key": "preset-bold-commerce"}
+            ]
+        },
+        {
+            "id": "theme_density",
+            "type": "items",
+            "format": "dropdown-list",
+            "label": "Spacing density / كثافة المسافات",
+            "icon": "sicon-layout-grid",
+            "required": true,
+            "selected": [{"label": "Balanced / متوازن", "value": "balanced", "key": "density-balanced"}],
+            "options": [
+                {"label": "Compact / مدمج", "value": "compact", "key": "density-compact"},
+                {"label": "Balanced / متوازن", "value": "balanced", "key": "density-balanced"},
+                {"label": "Airy / واسع", "value": "airy", "key": "density-airy"}
+            ]
+        },
+        {
+            "id": "theme_corner_style",
+            "type": "items",
+            "format": "dropdown-list",
+            "label": "Corner style / شكل الزوايا",
+            "icon": "sicon-border-style",
+            "required": true,
+            "selected": [{"label": "Use preset / حسب الهوية", "value": "preset", "key": "corners-preset"}],
+            "options": [
+                {"label": "Use preset / حسب الهوية", "value": "preset", "key": "corners-preset"},
+                {"label": "Square / حادة", "value": "square", "key": "corners-square"},
+                {"label": "Subtle / خفيفة", "value": "subtle", "key": "corners-subtle"},
+                {"label": "Soft / ناعمة", "value": "soft", "key": "corners-soft"}
+            ]
+        },
+        {
+            "id": "theme_motion",
+            "type": "items",
+            "format": "dropdown-list",
+            "label": "Motion style / أسلوب الحركة",
+            "description": "The visitor's reduced-motion preference always takes priority.",
+            "icon": "sicon-play",
+            "required": true,
+            "selected": [{"label": "Subtle / هادئة", "value": "subtle", "key": "motion-subtle"}],
+            "options": [
+                {"label": "Reduced / محدودة", "value": "reduced", "key": "motion-reduced"},
+                {"label": "Subtle / هادئة", "value": "subtle", "key": "motion-subtle"},
+                {"label": "Expressive / بارزة", "value": "expressive", "key": "motion-expressive"}
+            ]
+        },
+        {
+            "id": "theme_container_width",
+            "type": "items",
+            "format": "dropdown-list",
+            "label": "Content width / عرض المحتوى",
+            "icon": "sicon-layout",
+            "required": true,
+            "selected": [{"label": "Standard / قياسي", "value": "standard", "key": "width-standard"}],
+            "options": [
+                {"label": "Narrow / ضيق", "value": "narrow", "key": "width-narrow"},
+                {"label": "Standard / قياسي", "value": "standard", "key": "width-standard"},
+                {"label": "Wide / عريض", "value": "wide", "key": "width-wide"}
+            ]
+        },
+        {
+            "id": "header_variant",
+            "type": "items",
+            "format": "dropdown-list",
+            "label": "Header layout / تصميم الرأس",
+            "icon": "sicon-header",
+            "required": true,
+            "selected": [{"label": "Editorial Centered / تحريري متوسط", "value": "editorial-centered", "key": "header-editorial"}],
+            "options": [
+                {"label": "Editorial Centered / تحريري متوسط", "value": "editorial-centered", "key": "header-editorial"},
+                {"label": "Classic Commerce / تجاري كلاسيكي", "value": "classic-commerce", "key": "header-classic"},
+                {"label": "Minimal Transparent / شفاف بسيط", "value": "minimal-transparent", "key": "header-transparent"},
+                {"label": "Mega Navigation / تنقل موسع", "value": "mega-navigation", "key": "header-mega"},
+                {"label": "Compact Sticky / مدمج وثابت", "value": "compact-sticky", "key": "header-compact"}
+            ]
+        },
+        {
+            "id": "footer_variant",
+            "type": "items",
+            "format": "dropdown-list",
+            "label": "Footer layout / تصميم التذييل",
+            "icon": "sicon-footer",
+            "required": true,
+            "selected": [{"label": "Editorial / تحريري", "value": "editorial", "key": "footer-editorial"}],
+            "options": [
+                {"label": "Editorial / تحريري", "value": "editorial", "key": "footer-editorial"},
+                {"label": "Commerce Columns / أعمدة تجارية", "value": "commerce-columns", "key": "footer-commerce"},
+                {"label": "Minimal / بسيط", "value": "minimal", "key": "footer-minimal"},
+                {"label": "Dark Premium / داكن فاخر", "value": "dark-premium", "key": "footer-dark"},
+                {"label": "Newsletter Focused / يركز على النشرة", "value": "newsletter-focused", "key": "footer-newsletter"}
+            ]
+        },
+        {
+            "id": "product_card_variant",
+            "type": "items",
+            "format": "dropdown-list",
+            "label": "Product card / بطاقة المنتج",
+            "icon": "sicon-box",
+            "required": true,
+            "selected": [{"label": "Editorial Borderless / تحريري بلا حدود", "value": "editorial-borderless", "key": "card-editorial"}],
+            "options": [
+                {"label": "Editorial Borderless / تحريري بلا حدود", "value": "editorial-borderless", "key": "card-editorial"},
+                {"label": "Premium Card / بطاقة فاخرة", "value": "premium-card", "key": "card-premium"},
+                {"label": "Compact Commerce / تجاري مدمج", "value": "compact-commerce", "key": "card-compact"},
+                {"label": "Image Overlay / نص فوق الصورة", "value": "image-overlay", "key": "card-overlay"},
+                {"label": "Minimal Grid / شبكة بسيطة", "value": "minimal-grid", "key": "card-minimal"},
+                {"label": "Marketplace Dense / سوق كثيف", "value": "marketplace-dense", "key": "card-marketplace"}
+            ]
+        },
+        {
+            "id": "product_page_layout",
+            "type": "items",
+            "format": "dropdown-list",
+            "label": "Product page / صفحة المنتج",
+            "icon": "sicon-shopping-bag",
+            "required": true,
+            "selected": [{"label": "Editorial Gallery / معرض تحريري", "value": "editorial-gallery", "key": "product-editorial"}],
+            "options": [
+                {"label": "Editorial Gallery / معرض تحريري", "value": "editorial-gallery", "key": "product-editorial"},
+                {"label": "Classic Sticky Purchase / شراء كلاسيكي ثابت", "value": "classic-sticky", "key": "product-classic"},
+                {"label": "Full Width Commerce / تجاري بعرض كامل", "value": "full-width-commerce", "key": "product-commerce"},
+                {"label": "Compact Product Focus / تركيز مدمج", "value": "compact-focus", "key": "product-compact"}
+            ]
+        },
+        {
+            "id": "collection_layout",
+            "type": "items",
+            "format": "dropdown-list",
+            "label": "Collection page / صفحة التصنيف",
+            "icon": "sicon-grid",
+            "required": true,
+            "selected": [{"label": "Editorial / تحريري", "value": "editorial", "key": "collection-editorial"}],
+            "options": [
+                {"label": "Editorial / تحريري", "value": "editorial", "key": "collection-editorial"},
+                {"label": "Commerce Grid / شبكة تجارية", "value": "commerce-grid", "key": "collection-commerce"},
+                {"label": "Sidebar Filters / فلاتر جانبية", "value": "sidebar-filters", "key": "collection-sidebar"},
+                {"label": "Full Width Minimal / بسيط بعرض كامل", "value": "full-width-minimal", "key": "collection-minimal"}
+            ]
+        },
+        {
+            "id": "cart_layout",
+            "type": "items",
+            "format": "dropdown-list",
+            "label": "Cart layout / تصميم السلة",
+            "icon": "sicon-cart",
+            "required": true,
+            "selected": [{"label": "Editorial / تحريري", "value": "editorial", "key": "cart-editorial"}],
+            "options": [
+                {"label": "Editorial / تحريري", "value": "editorial", "key": "cart-editorial"},
+                {"label": "Commerce Summary / ملخص تجاري", "value": "commerce-summary", "key": "cart-commerce"},
+                {"label": "Compact Mobile / جوال مدمج", "value": "compact-mobile", "key": "cart-compact"}
+            ]
+        },
+        {
+            "id": "product_image_ratio",
+            "type": "items",
+            "format": "dropdown-list",
+            "label": "Product image ratio / أبعاد صورة المنتج",
+            "icon": "sicon-image",
+            "required": true,
+            "selected": [{"label": "Adaptive / تلقائي", "value": "adaptive", "key": "ratio-adaptive"}],
+            "options": [
+                {"label": "Adaptive / تلقائي", "value": "adaptive", "key": "ratio-adaptive"},
+                {"label": "Square 1:1 / مربع", "value": "square", "key": "ratio-square"},
+                {"label": "Portrait 4:5 / طولي", "value": "portrait", "key": "ratio-portrait"},
+                {"label": "Landscape 4:3 / عرضي", "value": "landscape", "key": "ratio-landscape"}
+            ]
+        },
+        {
             "id": "squar_photo_bg_image_size",
             "type": "items",
             "format": "dropdown-list",

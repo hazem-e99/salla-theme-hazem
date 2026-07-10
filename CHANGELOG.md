@@ -1,5 +1,15 @@
 # Changelog
 
+## 2026-07-10 — Premium theme system foundation
+
+- Added four merchant-selectable visual presets: Editorial Luxe, Modern Minimal, Soft Premium, and Bold Commerce.
+- Added editor controls for density, corners, motion, content width, header/footer/card/page layouts, cart layout, and product image ratio.
+- Added semantic color aliases, a 2–160 px spacing scale, language-specific font stacks, label/price roles, semantic elevation, deceleration, dropdown layering, and layout spacing tokens.
+- Wired preset/control settings to global body modifiers, real containers, storefront surfaces, and custom product-card media.
+- Added Arabic typography safeguards for line-height and tracking; reduced-motion preference remains authoritative.
+- Replaced the stale project audit and added a contract-first implementation roadmap and typography guide.
+- Production build passes with 0 errors; known Sass import and global CSS size warnings remain tracked for the performance phase.
+
 <!-- ============================================================= -->
 <!-- PREMIUM REDESIGN (fork by hazem-e99) — Editorial Luxe          -->
 <!-- Entries below the upstream banner document this fork's work.   -->

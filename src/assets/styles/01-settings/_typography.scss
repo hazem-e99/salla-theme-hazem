@@ -105,7 +105,7 @@
 /* --- Role: label — form labels, chips ------------------------------- */
 .type-label {
   font-family: var(--font-body);
-  font-size: var(--text-body-sm);
+  font-size: var(--text-label);
   font-weight: var(--weight-medium);
   line-height: var(--leading-snug);
 }
@@ -122,6 +122,7 @@
 /* --- Role: price — tabular numerals for aligned pricing ------------- */
 .type-price {
   font-family: var(--font-body);
+  font-size: var(--text-price);
   font-weight: var(--weight-bold);
   font-variant-numeric: tabular-nums;
   font-feature-settings: "tnum" 1;

@@ -26,6 +26,26 @@ The build (Webpack) compiles `src/` → `public/`. Salla serves `public/`.
 
 ## 2. Layers
 
+### 2.0 Runtime configuration flow
+
+Global editor choices are resolved once in `layouts/master.twig` and emitted as
+bounded modifier classes on `<body>`. `_presets.scss` maps those classes to
+semantic CSS custom properties; existing components consume the properties.
+This keeps one Twig/JavaScript implementation for every visual identity and
+prevents preset-specific business logic.
+
+```text
+twilight.json setting
+        -> theme.settings.get(...)
+        -> body modifier class
+        -> preset/control token map
+        -> shared component/page styles
+```
+
+The setting values are allowlisted dropdown options. Layout classes introduced
+before their full composition phase are stable public contracts and must not be
+renamed during later header/footer/card/page work.
+
 ### 2.1 Styling — ITCSS + Tailwind + Design Tokens
 
 SCSS is organized in **ITCSS** order (`app.scss` imports in this sequence):
