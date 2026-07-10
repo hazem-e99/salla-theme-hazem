@@ -237,6 +237,13 @@ const structuredItems = (title) => ({
   ],
 });
 
+const structuredGuideOverrides = {
+  // Salla has no native newsletter/subscribe API or web component in this theme's
+  // dependency set. This section is honestly a link-out call-to-action banner
+  // (button + link), not an email capture form -- do not wire a fake submit here.
+  newsletter: 'Links to a page, WhatsApp, or social profile — there is no built-in email subscription form or API in Salla for this yet, so this section is a call-to-action banner, not a signup form. / يوجّه الزر لصفحة أو واتساب أو حساب تواصل اجتماعي — لا يوجد في سلة حالياً نموذج أو واجهة برمجية لتسجيل بريد إلكتروني، لذا هذا القسم دعوة لإجراء وليس نموذج اشتراك.',
+};
+
 const structuredDefinitions = structuredCatalog.map(([slug,en,ar,variantData]) => {
   const variants=[]; for(let i=0;i<variantData.length;i+=2) variants.push([variantData[i],variantData[i+1]]);
   const titleField=text('title','Title / العنوان'); titleField.value={en:en.split(' — ').pop(),ar:ar.split(' — ').pop()};
@@ -244,7 +251,7 @@ const structuredDefinitions = structuredCatalog.map(([slug,en,ar,variantData]) =
   return {
     key:keyFor(`home.${slug}`), title:{en,ar}, icon:'sicon-layout', path:`home.${slug}`, image:defaultThumbnail,
     fields:[
-      {type:'static',format:'description',id:`${slug}-guide`,value:`${en} / ${ar}`},
+      {type:'static',format:'description',id:`${slug}-guide`,value:structuredGuideOverrides[slug] || `${en} / ${ar}`},
       dropdown('variant','Variant / التصميم',variants,variants[0]), ...common(), titleField,
       text('subtitle','Eyebrow / العنوان الصغير'), descriptionField, text('video_id','YouTube video ID / معرّف يوتيوب'),
       text('date','End date (ISO) / تاريخ الانتهاء'), text('cta_label','Button label / نص الزر'), variableLink('cta_url','Button link / رابط الزر'),

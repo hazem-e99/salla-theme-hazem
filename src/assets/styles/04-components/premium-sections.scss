@@ -131,10 +131,23 @@
 .before-after figure { position: relative; }
 .before-after img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
 .before-after figcaption { position: absolute; inset-inline-start: var(--space-4); bottom: var(--space-4); padding: var(--space-2) var(--space-3); background: var(--surface-raised); }
+
+/* Fallback layouts used before a merchant adds gallery items (see
+   _editorial-family.twig): featured single image + pull-quote pairing. */
+.editorial-story__feature,.split-banner__feature { display: grid; grid-template-columns: 1.35fr .65fr; align-items: center; gap: clamp(var(--space-8),7vw,var(--space-16)); }
+.editorial-story__media,.split-banner__media { overflow: hidden; background: var(--surface-sunken); aspect-ratio: 4 / 5; }
+.editorial-story__media img,.split-banner__media img { width: 100%; height: 100%; object-fit: cover; }
+.editorial-story__feature .editorial-quote,.split-banner__feature .editorial-quote { text-align: start; margin-inline: 0; }
+.editorial-story__feature .editorial-quote blockquote,.split-banner__feature .editorial-quote blockquote { font-size: var(--text-h2); }
+.editorial-family__single-media { overflow: hidden; background: var(--surface-sunken); aspect-ratio: 21 / 9; }
+.editorial-family__single-media img { width: 100%; height: 100%; object-fit: cover; }
+
 @media (max-width:767px) {
   .editorial-family__grid,.editorial-family--split-banner .editorial-family__grid,.editorial-family--lookbook .editorial-family__grid { grid-template-columns: 1fr; }
   .editorial-family--story .editorial-family__item:first-child { grid-column: auto; grid-template-columns: 1fr; }
   .editorial-family--lookbook .editorial-family__item:nth-child(3n) { grid-column: auto; }
   .editorial-family--magazine .editorial-family__item,.editorial-family--magazine .editorial-family__item:first-child { grid-column: 1 / -1; }
   .editorial-family--masonry .editorial-family__grid { columns: 2 9rem; }
+  .editorial-story__feature,.split-banner__feature { grid-template-columns: 1fr; gap: var(--space-6); }
+  .editorial-family__single-media { aspect-ratio: 4 / 5; }
 }

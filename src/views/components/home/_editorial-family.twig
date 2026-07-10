@@ -29,6 +29,38 @@
       <ol class="editorial-timeline">
         {% for item in component.items %}<li><span>{{ loop.index < 10 ? '0' ~ loop.index : loop.index }}</span><div><h3>{{ item.title }}</h3><p>{{ item.text }}</p></div></li>{% endfor %}
       </ol>
+    {% elseif section_kind == 'story' and component.items is empty %}
+      {# Editorial Story's authored content lives in image/quote/citation, not items.
+         Render the featured single-image + pull-quote layout the field set implies;
+         fall back to the items grid below only once a merchant adds gallery items. #}
+      <div class="editorial-story__feature">
+        {% if component.image %}<div class="editorial-story__media"><img src="{{ component.image }}" alt="{{ component.image_alt|default('') }}" width="1200" height="1400" loading="lazy"></div>{% endif %}
+        {% if component.quote %}
+          <figure class="editorial-quote">
+            <blockquote>{{ component.quote }}</blockquote>
+            {% if component.citation %}<figcaption>{{ component.citation }}</figcaption>{% endif %}
+          </figure>
+        {% endif %}
+      </div>
+    {% elseif section_kind in ['masonry','lookbook'] and component.items is empty %}
+      {# No merchant gallery items yet: show the single authored image (if any) full-bleed
+         instead of an empty grid, so the section never renders as a bare heading. #}
+      {% if component.image %}
+        <div class="editorial-family__single-media">
+          <img src="{{ component.image }}" alt="{{ component.image_alt|default('') }}" width="1600" height="1000" loading="lazy">
+        </div>
+      {% endif %}
+    {% elseif section_kind == 'split-banner' and component.items is empty %}
+      {# Split Banner's authored content is the single image/quote pair, not items. #}
+      <div class="split-banner__feature">
+        {% if component.image %}<div class="split-banner__media"><img src="{{ component.image }}" alt="{{ component.image_alt|default('') }}" width="1200" height="1400" loading="lazy"></div>{% endif %}
+        {% if component.quote %}
+          <figure class="editorial-quote">
+            <blockquote>{{ component.quote }}</blockquote>
+            {% if component.citation %}<figcaption>{{ component.citation }}</figcaption>{% endif %}
+          </figure>
+        {% endif %}
+      </div>
     {% else %}
       <div class="editorial-family__grid">
         {% for item in component.items %}

@@ -1,3 +1,12 @@
+{#
+  Platform limitation: Salla has no web component or theme-accessible global for
+  "all store categories" in this theme's dependency set (unlike products, which
+  support source="latest" via <salla-products-list>/<salla-products-slider>).
+  A merchant must pick categories in the editor for this section to render;
+  until then it renders nothing rather than a bare heading or placeholder text
+  in front of real shoppers.
+#}
+{% if component.categories is not empty %}
 {% set mode = component.mode|default('grid') %}
 {% set variant = component.variant|default('portrait') %}
 <section class="premium-section collection-showcase collection-showcase--{{ mode }} collection-showcase--{{ variant }} premium-section--width-{{ component.width|default('contained') }} premium-section--spacing-{{ component.spacing|default('normal') }} premium-section--surface-{{ component.background|default('canvas') }}" aria-labelledby="collection-showcase-title-{{ position }}">
@@ -28,3 +37,4 @@
     {% endif %}
   </div>
 </section>
+{% endif %}

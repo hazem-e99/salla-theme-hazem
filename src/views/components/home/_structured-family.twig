@@ -44,7 +44,7 @@
       <div class="structured-announcements">{% for item in component.items %}<p>{% if item.icon %}<i class="{{ item.icon }}"></i>{% endif %}{% if item.url %}<a href="{{ item.url }}">{{ item.title }}</a>{% else %}{{ item.title }}{% endif %}</p>{% endfor %}</div>
     {% elseif section_kind in ['customer-reviews'] %}
       <salla-reviews limit="{{ component.limit|default(8) }}" type="store"></salla-reviews>
-    {% elseif section_kind in ['testimonials','video-testimonials'] %}
+    {% elseif section_kind in ['testimonials','video-testimonials','premium-testimonials'] %}
       <div class="structured-testimonials">{% for item in component.items %}<figure>{% if section_kind == 'video-testimonials' and item.video %}<video controls preload="metadata" playsinline {% if item.image %}poster="{{ item.image }}"{% endif %}><source src="{{ item.video }}"></video>{% elseif item.image %}<img src="{{ item.image }}" alt="" width="80" height="80" loading="lazy">{% endif %}<blockquote>{{ item.text }}</blockquote><figcaption>{{ item.title }}</figcaption></figure>{% endfor %}</div>
     {% elseif section_kind in ['faq','accordion'] %}
       <div class="structured-accordion">{% for item in component.items %}<details><summary>{{ item.title }}</summary><div>{{ item.text }}</div></details>{% endfor %}</div>

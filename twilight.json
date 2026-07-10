@@ -5055,7 +5055,7 @@
                     "type": "static",
                     "format": "description",
                     "id": "newsletter-guide",
-                    "value": "12 · Signup — Newsletter CTA / 12 · تسجيل — دعوة للنشرة"
+                    "value": "Links to a page, WhatsApp, or social profile — there is no built-in email subscription form or API in Salla for this yet, so this section is a call-to-action banner, not a signup form. / يوجّه الزر لصفحة أو واتساب أو حساب تواصل اجتماعي — لا يوجد في سلة حالياً نموذج أو واجهة برمجية لتسجيل بريد إلكتروني، لذا هذا القسم دعوة لإجراء وليس نموذج اشتراك."
                 },
                 {
                     "id": "variant",
