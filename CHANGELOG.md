@@ -37,6 +37,12 @@
 - Added consistent width, spacing, surface, alignment and motion controls with responsive, RTL-safe native CSS.
 - Added a repeatable schema synchronization script so editor definitions remain deterministic and reviewable.
 
+### Editorial section family
+
+- Added ten individual editor entries and Twig paths for Split Banner, Editorial Story, Lookbook, Image Hotspots, Magazine Layout, Editorial Quote, Timeline, Image Gallery, Masonry Gallery, and Before/After.
+- Reused one semantic family partial while retaining distinct composition rules for every section.
+- Implemented keyboard-focusable hotspots, semantic timeline/quote markup, lazy media, reserved ratios, RTL coordinates, and CSS-only masonry.
+
 <!-- ============================================================= -->
 <!-- PREMIUM REDESIGN (fork by hazem-e99) — Editorial Luxe          -->
 <!-- Entries below the upstream banner document this fork's work.   -->

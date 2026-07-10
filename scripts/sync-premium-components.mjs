@@ -43,7 +43,7 @@ const common = () => [
   dropdown('animation', 'Entrance motion / حركة الظهور', [['None / بدون', 'none'], ['Fade / تلاشي', 'fade'], ['Reveal / كشف', 'reveal']], ['Fade / تلاشي', 'fade']),
 ];
 
-const components = [
+const coreComponents = [
   {
     key: 'premium-system-hero-001',
     title: { en: '01 · Hero — Premium', ar: '01 · واجهة رئيسية فاخرة' },
@@ -113,6 +113,42 @@ const components = [
     ],
   },
 ];
+
+const editorialItems = () => ({
+  id: 'items', type: 'collection', format: 'collection', label: 'Items / العناصر',
+  item_label: 'Item / عنصر', required: false, minLength: 0, maxLength: 12, value: [],
+  fields: [
+    image('items.image', 'Image / الصورة'), text('items.title', 'Title / العنوان'),
+    text('items.text', 'Text / النص', 'textarea'), variableLink('items.url', 'Link / الرابط'),
+    { id: 'items.x', type: 'number', format: 'integer', label: 'Horizontal position % / الموضع الأفقي', value: 50, minimum: 0, maximum: 100, required: false },
+    { id: 'items.y', type: 'number', format: 'integer', label: 'Vertical position % / الموضع الرأسي', value: 50, minimum: 0, maximum: 100, required: false },
+  ],
+});
+
+const editorialDefinitions = [
+  ['split-banner', 'Split Banner', 'بنر منقسم'],
+  ['editorial-story', 'Editorial Story', 'قصة تحريرية'],
+  ['lookbook', 'Lookbook', 'كتاب الإطلالات'],
+  ['image-hotspots', 'Image Hotspots', 'نقاط تفاعلية على الصورة'],
+  ['magazine-layout', 'Magazine Layout', 'تخطيط مجلة'],
+  ['editorial-quote', 'Editorial Quote', 'اقتباس تحريري'],
+  ['timeline', 'Timeline', 'خط زمني'],
+  ['image-gallery', 'Image Gallery', 'معرض صور'],
+  ['masonry-gallery', 'Masonry Gallery', 'معرض متداخل'],
+  ['before-after', 'Before / After', 'قبل وبعد'],
+].map(([slug, en, ar], index) => ({
+  key: `premium-editorial-${String(index + 1).padStart(3, '0')}`,
+  title: { en: `06 · Editorial — ${en}`, ar: `06 · تحريري — ${ar}` },
+  icon: 'sicon-image', path: `home.${slug}`,
+  fields: [
+    { type: 'static', format: 'description', id: `${slug}-guide`, value: `${en} / ${ar} — reusable editorial content with responsive media.` },
+    ...common(), text('title', 'Title / العنوان'), text('description', 'Description / الوصف', 'textarea'),
+    image('image', 'Primary image / الصورة الرئيسية'), text('image_alt', 'Image alternative text / النص البديل'),
+    text('quote', 'Quote / الاقتباس', 'textarea'), text('citation', 'Citation / المصدر'), editorialItems(),
+  ],
+}));
+
+const components = [...coreComponents, ...editorialDefinitions];
 
 const managedPaths = new Set(components.map((component) => component.path));
 schema.components = [...(schema.components || []).filter((component) => !managedPaths.has(component.path)), ...components];

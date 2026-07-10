@@ -2896,6 +2896,3476 @@
                     ]
                 }
             ]
+        },
+        {
+            "key": "premium-editorial-001",
+            "title": {
+                "en": "06 · Editorial — Split Banner",
+                "ar": "06 · تحريري — بنر منقسم"
+            },
+            "icon": "sicon-image",
+            "path": "home.split-banner",
+            "fields": [
+                {
+                    "type": "static",
+                    "format": "description",
+                    "id": "split-banner-guide",
+                    "value": "Split Banner / بنر منقسم — reusable editorial content with responsive media."
+                },
+                {
+                    "id": "width",
+                    "type": "items",
+                    "format": "dropdown-list",
+                    "label": "Width / العرض",
+                    "description": null,
+                    "required": true,
+                    "selected": [
+                        {
+                            "label": "Contained / داخل الحاوية",
+                            "value": "contained",
+                            "key": "premium-contained"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "label": "Contained / داخل الحاوية",
+                            "value": "contained",
+                            "key": "premium-contained"
+                        },
+                        {
+                            "label": "Narrow / ضيق",
+                            "value": "narrow",
+                            "key": "premium-narrow"
+                        },
+                        {
+                            "label": "Wide / عريض",
+                            "value": "wide",
+                            "key": "premium-wide"
+                        },
+                        {
+                            "label": "Full bleed / عرض كامل",
+                            "value": "full",
+                            "key": "premium-full"
+                        }
+                    ]
+                },
+                {
+                    "id": "spacing",
+                    "type": "items",
+                    "format": "dropdown-list",
+                    "label": "Vertical spacing / المسافة الرأسية",
+                    "description": null,
+                    "required": true,
+                    "selected": [
+                        {
+                            "label": "Normal / عادية",
+                            "value": "normal",
+                            "key": "premium-normal"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "label": "None / بدون",
+                            "value": "none",
+                            "key": "premium-none"
+                        },
+                        {
+                            "label": "Compact / مدمجة",
+                            "value": "compact",
+                            "key": "premium-compact"
+                        },
+                        {
+                            "label": "Normal / عادية",
+                            "value": "normal",
+                            "key": "premium-normal"
+                        },
+                        {
+                            "label": "Airy / واسعة",
+                            "value": "airy",
+                            "key": "premium-airy"
+                        }
+                    ]
+                },
+                {
+                    "id": "background",
+                    "type": "items",
+                    "format": "dropdown-list",
+                    "label": "Background / الخلفية",
+                    "description": null,
+                    "required": true,
+                    "selected": [
+                        {
+                            "label": "Canvas / أساسية",
+                            "value": "canvas",
+                            "key": "premium-canvas"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "label": "Canvas / أساسية",
+                            "value": "canvas",
+                            "key": "premium-canvas"
+                        },
+                        {
+                            "label": "Soft surface / سطح ناعم",
+                            "value": "soft",
+                            "key": "premium-soft"
+                        },
+                        {
+                            "label": "Inverse / داكنة",
+                            "value": "inverse",
+                            "key": "premium-inverse"
+                        }
+                    ]
+                },
+                {
+                    "id": "alignment",
+                    "type": "items",
+                    "format": "dropdown-list",
+                    "label": "Content alignment / محاذاة المحتوى",
+                    "description": null,
+                    "required": true,
+                    "selected": [
+                        {
+                            "label": "Start / البداية",
+                            "value": "start",
+                            "key": "premium-start"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "label": "Start / البداية",
+                            "value": "start",
+                            "key": "premium-start"
+                        },
+                        {
+                            "label": "Center / الوسط",
+                            "value": "center",
+                            "key": "premium-center"
+                        },
+                        {
+                            "label": "End / النهاية",
+                            "value": "end",
+                            "key": "premium-end"
+                        }
+                    ]
+                },
+                {
+                    "id": "animation",
+                    "type": "items",
+                    "format": "dropdown-list",
+                    "label": "Entrance motion / حركة الظهور",
+                    "description": null,
+                    "required": true,
+                    "selected": [
+                        {
+                            "label": "Fade / تلاشي",
+                            "value": "fade",
+                            "key": "premium-fade"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "label": "None / بدون",
+                            "value": "none",
+                            "key": "premium-none"
+                        },
+                        {
+                            "label": "Fade / تلاشي",
+                            "value": "fade",
+                            "key": "premium-fade"
+                        },
+                        {
+                            "label": "Reveal / كشف",
+                            "value": "reveal",
+                            "key": "premium-reveal"
+                        }
+                    ]
+                },
+                {
+                    "id": "title",
+                    "type": "string",
+                    "format": "text",
+                    "label": "Title / العنوان",
+                    "multilanguage": true,
+                    "required": false
+                },
+                {
+                    "id": "description",
+                    "type": "string",
+                    "format": "textarea",
+                    "label": "Description / الوصف",
+                    "multilanguage": true,
+                    "required": false
+                },
+                {
+                    "id": "image",
+                    "type": "string",
+                    "format": "image",
+                    "label": "Primary image / الصورة الرئيسية",
+                    "required": false
+                },
+                {
+                    "id": "image_alt",
+                    "type": "string",
+                    "format": "text",
+                    "label": "Image alternative text / النص البديل",
+                    "multilanguage": true,
+                    "required": false
+                },
+                {
+                    "id": "quote",
+                    "type": "string",
+                    "format": "textarea",
+                    "label": "Quote / الاقتباس",
+                    "multilanguage": true,
+                    "required": false
+                },
+                {
+                    "id": "citation",
+                    "type": "string",
+                    "format": "text",
+                    "label": "Citation / المصدر",
+                    "multilanguage": true,
+                    "required": false
+                },
+                {
+                    "id": "items",
+                    "type": "collection",
+                    "format": "collection",
+                    "label": "Items / العناصر",
+                    "item_label": "Item / عنصر",
+                    "required": false,
+                    "minLength": 0,
+                    "maxLength": 12,
+                    "value": [],
+                    "fields": [
+                        {
+                            "id": "items.image",
+                            "type": "string",
+                            "format": "image",
+                            "label": "Image / الصورة",
+                            "required": false
+                        },
+                        {
+                            "id": "items.title",
+                            "type": "string",
+                            "format": "text",
+                            "label": "Title / العنوان",
+                            "multilanguage": true,
+                            "required": false
+                        },
+                        {
+                            "id": "items.text",
+                            "type": "string",
+                            "format": "textarea",
+                            "label": "Text / النص",
+                            "multilanguage": true,
+                            "required": false
+                        },
+                        {
+                            "id": "items.url",
+                            "type": "items",
+                            "format": "variable-list",
+                            "label": "Link / الرابط",
+                            "source": "custom",
+                            "searchable": true,
+                            "required": false,
+                            "value": null,
+                            "sources": [
+                                {
+                                    "label": "Product / منتج",
+                                    "key": "products",
+                                    "value": "products"
+                                },
+                                {
+                                    "label": "Category / تصنيف",
+                                    "key": "categories",
+                                    "value": "categories"
+                                },
+                                {
+                                    "label": "Brand / علامة تجارية",
+                                    "key": "brands",
+                                    "value": "brands"
+                                },
+                                {
+                                    "label": "Page / صفحة",
+                                    "key": "pages",
+                                    "value": "pages"
+                                },
+                                {
+                                    "label": "Article / مقالة",
+                                    "key": "blog_articles",
+                                    "value": "blog_articles"
+                                },
+                                {
+                                    "label": "Offers / العروض",
+                                    "key": "offers_link",
+                                    "value": "offers_link"
+                                },
+                                {
+                                    "label": "Brands page / صفحة العلامات",
+                                    "key": "brands_link",
+                                    "value": "brands_link"
+                                },
+                                {
+                                    "label": "Blog / المدونة",
+                                    "key": "blog_link",
+                                    "value": "blog_link"
+                                },
+                                {
+                                    "label": "External link / رابط خارجي",
+                                    "key": "custom",
+                                    "value": "custom"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "items.x",
+                            "type": "number",
+                            "format": "integer",
+                            "label": "Horizontal position % / الموضع الأفقي",
+                            "value": 50,
+                            "minimum": 0,
+                            "maximum": 100,
+                            "required": false
+                        },
+                        {
+                            "id": "items.y",
+                            "type": "number",
+                            "format": "integer",
+                            "label": "Vertical position % / الموضع الرأسي",
+                            "value": 50,
+                            "minimum": 0,
+                            "maximum": 100,
+                            "required": false
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "premium-editorial-002",
+            "title": {
+                "en": "06 · Editorial — Editorial Story",
+                "ar": "06 · تحريري — قصة تحريرية"
+            },
+            "icon": "sicon-image",
+            "path": "home.editorial-story",
+            "fields": [
+                {
+                    "type": "static",
+                    "format": "description",
+                    "id": "editorial-story-guide",
+                    "value": "Editorial Story / قصة تحريرية — reusable editorial content with responsive media."
+                },
+                {
+                    "id": "width",
+                    "type": "items",
+                    "format": "dropdown-list",
+                    "label": "Width / العرض",
+                    "description": null,
+                    "required": true,
+                    "selected": [
+                        {
+                            "label": "Contained / داخل الحاوية",
+                            "value": "contained",
+                            "key": "premium-contained"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "label": "Contained / داخل الحاوية",
+                            "value": "contained",
+                            "key": "premium-contained"
+                        },
+                        {
+                            "label": "Narrow / ضيق",
+                            "value": "narrow",
+                            "key": "premium-narrow"
+                        },
+                        {
+                            "label": "Wide / عريض",
+                            "value": "wide",
+                            "key": "premium-wide"
+                        },
+                        {
+                            "label": "Full bleed / عرض كامل",
+                            "value": "full",
+                            "key": "premium-full"
+                        }
+                    ]
+                },
+                {
+                    "id": "spacing",
+                    "type": "items",
+                    "format": "dropdown-list",
+                    "label": "Vertical spacing / المسافة الرأسية",
+                    "description": null,
+                    "required": true,
+                    "selected": [
+                        {
+                            "label": "Normal / عادية",
+                            "value": "normal",
+                            "key": "premium-normal"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "label": "None / بدون",
+                            "value": "none",
+                            "key": "premium-none"
+                        },
+                        {
+                            "label": "Compact / مدمجة",
+                            "value": "compact",
+                            "key": "premium-compact"
+                        },
+                        {
+                            "label": "Normal / عادية",
+                            "value": "normal",
+                            "key": "premium-normal"
+                        },
+                        {
+                            "label": "Airy / واسعة",
+                            "value": "airy",
+                            "key": "premium-airy"
+                        }
+                    ]
+                },
+                {
+                    "id": "background",
+                    "type": "items",
+                    "format": "dropdown-list",
+                    "label": "Background / الخلفية",
+                    "description": null,
+                    "required": true,
+                    "selected": [
+                        {
+                            "label": "Canvas / أساسية",
+                            "value": "canvas",
+                            "key": "premium-canvas"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "label": "Canvas / أساسية",
+                            "value": "canvas",
+                            "key": "premium-canvas"
+                        },
+                        {
+                            "label": "Soft surface / سطح ناعم",
+                            "value": "soft",
+                            "key": "premium-soft"
+                        },
+                        {
+                            "label": "Inverse / داكنة",
+                            "value": "inverse",
+                            "key": "premium-inverse"
+                        }
+                    ]
+                },
+                {
+                    "id": "alignment",
+                    "type": "items",
+                    "format": "dropdown-list",
+                    "label": "Content alignment / محاذاة المحتوى",
+                    "description": null,
+                    "required": true,
+                    "selected": [
+                        {
+                            "label": "Start / البداية",
+                            "value": "start",
+                            "key": "premium-start"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "label": "Start / البداية",
+                            "value": "start",
+                            "key": "premium-start"
+                        },
+                        {
+                            "label": "Center / الوسط",
+                            "value": "center",
+                            "key": "premium-center"
+                        },
+                        {
+                            "label": "End / النهاية",
+                            "value": "end",
+                            "key": "premium-end"
+                        }
+                    ]
+                },
+                {
+                    "id": "animation",
+                    "type": "items",
+                    "format": "dropdown-list",
+                    "label": "Entrance motion / حركة الظهور",
+                    "description": null,
+                    "required": true,
+                    "selected": [
+                        {
+                            "label": "Fade / تلاشي",
+                            "value": "fade",
+                            "key": "premium-fade"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "label": "None / بدون",
+                            "value": "none",
+                            "key": "premium-none"
+                        },
+                        {
+                            "label": "Fade / تلاشي",
+                            "value": "fade",
+                            "key": "premium-fade"
+                        },
+                        {
+                            "label": "Reveal / كشف",
+                            "value": "reveal",
+                            "key": "premium-reveal"
+                        }
+                    ]
+                },
+                {
+                    "id": "title",
+                    "type": "string",
+                    "format": "text",
+                    "label": "Title / العنوان",
+                    "multilanguage": true,
+                    "required": false
+                },
+                {
+                    "id": "description",
+                    "type": "string",
+                    "format": "textarea",
+                    "label": "Description / الوصف",
+                    "multilanguage": true,
+                    "required": false
+                },
+                {
+                    "id": "image",
+                    "type": "string",
+                    "format": "image",
+                    "label": "Primary image / الصورة الرئيسية",
+                    "required": false
+                },
+                {
+                    "id": "image_alt",
+                    "type": "string",
+                    "format": "text",
+                    "label": "Image alternative text / النص البديل",
+                    "multilanguage": true,
+                    "required": false
+                },
+                {
+                    "id": "quote",
+                    "type": "string",
+                    "format": "textarea",
+                    "label": "Quote / الاقتباس",
+                    "multilanguage": true,
+                    "required": false
+                },
+                {
+                    "id": "citation",
+                    "type": "string",
+                    "format": "text",
+                    "label": "Citation / المصدر",
+                    "multilanguage": true,
+                    "required": false
+                },
+                {
+                    "id": "items",
+                    "type": "collection",
+                    "format": "collection",
+                    "label": "Items / العناصر",
+                    "item_label": "Item / عنصر",
+                    "required": false,
+                    "minLength": 0,
+                    "maxLength": 12,
+                    "value": [],
+                    "fields": [
+                        {
+                            "id": "items.image",
+                            "type": "string",
+                            "format": "image",
+                            "label": "Image / الصورة",
+                            "required": false
+                        },
+                        {
+                            "id": "items.title",
+                            "type": "string",
+                            "format": "text",
+                            "label": "Title / العنوان",
+                            "multilanguage": true,
+                            "required": false
+                        },
+                        {
+                            "id": "items.text",
+                            "type": "string",
+                            "format": "textarea",
+                            "label": "Text / النص",
+                            "multilanguage": true,
+                            "required": false
+                        },
+                        {
+                            "id": "items.url",
+                            "type": "items",
+                            "format": "variable-list",
+                            "label": "Link / الرابط",
+                            "source": "custom",
+                            "searchable": true,
+                            "required": false,
+                            "value": null,
+                            "sources": [
+                                {
+                                    "label": "Product / منتج",
+                                    "key": "products",
+                                    "value": "products"
+                                },
+                                {
+                                    "label": "Category / تصنيف",
+                                    "key": "categories",
+                                    "value": "categories"
+                                },
+                                {
+                                    "label": "Brand / علامة تجارية",
+                                    "key": "brands",
+                                    "value": "brands"
+                                },
+                                {
+                                    "label": "Page / صفحة",
+                                    "key": "pages",
+                                    "value": "pages"
+                                },
+                                {
+                                    "label": "Article / مقالة",
+                                    "key": "blog_articles",
+                                    "value": "blog_articles"
+                                },
+                                {
+                                    "label": "Offers / العروض",
+                                    "key": "offers_link",
+                                    "value": "offers_link"
+                                },
+                                {
+                                    "label": "Brands page / صفحة العلامات",
+                                    "key": "brands_link",
+                                    "value": "brands_link"
+                                },
+                                {
+                                    "label": "Blog / المدونة",
+                                    "key": "blog_link",
+                                    "value": "blog_link"
+                                },
+                                {
+                                    "label": "External link / رابط خارجي",
+                                    "key": "custom",
+                                    "value": "custom"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "items.x",
+                            "type": "number",
+                            "format": "integer",
+                            "label": "Horizontal position % / الموضع الأفقي",
+                            "value": 50,
+                            "minimum": 0,
+                            "maximum": 100,
+                            "required": false
+                        },
+                        {
+                            "id": "items.y",
+                            "type": "number",
+                            "format": "integer",
+                            "label": "Vertical position % / الموضع الرأسي",
+                            "value": 50,
+                            "minimum": 0,
+                            "maximum": 100,
+                            "required": false
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "premium-editorial-003",
+            "title": {
+                "en": "06 · Editorial — Lookbook",
+                "ar": "06 · تحريري — كتاب الإطلالات"
+            },
+            "icon": "sicon-image",
+            "path": "home.lookbook",
+            "fields": [
+                {
+                    "type": "static",
+                    "format": "description",
+                    "id": "lookbook-guide",
+                    "value": "Lookbook / كتاب الإطلالات — reusable editorial content with responsive media."
+                },
+                {
+                    "id": "width",
+                    "type": "items",
+                    "format": "dropdown-list",
+                    "label": "Width / العرض",
+                    "description": null,
+                    "required": true,
+                    "selected": [
+                        {
+                            "label": "Contained / داخل الحاوية",
+                            "value": "contained",
+                            "key": "premium-contained"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "label": "Contained / داخل الحاوية",
+                            "value": "contained",
+                            "key": "premium-contained"
+                        },
+                        {
+                            "label": "Narrow / ضيق",
+                            "value": "narrow",
+                            "key": "premium-narrow"
+                        },
+                        {
+                            "label": "Wide / عريض",
+                            "value": "wide",
+                            "key": "premium-wide"
+                        },
+                        {
+                            "label": "Full bleed / عرض كامل",
+                            "value": "full",
+                            "key": "premium-full"
+                        }
+                    ]
+                },
+                {
+                    "id": "spacing",
+                    "type": "items",
+                    "format": "dropdown-list",
+                    "label": "Vertical spacing / المسافة الرأسية",
+                    "description": null,
+                    "required": true,
+                    "selected": [
+                        {
+                            "label": "Normal / عادية",
+                            "value": "normal",
+                            "key": "premium-normal"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "label": "None / بدون",
+                            "value": "none",
+                            "key": "premium-none"
+                        },
+                        {
+                            "label": "Compact / مدمجة",
+                            "value": "compact",
+                            "key": "premium-compact"
+                        },
+                        {
+                            "label": "Normal / عادية",
+                            "value": "normal",
+                            "key": "premium-normal"
+                        },
+                        {
+                            "label": "Airy / واسعة",
+                            "value": "airy",
+                            "key": "premium-airy"
+                        }
+                    ]
+                },
+                {
+                    "id": "background",
+                    "type": "items",
+                    "format": "dropdown-list",
+                    "label": "Background / الخلفية",
+                    "description": null,
+                    "required": true,
+                    "selected": [
+                        {
+                            "label": "Canvas / أساسية",
+                            "value": "canvas",
+                            "key": "premium-canvas"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "label": "Canvas / أساسية",
+                            "value": "canvas",
+                            "key": "premium-canvas"
+                        },
+                        {
+                            "label": "Soft surface / سطح ناعم",
+                            "value": "soft",
+                            "key": "premium-soft"
+                        },
+                        {
+                            "label": "Inverse / داكنة",
+                            "value": "inverse",
+                            "key": "premium-inverse"
+                        }
+                    ]
+                },
+                {
+                    "id": "alignment",
+                    "type": "items",
+                    "format": "dropdown-list",
+                    "label": "Content alignment / محاذاة المحتوى",
+                    "description": null,
+                    "required": true,
+                    "selected": [
+                        {
+                            "label": "Start / البداية",
+                            "value": "start",
+                            "key": "premium-start"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "label": "Start / البداية",
+                            "value": "start",
+                            "key": "premium-start"
+                        },
+                        {
+                            "label": "Center / الوسط",
+                            "value": "center",
+                            "key": "premium-center"
+                        },
+                        {
+                            "label": "End / النهاية",
+                            "value": "end",
+                            "key": "premium-end"
+                        }
+                    ]
+                },
+                {
+                    "id": "animation",
+                    "type": "items",
+                    "format": "dropdown-list",
+                    "label": "Entrance motion / حركة الظهور",
+                    "description": null,
+                    "required": true,
+                    "selected": [
+                        {
+                            "label": "Fade / تلاشي",
+                            "value": "fade",
+                            "key": "premium-fade"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "label": "None / بدون",
+                            "value": "none",
+                            "key": "premium-none"
+                        },
+                        {
+                            "label": "Fade / تلاشي",
+                            "value": "fade",
+                            "key": "premium-fade"
+                        },
+                        {
+                            "label": "Reveal / كشف",
+                            "value": "reveal",
+                            "key": "premium-reveal"
+                        }
+                    ]
+                },
+                {
+                    "id": "title",
+                    "type": "string",
+                    "format": "text",
+                    "label": "Title / العنوان",
+                    "multilanguage": true,
+                    "required": false
+                },
+                {
+                    "id": "description",
+                    "type": "string",
+                    "format": "textarea",
+                    "label": "Description / الوصف",
+                    "multilanguage": true,
+                    "required": false
+                },
+                {
+                    "id": "image",
+                    "type": "string",
+                    "format": "image",
+                    "label": "Primary image / الصورة الرئيسية",
+                    "required": false
+                },
+                {
+                    "id": "image_alt",
+                    "type": "string",
+                    "format": "text",
+                    "label": "Image alternative text / النص البديل",
+                    "multilanguage": true,
+                    "required": false
+                },
+                {
+                    "id": "quote",
+                    "type": "string",
+                    "format": "textarea",
+                    "label": "Quote / الاقتباس",
+                    "multilanguage": true,
+                    "required": false
+                },
+                {
+                    "id": "citation",
+                    "type": "string",
+                    "format": "text",
+                    "label": "Citation / المصدر",
+                    "multilanguage": true,
+                    "required": false
+                },
+                {
+                    "id": "items",
+                    "type": "collection",
+                    "format": "collection",
+                    "label": "Items / العناصر",
+                    "item_label": "Item / عنصر",
+                    "required": false,
+                    "minLength": 0,
+                    "maxLength": 12,
+                    "value": [],
+                    "fields": [
+                        {
+                            "id": "items.image",
+                            "type": "string",
+                            "format": "image",
+                            "label": "Image / الصورة",
+                            "required": false
+                        },
+                        {
+                            "id": "items.title",
+                            "type": "string",
+                            "format": "text",
+                            "label": "Title / العنوان",
+                            "multilanguage": true,
+                            "required": false
+                        },
+                        {
+                            "id": "items.text",
+                            "type": "string",
+                            "format": "textarea",
+                            "label": "Text / النص",
+                            "multilanguage": true,
+                            "required": false
+                        },
+                        {
+                            "id": "items.url",
+                            "type": "items",
+                            "format": "variable-list",
+                            "label": "Link / الرابط",
+                            "source": "custom",
+                            "searchable": true,
+                            "required": false,
+                            "value": null,
+                            "sources": [
+                                {
+                                    "label": "Product / منتج",
+                                    "key": "products",
+                                    "value": "products"
+                                },
+                                {
+                                    "label": "Category / تصنيف",
+                                    "key": "categories",
+                                    "value": "categories"
+                                },
+                                {
+                                    "label": "Brand / علامة تجارية",
+                                    "key": "brands",
+                                    "value": "brands"
+                                },
+                                {
+                                    "label": "Page / صفحة",
+                                    "key": "pages",
+                                    "value": "pages"
+                                },
+                                {
+                                    "label": "Article / مقالة",
+                                    "key": "blog_articles",
+                                    "value": "blog_articles"
+                                },
+                                {
+                                    "label": "Offers / العروض",
+                                    "key": "offers_link",
+                                    "value": "offers_link"
+                                },
+                                {
+                                    "label": "Brands page / صفحة العلامات",
+                                    "key": "brands_link",
+                                    "value": "brands_link"
+                                },
+                                {
+                                    "label": "Blog / المدونة",
+                                    "key": "blog_link",
+                                    "value": "blog_link"
+                                },
+                                {
+                                    "label": "External link / رابط خارجي",
+                                    "key": "custom",
+                                    "value": "custom"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "items.x",
+                            "type": "number",
+                            "format": "integer",
+                            "label": "Horizontal position % / الموضع الأفقي",
+                            "value": 50,
+                            "minimum": 0,
+                            "maximum": 100,
+                            "required": false
+                        },
+                        {
+                            "id": "items.y",
+                            "type": "number",
+                            "format": "integer",
+                            "label": "Vertical position % / الموضع الرأسي",
+                            "value": 50,
+                            "minimum": 0,
+                            "maximum": 100,
+                            "required": false
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "premium-editorial-004",
+            "title": {
+                "en": "06 · Editorial — Image Hotspots",
+                "ar": "06 · تحريري — نقاط تفاعلية على الصورة"
+            },
+            "icon": "sicon-image",
+            "path": "home.image-hotspots",
+            "fields": [
+                {
+                    "type": "static",
+                    "format": "description",
+                    "id": "image-hotspots-guide",
+                    "value": "Image Hotspots / نقاط تفاعلية على الصورة — reusable editorial content with responsive media."
+                },
+                {
+                    "id": "width",
+                    "type": "items",
+                    "format": "dropdown-list",
+                    "label": "Width / العرض",
+                    "description": null,
+                    "required": true,
+                    "selected": [
+                        {
+                            "label": "Contained / داخل الحاوية",
+                            "value": "contained",
+                            "key": "premium-contained"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "label": "Contained / داخل الحاوية",
+                            "value": "contained",
+                            "key": "premium-contained"
+                        },
+                        {
+                            "label": "Narrow / ضيق",
+                            "value": "narrow",
+                            "key": "premium-narrow"
+                        },
+                        {
+                            "label": "Wide / عريض",
+                            "value": "wide",
+                            "key": "premium-wide"
+                        },
+                        {
+                            "label": "Full bleed / عرض كامل",
+                            "value": "full",
+                            "key": "premium-full"
+                        }
+                    ]
+                },
+                {
+                    "id": "spacing",
+                    "type": "items",
+                    "format": "dropdown-list",
+                    "label": "Vertical spacing / المسافة الرأسية",
+                    "description": null,
+                    "required": true,
+                    "selected": [
+                        {
+                            "label": "Normal / عادية",
+                            "value": "normal",
+                            "key": "premium-normal"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "label": "None / بدون",
+                            "value": "none",
+                            "key": "premium-none"
+                        },
+                        {
+                            "label": "Compact / مدمجة",
+                            "value": "compact",
+                            "key": "premium-compact"
+                        },
+                        {
+                            "label": "Normal / عادية",
+                            "value": "normal",
+                            "key": "premium-normal"
+                        },
+                        {
+                            "label": "Airy / واسعة",
+                            "value": "airy",
+                            "key": "premium-airy"
+                        }
+                    ]
+                },
+                {
+                    "id": "background",
+                    "type": "items",
+                    "format": "dropdown-list",
+                    "label": "Background / الخلفية",
+                    "description": null,
+                    "required": true,
+                    "selected": [
+                        {
+                            "label": "Canvas / أساسية",
+                            "value": "canvas",
+                            "key": "premium-canvas"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "label": "Canvas / أساسية",
+                            "value": "canvas",
+                            "key": "premium-canvas"
+                        },
+                        {
+                            "label": "Soft surface / سطح ناعم",
+                            "value": "soft",
+                            "key": "premium-soft"
+                        },
+                        {
+                            "label": "Inverse / داكنة",
+                            "value": "inverse",
+                            "key": "premium-inverse"
+                        }
+                    ]
+                },
+                {
+                    "id": "alignment",
+                    "type": "items",
+                    "format": "dropdown-list",
+                    "label": "Content alignment / محاذاة المحتوى",
+                    "description": null,
+                    "required": true,
+                    "selected": [
+                        {
+                            "label": "Start / البداية",
+                            "value": "start",
+                            "key": "premium-start"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "label": "Start / البداية",
+                            "value": "start",
+                            "key": "premium-start"
+                        },
+                        {
+                            "label": "Center / الوسط",
+                            "value": "center",
+                            "key": "premium-center"
+                        },
+                        {
+                            "label": "End / النهاية",
+                            "value": "end",
+                            "key": "premium-end"
+                        }
+                    ]
+                },
+                {
+                    "id": "animation",
+                    "type": "items",
+                    "format": "dropdown-list",
+                    "label": "Entrance motion / حركة الظهور",
+                    "description": null,
+                    "required": true,
+                    "selected": [
+                        {
+                            "label": "Fade / تلاشي",
+                            "value": "fade",
+                            "key": "premium-fade"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "label": "None / بدون",
+                            "value": "none",
+                            "key": "premium-none"
+                        },
+                        {
+                            "label": "Fade / تلاشي",
+                            "value": "fade",
+                            "key": "premium-fade"
+                        },
+                        {
+                            "label": "Reveal / كشف",
+                            "value": "reveal",
+                            "key": "premium-reveal"
+                        }
+                    ]
+                },
+                {
+                    "id": "title",
+                    "type": "string",
+                    "format": "text",
+                    "label": "Title / العنوان",
+                    "multilanguage": true,
+                    "required": false
+                },
+                {
+                    "id": "description",
+                    "type": "string",
+                    "format": "textarea",
+                    "label": "Description / الوصف",
+                    "multilanguage": true,
+                    "required": false
+                },
+                {
+                    "id": "image",
+                    "type": "string",
+                    "format": "image",
+                    "label": "Primary image / الصورة الرئيسية",
+                    "required": false
+                },
+                {
+                    "id": "image_alt",
+                    "type": "string",
+                    "format": "text",
+                    "label": "Image alternative text / النص البديل",
+                    "multilanguage": true,
+                    "required": false
+                },
+                {
+                    "id": "quote",
+                    "type": "string",
+                    "format": "textarea",
+                    "label": "Quote / الاقتباس",
+                    "multilanguage": true,
+                    "required": false
+                },
+                {
+                    "id": "citation",
+                    "type": "string",
+                    "format": "text",
+                    "label": "Citation / المصدر",
+                    "multilanguage": true,
+                    "required": false
+                },
+                {
+                    "id": "items",
+                    "type": "collection",
+                    "format": "collection",
+                    "label": "Items / العناصر",
+                    "item_label": "Item / عنصر",
+                    "required": false,
+                    "minLength": 0,
+                    "maxLength": 12,
+                    "value": [],
+                    "fields": [
+                        {
+                            "id": "items.image",
+                            "type": "string",
+                            "format": "image",
+                            "label": "Image / الصورة",
+                            "required": false
+                        },
+                        {
+                            "id": "items.title",
+                            "type": "string",
+                            "format": "text",
+                            "label": "Title / العنوان",
+                            "multilanguage": true,
+                            "required": false
+                        },
+                        {
+                            "id": "items.text",
+                            "type": "string",
+                            "format": "textarea",
+                            "label": "Text / النص",
+                            "multilanguage": true,
+                            "required": false
+                        },
+                        {
+                            "id": "items.url",
+                            "type": "items",
+                            "format": "variable-list",
+                            "label": "Link / الرابط",
+                            "source": "custom",
+                            "searchable": true,
+                            "required": false,
+                            "value": null,
+                            "sources": [
+                                {
+                                    "label": "Product / منتج",
+                                    "key": "products",
+                                    "value": "products"
+                                },
+                                {
+                                    "label": "Category / تصنيف",
+                                    "key": "categories",
+                                    "value": "categories"
+                                },
+                                {
+                                    "label": "Brand / علامة تجارية",
+                                    "key": "brands",
+                                    "value": "brands"
+                                },
+                                {
+                                    "label": "Page / صفحة",
+                                    "key": "pages",
+                                    "value": "pages"
+                                },
+                                {
+                                    "label": "Article / مقالة",
+                                    "key": "blog_articles",
+                                    "value": "blog_articles"
+                                },
+                                {
+                                    "label": "Offers / العروض",
+                                    "key": "offers_link",
+                                    "value": "offers_link"
+                                },
+                                {
+                                    "label": "Brands page / صفحة العلامات",
+                                    "key": "brands_link",
+                                    "value": "brands_link"
+                                },
+                                {
+                                    "label": "Blog / المدونة",
+                                    "key": "blog_link",
+                                    "value": "blog_link"
+                                },
+                                {
+                                    "label": "External link / رابط خارجي",
+                                    "key": "custom",
+                                    "value": "custom"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "items.x",
+                            "type": "number",
+                            "format": "integer",
+                            "label": "Horizontal position % / الموضع الأفقي",
+                            "value": 50,
+                            "minimum": 0,
+                            "maximum": 100,
+                            "required": false
+                        },
+                        {
+                            "id": "items.y",
+                            "type": "number",
+                            "format": "integer",
+                            "label": "Vertical position % / الموضع الرأسي",
+                            "value": 50,
+                            "minimum": 0,
+                            "maximum": 100,
+                            "required": false
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "premium-editorial-005",
+            "title": {
+                "en": "06 · Editorial — Magazine Layout",
+                "ar": "06 · تحريري — تخطيط مجلة"
+            },
+            "icon": "sicon-image",
+            "path": "home.magazine-layout",
+            "fields": [
+                {
+                    "type": "static",
+                    "format": "description",
+                    "id": "magazine-layout-guide",
+                    "value": "Magazine Layout / تخطيط مجلة — reusable editorial content with responsive media."
+                },
+                {
+                    "id": "width",
+                    "type": "items",
+                    "format": "dropdown-list",
+                    "label": "Width / العرض",
+                    "description": null,
+                    "required": true,
+                    "selected": [
+                        {
+                            "label": "Contained / داخل الحاوية",
+                            "value": "contained",
+                            "key": "premium-contained"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "label": "Contained / داخل الحاوية",
+                            "value": "contained",
+                            "key": "premium-contained"
+                        },
+                        {
+                            "label": "Narrow / ضيق",
+                            "value": "narrow",
+                            "key": "premium-narrow"
+                        },
+                        {
+                            "label": "Wide / عريض",
+                            "value": "wide",
+                            "key": "premium-wide"
+                        },
+                        {
+                            "label": "Full bleed / عرض كامل",
+                            "value": "full",
+                            "key": "premium-full"
+                        }
+                    ]
+                },
+                {
+                    "id": "spacing",
+                    "type": "items",
+                    "format": "dropdown-list",
+                    "label": "Vertical spacing / المسافة الرأسية",
+                    "description": null,
+                    "required": true,
+                    "selected": [
+                        {
+                            "label": "Normal / عادية",
+                            "value": "normal",
+                            "key": "premium-normal"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "label": "None / بدون",
+                            "value": "none",
+                            "key": "premium-none"
+                        },
+                        {
+                            "label": "Compact / مدمجة",
+                            "value": "compact",
+                            "key": "premium-compact"
+                        },
+                        {
+                            "label": "Normal / عادية",
+                            "value": "normal",
+                            "key": "premium-normal"
+                        },
+                        {
+                            "label": "Airy / واسعة",
+                            "value": "airy",
+                            "key": "premium-airy"
+                        }
+                    ]
+                },
+                {
+                    "id": "background",
+                    "type": "items",
+                    "format": "dropdown-list",
+                    "label": "Background / الخلفية",
+                    "description": null,
+                    "required": true,
+                    "selected": [
+                        {
+                            "label": "Canvas / أساسية",
+                            "value": "canvas",
+                            "key": "premium-canvas"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "label": "Canvas / أساسية",
+                            "value": "canvas",
+                            "key": "premium-canvas"
+                        },
+                        {
+                            "label": "Soft surface / سطح ناعم",
+                            "value": "soft",
+                            "key": "premium-soft"
+                        },
+                        {
+                            "label": "Inverse / داكنة",
+                            "value": "inverse",
+                            "key": "premium-inverse"
+                        }
+                    ]
+                },
+                {
+                    "id": "alignment",
+                    "type": "items",
+                    "format": "dropdown-list",
+                    "label": "Content alignment / محاذاة المحتوى",
+                    "description": null,
+                    "required": true,
+                    "selected": [
+                        {
+                            "label": "Start / البداية",
+                            "value": "start",
+                            "key": "premium-start"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "label": "Start / البداية",
+                            "value": "start",
+                            "key": "premium-start"
+                        },
+                        {
+                            "label": "Center / الوسط",
+                            "value": "center",
+                            "key": "premium-center"
+                        },
+                        {
+                            "label": "End / النهاية",
+                            "value": "end",
+                            "key": "premium-end"
+                        }
+                    ]
+                },
+                {
+                    "id": "animation",
+                    "type": "items",
+                    "format": "dropdown-list",
+                    "label": "Entrance motion / حركة الظهور",
+                    "description": null,
+                    "required": true,
+                    "selected": [
+                        {
+                            "label": "Fade / تلاشي",
+                            "value": "fade",
+                            "key": "premium-fade"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "label": "None / بدون",
+                            "value": "none",
+                            "key": "premium-none"
+                        },
+                        {
+                            "label": "Fade / تلاشي",
+                            "value": "fade",
+                            "key": "premium-fade"
+                        },
+                        {
+                            "label": "Reveal / كشف",
+                            "value": "reveal",
+                            "key": "premium-reveal"
+                        }
+                    ]
+                },
+                {
+                    "id": "title",
+                    "type": "string",
+                    "format": "text",
+                    "label": "Title / العنوان",
+                    "multilanguage": true,
+                    "required": false
+                },
+                {
+                    "id": "description",
+                    "type": "string",
+                    "format": "textarea",
+                    "label": "Description / الوصف",
+                    "multilanguage": true,
+                    "required": false
+                },
+                {
+                    "id": "image",
+                    "type": "string",
+                    "format": "image",
+                    "label": "Primary image / الصورة الرئيسية",
+                    "required": false
+                },
+                {
+                    "id": "image_alt",
+                    "type": "string",
+                    "format": "text",
+                    "label": "Image alternative text / النص البديل",
+                    "multilanguage": true,
+                    "required": false
+                },
+                {
+                    "id": "quote",
+                    "type": "string",
+                    "format": "textarea",
+                    "label": "Quote / الاقتباس",
+                    "multilanguage": true,
+                    "required": false
+                },
+                {
+                    "id": "citation",
+                    "type": "string",
+                    "format": "text",
+                    "label": "Citation / المصدر",
+                    "multilanguage": true,
+                    "required": false
+                },
+                {
+                    "id": "items",
+                    "type": "collection",
+                    "format": "collection",
+                    "label": "Items / العناصر",
+                    "item_label": "Item / عنصر",
+                    "required": false,
+                    "minLength": 0,
+                    "maxLength": 12,
+                    "value": [],
+                    "fields": [
+                        {
+                            "id": "items.image",
+                            "type": "string",
+                            "format": "image",
+                            "label": "Image / الصورة",
+                            "required": false
+                        },
+                        {
+                            "id": "items.title",
+                            "type": "string",
+                            "format": "text",
+                            "label": "Title / العنوان",
+                            "multilanguage": true,
+                            "required": false
+                        },
+                        {
+                            "id": "items.text",
+                            "type": "string",
+                            "format": "textarea",
+                            "label": "Text / النص",
+                            "multilanguage": true,
+                            "required": false
+                        },
+                        {
+                            "id": "items.url",
+                            "type": "items",
+                            "format": "variable-list",
+                            "label": "Link / الرابط",
+                            "source": "custom",
+                            "searchable": true,
+                            "required": false,
+                            "value": null,
+                            "sources": [
+                                {
+                                    "label": "Product / منتج",
+                                    "key": "products",
+                                    "value": "products"
+                                },
+                                {
+                                    "label": "Category / تصنيف",
+                                    "key": "categories",
+                                    "value": "categories"
+                                },
+                                {
+                                    "label": "Brand / علامة تجارية",
+                                    "key": "brands",
+                                    "value": "brands"
+                                },
+                                {
+                                    "label": "Page / صفحة",
+                                    "key": "pages",
+                                    "value": "pages"
+                                },
+                                {
+                                    "label": "Article / مقالة",
+                                    "key": "blog_articles",
+                                    "value": "blog_articles"
+                                },
+                                {
+                                    "label": "Offers / العروض",
+                                    "key": "offers_link",
+                                    "value": "offers_link"
+                                },
+                                {
+                                    "label": "Brands page / صفحة العلامات",
+                                    "key": "brands_link",
+                                    "value": "brands_link"
+                                },
+                                {
+                                    "label": "Blog / المدونة",
+                                    "key": "blog_link",
+                                    "value": "blog_link"
+                                },
+                                {
+                                    "label": "External link / رابط خارجي",
+                                    "key": "custom",
+                                    "value": "custom"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "items.x",
+                            "type": "number",
+                            "format": "integer",
+                            "label": "Horizontal position % / الموضع الأفقي",
+                            "value": 50,
+                            "minimum": 0,
+                            "maximum": 100,
+                            "required": false
+                        },
+                        {
+                            "id": "items.y",
+                            "type": "number",
+                            "format": "integer",
+                            "label": "Vertical position % / الموضع الرأسي",
+                            "value": 50,
+                            "minimum": 0,
+                            "maximum": 100,
+                            "required": false
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "premium-editorial-006",
+            "title": {
+                "en": "06 · Editorial — Editorial Quote",
+                "ar": "06 · تحريري — اقتباس تحريري"
+            },
+            "icon": "sicon-image",
+            "path": "home.editorial-quote",
+            "fields": [
+                {
+                    "type": "static",
+                    "format": "description",
+                    "id": "editorial-quote-guide",
+                    "value": "Editorial Quote / اقتباس تحريري — reusable editorial content with responsive media."
+                },
+                {
+                    "id": "width",
+                    "type": "items",
+                    "format": "dropdown-list",
+                    "label": "Width / العرض",
+                    "description": null,
+                    "required": true,
+                    "selected": [
+                        {
+                            "label": "Contained / داخل الحاوية",
+                            "value": "contained",
+                            "key": "premium-contained"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "label": "Contained / داخل الحاوية",
+                            "value": "contained",
+                            "key": "premium-contained"
+                        },
+                        {
+                            "label": "Narrow / ضيق",
+                            "value": "narrow",
+                            "key": "premium-narrow"
+                        },
+                        {
+                            "label": "Wide / عريض",
+                            "value": "wide",
+                            "key": "premium-wide"
+                        },
+                        {
+                            "label": "Full bleed / عرض كامل",
+                            "value": "full",
+                            "key": "premium-full"
+                        }
+                    ]
+                },
+                {
+                    "id": "spacing",
+                    "type": "items",
+                    "format": "dropdown-list",
+                    "label": "Vertical spacing / المسافة الرأسية",
+                    "description": null,
+                    "required": true,
+                    "selected": [
+                        {
+                            "label": "Normal / عادية",
+                            "value": "normal",
+                            "key": "premium-normal"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "label": "None / بدون",
+                            "value": "none",
+                            "key": "premium-none"
+                        },
+                        {
+                            "label": "Compact / مدمجة",
+                            "value": "compact",
+                            "key": "premium-compact"
+                        },
+                        {
+                            "label": "Normal / عادية",
+                            "value": "normal",
+                            "key": "premium-normal"
+                        },
+                        {
+                            "label": "Airy / واسعة",
+                            "value": "airy",
+                            "key": "premium-airy"
+                        }
+                    ]
+                },
+                {
+                    "id": "background",
+                    "type": "items",
+                    "format": "dropdown-list",
+                    "label": "Background / الخلفية",
+                    "description": null,
+                    "required": true,
+                    "selected": [
+                        {
+                            "label": "Canvas / أساسية",
+                            "value": "canvas",
+                            "key": "premium-canvas"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "label": "Canvas / أساسية",
+                            "value": "canvas",
+                            "key": "premium-canvas"
+                        },
+                        {
+                            "label": "Soft surface / سطح ناعم",
+                            "value": "soft",
+                            "key": "premium-soft"
+                        },
+                        {
+                            "label": "Inverse / داكنة",
+                            "value": "inverse",
+                            "key": "premium-inverse"
+                        }
+                    ]
+                },
+                {
+                    "id": "alignment",
+                    "type": "items",
+                    "format": "dropdown-list",
+                    "label": "Content alignment / محاذاة المحتوى",
+                    "description": null,
+                    "required": true,
+                    "selected": [
+                        {
+                            "label": "Start / البداية",
+                            "value": "start",
+                            "key": "premium-start"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "label": "Start / البداية",
+                            "value": "start",
+                            "key": "premium-start"
+                        },
+                        {
+                            "label": "Center / الوسط",
+                            "value": "center",
+                            "key": "premium-center"
+                        },
+                        {
+                            "label": "End / النهاية",
+                            "value": "end",
+                            "key": "premium-end"
+                        }
+                    ]
+                },
+                {
+                    "id": "animation",
+                    "type": "items",
+                    "format": "dropdown-list",
+                    "label": "Entrance motion / حركة الظهور",
+                    "description": null,
+                    "required": true,
+                    "selected": [
+                        {
+                            "label": "Fade / تلاشي",
+                            "value": "fade",
+                            "key": "premium-fade"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "label": "None / بدون",
+                            "value": "none",
+                            "key": "premium-none"
+                        },
+                        {
+                            "label": "Fade / تلاشي",
+                            "value": "fade",
+                            "key": "premium-fade"
+                        },
+                        {
+                            "label": "Reveal / كشف",
+                            "value": "reveal",
+                            "key": "premium-reveal"
+                        }
+                    ]
+                },
+                {
+                    "id": "title",
+                    "type": "string",
+                    "format": "text",
+                    "label": "Title / العنوان",
+                    "multilanguage": true,
+                    "required": false
+                },
+                {
+                    "id": "description",
+                    "type": "string",
+                    "format": "textarea",
+                    "label": "Description / الوصف",
+                    "multilanguage": true,
+                    "required": false
+                },
+                {
+                    "id": "image",
+                    "type": "string",
+                    "format": "image",
+                    "label": "Primary image / الصورة الرئيسية",
+                    "required": false
+                },
+                {
+                    "id": "image_alt",
+                    "type": "string",
+                    "format": "text",
+                    "label": "Image alternative text / النص البديل",
+                    "multilanguage": true,
+                    "required": false
+                },
+                {
+                    "id": "quote",
+                    "type": "string",
+                    "format": "textarea",
+                    "label": "Quote / الاقتباس",
+                    "multilanguage": true,
+                    "required": false
+                },
+                {
+                    "id": "citation",
+                    "type": "string",
+                    "format": "text",
+                    "label": "Citation / المصدر",
+                    "multilanguage": true,
+                    "required": false
+                },
+                {
+                    "id": "items",
+                    "type": "collection",
+                    "format": "collection",
+                    "label": "Items / العناصر",
+                    "item_label": "Item / عنصر",
+                    "required": false,
+                    "minLength": 0,
+                    "maxLength": 12,
+                    "value": [],
+                    "fields": [
+                        {
+                            "id": "items.image",
+                            "type": "string",
+                            "format": "image",
+                            "label": "Image / الصورة",
+                            "required": false
+                        },
+                        {
+                            "id": "items.title",
+                            "type": "string",
+                            "format": "text",
+                            "label": "Title / العنوان",
+                            "multilanguage": true,
+                            "required": false
+                        },
+                        {
+                            "id": "items.text",
+                            "type": "string",
+                            "format": "textarea",
+                            "label": "Text / النص",
+                            "multilanguage": true,
+                            "required": false
+                        },
+                        {
+                            "id": "items.url",
+                            "type": "items",
+                            "format": "variable-list",
+                            "label": "Link / الرابط",
+                            "source": "custom",
+                            "searchable": true,
+                            "required": false,
+                            "value": null,
+                            "sources": [
+                                {
+                                    "label": "Product / منتج",
+                                    "key": "products",
+                                    "value": "products"
+                                },
+                                {
+                                    "label": "Category / تصنيف",
+                                    "key": "categories",
+                                    "value": "categories"
+                                },
+                                {
+                                    "label": "Brand / علامة تجارية",
+                                    "key": "brands",
+                                    "value": "brands"
+                                },
+                                {
+                                    "label": "Page / صفحة",
+                                    "key": "pages",
+                                    "value": "pages"
+                                },
+                                {
+                                    "label": "Article / مقالة",
+                                    "key": "blog_articles",
+                                    "value": "blog_articles"
+                                },
+                                {
+                                    "label": "Offers / العروض",
+                                    "key": "offers_link",
+                                    "value": "offers_link"
+                                },
+                                {
+                                    "label": "Brands page / صفحة العلامات",
+                                    "key": "brands_link",
+                                    "value": "brands_link"
+                                },
+                                {
+                                    "label": "Blog / المدونة",
+                                    "key": "blog_link",
+                                    "value": "blog_link"
+                                },
+                                {
+                                    "label": "External link / رابط خارجي",
+                                    "key": "custom",
+                                    "value": "custom"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "items.x",
+                            "type": "number",
+                            "format": "integer",
+                            "label": "Horizontal position % / الموضع الأفقي",
+                            "value": 50,
+                            "minimum": 0,
+                            "maximum": 100,
+                            "required": false
+                        },
+                        {
+                            "id": "items.y",
+                            "type": "number",
+                            "format": "integer",
+                            "label": "Vertical position % / الموضع الرأسي",
+                            "value": 50,
+                            "minimum": 0,
+                            "maximum": 100,
+                            "required": false
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "premium-editorial-007",
+            "title": {
+                "en": "06 · Editorial — Timeline",
+                "ar": "06 · تحريري — خط زمني"
+            },
+            "icon": "sicon-image",
+            "path": "home.timeline",
+            "fields": [
+                {
+                    "type": "static",
+                    "format": "description",
+                    "id": "timeline-guide",
+                    "value": "Timeline / خط زمني — reusable editorial content with responsive media."
+                },
+                {
+                    "id": "width",
+                    "type": "items",
+                    "format": "dropdown-list",
+                    "label": "Width / العرض",
+                    "description": null,
+                    "required": true,
+                    "selected": [
+                        {
+                            "label": "Contained / داخل الحاوية",
+                            "value": "contained",
+                            "key": "premium-contained"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "label": "Contained / داخل الحاوية",
+                            "value": "contained",
+                            "key": "premium-contained"
+                        },
+                        {
+                            "label": "Narrow / ضيق",
+                            "value": "narrow",
+                            "key": "premium-narrow"
+                        },
+                        {
+                            "label": "Wide / عريض",
+                            "value": "wide",
+                            "key": "premium-wide"
+                        },
+                        {
+                            "label": "Full bleed / عرض كامل",
+                            "value": "full",
+                            "key": "premium-full"
+                        }
+                    ]
+                },
+                {
+                    "id": "spacing",
+                    "type": "items",
+                    "format": "dropdown-list",
+                    "label": "Vertical spacing / المسافة الرأسية",
+                    "description": null,
+                    "required": true,
+                    "selected": [
+                        {
+                            "label": "Normal / عادية",
+                            "value": "normal",
+                            "key": "premium-normal"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "label": "None / بدون",
+                            "value": "none",
+                            "key": "premium-none"
+                        },
+                        {
+                            "label": "Compact / مدمجة",
+                            "value": "compact",
+                            "key": "premium-compact"
+                        },
+                        {
+                            "label": "Normal / عادية",
+                            "value": "normal",
+                            "key": "premium-normal"
+                        },
+                        {
+                            "label": "Airy / واسعة",
+                            "value": "airy",
+                            "key": "premium-airy"
+                        }
+                    ]
+                },
+                {
+                    "id": "background",
+                    "type": "items",
+                    "format": "dropdown-list",
+                    "label": "Background / الخلفية",
+                    "description": null,
+                    "required": true,
+                    "selected": [
+                        {
+                            "label": "Canvas / أساسية",
+                            "value": "canvas",
+                            "key": "premium-canvas"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "label": "Canvas / أساسية",
+                            "value": "canvas",
+                            "key": "premium-canvas"
+                        },
+                        {
+                            "label": "Soft surface / سطح ناعم",
+                            "value": "soft",
+                            "key": "premium-soft"
+                        },
+                        {
+                            "label": "Inverse / داكنة",
+                            "value": "inverse",
+                            "key": "premium-inverse"
+                        }
+                    ]
+                },
+                {
+                    "id": "alignment",
+                    "type": "items",
+                    "format": "dropdown-list",
+                    "label": "Content alignment / محاذاة المحتوى",
+                    "description": null,
+                    "required": true,
+                    "selected": [
+                        {
+                            "label": "Start / البداية",
+                            "value": "start",
+                            "key": "premium-start"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "label": "Start / البداية",
+                            "value": "start",
+                            "key": "premium-start"
+                        },
+                        {
+                            "label": "Center / الوسط",
+                            "value": "center",
+                            "key": "premium-center"
+                        },
+                        {
+                            "label": "End / النهاية",
+                            "value": "end",
+                            "key": "premium-end"
+                        }
+                    ]
+                },
+                {
+                    "id": "animation",
+                    "type": "items",
+                    "format": "dropdown-list",
+                    "label": "Entrance motion / حركة الظهور",
+                    "description": null,
+                    "required": true,
+                    "selected": [
+                        {
+                            "label": "Fade / تلاشي",
+                            "value": "fade",
+                            "key": "premium-fade"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "label": "None / بدون",
+                            "value": "none",
+                            "key": "premium-none"
+                        },
+                        {
+                            "label": "Fade / تلاشي",
+                            "value": "fade",
+                            "key": "premium-fade"
+                        },
+                        {
+                            "label": "Reveal / كشف",
+                            "value": "reveal",
+                            "key": "premium-reveal"
+                        }
+                    ]
+                },
+                {
+                    "id": "title",
+                    "type": "string",
+                    "format": "text",
+                    "label": "Title / العنوان",
+                    "multilanguage": true,
+                    "required": false
+                },
+                {
+                    "id": "description",
+                    "type": "string",
+                    "format": "textarea",
+                    "label": "Description / الوصف",
+                    "multilanguage": true,
+                    "required": false
+                },
+                {
+                    "id": "image",
+                    "type": "string",
+                    "format": "image",
+                    "label": "Primary image / الصورة الرئيسية",
+                    "required": false
+                },
+                {
+                    "id": "image_alt",
+                    "type": "string",
+                    "format": "text",
+                    "label": "Image alternative text / النص البديل",
+                    "multilanguage": true,
+                    "required": false
+                },
+                {
+                    "id": "quote",
+                    "type": "string",
+                    "format": "textarea",
+                    "label": "Quote / الاقتباس",
+                    "multilanguage": true,
+                    "required": false
+                },
+                {
+                    "id": "citation",
+                    "type": "string",
+                    "format": "text",
+                    "label": "Citation / المصدر",
+                    "multilanguage": true,
+                    "required": false
+                },
+                {
+                    "id": "items",
+                    "type": "collection",
+                    "format": "collection",
+                    "label": "Items / العناصر",
+                    "item_label": "Item / عنصر",
+                    "required": false,
+                    "minLength": 0,
+                    "maxLength": 12,
+                    "value": [],
+                    "fields": [
+                        {
+                            "id": "items.image",
+                            "type": "string",
+                            "format": "image",
+                            "label": "Image / الصورة",
+                            "required": false
+                        },
+                        {
+                            "id": "items.title",
+                            "type": "string",
+                            "format": "text",
+                            "label": "Title / العنوان",
+                            "multilanguage": true,
+                            "required": false
+                        },
+                        {
+                            "id": "items.text",
+                            "type": "string",
+                            "format": "textarea",
+                            "label": "Text / النص",
+                            "multilanguage": true,
+                            "required": false
+                        },
+                        {
+                            "id": "items.url",
+                            "type": "items",
+                            "format": "variable-list",
+                            "label": "Link / الرابط",
+                            "source": "custom",
+                            "searchable": true,
+                            "required": false,
+                            "value": null,
+                            "sources": [
+                                {
+                                    "label": "Product / منتج",
+                                    "key": "products",
+                                    "value": "products"
+                                },
+                                {
+                                    "label": "Category / تصنيف",
+                                    "key": "categories",
+                                    "value": "categories"
+                                },
+                                {
+                                    "label": "Brand / علامة تجارية",
+                                    "key": "brands",
+                                    "value": "brands"
+                                },
+                                {
+                                    "label": "Page / صفحة",
+                                    "key": "pages",
+                                    "value": "pages"
+                                },
+                                {
+                                    "label": "Article / مقالة",
+                                    "key": "blog_articles",
+                                    "value": "blog_articles"
+                                },
+                                {
+                                    "label": "Offers / العروض",
+                                    "key": "offers_link",
+                                    "value": "offers_link"
+                                },
+                                {
+                                    "label": "Brands page / صفحة العلامات",
+                                    "key": "brands_link",
+                                    "value": "brands_link"
+                                },
+                                {
+                                    "label": "Blog / المدونة",
+                                    "key": "blog_link",
+                                    "value": "blog_link"
+                                },
+                                {
+                                    "label": "External link / رابط خارجي",
+                                    "key": "custom",
+                                    "value": "custom"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "items.x",
+                            "type": "number",
+                            "format": "integer",
+                            "label": "Horizontal position % / الموضع الأفقي",
+                            "value": 50,
+                            "minimum": 0,
+                            "maximum": 100,
+                            "required": false
+                        },
+                        {
+                            "id": "items.y",
+                            "type": "number",
+                            "format": "integer",
+                            "label": "Vertical position % / الموضع الرأسي",
+                            "value": 50,
+                            "minimum": 0,
+                            "maximum": 100,
+                            "required": false
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "premium-editorial-008",
+            "title": {
+                "en": "06 · Editorial — Image Gallery",
+                "ar": "06 · تحريري — معرض صور"
+            },
+            "icon": "sicon-image",
+            "path": "home.image-gallery",
+            "fields": [
+                {
+                    "type": "static",
+                    "format": "description",
+                    "id": "image-gallery-guide",
+                    "value": "Image Gallery / معرض صور — reusable editorial content with responsive media."
+                },
+                {
+                    "id": "width",
+                    "type": "items",
+                    "format": "dropdown-list",
+                    "label": "Width / العرض",
+                    "description": null,
+                    "required": true,
+                    "selected": [
+                        {
+                            "label": "Contained / داخل الحاوية",
+                            "value": "contained",
+                            "key": "premium-contained"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "label": "Contained / داخل الحاوية",
+                            "value": "contained",
+                            "key": "premium-contained"
+                        },
+                        {
+                            "label": "Narrow / ضيق",
+                            "value": "narrow",
+                            "key": "premium-narrow"
+                        },
+                        {
+                            "label": "Wide / عريض",
+                            "value": "wide",
+                            "key": "premium-wide"
+                        },
+                        {
+                            "label": "Full bleed / عرض كامل",
+                            "value": "full",
+                            "key": "premium-full"
+                        }
+                    ]
+                },
+                {
+                    "id": "spacing",
+                    "type": "items",
+                    "format": "dropdown-list",
+                    "label": "Vertical spacing / المسافة الرأسية",
+                    "description": null,
+                    "required": true,
+                    "selected": [
+                        {
+                            "label": "Normal / عادية",
+                            "value": "normal",
+                            "key": "premium-normal"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "label": "None / بدون",
+                            "value": "none",
+                            "key": "premium-none"
+                        },
+                        {
+                            "label": "Compact / مدمجة",
+                            "value": "compact",
+                            "key": "premium-compact"
+                        },
+                        {
+                            "label": "Normal / عادية",
+                            "value": "normal",
+                            "key": "premium-normal"
+                        },
+                        {
+                            "label": "Airy / واسعة",
+                            "value": "airy",
+                            "key": "premium-airy"
+                        }
+                    ]
+                },
+                {
+                    "id": "background",
+                    "type": "items",
+                    "format": "dropdown-list",
+                    "label": "Background / الخلفية",
+                    "description": null,
+                    "required": true,
+                    "selected": [
+                        {
+                            "label": "Canvas / أساسية",
+                            "value": "canvas",
+                            "key": "premium-canvas"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "label": "Canvas / أساسية",
+                            "value": "canvas",
+                            "key": "premium-canvas"
+                        },
+                        {
+                            "label": "Soft surface / سطح ناعم",
+                            "value": "soft",
+                            "key": "premium-soft"
+                        },
+                        {
+                            "label": "Inverse / داكنة",
+                            "value": "inverse",
+                            "key": "premium-inverse"
+                        }
+                    ]
+                },
+                {
+                    "id": "alignment",
+                    "type": "items",
+                    "format": "dropdown-list",
+                    "label": "Content alignment / محاذاة المحتوى",
+                    "description": null,
+                    "required": true,
+                    "selected": [
+                        {
+                            "label": "Start / البداية",
+                            "value": "start",
+                            "key": "premium-start"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "label": "Start / البداية",
+                            "value": "start",
+                            "key": "premium-start"
+                        },
+                        {
+                            "label": "Center / الوسط",
+                            "value": "center",
+                            "key": "premium-center"
+                        },
+                        {
+                            "label": "End / النهاية",
+                            "value": "end",
+                            "key": "premium-end"
+                        }
+                    ]
+                },
+                {
+                    "id": "animation",
+                    "type": "items",
+                    "format": "dropdown-list",
+                    "label": "Entrance motion / حركة الظهور",
+                    "description": null,
+                    "required": true,
+                    "selected": [
+                        {
+                            "label": "Fade / تلاشي",
+                            "value": "fade",
+                            "key": "premium-fade"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "label": "None / بدون",
+                            "value": "none",
+                            "key": "premium-none"
+                        },
+                        {
+                            "label": "Fade / تلاشي",
+                            "value": "fade",
+                            "key": "premium-fade"
+                        },
+                        {
+                            "label": "Reveal / كشف",
+                            "value": "reveal",
+                            "key": "premium-reveal"
+                        }
+                    ]
+                },
+                {
+                    "id": "title",
+                    "type": "string",
+                    "format": "text",
+                    "label": "Title / العنوان",
+                    "multilanguage": true,
+                    "required": false
+                },
+                {
+                    "id": "description",
+                    "type": "string",
+                    "format": "textarea",
+                    "label": "Description / الوصف",
+                    "multilanguage": true,
+                    "required": false
+                },
+                {
+                    "id": "image",
+                    "type": "string",
+                    "format": "image",
+                    "label": "Primary image / الصورة الرئيسية",
+                    "required": false
+                },
+                {
+                    "id": "image_alt",
+                    "type": "string",
+                    "format": "text",
+                    "label": "Image alternative text / النص البديل",
+                    "multilanguage": true,
+                    "required": false
+                },
+                {
+                    "id": "quote",
+                    "type": "string",
+                    "format": "textarea",
+                    "label": "Quote / الاقتباس",
+                    "multilanguage": true,
+                    "required": false
+                },
+                {
+                    "id": "citation",
+                    "type": "string",
+                    "format": "text",
+                    "label": "Citation / المصدر",
+                    "multilanguage": true,
+                    "required": false
+                },
+                {
+                    "id": "items",
+                    "type": "collection",
+                    "format": "collection",
+                    "label": "Items / العناصر",
+                    "item_label": "Item / عنصر",
+                    "required": false,
+                    "minLength": 0,
+                    "maxLength": 12,
+                    "value": [],
+                    "fields": [
+                        {
+                            "id": "items.image",
+                            "type": "string",
+                            "format": "image",
+                            "label": "Image / الصورة",
+                            "required": false
+                        },
+                        {
+                            "id": "items.title",
+                            "type": "string",
+                            "format": "text",
+                            "label": "Title / العنوان",
+                            "multilanguage": true,
+                            "required": false
+                        },
+                        {
+                            "id": "items.text",
+                            "type": "string",
+                            "format": "textarea",
+                            "label": "Text / النص",
+                            "multilanguage": true,
+                            "required": false
+                        },
+                        {
+                            "id": "items.url",
+                            "type": "items",
+                            "format": "variable-list",
+                            "label": "Link / الرابط",
+                            "source": "custom",
+                            "searchable": true,
+                            "required": false,
+                            "value": null,
+                            "sources": [
+                                {
+                                    "label": "Product / منتج",
+                                    "key": "products",
+                                    "value": "products"
+                                },
+                                {
+                                    "label": "Category / تصنيف",
+                                    "key": "categories",
+                                    "value": "categories"
+                                },
+                                {
+                                    "label": "Brand / علامة تجارية",
+                                    "key": "brands",
+                                    "value": "brands"
+                                },
+                                {
+                                    "label": "Page / صفحة",
+                                    "key": "pages",
+                                    "value": "pages"
+                                },
+                                {
+                                    "label": "Article / مقالة",
+                                    "key": "blog_articles",
+                                    "value": "blog_articles"
+                                },
+                                {
+                                    "label": "Offers / العروض",
+                                    "key": "offers_link",
+                                    "value": "offers_link"
+                                },
+                                {
+                                    "label": "Brands page / صفحة العلامات",
+                                    "key": "brands_link",
+                                    "value": "brands_link"
+                                },
+                                {
+                                    "label": "Blog / المدونة",
+                                    "key": "blog_link",
+                                    "value": "blog_link"
+                                },
+                                {
+                                    "label": "External link / رابط خارجي",
+                                    "key": "custom",
+                                    "value": "custom"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "items.x",
+                            "type": "number",
+                            "format": "integer",
+                            "label": "Horizontal position % / الموضع الأفقي",
+                            "value": 50,
+                            "minimum": 0,
+                            "maximum": 100,
+                            "required": false
+                        },
+                        {
+                            "id": "items.y",
+                            "type": "number",
+                            "format": "integer",
+                            "label": "Vertical position % / الموضع الرأسي",
+                            "value": 50,
+                            "minimum": 0,
+                            "maximum": 100,
+                            "required": false
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "premium-editorial-009",
+            "title": {
+                "en": "06 · Editorial — Masonry Gallery",
+                "ar": "06 · تحريري — معرض متداخل"
+            },
+            "icon": "sicon-image",
+            "path": "home.masonry-gallery",
+            "fields": [
+                {
+                    "type": "static",
+                    "format": "description",
+                    "id": "masonry-gallery-guide",
+                    "value": "Masonry Gallery / معرض متداخل — reusable editorial content with responsive media."
+                },
+                {
+                    "id": "width",
+                    "type": "items",
+                    "format": "dropdown-list",
+                    "label": "Width / العرض",
+                    "description": null,
+                    "required": true,
+                    "selected": [
+                        {
+                            "label": "Contained / داخل الحاوية",
+                            "value": "contained",
+                            "key": "premium-contained"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "label": "Contained / داخل الحاوية",
+                            "value": "contained",
+                            "key": "premium-contained"
+                        },
+                        {
+                            "label": "Narrow / ضيق",
+                            "value": "narrow",
+                            "key": "premium-narrow"
+                        },
+                        {
+                            "label": "Wide / عريض",
+                            "value": "wide",
+                            "key": "premium-wide"
+                        },
+                        {
+                            "label": "Full bleed / عرض كامل",
+                            "value": "full",
+                            "key": "premium-full"
+                        }
+                    ]
+                },
+                {
+                    "id": "spacing",
+                    "type": "items",
+                    "format": "dropdown-list",
+                    "label": "Vertical spacing / المسافة الرأسية",
+                    "description": null,
+                    "required": true,
+                    "selected": [
+                        {
+                            "label": "Normal / عادية",
+                            "value": "normal",
+                            "key": "premium-normal"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "label": "None / بدون",
+                            "value": "none",
+                            "key": "premium-none"
+                        },
+                        {
+                            "label": "Compact / مدمجة",
+                            "value": "compact",
+                            "key": "premium-compact"
+                        },
+                        {
+                            "label": "Normal / عادية",
+                            "value": "normal",
+                            "key": "premium-normal"
+                        },
+                        {
+                            "label": "Airy / واسعة",
+                            "value": "airy",
+                            "key": "premium-airy"
+                        }
+                    ]
+                },
+                {
+                    "id": "background",
+                    "type": "items",
+                    "format": "dropdown-list",
+                    "label": "Background / الخلفية",
+                    "description": null,
+                    "required": true,
+                    "selected": [
+                        {
+                            "label": "Canvas / أساسية",
+                            "value": "canvas",
+                            "key": "premium-canvas"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "label": "Canvas / أساسية",
+                            "value": "canvas",
+                            "key": "premium-canvas"
+                        },
+                        {
+                            "label": "Soft surface / سطح ناعم",
+                            "value": "soft",
+                            "key": "premium-soft"
+                        },
+                        {
+                            "label": "Inverse / داكنة",
+                            "value": "inverse",
+                            "key": "premium-inverse"
+                        }
+                    ]
+                },
+                {
+                    "id": "alignment",
+                    "type": "items",
+                    "format": "dropdown-list",
+                    "label": "Content alignment / محاذاة المحتوى",
+                    "description": null,
+                    "required": true,
+                    "selected": [
+                        {
+                            "label": "Start / البداية",
+                            "value": "start",
+                            "key": "premium-start"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "label": "Start / البداية",
+                            "value": "start",
+                            "key": "premium-start"
+                        },
+                        {
+                            "label": "Center / الوسط",
+                            "value": "center",
+                            "key": "premium-center"
+                        },
+                        {
+                            "label": "End / النهاية",
+                            "value": "end",
+                            "key": "premium-end"
+                        }
+                    ]
+                },
+                {
+                    "id": "animation",
+                    "type": "items",
+                    "format": "dropdown-list",
+                    "label": "Entrance motion / حركة الظهور",
+                    "description": null,
+                    "required": true,
+                    "selected": [
+                        {
+                            "label": "Fade / تلاشي",
+                            "value": "fade",
+                            "key": "premium-fade"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "label": "None / بدون",
+                            "value": "none",
+                            "key": "premium-none"
+                        },
+                        {
+                            "label": "Fade / تلاشي",
+                            "value": "fade",
+                            "key": "premium-fade"
+                        },
+                        {
+                            "label": "Reveal / كشف",
+                            "value": "reveal",
+                            "key": "premium-reveal"
+                        }
+                    ]
+                },
+                {
+                    "id": "title",
+                    "type": "string",
+                    "format": "text",
+                    "label": "Title / العنوان",
+                    "multilanguage": true,
+                    "required": false
+                },
+                {
+                    "id": "description",
+                    "type": "string",
+                    "format": "textarea",
+                    "label": "Description / الوصف",
+                    "multilanguage": true,
+                    "required": false
+                },
+                {
+                    "id": "image",
+                    "type": "string",
+                    "format": "image",
+                    "label": "Primary image / الصورة الرئيسية",
+                    "required": false
+                },
+                {
+                    "id": "image_alt",
+                    "type": "string",
+                    "format": "text",
+                    "label": "Image alternative text / النص البديل",
+                    "multilanguage": true,
+                    "required": false
+                },
+                {
+                    "id": "quote",
+                    "type": "string",
+                    "format": "textarea",
+                    "label": "Quote / الاقتباس",
+                    "multilanguage": true,
+                    "required": false
+                },
+                {
+                    "id": "citation",
+                    "type": "string",
+                    "format": "text",
+                    "label": "Citation / المصدر",
+                    "multilanguage": true,
+                    "required": false
+                },
+                {
+                    "id": "items",
+                    "type": "collection",
+                    "format": "collection",
+                    "label": "Items / العناصر",
+                    "item_label": "Item / عنصر",
+                    "required": false,
+                    "minLength": 0,
+                    "maxLength": 12,
+                    "value": [],
+                    "fields": [
+                        {
+                            "id": "items.image",
+                            "type": "string",
+                            "format": "image",
+                            "label": "Image / الصورة",
+                            "required": false
+                        },
+                        {
+                            "id": "items.title",
+                            "type": "string",
+                            "format": "text",
+                            "label": "Title / العنوان",
+                            "multilanguage": true,
+                            "required": false
+                        },
+                        {
+                            "id": "items.text",
+                            "type": "string",
+                            "format": "textarea",
+                            "label": "Text / النص",
+                            "multilanguage": true,
+                            "required": false
+                        },
+                        {
+                            "id": "items.url",
+                            "type": "items",
+                            "format": "variable-list",
+                            "label": "Link / الرابط",
+                            "source": "custom",
+                            "searchable": true,
+                            "required": false,
+                            "value": null,
+                            "sources": [
+                                {
+                                    "label": "Product / منتج",
+                                    "key": "products",
+                                    "value": "products"
+                                },
+                                {
+                                    "label": "Category / تصنيف",
+                                    "key": "categories",
+                                    "value": "categories"
+                                },
+                                {
+                                    "label": "Brand / علامة تجارية",
+                                    "key": "brands",
+                                    "value": "brands"
+                                },
+                                {
+                                    "label": "Page / صفحة",
+                                    "key": "pages",
+                                    "value": "pages"
+                                },
+                                {
+                                    "label": "Article / مقالة",
+                                    "key": "blog_articles",
+                                    "value": "blog_articles"
+                                },
+                                {
+                                    "label": "Offers / العروض",
+                                    "key": "offers_link",
+                                    "value": "offers_link"
+                                },
+                                {
+                                    "label": "Brands page / صفحة العلامات",
+                                    "key": "brands_link",
+                                    "value": "brands_link"
+                                },
+                                {
+                                    "label": "Blog / المدونة",
+                                    "key": "blog_link",
+                                    "value": "blog_link"
+                                },
+                                {
+                                    "label": "External link / رابط خارجي",
+                                    "key": "custom",
+                                    "value": "custom"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "items.x",
+                            "type": "number",
+                            "format": "integer",
+                            "label": "Horizontal position % / الموضع الأفقي",
+                            "value": 50,
+                            "minimum": 0,
+                            "maximum": 100,
+                            "required": false
+                        },
+                        {
+                            "id": "items.y",
+                            "type": "number",
+                            "format": "integer",
+                            "label": "Vertical position % / الموضع الرأسي",
+                            "value": 50,
+                            "minimum": 0,
+                            "maximum": 100,
+                            "required": false
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "premium-editorial-010",
+            "title": {
+                "en": "06 · Editorial — Before / After",
+                "ar": "06 · تحريري — قبل وبعد"
+            },
+            "icon": "sicon-image",
+            "path": "home.before-after",
+            "fields": [
+                {
+                    "type": "static",
+                    "format": "description",
+                    "id": "before-after-guide",
+                    "value": "Before / After / قبل وبعد — reusable editorial content with responsive media."
+                },
+                {
+                    "id": "width",
+                    "type": "items",
+                    "format": "dropdown-list",
+                    "label": "Width / العرض",
+                    "description": null,
+                    "required": true,
+                    "selected": [
+                        {
+                            "label": "Contained / داخل الحاوية",
+                            "value": "contained",
+                            "key": "premium-contained"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "label": "Contained / داخل الحاوية",
+                            "value": "contained",
+                            "key": "premium-contained"
+                        },
+                        {
+                            "label": "Narrow / ضيق",
+                            "value": "narrow",
+                            "key": "premium-narrow"
+                        },
+                        {
+                            "label": "Wide / عريض",
+                            "value": "wide",
+                            "key": "premium-wide"
+                        },
+                        {
+                            "label": "Full bleed / عرض كامل",
+                            "value": "full",
+                            "key": "premium-full"
+                        }
+                    ]
+                },
+                {
+                    "id": "spacing",
+                    "type": "items",
+                    "format": "dropdown-list",
+                    "label": "Vertical spacing / المسافة الرأسية",
+                    "description": null,
+                    "required": true,
+                    "selected": [
+                        {
+                            "label": "Normal / عادية",
+                            "value": "normal",
+                            "key": "premium-normal"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "label": "None / بدون",
+                            "value": "none",
+                            "key": "premium-none"
+                        },
+                        {
+                            "label": "Compact / مدمجة",
+                            "value": "compact",
+                            "key": "premium-compact"
+                        },
+                        {
+                            "label": "Normal / عادية",
+                            "value": "normal",
+                            "key": "premium-normal"
+                        },
+                        {
+                            "label": "Airy / واسعة",
+                            "value": "airy",
+                            "key": "premium-airy"
+                        }
+                    ]
+                },
+                {
+                    "id": "background",
+                    "type": "items",
+                    "format": "dropdown-list",
+                    "label": "Background / الخلفية",
+                    "description": null,
+                    "required": true,
+                    "selected": [
+                        {
+                            "label": "Canvas / أساسية",
+                            "value": "canvas",
+                            "key": "premium-canvas"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "label": "Canvas / أساسية",
+                            "value": "canvas",
+                            "key": "premium-canvas"
+                        },
+                        {
+                            "label": "Soft surface / سطح ناعم",
+                            "value": "soft",
+                            "key": "premium-soft"
+                        },
+                        {
+                            "label": "Inverse / داكنة",
+                            "value": "inverse",
+                            "key": "premium-inverse"
+                        }
+                    ]
+                },
+                {
+                    "id": "alignment",
+                    "type": "items",
+                    "format": "dropdown-list",
+                    "label": "Content alignment / محاذاة المحتوى",
+                    "description": null,
+                    "required": true,
+                    "selected": [
+                        {
+                            "label": "Start / البداية",
+                            "value": "start",
+                            "key": "premium-start"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "label": "Start / البداية",
+                            "value": "start",
+                            "key": "premium-start"
+                        },
+                        {
+                            "label": "Center / الوسط",
+                            "value": "center",
+                            "key": "premium-center"
+                        },
+                        {
+                            "label": "End / النهاية",
+                            "value": "end",
+                            "key": "premium-end"
+                        }
+                    ]
+                },
+                {
+                    "id": "animation",
+                    "type": "items",
+                    "format": "dropdown-list",
+                    "label": "Entrance motion / حركة الظهور",
+                    "description": null,
+                    "required": true,
+                    "selected": [
+                        {
+                            "label": "Fade / تلاشي",
+                            "value": "fade",
+                            "key": "premium-fade"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "label": "None / بدون",
+                            "value": "none",
+                            "key": "premium-none"
+                        },
+                        {
+                            "label": "Fade / تلاشي",
+                            "value": "fade",
+                            "key": "premium-fade"
+                        },
+                        {
+                            "label": "Reveal / كشف",
+                            "value": "reveal",
+                            "key": "premium-reveal"
+                        }
+                    ]
+                },
+                {
+                    "id": "title",
+                    "type": "string",
+                    "format": "text",
+                    "label": "Title / العنوان",
+                    "multilanguage": true,
+                    "required": false
+                },
+                {
+                    "id": "description",
+                    "type": "string",
+                    "format": "textarea",
+                    "label": "Description / الوصف",
+                    "multilanguage": true,
+                    "required": false
+                },
+                {
+                    "id": "image",
+                    "type": "string",
+                    "format": "image",
+                    "label": "Primary image / الصورة الرئيسية",
+                    "required": false
+                },
+                {
+                    "id": "image_alt",
+                    "type": "string",
+                    "format": "text",
+                    "label": "Image alternative text / النص البديل",
+                    "multilanguage": true,
+                    "required": false
+                },
+                {
+                    "id": "quote",
+                    "type": "string",
+                    "format": "textarea",
+                    "label": "Quote / الاقتباس",
+                    "multilanguage": true,
+                    "required": false
+                },
+                {
+                    "id": "citation",
+                    "type": "string",
+                    "format": "text",
+                    "label": "Citation / المصدر",
+                    "multilanguage": true,
+                    "required": false
+                },
+                {
+                    "id": "items",
+                    "type": "collection",
+                    "format": "collection",
+                    "label": "Items / العناصر",
+                    "item_label": "Item / عنصر",
+                    "required": false,
+                    "minLength": 0,
+                    "maxLength": 12,
+                    "value": [],
+                    "fields": [
+                        {
+                            "id": "items.image",
+                            "type": "string",
+                            "format": "image",
+                            "label": "Image / الصورة",
+                            "required": false
+                        },
+                        {
+                            "id": "items.title",
+                            "type": "string",
+                            "format": "text",
+                            "label": "Title / العنوان",
+                            "multilanguage": true,
+                            "required": false
+                        },
+                        {
+                            "id": "items.text",
+                            "type": "string",
+                            "format": "textarea",
+                            "label": "Text / النص",
+                            "multilanguage": true,
+                            "required": false
+                        },
+                        {
+                            "id": "items.url",
+                            "type": "items",
+                            "format": "variable-list",
+                            "label": "Link / الرابط",
+                            "source": "custom",
+                            "searchable": true,
+                            "required": false,
+                            "value": null,
+                            "sources": [
+                                {
+                                    "label": "Product / منتج",
+                                    "key": "products",
+                                    "value": "products"
+                                },
+                                {
+                                    "label": "Category / تصنيف",
+                                    "key": "categories",
+                                    "value": "categories"
+                                },
+                                {
+                                    "label": "Brand / علامة تجارية",
+                                    "key": "brands",
+                                    "value": "brands"
+                                },
+                                {
+                                    "label": "Page / صفحة",
+                                    "key": "pages",
+                                    "value": "pages"
+                                },
+                                {
+                                    "label": "Article / مقالة",
+                                    "key": "blog_articles",
+                                    "value": "blog_articles"
+                                },
+                                {
+                                    "label": "Offers / العروض",
+                                    "key": "offers_link",
+                                    "value": "offers_link"
+                                },
+                                {
+                                    "label": "Brands page / صفحة العلامات",
+                                    "key": "brands_link",
+                                    "value": "brands_link"
+                                },
+                                {
+                                    "label": "Blog / المدونة",
+                                    "key": "blog_link",
+                                    "value": "blog_link"
+                                },
+                                {
+                                    "label": "External link / رابط خارجي",
+                                    "key": "custom",
+                                    "value": "custom"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "items.x",
+                            "type": "number",
+                            "format": "integer",
+                            "label": "Horizontal position % / الموضع الأفقي",
+                            "value": 50,
+                            "minimum": 0,
+                            "maximum": 100,
+                            "required": false
+                        },
+                        {
+                            "id": "items.y",
+                            "type": "number",
+                            "format": "integer",
+                            "label": "Vertical position % / الموضع الرأسي",
+                            "value": 50,
+                            "minimum": 0,
+                            "maximum": 100,
+                            "required": false
+                        }
+                    ]
+                }
+            ]
         }
     ],
     "support_url": "https://example.com",

@@ -1,0 +1,45 @@
+<section class="premium-section editorial-family editorial-family--{{ section_kind }} premium-section--spacing-{{ component.spacing|default('normal') }} premium-section--surface-{{ component.background|default('canvas') }}" aria-labelledby="editorial-title-{{ section_kind }}-{{ position }}">
+  <div class="container">
+    {% if component.title or component.description %}
+      <header class="premium-section__heading premium-section--align-{{ component.alignment|default('start') }}">
+        {% if component.title %}<h2 id="editorial-title-{{ section_kind }}-{{ position }}">{{ component.title }}</h2>{% endif %}
+        {% if component.description %}<p>{{ component.description }}</p>{% endif %}
+      </header>
+    {% endif %}
+
+    {% if section_kind == 'quote' %}
+      <figure class="editorial-quote">
+        <blockquote>{{ component.quote|default(component.description) }}</blockquote>
+        {% if component.citation %}<figcaption>{{ component.citation }}</figcaption>{% endif %}
+      </figure>
+    {% elseif section_kind == 'hotspots' %}
+      <div class="editorial-hotspots">
+        {% if component.image %}<img src="{{ component.image }}" alt="{{ component.image_alt|default('') }}" width="1400" height="1000" loading="lazy">{% endif %}
+        {% for item in component.items %}
+          {% if item.url %}<a class="editorial-hotspots__point" href="{{ item.url }}" style="--hotspot-x:{{ item.x|default(50) }}%;--hotspot-y:{{ item.y|default(50) }}%" aria-label="{{ item.title|default('Hotspot') }}"><span>{{ item.title }}</span></a>{% endif %}
+        {% endfor %}
+      </div>
+    {% elseif section_kind == 'before-after' %}
+      <div class="before-after">
+        {% for item in component.items|slice(0, 2) %}
+          <figure>{% if item.image %}<img src="{{ item.image }}" alt="{{ item.title|default('') }}" width="900" height="1100" loading="lazy">{% endif %}{% if item.title %}<figcaption>{{ item.title }}</figcaption>{% endif %}</figure>
+        {% endfor %}
+      </div>
+    {% elseif section_kind == 'timeline' %}
+      <ol class="editorial-timeline">
+        {% for item in component.items %}<li><span>{{ loop.index < 10 ? '0' ~ loop.index : loop.index }}</span><div><h3>{{ item.title }}</h3><p>{{ item.text }}</p></div></li>{% endfor %}
+      </ol>
+    {% else %}
+      <div class="editorial-family__grid">
+        {% for item in component.items %}
+          <article class="editorial-family__item">
+            {% if item.url %}<a href="{{ item.url }}">{% endif %}
+            {% if item.image %}<div class="editorial-family__media"><img src="{{ item.image }}" alt="{{ item.title|default('') }}" width="900" height="1100" loading="lazy"></div>{% endif %}
+            {% if item.title or item.text %}<div class="editorial-family__copy">{% if item.title %}<h3>{{ item.title }}</h3>{% endif %}{% if item.text %}<p>{{ item.text }}</p>{% endif %}</div>{% endif %}
+            {% if item.url %}</a>{% endif %}
+          </article>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+</section>

@@ -53,3 +53,20 @@ New system sections consistently expose contained/narrow/wide/full width, none/c
 ## Existing Twilight feature sections
 
 The theme continues to support existing Salla features and custom components for enhanced slider, main links, animated products with background, enhanced banners, brands, custom testimonials, fixed banners/products, product sliders, photos, store features, YouTube and other enabled `component-*` features. They remain functional while being migrated into the shared section contract.
+
+## Editorial family
+
+Each entry has its own Add Section item and Twig path while sharing one rendering partial.
+
+| Section | Composition | Performance notes |
+| --- | --- | --- |
+| Split Banner | Two linked media panels with overlaid content cards. | Lazy images with reserved ratio. |
+| Editorial Story | Lead story spans the grid and pairs media with long-form copy. | No section JavaScript. |
+| Lookbook | Asymmetric two-column rhythm with periodic full-width looks. | Images lazy-load. |
+| Image Hotspots | Responsive primary image with keyboard-focusable linked hotspots and labels. | Coordinates are bounded editor numbers; no JS. |
+| Magazine Layout | Twelve-column lead-and-supporting-story hierarchy. | Collapses to one column on mobile. |
+| Editorial Quote | Large centered quotation and citation. | Text-only, negligible runtime cost. |
+| Timeline | Ordered semantic sequence with real numbering and copy. | No animation dependency. |
+| Image Gallery | Responsive equal-ratio grid. | Lazy images. |
+| Masonry Gallery | CSS multi-column masonry without a layout library. | No JS/reflow library. |
+| Before / After | Two explicitly labeled comparison figures. | Stable side-by-side media; mobile-safe. |
