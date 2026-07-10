@@ -1,5 +1,35 @@
 # Changelog
 
+<!-- ============================================================= -->
+<!-- PREMIUM REDESIGN (fork by hazem-e99) — Editorial Luxe          -->
+<!-- Entries below the upstream banner document this fork's work.   -->
+<!-- ============================================================= -->
+
+## ✨ Premium Redesign — Unreleased
+
+### Phase 2 — Typography System
+- Added `01-settings/_typography.scss`: role-based type system (`display`, `h1–h4`,
+  `subheading`, `body-lg/body/sm`, `caption`, `eyebrow`, `label`, `button`, `price`)
+  built on the design tokens, plus `.prose-editorial` long-form styles and
+  `text-balance`/`text-pretty` helpers. Opt-in utilities — base heading styles
+  unchanged, so no regression.
+- Applied to product page `<h1>` (display serif + balanced wrap) and corrected the
+  footer heading hierarchy (a11y).
+
+### Phase 1 — Design Token Foundation
+- Added `01-settings/_tokens.scss`: single source of truth for color (warm-neutral
+  scale, surfaces, semantic), typography, spacing (8px), radius, elevation, motion,
+  z-index, container; global `prefers-reduced-motion` guard.
+- Fixed the self-overriding `--color-primary` declaration (theme was accidentally grey).
+- Extended `tailwind.config.js` with token-backed, non-colliding utilities.
+
+### Phase 0 — Analysis & Docs
+- `PROJECT_ANALYSIS.md`, `IMPLEMENTATION_PLAN.md`, `DESIGN_SYSTEM.md`.
+
+---
+
+# Upstream (Salla Theme Raed) Changelog
+
 On this page, you will find all about Salla's Theme Raed updates, including frequent updates, bug fixes, new features, and deprecated elements. We will be displaying only released updates on [Theme Read's ChangeLog](https://github.com/SallaApp/theme-raed/blob/master/CHANGELOG.md) here on GitHub
 
 > 📝 Note

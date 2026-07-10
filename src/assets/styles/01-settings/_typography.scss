@@ -1,0 +1,166 @@
+/* ==========================================================================
+   TYPOGRAPHY  —  premium role-based type system  (Editorial Luxe)
+   --------------------------------------------------------------------------
+   Consumes the type tokens from _tokens.scss. This file is OPT-IN:
+   it introduces `.type-*` utility classes and does NOT override the base
+   h1/h2/h3 element styles defined in 02-generic/common.scss, so existing
+   markup renders unchanged. Apply these utilities deliberately in the
+   redesigned surfaces (header, home blocks, product, etc.).
+
+   Roles: display, h1, h2, h3, h4, subheading, body-lg, body, body-sm,
+          caption, eyebrow, label, button, price.
+   ========================================================================== */
+
+/* --- Role: display — hero, editorial headlines ----------------------- */
+.type-display {
+  font-family: var(--font-display);
+  font-size: var(--text-display);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+}
+
+/* --- Role: headings --------------------------------------------------- */
+.type-h1 {
+  font-family: var(--font-display);
+  font-size: var(--text-h1);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+}
+
+.type-h2 {
+  font-family: var(--font-display);
+  font-size: var(--text-h2);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-snug);
+  letter-spacing: var(--tracking-tight);
+}
+
+.type-h3 {
+  font-family: var(--font-body);
+  font-size: var(--text-h3);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-snug);
+}
+
+.type-h4 {
+  font-family: var(--font-body);
+  font-size: var(--text-h4);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-snug);
+}
+
+/* --- Role: subheading — quiet supporting line under a heading -------- */
+.type-subheading {
+  font-family: var(--font-body);
+  font-size: var(--text-body-lg);
+  font-weight: var(--weight-regular);
+  line-height: var(--leading-normal);
+  color: var(--color-ink-soft);
+}
+
+/* --- Role: body ------------------------------------------------------- */
+.type-body-lg {
+  font-family: var(--font-body);
+  font-size: var(--text-body-lg);
+  font-weight: var(--weight-regular);
+  line-height: var(--leading-relaxed);
+}
+
+.type-body {
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  font-weight: var(--weight-regular);
+  line-height: var(--leading-normal);
+}
+
+.type-body-sm {
+  font-family: var(--font-body);
+  font-size: var(--text-body-sm);
+  font-weight: var(--weight-regular);
+  line-height: var(--leading-normal);
+}
+
+/* --- Role: caption — meta, timestamps, fine print ------------------- */
+.type-caption {
+  font-family: var(--font-body);
+  font-size: var(--text-caption);
+  font-weight: var(--weight-regular);
+  line-height: var(--leading-snug);
+  color: var(--color-ink-muted);
+}
+
+/* --- Role: eyebrow — small uppercase section label ------------------ */
+.type-eyebrow {
+  font-family: var(--font-body);
+  font-size: var(--text-eyebrow);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-snug);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
+}
+
+/* --- Role: label — form labels, chips ------------------------------- */
+.type-label {
+  font-family: var(--font-body);
+  font-size: var(--text-body-sm);
+  font-weight: var(--weight-medium);
+  line-height: var(--leading-snug);
+}
+
+/* --- Role: button --------------------------------------------------- */
+.type-button {
+  font-family: var(--font-body);
+  font-size: var(--text-body-sm);
+  font-weight: var(--weight-semibold);
+  line-height: 1;
+  letter-spacing: 0.01em;
+}
+
+/* --- Role: price — tabular numerals for aligned pricing ------------- */
+.type-price {
+  font-family: var(--font-body);
+  font-weight: var(--weight-bold);
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1;
+  line-height: 1.1;
+}
+
+/* --- Helper: balance headline wrapping where supported -------------- */
+.text-balance { text-wrap: balance; }
+.text-pretty  { text-wrap: pretty; }
+
+/* --- Long-form article typography (product desc, blog, pages) -------
+   Scoped, opt-in via .prose-editorial so it never leaks onto Salla
+   components. Uses tokens for rhythm and color.                        */
+.prose-editorial {
+  font-size: var(--text-body);
+  line-height: var(--leading-relaxed);
+  color: var(--color-ink-soft);
+
+  h2, h3, h4 {
+    color: var(--color-ink);
+    margin-top: var(--space-8);
+    margin-bottom: var(--space-3);
+  }
+  h2 { font-family: var(--font-display); font-size: var(--text-h3); font-weight: var(--weight-semibold); }
+  h3 { font-size: var(--text-h4); font-weight: var(--weight-semibold); }
+
+  p  { margin-bottom: var(--space-4); }
+  a  { color: var(--color-primary); text-decoration: underline; text-underline-offset: 2px; }
+
+  ul, ol { margin: var(--space-4) 0; padding-inline-start: var(--space-5); }
+  ul li { list-style: disc; margin-bottom: var(--space-2); }
+  ol li { list-style: decimal; margin-bottom: var(--space-2); }
+
+  img { border-radius: var(--radius-md); margin: var(--space-6) 0; }
+  blockquote {
+    border-inline-start: var(--border-width-strong) solid var(--color-primary);
+    padding-inline-start: var(--space-4);
+    color: var(--color-ink);
+    font-style: italic;
+    margin: var(--space-6) 0;
+  }
+}

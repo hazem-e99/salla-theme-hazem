@@ -3,7 +3,7 @@
 		<div class="container grid grid-col-1 lg:grid-cols-6 gap-8 lg:gap-6">
 			<div class="lg:col-span-2 rtl:lg:pl-20 ltr:lg:pr-20">
 				<a href="{{ link('/') }}" class="flex items-center m-0">
-					<h3>{{store.name}}</h3>
+					<h2 class="type-h3 text-ink">{{store.name}}</h2>
 				</a>
 				{% if store.description %}
 					<div class="max-w-sm leading-6 mb-6">
@@ -46,7 +46,7 @@
         </div>
 
 			<div>
-				<h3>{{ trans('blocks.footer.pages_links') }}</h3>
+				<h3 class="type-eyebrow mb-4">{{ trans('blocks.footer.pages_links') }}</h3>
 				<salla-menu source="footer" with-cookie-preferences></salla-menu>
 			</div>
 
