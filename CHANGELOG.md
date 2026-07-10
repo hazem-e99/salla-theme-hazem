@@ -7,6 +7,17 @@
 
 ## ✨ Premium Redesign — Unreleased
 
+### Phase 6 — Motion & Accessibility
+- Added `05-utilities/_a11y.scss`: global `prefers-reduced-motion` guard
+  that neutralizes all animations/transitions/smooth-scroll (covers the
+  legacy keyframes in animations.scss) while preserving opacity end-states.
+- Added a keyboard skip-to-content link (visually hidden until focused →
+  jumps to `<main id="main-content">`), with `skip_to_content` strings
+  added to both `ar.json` and `en.json` so `trans()` always resolves.
+- Secondary text now uses the AA-compliant `--color-ink-muted`
+  (≈4.7:1 on canvas). Combined with the Phase-3 `:focus-visible` ring,
+  this closes the main WCAG gaps (2.4.7 focus, reduced motion, contrast).
+
 ### Phase 5 — Product Card, Product Page, Collection & SEO
 - Product card (renders via product-card.js, markup contract untouched):
   premium hover lift + hairline, signature quiet image-zoom (reduced-motion
