@@ -1,9 +1,9 @@
 {
     "name": {
-        "ar": "hazem-dev",
+        "ar": "hazem-dev-old",
         "en": "hazem-dev"
     },
-    "repository": "https://github.com/hazem-e99/hazem-dev",
+    "repository": "https://github.com/hazem-e99/salla-theme-hazem",
     "author_email": "hazemessam81999@gmail.com",
     "features": [
         "mega-menu",
