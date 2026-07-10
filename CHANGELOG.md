@@ -43,6 +43,12 @@
 - Reused one semantic family partial while retaining distinct composition rules for every section.
 - Implemented keyboard-focusable hotspots, semantic timeline/quote markup, lazy media, reserved ratios, RTL coordinates, and CSS-only masonry.
 
+### Product page layouts
+
+- Implemented Editorial Gallery, Classic Sticky Purchase, Full Width Commerce, and Compact Product Focus compositions.
+- Added only semantic `product-gallery` and `product-purchase` hooks; preserved the gallery ID, product form, option includes, price-update nodes, sticky bar, wishlist SDK calls, add-product component, hooks, and all existing classes.
+- Reset every layout to a full-width mobile flow while retaining the established sticky mobile add-to-cart behavior.
+
 <!-- ============================================================= -->
 <!-- PREMIUM REDESIGN (fork by hazem-e99) — Editorial Luxe          -->
 <!-- Entries below the upstream banner document this fork's work.   -->

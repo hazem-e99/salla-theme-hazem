@@ -533,6 +533,62 @@ salla-add-product-button[product-status="out-and-notify"],
   transform: translateY(0);
 }
 
+/* Product-page layout system. Additive product-gallery/product-purchase
+   classes provide stable composition hooks; all functional selectors remain. */
+@media (min-width: 768px) {
+  .product-page-layout--editorial-gallery {
+    .container--product-details > div { gap: clamp(var(--space-8), 5vw, var(--space-20)); }
+    .product-gallery { width: 58% !important; margin-inline: 0 !important; }
+    .product-purchase { width: 42% !important; max-width: 34rem; }
+    .details-slider { background: var(--surface-sunken); }
+  }
+
+  .product-page-layout--classic-sticky {
+    .container--product-details > div { gap: var(--space-8); }
+    .product-gallery { width: 52% !important; margin-inline: 0 !important; }
+    .product-purchase {
+      width: 48% !important;
+      padding: var(--space-6);
+      border: var(--hairline);
+      background: var(--surface-raised);
+      box-shadow: var(--shadow-soft);
+    }
+    .product-purchase .sticky-product-bar { border-top: var(--hairline); }
+  }
+
+  .product-page-layout--full-width-commerce {
+    .container--product-details { max-width: var(--container-wide); }
+    .container--product-details > div { gap: var(--space-6); align-items: stretch; }
+    .product-gallery { width: 62% !important; margin-inline: 0 !important; position: static; }
+    .product-purchase {
+      width: 38% !important;
+      padding: clamp(var(--space-6), 4vw, var(--space-12));
+      background: var(--surface-sunken);
+    }
+    .product-purchase .product__description { max-height: 16rem; overflow: auto; }
+    .sticky-product-bar__btn .s-button-element { min-height: 3.75rem; }
+  }
+
+  .product-page-layout--compact-focus {
+    .container--product-details { max-width: 1080px; }
+    .container--product-details > div { gap: var(--space-8); align-items: start; }
+    .product-gallery { width: 48% !important; margin-inline: 0 !important; }
+    .product-purchase { width: 52% !important; position: static; }
+    .product-purchase h1 { font-size: var(--text-h2); }
+    .product-purchase .product__description { margin-block: var(--space-4); padding-block: var(--space-4); }
+  }
+}
+
+@media (max-width: 767px) {
+  [class*="product-page-layout--"] .product-gallery,
+  [class*="product-page-layout--"] .product-purchase {
+    width: 100% !important;
+    margin-inline: 0 !important;
+  }
+  .product-page-layout--classic-sticky .product-purchase,
+  .product-page-layout--full-width-commerce .product-purchase { padding: var(--space-4); }
+}
+
 /* ======================================================================
    MERCHANT PRODUCT-CARD COMPOSITIONS
    Scoped to the established custom-element classes. Horizontal, donation,
