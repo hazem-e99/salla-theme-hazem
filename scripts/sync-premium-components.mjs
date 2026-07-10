@@ -148,7 +148,20 @@ const editorialDefinitions = [
   ],
 }));
 
-const components = [...coreComponents, ...editorialDefinitions];
+const safeContentDefinition = {
+  key: 'premium-custom-safe-html-001',
+  title: { en: '14 · Custom — Safe HTML', ar: '14 · مخصص — HTML آمن' },
+  icon: 'sicon-code', path: 'home.safe-html',
+  fields: [
+    { type: 'static', format: 'description', id: 'safe-html-warning', value: 'Safe HTML only / HTML آمن فقط. Scripts, event handlers, inline styles, unsafe URLs, iframes, object/embed, SVG and unsupported elements are removed.' },
+    dropdown('width', 'Width / العرض', [['Contained / داخل الحاوية', 'contained'], ['Narrow / ضيق', 'narrow']], ['Contained / داخل الحاوية', 'contained']),
+    dropdown('spacing', 'Vertical spacing / المسافة الرأسية', [['None / بدون', 'none'], ['Compact / مدمجة', 'compact'], ['Normal / عادية', 'normal'], ['Airy / واسعة', 'airy']], ['Normal / عادية', 'normal']),
+    dropdown('background', 'Background / الخلفية', [['Canvas / أساسية', 'canvas'], ['Soft surface / سطح ناعم', 'soft'], ['Inverse / داكنة', 'inverse']], ['Canvas / أساسية', 'canvas']),
+    text('html', 'Safe HTML content / محتوى HTML الآمن', 'textarea', true),
+  ],
+};
+
+const components = [...coreComponents, ...editorialDefinitions, safeContentDefinition];
 
 const managedPaths = new Set(components.map((component) => component.path));
 schema.components = [...(schema.components || []).filter((component) => !managedPaths.has(component.path)), ...components];

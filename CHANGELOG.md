@@ -62,6 +62,12 @@
 - Preserved item form IDs, quantity controls, option includes, delete SDK calls, coupon/gifting/offer components, summary hooks and the checkout bundle contract.
 - Added semantic cart items/summary landmarks without changing Salla checkout submission behavior.
 
+### Safe custom content
+
+- Added an editor-visible Safe HTML section with inert textarea transport and a section-only sanitizer custom element.
+- Added strict element/attribute/protocol/class allowlists and explicit removal of executable or embedding surfaces.
+- Added no raw JavaScript or unrestricted CSS capability; approved visual overrides remain bounded theme settings mapped to known design tokens/classes.
+
 <!-- ============================================================= -->
 <!-- PREMIUM REDESIGN (fork by hazem-e99) — Editorial Luxe          -->
 <!-- Entries below the upstream banner document this fork's work.   -->

@@ -1,0 +1,6 @@
+.safe-content--narrow { max-width: var(--container-narrow); }
+.safe-html-output:empty { display: none; }
+.safe-html-output img,.safe-html-output video { max-width: 100%; height: auto; }
+.safe-html-output table { display: block; max-width: 100%; overflow-x: auto; border-collapse: collapse; }
+.safe-html-output th,.safe-html-output td { padding: var(--space-3); border: var(--hairline); text-align: start; }
+.safe-html-output a { overflow-wrap: anywhere; }

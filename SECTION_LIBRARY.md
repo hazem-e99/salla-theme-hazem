@@ -54,6 +54,10 @@ New system sections consistently expose contained/narrow/wide/full width, none/c
 
 The theme continues to support existing Salla features and custom components for enhanced slider, main links, animated products with background, enhanced banners, brands, custom testimonials, fixed banners/products, product sliders, photos, store features, YouTube and other enabled `component-*` features. They remain functional while being migrated into the shared section contract.
 
+## Custom — Safe HTML
+
+Template: `home.safe-html`. Supports bounded width, spacing and surface controls plus sanitized merchant markup. It uses a section-only JavaScript entry and the allowlist documented in `CUSTOM_HTML_SECURITY.md`. Raw JavaScript, inline handlers/styles, unsafe URLs, iframes, object/embed and dangerous SVG are not supported.
+
 ## Editorial family
 
 Each entry has its own Add Section item and Twig path while sharing one rendering partial.

@@ -1,0 +1,9 @@
+<script defer src="{{ 'safe-content.js'|asset }}"></script>
+<section class="premium-section safe-content premium-section--spacing-{{ component.spacing|default('normal') }} premium-section--surface-{{ component.background|default('canvas') }}">
+  <div class="container {{ component.width == 'narrow' ? 'safe-content--narrow' : '' }}">
+    <safe-html-section>
+      <textarea class="safe-html-source" hidden aria-hidden="true">{{ component.html }}</textarea>
+      <div class="safe-html-output prose-editorial" dir="auto"></div>
+    </safe-html-section>
+  </div>
+</section>

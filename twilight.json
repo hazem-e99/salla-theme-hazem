@@ -6366,6 +6366,127 @@
                     ]
                 }
             ]
+        },
+        {
+            "key": "premium-custom-safe-html-001",
+            "title": {
+                "en": "14 · Custom — Safe HTML",
+                "ar": "14 · مخصص — HTML آمن"
+            },
+            "icon": "sicon-code",
+            "path": "home.safe-html",
+            "fields": [
+                {
+                    "type": "static",
+                    "format": "description",
+                    "id": "safe-html-warning",
+                    "value": "Safe HTML only / HTML آمن فقط. Scripts, event handlers, inline styles, unsafe URLs, iframes, object/embed, SVG and unsupported elements are removed."
+                },
+                {
+                    "id": "width",
+                    "type": "items",
+                    "format": "dropdown-list",
+                    "label": "Width / العرض",
+                    "description": null,
+                    "required": true,
+                    "selected": [
+                        {
+                            "label": "Contained / داخل الحاوية",
+                            "value": "contained",
+                            "key": "premium-contained"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "label": "Contained / داخل الحاوية",
+                            "value": "contained",
+                            "key": "premium-contained"
+                        },
+                        {
+                            "label": "Narrow / ضيق",
+                            "value": "narrow",
+                            "key": "premium-narrow"
+                        }
+                    ]
+                },
+                {
+                    "id": "spacing",
+                    "type": "items",
+                    "format": "dropdown-list",
+                    "label": "Vertical spacing / المسافة الرأسية",
+                    "description": null,
+                    "required": true,
+                    "selected": [
+                        {
+                            "label": "Normal / عادية",
+                            "value": "normal",
+                            "key": "premium-normal"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "label": "None / بدون",
+                            "value": "none",
+                            "key": "premium-none"
+                        },
+                        {
+                            "label": "Compact / مدمجة",
+                            "value": "compact",
+                            "key": "premium-compact"
+                        },
+                        {
+                            "label": "Normal / عادية",
+                            "value": "normal",
+                            "key": "premium-normal"
+                        },
+                        {
+                            "label": "Airy / واسعة",
+                            "value": "airy",
+                            "key": "premium-airy"
+                        }
+                    ]
+                },
+                {
+                    "id": "background",
+                    "type": "items",
+                    "format": "dropdown-list",
+                    "label": "Background / الخلفية",
+                    "description": null,
+                    "required": true,
+                    "selected": [
+                        {
+                            "label": "Canvas / أساسية",
+                            "value": "canvas",
+                            "key": "premium-canvas"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "label": "Canvas / أساسية",
+                            "value": "canvas",
+                            "key": "premium-canvas"
+                        },
+                        {
+                            "label": "Soft surface / سطح ناعم",
+                            "value": "soft",
+                            "key": "premium-soft"
+                        },
+                        {
+                            "label": "Inverse / داكنة",
+                            "value": "inverse",
+                            "key": "premium-inverse"
+                        }
+                    ]
+                },
+                {
+                    "id": "html",
+                    "type": "string",
+                    "format": "textarea",
+                    "label": "Safe HTML content / محتوى HTML الآمن",
+                    "multilanguage": true,
+                    "required": true
+                }
+            ]
         }
     ],
     "support_url": "https://example.com",
