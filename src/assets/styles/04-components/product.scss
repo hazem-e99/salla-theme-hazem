@@ -452,11 +452,16 @@ salla-add-product-button[product-status="out-and-notify"],
   img{
     width: 100%;
     height: 100%;
-    object-fit: cover;
     border-radius: 0;
     transition: transform 1.2s var(--ease-emphasized), opacity var(--duration-slow) var(--ease-standard);
     will-change: transform;
   }
+
+  /* Respect the merchant's fit setting: JS puts -cover/-contain on the img.
+     Only default to cover when neither is specified. */
+  img.s-product-card-image-cover   { object-fit: cover; }
+  img.s-product-card-image-contain { object-fit: contain; }
+  img:not([class*="s-product-card-image-"]) { object-fit: cover; }
 }
 @media (prefers-reduced-motion: no-preference){
   .s-product-card-entry:hover .s-product-card-image img,

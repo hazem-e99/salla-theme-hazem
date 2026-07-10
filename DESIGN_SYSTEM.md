@@ -5,9 +5,24 @@
 
 ---
 
-## 0. Design Direction — "Editorial Luxe"
+## 0. Design Direction — "Atelier" (Zara / COS editorial)
 
-A warm-neutral canvas, near-black ink, and generous whitespace. A refined **serif display** face carries personality in headlines; a clean **grotesque sans** carries the body. Hairline dividers, small crisp radii, soft low shadows. The **merchant's runtime color** (`--color-primary`, injected by Salla per store) is treated as a *disciplined accent* — used for CTAs, active states, and small emphasis, never as large flat fills. The signature move is an **editorial product presentation**: quiet chrome, confident typography, images given room to breathe.
+> **V2 identity (current).** Supersedes the earlier "Editorial Luxe" pass. This is a
+> full visual transformation, not a polish — the goal is that the store cannot be
+> mistaken for a default Twilight theme.
+
+A **monochrome ink-on-paper** system with **extreme whitespace**, **sharp corners**
+(radius ≈ 0 store-wide), and **near-flat elevation** (depth comes from whitespace and
+hairlines, not drop-shadows). Type is **tiny and wide-tracked** — uppercase micro-labels
+and quiet product names — because the **imagery is the loud element**. Chrome recedes: a
+centered letter-spaced wordmark, hairline-only header, full-bleed hero. The **merchant's
+runtime color** (`--color-primary`) is used as **rare punctuation** (a single underline /
+one hover accent), essentially never as a flat fill — the dominant "brand" color is **ink
+(`#111`) on paper (`#fbfbfa`)**.
+
+Token *names* are unchanged from V1 (so nothing downstream breaks); their *values* were
+re-tuned to this identity. The sections below describe the V1 value intent; the live values
+are in `01-settings/_tokens.scss`.
 
 **Boldness is spent in one place** (per the frontend-design skill): the type + image composition. Everything else stays quiet and disciplined.
 
