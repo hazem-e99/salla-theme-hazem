@@ -55,6 +55,13 @@
 - Preserved `#filters-menu`, filter trigger/close selectors, sort ID, products-list component and filter-result attribute used by `products.js` and Salla.
 - Kept filters available in every desktop and mobile composition; Full Width Minimal moves the filter component above the product grid instead of hiding functionality.
 
+### Cart experience
+
+- Added Editorial, Commerce Summary, and Compact Mobile cart compositions plus an elevated empty-cart state.
+- Connected the real `cart.free_shipping_bar` markup and existing cart update controller to tokenized progress presentation.
+- Preserved item form IDs, quantity controls, option includes, delete SDK calls, coupon/gifting/offer components, summary hooks and the checkout bundle contract.
+- Added semantic cart items/summary landmarks without changing Salla checkout submission behavior.
+
 <!-- ============================================================= -->
 <!-- PREMIUM REDESIGN (fork by hazem-e99) — Editorial Luxe          -->
 <!-- Entries below the upstream banner document this fork's work.   -->

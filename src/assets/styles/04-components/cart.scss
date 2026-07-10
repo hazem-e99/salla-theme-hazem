@@ -1,0 +1,42 @@
+/* Cart layouts preserve Salla item forms, summary and live shipping selectors. */
+.cart-page .cart-item,
+.cart-page #free-shipping,
+.cart-page #cart-gifting,
+.cart-page salla-cart-coupons,
+.cart-page salla-cart-summary-card {
+  border: var(--hairline);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-soft);
+}
+.cart-page .cart-item { background: var(--surface-raised); }
+.cart-page #free-shipping-bar { overflow: visible; }
+.cart-page #free-shipping-bar > div { transition: width var(--duration-slow) var(--ease-decelerate); }
+.cart-empty { min-height: 28rem; display: flex; flex-direction: column; justify-content: center; border: var(--hairline); background: var(--surface-sunken); }
+
+@media (min-width: 1024px) {
+  .cart-layout--editorial .cart-layout { gap: clamp(var(--space-8),4vw,var(--space-16)); }
+  .cart-layout--editorial .cart-items { flex: 1 1 auto; width: auto; }
+  .cart-layout--editorial .cart-summary { flex: 0 0 24rem; width: 24rem; margin-inline: 0 !important; }
+
+  .cart-layout--commerce-summary .cart-layout { max-width: var(--container-wide); gap: var(--space-6); }
+  .cart-layout--commerce-summary .cart-items { flex: 1 1 auto; width: auto; }
+  .cart-layout--commerce-summary .cart-summary { flex: 0 0 28rem; width: 28rem; margin-inline: 0 !important; padding: var(--space-5); background: var(--surface-sunken); border: var(--border-width-strong) solid var(--color-line-strong); }
+  .cart-layout--commerce-summary .cart-item { border-radius: var(--radius-xs); box-shadow: none; }
+
+  .cart-layout--compact-mobile .cart-layout { max-width: 68rem; margin-inline: auto; gap: var(--space-5); }
+  .cart-layout--compact-mobile .cart-items { flex: 1 1 auto; width: auto; }
+  .cart-layout--compact-mobile .cart-summary { flex: 0 0 22rem; width: 22rem; margin-inline: 0 !important; }
+  .cart-layout--compact-mobile .cart-item { padding: var(--space-4); }
+}
+
+@media (max-width: 1023px) {
+  [class*="cart-layout--"] .cart-layout { gap: var(--space-5); }
+  [class*="cart-layout--"] .cart-summary { width: 100%; margin-inline: 0 !important; }
+}
+
+@media (max-width: 640px) {
+  .cart-page .cart-item { padding: var(--space-4); border-radius: var(--radius-sm); }
+  .cart-page .cart-summary { padding-bottom: calc(5rem + env(safe-area-inset-bottom)); }
+  .cart-layout--compact-mobile .cart-item img { width: 4.5rem; height: 4.5rem; }
+  .cart-layout--compact-mobile .cart-item .item-total { display: block; margin-top: var(--space-1); }
+}

@@ -49,15 +49,15 @@
 
 {% extends "layouts.master" %}
 {% block content %}
-    <div class="container">
+    <div class="container cart-page">
         {# add breadcumbs container in pages to make a space in case breadcrumbs is off #}
         <nav class="breadcrumbs w-full py-5">
             <salla-breadcrumb></salla-breadcrumb>
         </nav>
         <h1 class="sr-only">{{ trans('blocks.header.cart') }}</h1>
         <salla-conditional-offer></salla-conditional-offer>
-        <div class="pt-5 flex flex-col items-start lg:flex-row pb-32 lg:pb-20">
-            <div class="main-content w-full lg:w-[calc(100%-384px)]">
+        <div class="cart-layout pt-5 flex flex-col items-start lg:flex-row pb-32 lg:pb-20">
+            <div class="main-content cart-items w-full lg:w-[calc(100%-384px)]">
                 {% hook 'cart:items.start' %}
 
                 {% for item in cart.items %}
@@ -145,7 +145,7 @@
                         </section>
                     </form>
                 {% else %}
-                    <div class="no-content-placeholder">
+                    <div class="no-content-placeholder cart-empty">
                         <i class="sicon-shopping-bag icon"></i>
                         <p>{{ trans('pages.cart.empty_cart') }}</p>
                         <a href="{{ link('/') }}"
@@ -174,7 +174,7 @@
 
             <!-- sidebar -->
             {% if cart.items|length %}
-                <div class="sticky top-24 w-full lg:w-96 rtl:lg:mr-8 ltr:lg:ml-8">
+                <aside class="cart-summary sticky top-24 w-full lg:w-96 rtl:lg:mr-8 ltr:lg:ml-8" aria-label="{{ trans('pages.cart.total') }}">
                     <div class="shadow-default bg-white p-5 xs:p-7 rounded-md mb-5 relative {{ cart.free_shipping_bar ? '' : 'hidden' }}" id="free-shipping">
                         <div class="flex rtl:space-x-reverse space-x-3 items-center">
                             <i class="bg-primary text-white rounded-icon sicon-shipping-fast {{ theme.is_rtl ? 'flip-x':'' }}"></i>
@@ -223,7 +223,7 @@
 
                      <!-- Tiered Offer Component -->
                     <salla-tiered-offer></salla-tiered-offer>
-                </div>
+                </aside>
             {% endif %}
         </div>
     </div>
