@@ -1,4 +1,47 @@
 <div id="top"></div>
+
+# ✨ Premium Salla Theme — “Editorial Luxe”
+
+> A world-class, premium ecommerce theme for the **Salla** platform, built on the
+> official Twilight framework. This is a professional starter theme engineered to
+> compete with the best (Zara, Nike, Apple Store, Shopify Prestige/Motion/Impulse).
+
+**Design direction:** *Editorial Luxe* — warm-neutral canvas, near-black ink,
+refined serif display + clean sans body, hairline detailing, soft elevation, and
+the merchant's brand color used as a disciplined accent. Fully tokenized,
+accessible (WCAG AA), bidirectional (RTL/LTR), and responsive from 320→1920.
+
+### Redesign documentation
+| Doc | What it covers |
+|-----|----------------|
+| [`PROJECT_ANALYSIS.md`](PROJECT_ANALYSIS.md) | Pre-redesign audit: architecture, tech debt, a11y/SEO/perf. |
+| [`IMPLEMENTATION_PLAN.md`](IMPLEMENTATION_PLAN.md) | The phased, buildable-at-every-step roadmap. |
+| [`DESIGN_SYSTEM.md`](DESIGN_SYSTEM.md) | Full token spec (color, type, spacing, radius, shadow, motion…). |
+| [`COMPONENTS.md`](COMPONENTS.md) | Reusable UI-kit reference. |
+| [`ARCHITECTURE.md`](ARCHITECTURE.md) | How the theme is built and why. |
+| [`THEME_STRUCTURE.md`](THEME_STRUCTURE.md) | File-and-folder map. |
+| [`CHANGELOG.md`](CHANGELOG.md) | Redesign log (top) + upstream Raed history. |
+
+### Quick start
+```bash
+pnpm install
+pnpm run watch        # dev build + Salla ThemeWatcher
+pnpm run production   # production build → public/
+```
+
+### Design principles (enforced)
+1. **Tokens first** — no hardcoded design values downstream.
+2. **Salla-safe** — never alter `<salla-*>` internals, Twig contracts, hooks, or build entry names.
+3. **Additive & non-colliding** — premium styles are opt-in; existing markup is never silently reshaped.
+4. **Accessible & bidirectional** — focus rings, reduced motion, AA contrast, RTL/LTR by default.
+5. **Buildable at every commit.**
+
+> The theme is built on Salla's official **Theme Raed**. The original Raed
+> documentation follows below, and remains the authority for platform setup,
+> the Salla CLI, previewing, and publishing.
+
+---
+
 <br />
 <div align="center"> 
   <a href="https://salla.dev"> 

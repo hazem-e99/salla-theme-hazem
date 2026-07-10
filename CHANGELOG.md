@@ -7,6 +7,13 @@
 
 ## ✨ Premium Redesign — Unreleased
 
+### Phase 8 — Documentation & Handover
+- Added `ARCHITECTURE.md` (how the theme is built & why), `THEME_STRUCTURE.md`
+  (full file map + contracts), and a premium fork section atop `README.md`
+  (kept the upstream Raed setup guide as the platform authority).
+- Verified all JS asset references in Twig map to real webpack entries
+  (no broken references); all locale/config JSON validated.
+
 ### Phase 7 — Performance
 - Added CDN `preconnect` + `dns-prefetch` to warm the connection for
   fonts/icons/assets before they are requested (faster FCP).
