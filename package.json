@@ -10,10 +10,12 @@
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "production": "webpack --mode production",
-    "prod": "webpack --mode production",
-    "development": "webpack --mode development",
-    "watch": "webpack --mode development --watch"
+    "sync:safelist": "node scripts/sync-salla-safelist.mjs",
+    "build:page-css": "tailwindcss -c tailwind.pages.config.js -i src/assets/styles/page-components.css -o public/page-components.css --minify",
+    "production": "pnpm sync:safelist && webpack --mode production && pnpm build:page-css",
+    "prod": "pnpm production",
+    "development": "pnpm sync:safelist && webpack --mode development && pnpm build:page-css",
+    "watch": "pnpm sync:safelist && pnpm build:page-css && webpack --mode development --watch"
   },
   "author": "Salla",
   "dependencies": {

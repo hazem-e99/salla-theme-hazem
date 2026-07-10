@@ -3,8 +3,8 @@ module.exports = {
     content: [
         "src/views/**/*.twig",
         "src/assets/js/**/*.js",
-        //todo:: inject it via the plugin or easier way
-        'node_modules/@salla.sa/twilight-tailwind-theme/safe-list-css.txt',
+        // Explicit subset generated from the Salla components used by this theme.
+        'src/assets/styles/salla-component-safelist.txt',
     ],
     darkMode: 'class', // or 'media' or 'class'
     theme   : {
@@ -208,6 +208,5 @@ module.exports = {
     plugins: [
       require('@salla.sa/twilight-tailwind-theme'),
       require('@tailwindcss/forms'),
-      require('@tailwindcss/line-clamp'),
     ],
 }
