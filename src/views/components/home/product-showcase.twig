@@ -9,11 +9,17 @@
         {% if component.description %}<p>{{ component.description }}</p>{% endif %}
       </header>
     {% endif %}
-    {% if product_ids %}
-      {% if mode == 'carousel' %}
+    {% if mode == 'carousel' %}
+      {% if product_ids %}
         <salla-products-slider source="selected" source-value="[{{ product_ids }}]" slider-id="product-showcase-{{ position }}" block-title=" "></salla-products-slider>
       {% else %}
+        <salla-products-slider source="latest" slider-id="product-showcase-{{ position }}" block-title=" "></salla-products-slider>
+      {% endif %}
+    {% else %}
+      {% if product_ids %}
         <salla-products-list source="selected" source-value="[{{ product_ids }}]" limit="{{ component.limit|default(8) }}"></salla-products-list>
+      {% else %}
+        <salla-products-list source="latest" limit="{{ component.limit|default(8) }}"></salla-products-list>
       {% endif %}
     {% endif %}
   </div>

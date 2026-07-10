@@ -1,7 +1,23 @@
 import fs from 'node:fs';
+import crypto from 'node:crypto';
 
 const file = new URL('../twilight.json', import.meta.url);
 const schema = JSON.parse(fs.readFileSync(file, 'utf8'));
+
+// Salla's live "Add Section" editor only reliably registers components whose `key` is a UUID v4,
+// matching every legacy/original component in this theme. Component paths are stable identifiers,
+// so we mint a UUID once per path and persist it here — re-running this generator must never
+// change an already-shipped component's key, or merchants' saved sections would orphan.
+const keyMapFile = new URL('./premium-component-keys.json', import.meta.url);
+const keyMap = fs.existsSync(keyMapFile) ? JSON.parse(fs.readFileSync(keyMapFile, 'utf8')) : {};
+const keyFor = (path) => {
+  if (!keyMap[path]) keyMap[path] = crypto.randomUUID();
+  return keyMap[path];
+};
+
+// Preview thumbnail shown in the Add Section picker; falls back to a shared placeholder so every
+// premium component has one, matching the `image` property every legacy component ships with.
+const defaultThumbnail = 'https://cdn.salla.network/images/themes/raed/preview-images/main-links.png?v=1.1';
 
 const option = (label, value) => ({ label, value, key: `premium-${value}` });
 const dropdown = (id, label, values, selected = values[0], description = null) => ({
@@ -20,9 +36,14 @@ const text = (id, label, format = 'text', required = false) => ({
 const image = (id, label, required = false) => ({
   id, type: 'string', format: 'image', label, required,
 });
-const selectedItems = (id, label, source, maxLength = 12) => ({
+// `required` defaults to false: Salla's editor can silently refuse to register (or fails to open
+// the settings panel for) a component that declares a required dynamic-source field with an empty
+// `selected`/`value` default, because there is no valid value to satisfy the requirement at
+// schema-load time. Templates that consume this field must fall back gracefully (e.g. to
+// `source="latest"`) when the merchant has not picked anything yet.
+const selectedItems = (id, label, source, maxLength = 12, required = false) => ({
   id, type: 'items', format: 'dropdown-list', label, source, searchable: true,
-  multichoice: true, required: true, minLength: 1, maxLength, selected: [], options: [], value: [],
+  multichoice: true, required, minLength: required ? 1 : 0, maxLength, selected: [], options: [], value: [],
 });
 const linkSources = [
   ['Product / منتج', 'products'], ['Category / تصنيف', 'categories'],
@@ -45,9 +66,9 @@ const common = () => [
 
 const coreComponents = [
   {
-    key: 'premium-system-hero-001',
+    key: keyFor('home.premium-hero'),
     title: { en: '01 · Hero — Premium', ar: '01 · واجهة رئيسية فاخرة' },
-    icon: 'sicon-image', path: 'home.premium-hero', is_default: true,
+    icon: 'sicon-image', path: 'home.premium-hero', image: defaultThumbnail, is_default: true,
     fields: [
       { type: 'static', format: 'description', id: 'hero-guide', value: 'Hero / الواجهة الرئيسية — seven composition variants with responsive media.' },
       dropdown('variant', 'Hero variant / تصميم الواجهة', [
@@ -59,16 +80,17 @@ const coreComponents = [
       ...common(), text('title', 'Title / العنوان', 'text', true), text('subtitle', 'Eyebrow / العنوان الصغير'),
       text('description', 'Description / الوصف', 'textarea'), image('image', 'Desktop image / صورة سطح المكتب', true),
       image('mobile_image', 'Mobile image / صورة الجوال'), image('secondary_image', 'Secondary collage image / صورة الكولاج الثانية'),
-      text('video_id', 'YouTube video ID / معرّف فيديو يوتيوب'), selectedItems('products', 'Spotlight products / منتجات مميزة', 'products', 4),
+      text('video_id', 'YouTube video ID / معرّف فيديو يوتيوب'),
+      selectedItems('products', 'Spotlight products (used by Product Spotlight variant only) / منتجات مميزة (لتصميم إبراز منتج فقط)', 'products', 4),
       text('cta_label', 'Button label / نص الزر'), variableLink('cta_url', 'Button link / رابط الزر'),
     ],
   },
   {
-    key: 'premium-system-products-001',
+    key: keyFor('home.product-showcase'),
     title: { en: '03 · Products — Grid or Carousel', ar: '03 · منتجات — شبكة أو سلايدر' },
-    icon: 'sicon-shopping-bag', path: 'home.product-showcase', is_default: true,
+    icon: 'sicon-shopping-bag', path: 'home.product-showcase', image: defaultThumbnail, is_default: true,
     fields: [
-      { type: 'static', format: 'description', id: 'products-guide', value: 'Selected Salla products rendered by the native product list/slider components.' },
+      { type: 'static', format: 'description', id: 'products-guide', value: 'Selected Salla products rendered by the native product list/slider components. Leave products empty to show the store’s latest products.' },
       dropdown('mode', 'Display / طريقة العرض', [['Product grid / شبكة منتجات', 'grid'], ['Product carousel / سلايدر منتجات', 'carousel']], ['Product grid / شبكة منتجات', 'grid']),
       dropdown('variant', 'Variant / التصميم', [
         ['Editorial / تحريري', 'editorial'], ['Minimal / بسيط', 'minimal'], ['Compact / مدمج', 'compact'],
@@ -77,28 +99,29 @@ const coreComponents = [
         ['Full bleed carousel / سلايدر بعرض كامل', 'full-bleed'], ['Centered carousel / سلايدر متوسط', 'centered'],
       ], ['Editorial / تحريري', 'editorial']),
       ...common(), text('title', 'Title / العنوان', 'text', true), text('description', 'Description / الوصف', 'textarea'),
-      selectedItems('products', 'Products / المنتجات', 'products', 24),
+      selectedItems('products', 'Products (optional — leave empty for latest) / المنتجات (اختياري — اتركه فارغاً لعرض الأحدث)', 'products', 24),
       { id: 'limit', type: 'number', format: 'integer', label: 'Product count / عدد المنتجات', value: 8, minimum: 2, maximum: 24, required: true },
     ],
   },
   {
-    key: 'premium-system-collections-001',
+    key: keyFor('home.collection-showcase'),
     title: { en: '04 · Collections — Categories', ar: '04 · مجموعات — تصنيفات' },
-    icon: 'sicon-grid', path: 'home.collection-showcase', is_default: true,
+    icon: 'sicon-grid', path: 'home.collection-showcase', image: defaultThumbnail, is_default: true,
     fields: [
-      { type: 'static', format: 'description', id: 'collections-guide', value: 'Category grid or carousel using live Salla category data.' },
+      { type: 'static', format: 'description', id: 'collections-guide', value: 'Category grid or carousel using live Salla category data. Pick the categories to feature — this section renders nothing until at least one is chosen.' },
       dropdown('mode', 'Display / طريقة العرض', [['Category grid / شبكة تصنيفات', 'grid'], ['Category carousel / سلايدر تصنيفات', 'carousel']], ['Category grid / شبكة تصنيفات', 'grid']),
       dropdown('variant', 'Variant / التصميم', [
         ['Portrait / طولي', 'portrait'], ['Square / مربع', 'square'], ['Circle / دائري', 'circle'],
         ['Editorial / تحريري', 'editorial'], ['Overlay / نص فوق الصورة', 'overlay'], ['Minimal text / نص بسيط', 'minimal-text'],
       ], ['Portrait / طولي', 'portrait']),
-      ...common(), text('title', 'Title / العنوان', 'text', true), selectedItems('categories', 'Categories / التصنيفات', 'categories', 12),
+      ...common(), text('title', 'Title / العنوان', 'text', true),
+      selectedItems('categories', 'Categories / التصنيفات', 'categories', 12),
     ],
   },
   {
-    key: 'premium-system-image-text-001',
+    key: keyFor('home.image-text'),
     title: { en: '06 · Editorial — Image + Text', ar: '06 · تحريري — صورة ونص' },
-    icon: 'sicon-layout', path: 'home.image-text', is_default: true,
+    icon: 'sicon-layout', path: 'home.image-text', image: defaultThumbnail, is_default: true,
     fields: [
       { type: 'static', format: 'description', id: 'image-text-guide', value: 'Editorial storytelling with six genuinely different compositions.' },
       dropdown('variant', 'Variant / التصميم', [
@@ -136,10 +159,10 @@ const editorialDefinitions = [
   ['image-gallery', 'Image Gallery', 'معرض صور'],
   ['masonry-gallery', 'Masonry Gallery', 'معرض متداخل'],
   ['before-after', 'Before / After', 'قبل وبعد'],
-].map(([slug, en, ar], index) => ({
-  key: `premium-editorial-${String(index + 1).padStart(3, '0')}`,
+].map(([slug, en, ar]) => ({
+  key: keyFor(`home.${slug}`),
   title: { en: `06 · Editorial — ${en}`, ar: `06 · تحريري — ${ar}` },
-  icon: 'sicon-image', path: `home.${slug}`,
+  icon: 'sicon-image', path: `home.${slug}`, image: defaultThumbnail,
   fields: [
     { type: 'static', format: 'description', id: `${slug}-guide`, value: `${en} / ${ar} — reusable editorial content with responsive media.` },
     ...common(), text('title', 'Title / العنوان'), text('description', 'Description / الوصف', 'textarea'),
@@ -149,9 +172,9 @@ const editorialDefinitions = [
 }));
 
 const safeContentDefinition = {
-  key: 'premium-custom-safe-html-001',
+  key: keyFor('home.safe-html'),
   title: { en: '14 · Custom — Safe HTML', ar: '14 · مخصص — HTML آمن' },
-  icon: 'sicon-code', path: 'home.safe-html',
+  icon: 'sicon-code', path: 'home.safe-html', image: defaultThumbnail,
   fields: [
     { type: 'static', format: 'description', id: 'safe-html-warning', value: 'Safe HTML only / HTML آمن فقط. Scripts, event handlers, inline styles, unsafe URLs, iframes, object/embed, SVG and unsupported elements are removed.' },
     dropdown('width', 'Width / العرض', [['Contained / داخل الحاوية', 'contained'], ['Narrow / ضيق', 'narrow']], ['Contained / داخل الحاوية', 'contained']),
@@ -214,12 +237,12 @@ const structuredItems = (title) => ({
   ],
 });
 
-const structuredDefinitions = structuredCatalog.map(([slug,en,ar,variantData],index) => {
+const structuredDefinitions = structuredCatalog.map(([slug,en,ar,variantData]) => {
   const variants=[]; for(let i=0;i<variantData.length;i+=2) variants.push([variantData[i],variantData[i+1]]);
   const titleField=text('title','Title / العنوان'); titleField.value={en:en.split(' — ').pop(),ar:ar.split(' — ').pop()};
   const descriptionField=text('description','Description / الوصف','textarea'); descriptionField.value={en:'Present useful store information with a clear next action.',ar:'اعرض معلومات مفيدة للمتجر مع إجراء واضح.'};
   return {
-    key:`premium-structured-${String(index+1).padStart(3,'0')}`, title:{en,ar}, icon:'sicon-layout', path:`home.${slug}`,
+    key:keyFor(`home.${slug}`), title:{en,ar}, icon:'sicon-layout', path:`home.${slug}`, image:defaultThumbnail,
     fields:[
       {type:'static',format:'description',id:`${slug}-guide`,value:`${en} / ${ar}`},
       dropdown('variant','Variant / التصميم',variants,variants[0]), ...common(), titleField,
@@ -238,15 +261,14 @@ structuredCatalog.forEach(([slug]) => fs.writeFileSync(new URL(`${slug}.twig`, w
 
 const components = [...coreComponents, ...editorialDefinitions, safeContentDefinition, ...structuredDefinitions];
 
-const managedPaths = new Set(components.map((component) => component.path));
+// Every component this generator manages is identified by `path` (stable) — replace any existing
+// entry at that path (including the legacy `home.testimonials` this catalog supersedes) and leave
+// every other component (legacy, hand-authored, or future) untouched.
+const managedPaths = new Set([...components.map((component) => component.path), 'home.testimonials']);
 schema.components = [
-    ...(schema.components || []).filter(
-        (component) =>
-            !managedPaths.has(component.path)
-            && !String(component.key || '').startsWith('premium-structured-')
-            && component.path !== 'home.testimonials'
-    ),
+    ...(schema.components || []).filter((component) => !managedPaths.has(component.path)),
     ...components
 ];
 fs.writeFileSync(file, `${JSON.stringify(schema, null, 4)}\n`, 'utf8');
+fs.writeFileSync(keyMapFile, `${JSON.stringify(keyMap, null, 2)}\n`, 'utf8');
 console.log(`Synced ${components.length} premium components; total components: ${schema.components.length}`);

@@ -1578,13 +1578,14 @@
             ]
         },
         {
-            "key": "premium-system-hero-001",
+            "key": "97a334a2-d929-4725-b7d8-04e0d187a373",
             "title": {
                 "en": "01 · Hero — Premium",
                 "ar": "01 · واجهة رئيسية فاخرة"
             },
             "icon": "sicon-image",
             "path": "home.premium-hero",
+            "image": "https://cdn.salla.network/images/themes/raed/preview-images/main-links.png?v=1.1",
             "is_default": true,
             "fields": [
                 {
@@ -1872,12 +1873,12 @@
                     "id": "products",
                     "type": "items",
                     "format": "dropdown-list",
-                    "label": "Spotlight products / منتجات مميزة",
+                    "label": "Spotlight products (used by Product Spotlight variant only) / منتجات مميزة (لتصميم إبراز منتج فقط)",
                     "source": "products",
                     "searchable": true,
                     "multichoice": true,
-                    "required": true,
-                    "minLength": 1,
+                    "required": false,
+                    "minLength": 0,
                     "maxLength": 4,
                     "selected": [],
                     "options": [],
@@ -1951,20 +1952,21 @@
             ]
         },
         {
-            "key": "premium-system-products-001",
+            "key": "f4c03ea1-4d55-48be-b6f3-83fff6c6ffc7",
             "title": {
                 "en": "03 · Products — Grid or Carousel",
                 "ar": "03 · منتجات — شبكة أو سلايدر"
             },
             "icon": "sicon-shopping-bag",
             "path": "home.product-showcase",
+            "image": "https://cdn.salla.network/images/themes/raed/preview-images/main-links.png?v=1.1",
             "is_default": true,
             "fields": [
                 {
                     "type": "static",
                     "format": "description",
                     "id": "products-guide",
-                    "value": "Selected Salla products rendered by the native product list/slider components."
+                    "value": "Selected Salla products rendered by the native product list/slider components. Leave products empty to show the store’s latest products."
                 },
                 {
                     "id": "mode",
@@ -2250,12 +2252,12 @@
                     "id": "products",
                     "type": "items",
                     "format": "dropdown-list",
-                    "label": "Products / المنتجات",
+                    "label": "Products (optional — leave empty for latest) / المنتجات (اختياري — اتركه فارغاً لعرض الأحدث)",
                     "source": "products",
                     "searchable": true,
                     "multichoice": true,
-                    "required": true,
-                    "minLength": 1,
+                    "required": false,
+                    "minLength": 0,
                     "maxLength": 24,
                     "selected": [],
                     "options": [],
@@ -2274,20 +2276,21 @@
             ]
         },
         {
-            "key": "premium-system-collections-001",
+            "key": "e001a0d3-548b-42cf-a2ae-5e2c7db01e6f",
             "title": {
                 "en": "04 · Collections — Categories",
                 "ar": "04 · مجموعات — تصنيفات"
             },
             "icon": "sicon-grid",
             "path": "home.collection-showcase",
+            "image": "https://cdn.salla.network/images/themes/raed/preview-images/main-links.png?v=1.1",
             "is_default": true,
             "fields": [
                 {
                     "type": "static",
                     "format": "description",
                     "id": "collections-guide",
-                    "value": "Category grid or carousel using live Salla category data."
+                    "value": "Category grid or carousel using live Salla category data. Pick the categories to feature — this section renders nothing until at least one is chosen."
                 },
                 {
                     "id": "mode",
@@ -2549,8 +2552,8 @@
                     "source": "categories",
                     "searchable": true,
                     "multichoice": true,
-                    "required": true,
-                    "minLength": 1,
+                    "required": false,
+                    "minLength": 0,
                     "maxLength": 12,
                     "selected": [],
                     "options": [],
@@ -2559,13 +2562,14 @@
             ]
         },
         {
-            "key": "premium-system-image-text-001",
+            "key": "fefdf457-52ae-4af6-b05c-ff09bd5c328e",
             "title": {
                 "en": "06 · Editorial — Image + Text",
                 "ar": "06 · تحريري — صورة ونص"
             },
             "icon": "sicon-layout",
             "path": "home.image-text",
+            "image": "https://cdn.salla.network/images/themes/raed/preview-images/main-links.png?v=1.1",
             "is_default": true,
             "fields": [
                 {
@@ -2898,13 +2902,14 @@
             ]
         },
         {
-            "key": "premium-editorial-001",
+            "key": "d082b363-6893-4eb0-8600-e1d0532c4906",
             "title": {
                 "en": "06 · Editorial — Split Banner",
                 "ar": "06 · تحريري — بنر منقسم"
             },
             "icon": "sicon-image",
             "path": "home.split-banner",
+            "image": "https://cdn.salla.network/images/themes/raed/preview-images/main-links.png?v=1.1",
             "fields": [
                 {
                     "type": "static",
@@ -3245,13 +3250,14 @@
             ]
         },
         {
-            "key": "premium-editorial-002",
+            "key": "0bc793d2-6232-4d5d-8326-e73ef7c3259d",
             "title": {
                 "en": "06 · Editorial — Editorial Story",
                 "ar": "06 · تحريري — قصة تحريرية"
             },
             "icon": "sicon-image",
             "path": "home.editorial-story",
+            "image": "https://cdn.salla.network/images/themes/raed/preview-images/main-links.png?v=1.1",
             "fields": [
                 {
                     "type": "static",
@@ -3592,13 +3598,14 @@
             ]
         },
         {
-            "key": "premium-editorial-003",
+            "key": "27078427-6132-400a-9ed2-786966e78915",
             "title": {
                 "en": "06 · Editorial — Lookbook",
                 "ar": "06 · تحريري — كتاب الإطلالات"
             },
             "icon": "sicon-image",
             "path": "home.lookbook",
+            "image": "https://cdn.salla.network/images/themes/raed/preview-images/main-links.png?v=1.1",
             "fields": [
                 {
                     "type": "static",
@@ -3939,13 +3946,14 @@
             ]
         },
         {
-            "key": "premium-editorial-004",
+            "key": "8c5e3bb9-ec88-491b-b28f-9f849e2c509e",
             "title": {
                 "en": "06 · Editorial — Image Hotspots",
                 "ar": "06 · تحريري — نقاط تفاعلية على الصورة"
             },
             "icon": "sicon-image",
             "path": "home.image-hotspots",
+            "image": "https://cdn.salla.network/images/themes/raed/preview-images/main-links.png?v=1.1",
             "fields": [
                 {
                     "type": "static",
@@ -4286,13 +4294,14 @@
             ]
         },
         {
-            "key": "premium-editorial-005",
+            "key": "58cd645e-3f31-4ea8-ba9f-2ffbbac9b650",
             "title": {
                 "en": "06 · Editorial — Magazine Layout",
                 "ar": "06 · تحريري — تخطيط مجلة"
             },
             "icon": "sicon-image",
             "path": "home.magazine-layout",
+            "image": "https://cdn.salla.network/images/themes/raed/preview-images/main-links.png?v=1.1",
             "fields": [
                 {
                     "type": "static",
@@ -4633,13 +4642,14 @@
             ]
         },
         {
-            "key": "premium-editorial-006",
+            "key": "fa2feaaa-d881-4400-866f-0173f2ac65b9",
             "title": {
                 "en": "06 · Editorial — Editorial Quote",
                 "ar": "06 · تحريري — اقتباس تحريري"
             },
             "icon": "sicon-image",
             "path": "home.editorial-quote",
+            "image": "https://cdn.salla.network/images/themes/raed/preview-images/main-links.png?v=1.1",
             "fields": [
                 {
                     "type": "static",
@@ -4980,13 +4990,14 @@
             ]
         },
         {
-            "key": "premium-editorial-007",
+            "key": "e64762c4-2514-4205-bb43-7c02d4f5389c",
             "title": {
                 "en": "06 · Editorial — Timeline",
                 "ar": "06 · تحريري — خط زمني"
             },
             "icon": "sicon-image",
             "path": "home.timeline",
+            "image": "https://cdn.salla.network/images/themes/raed/preview-images/main-links.png?v=1.1",
             "fields": [
                 {
                     "type": "static",
@@ -5327,13 +5338,14 @@
             ]
         },
         {
-            "key": "premium-editorial-008",
+            "key": "f015708a-9790-454c-96e2-1265be1cae39",
             "title": {
                 "en": "06 · Editorial — Image Gallery",
                 "ar": "06 · تحريري — معرض صور"
             },
             "icon": "sicon-image",
             "path": "home.image-gallery",
+            "image": "https://cdn.salla.network/images/themes/raed/preview-images/main-links.png?v=1.1",
             "fields": [
                 {
                     "type": "static",
@@ -5674,13 +5686,14 @@
             ]
         },
         {
-            "key": "premium-editorial-009",
+            "key": "8207e6ad-b5d8-4f24-9d78-7dc3dc094d08",
             "title": {
                 "en": "06 · Editorial — Masonry Gallery",
                 "ar": "06 · تحريري — معرض متداخل"
             },
             "icon": "sicon-image",
             "path": "home.masonry-gallery",
+            "image": "https://cdn.salla.network/images/themes/raed/preview-images/main-links.png?v=1.1",
             "fields": [
                 {
                     "type": "static",
@@ -6021,13 +6034,14 @@
             ]
         },
         {
-            "key": "premium-editorial-010",
+            "key": "9047235a-a503-42e4-98d9-75e53a1e1618",
             "title": {
                 "en": "06 · Editorial — Before / After",
                 "ar": "06 · تحريري — قبل وبعد"
             },
             "icon": "sicon-image",
             "path": "home.before-after",
+            "image": "https://cdn.salla.network/images/themes/raed/preview-images/main-links.png?v=1.1",
             "fields": [
                 {
                     "type": "static",
@@ -6368,13 +6382,14 @@
             ]
         },
         {
-            "key": "premium-custom-safe-html-001",
+            "key": "d51dbb06-a29f-4920-9734-5a41c74703cc",
             "title": {
                 "en": "14 · Custom — Safe HTML",
                 "ar": "14 · مخصص — HTML آمن"
             },
             "icon": "sicon-code",
             "path": "home.safe-html",
+            "image": "https://cdn.salla.network/images/themes/raed/preview-images/main-links.png?v=1.1",
             "fields": [
                 {
                     "type": "static",
@@ -6489,13 +6504,14 @@
             ]
         },
         {
-            "key": "premium-structured-001",
+            "key": "d17520d9-bb51-40f4-87f5-7e946ace52b6",
             "title": {
                 "en": "07 · Social — Instagram Feed (Curated)",
                 "ar": "07 · اجتماعي — إنستغرام منسق"
             },
             "icon": "sicon-layout",
             "path": "home.instagram-feed",
+            "image": "https://cdn.salla.network/images/themes/raed/preview-images/main-links.png?v=1.1",
             "fields": [
                 {
                     "type": "static",
@@ -6995,13 +7011,14 @@
             ]
         },
         {
-            "key": "premium-structured-002",
+            "key": "8c79f0b7-af2c-4d03-8841-1c41f0ce7ccb",
             "title": {
                 "en": "07 · Social — TikTok Feed (Curated)",
                 "ar": "07 · اجتماعي — تيك توك منسق"
             },
             "icon": "sicon-layout",
             "path": "home.tiktok-feed",
+            "image": "https://cdn.salla.network/images/themes/raed/preview-images/main-links.png?v=1.1",
             "fields": [
                 {
                     "type": "static",
@@ -7501,13 +7518,14 @@
             ]
         },
         {
-            "key": "premium-structured-003",
+            "key": "9a182b5b-d4a0-43d9-9317-4151e7be3e55",
             "title": {
                 "en": "07 · Social — UGC Gallery",
                 "ar": "07 · اجتماعي — محتوى العملاء"
             },
             "icon": "sicon-layout",
             "path": "home.ugc-gallery",
+            "image": "https://cdn.salla.network/images/themes/raed/preview-images/main-links.png?v=1.1",
             "fields": [
                 {
                     "type": "static",
@@ -8007,13 +8025,14 @@
             ]
         },
         {
-            "key": "premium-structured-004",
+            "key": "a38f117e-7f9a-4001-99f5-0be8e5be117c",
             "title": {
                 "en": "07 · Social — Reels Carousel",
                 "ar": "07 · اجتماعي — سلايدر ريلز"
             },
             "icon": "sicon-layout",
             "path": "home.reels-carousel",
+            "image": "https://cdn.salla.network/images/themes/raed/preview-images/main-links.png?v=1.1",
             "fields": [
                 {
                     "type": "static",
@@ -8513,13 +8532,14 @@
             ]
         },
         {
-            "key": "premium-structured-005",
+            "key": "dd6d4789-9199-41a7-8214-17e72ef5ee4f",
             "title": {
                 "en": "07 · Media — Video Gallery",
                 "ar": "07 · وسائط — معرض فيديو"
             },
             "icon": "sicon-layout",
             "path": "home.video-gallery",
+            "image": "https://cdn.salla.network/images/themes/raed/preview-images/main-links.png?v=1.1",
             "fields": [
                 {
                     "type": "static",
@@ -9019,13 +9039,14 @@
             ]
         },
         {
-            "key": "premium-structured-006",
+            "key": "ae91bd88-9db8-4ff7-bf77-a9e9dd4b0f47",
             "title": {
                 "en": "07 · Media — YouTube",
                 "ar": "07 · وسائط — يوتيوب"
             },
             "icon": "sicon-layout",
             "path": "home.youtube-section",
+            "image": "https://cdn.salla.network/images/themes/raed/preview-images/main-links.png?v=1.1",
             "fields": [
                 {
                     "type": "static",
@@ -9525,13 +9546,14 @@
             ]
         },
         {
-            "key": "premium-structured-007",
+            "key": "cbce199b-795c-4cb6-9354-592d1a0c7752",
             "title": {
                 "en": "07 · Social — Social Gallery",
                 "ar": "07 · اجتماعي — معرض اجتماعي"
             },
             "icon": "sicon-layout",
             "path": "home.social-gallery",
+            "image": "https://cdn.salla.network/images/themes/raed/preview-images/main-links.png?v=1.1",
             "fields": [
                 {
                     "type": "static",
@@ -10031,13 +10053,14 @@
             ]
         },
         {
-            "key": "premium-structured-008",
+            "key": "70e188d0-b4b3-4f44-b1b6-7527b77e75ca",
             "title": {
                 "en": "08 · Conversion — Announcement Bar",
                 "ar": "08 · تحويل — شريط إعلاني"
             },
             "icon": "sicon-layout",
             "path": "home.announcement-bar",
+            "image": "https://cdn.salla.network/images/themes/raed/preview-images/main-links.png?v=1.1",
             "fields": [
                 {
                     "type": "static",
@@ -10537,13 +10560,14 @@
             ]
         },
         {
-            "key": "premium-structured-009",
+            "key": "f665b699-7ea8-479f-9981-e25cb25a477d",
             "title": {
                 "en": "08 · Conversion — Countdown Banner",
                 "ar": "08 · تحويل — بنر عد تنازلي"
             },
             "icon": "sicon-layout",
             "path": "home.countdown-banner",
+            "image": "https://cdn.salla.network/images/themes/raed/preview-images/main-links.png?v=1.1",
             "fields": [
                 {
                     "type": "static",
@@ -11043,13 +11067,14 @@
             ]
         },
         {
-            "key": "premium-structured-010",
+            "key": "d658797a-b148-42ea-9c22-918d63aca631",
             "title": {
                 "en": "08 · Conversion — Flash Sale Countdown",
                 "ar": "08 · تحويل — تخفيضات مؤقتة"
             },
             "icon": "sicon-layout",
             "path": "home.flash-sale-countdown",
+            "image": "https://cdn.salla.network/images/themes/raed/preview-images/main-links.png?v=1.1",
             "fields": [
                 {
                     "type": "static",
@@ -11549,13 +11574,14 @@
             ]
         },
         {
-            "key": "premium-structured-011",
+            "key": "432a1256-3910-438d-9d3f-a2a5d67b84ea",
             "title": {
                 "en": "08 · Conversion — Trust Badges",
                 "ar": "08 · تحويل — شارات الثقة"
             },
             "icon": "sicon-layout",
             "path": "home.trust-badges",
+            "image": "https://cdn.salla.network/images/themes/raed/preview-images/main-links.png?v=1.1",
             "fields": [
                 {
                     "type": "static",
@@ -12055,13 +12081,14 @@
             ]
         },
         {
-            "key": "premium-structured-012",
+            "key": "9281bfa0-2691-4925-ab51-92ab0c999b8b",
             "title": {
                 "en": "08 · Conversion — Store Features",
                 "ar": "08 · تحويل — مزايا المتجر"
             },
             "icon": "sicon-layout",
             "path": "home.store-features-premium",
+            "image": "https://cdn.salla.network/images/themes/raed/preview-images/main-links.png?v=1.1",
             "fields": [
                 {
                     "type": "static",
@@ -12561,13 +12588,14 @@
             ]
         },
         {
-            "key": "premium-structured-013",
+            "key": "57c5faff-1203-4bae-99fc-d22b0e067a0e",
             "title": {
                 "en": "08 · Conversion — Shipping Information",
                 "ar": "08 · تحويل — معلومات الشحن"
             },
             "icon": "sicon-layout",
             "path": "home.shipping-information",
+            "image": "https://cdn.salla.network/images/themes/raed/preview-images/main-links.png?v=1.1",
             "fields": [
                 {
                     "type": "static",
@@ -13067,13 +13095,14 @@
             ]
         },
         {
-            "key": "premium-structured-014",
+            "key": "743bbf79-f5ed-413e-8455-d32899cc96e3",
             "title": {
                 "en": "08 · Conversion — Payment Methods",
                 "ar": "08 · تحويل — طرق الدفع"
             },
             "icon": "sicon-layout",
             "path": "home.payment-methods",
+            "image": "https://cdn.salla.network/images/themes/raed/preview-images/main-links.png?v=1.1",
             "fields": [
                 {
                     "type": "static",
@@ -13573,13 +13602,14 @@
             ]
         },
         {
-            "key": "premium-structured-015",
+            "key": "6f0394a4-469e-47ea-8d94-b29db00c0df7",
             "title": {
                 "en": "08 · Conversion — Guarantees",
                 "ar": "08 · تحويل — الضمانات"
             },
             "icon": "sicon-layout",
             "path": "home.guarantees",
+            "image": "https://cdn.salla.network/images/themes/raed/preview-images/main-links.png?v=1.1",
             "fields": [
                 {
                     "type": "static",
@@ -14079,13 +14109,14 @@
             ]
         },
         {
-            "key": "premium-structured-016",
+            "key": "a807f41c-40c6-4830-80f5-d938cd1598a5",
             "title": {
                 "en": "08 · Conversion — Free Shipping Progress",
                 "ar": "08 · تحويل — تقدم الشحن المجاني"
             },
             "icon": "sicon-layout",
             "path": "home.free-shipping-progress",
+            "image": "https://cdn.salla.network/images/themes/raed/preview-images/main-links.png?v=1.1",
             "fields": [
                 {
                     "type": "static",
@@ -14585,13 +14616,14 @@
             ]
         },
         {
-            "key": "premium-structured-017",
+            "key": "362b4003-5333-4f81-aa32-6befd6c7be0e",
             "title": {
                 "en": "08 · Conversion — Sticky Promotion",
                 "ar": "08 · تحويل — عرض ثابت"
             },
             "icon": "sicon-layout",
             "path": "home.sticky-promotion",
+            "image": "https://cdn.salla.network/images/themes/raed/preview-images/main-links.png?v=1.1",
             "fields": [
                 {
                     "type": "static",
@@ -15091,13 +15123,14 @@
             ]
         },
         {
-            "key": "premium-structured-018",
+            "key": "acc65018-cf7d-4196-9826-1fbc58ab41b6",
             "title": {
                 "en": "08 · Conversion — Floating CTA",
                 "ar": "08 · تحويل — زر عائم"
             },
             "icon": "sicon-layout",
             "path": "home.floating-cta",
+            "image": "https://cdn.salla.network/images/themes/raed/preview-images/main-links.png?v=1.1",
             "fields": [
                 {
                     "type": "static",
@@ -15597,13 +15630,14 @@
             ]
         },
         {
-            "key": "premium-structured-019",
+            "key": "aae8d920-797d-411d-87f1-524d3b5cc83b",
             "title": {
                 "en": "08 · Conversion — WhatsApp CTA",
                 "ar": "08 · تحويل — زر واتساب"
             },
             "icon": "sicon-layout",
             "path": "home.whatsapp-cta",
+            "image": "https://cdn.salla.network/images/themes/raed/preview-images/main-links.png?v=1.1",
             "fields": [
                 {
                     "type": "static",
@@ -16103,13 +16137,14 @@
             ]
         },
         {
-            "key": "premium-structured-020",
+            "key": "216c7920-c07e-474a-add7-3270f350b304",
             "title": {
                 "en": "12 · App — App Promotion",
                 "ar": "12 · تطبيق — ترويج التطبيق"
             },
             "icon": "sicon-layout",
             "path": "home.app-promotion",
+            "image": "https://cdn.salla.network/images/themes/raed/preview-images/main-links.png?v=1.1",
             "fields": [
                 {
                     "type": "static",
@@ -16609,13 +16644,14 @@
             ]
         },
         {
-            "key": "premium-structured-021",
+            "key": "1e0a878b-af54-44c2-b6cb-eedb784146f0",
             "title": {
                 "en": "09 · Reviews — Testimonials",
                 "ar": "09 · تقييمات — آراء العملاء"
             },
             "icon": "sicon-layout",
             "path": "home.premium-testimonials",
+            "image": "https://cdn.salla.network/images/themes/raed/preview-images/main-links.png?v=1.1",
             "fields": [
                 {
                     "type": "static",
@@ -17115,13 +17151,14 @@
             ]
         },
         {
-            "key": "premium-structured-022",
+            "key": "4aa9aa79-237d-4087-8614-9ef9a0a158b3",
             "title": {
                 "en": "09 · Reviews — Customer Reviews",
                 "ar": "09 · تقييمات — تقييمات المتجر"
             },
             "icon": "sicon-layout",
             "path": "home.customer-reviews",
+            "image": "https://cdn.salla.network/images/themes/raed/preview-images/main-links.png?v=1.1",
             "fields": [
                 {
                     "type": "static",
@@ -17621,13 +17658,14 @@
             ]
         },
         {
-            "key": "premium-structured-023",
+            "key": "c97b8231-f0a2-409e-b7ce-550e002c23c1",
             "title": {
                 "en": "09 · Reviews — Video Testimonials",
                 "ar": "09 · تقييمات — آراء فيديو"
             },
             "icon": "sicon-layout",
             "path": "home.video-testimonials",
+            "image": "https://cdn.salla.network/images/themes/raed/preview-images/main-links.png?v=1.1",
             "fields": [
                 {
                     "type": "static",
@@ -18127,13 +18165,14 @@
             ]
         },
         {
-            "key": "premium-structured-024",
+            "key": "f5a4ddef-867e-425a-a704-f04cc4749cde",
             "title": {
                 "en": "10 · Content — FAQ",
                 "ar": "10 · محتوى — الأسئلة الشائعة"
             },
             "icon": "sicon-layout",
             "path": "home.faq",
+            "image": "https://cdn.salla.network/images/themes/raed/preview-images/main-links.png?v=1.1",
             "fields": [
                 {
                     "type": "static",
@@ -18633,13 +18672,14 @@
             ]
         },
         {
-            "key": "premium-structured-025",
+            "key": "427d1256-9fab-4ab9-9b46-7cd982b518b6",
             "title": {
                 "en": "10 · Content — Blog Posts",
                 "ar": "10 · محتوى — مقالات المدونة"
             },
             "icon": "sicon-layout",
             "path": "home.blog-posts",
+            "image": "https://cdn.salla.network/images/themes/raed/preview-images/main-links.png?v=1.1",
             "fields": [
                 {
                     "type": "static",
@@ -19139,13 +19179,14 @@
             ]
         },
         {
-            "key": "premium-structured-026",
+            "key": "db2b5fda-e495-43a9-8890-ad9763db9c9d",
             "title": {
                 "en": "10 · Content — Featured Article",
                 "ar": "10 · محتوى — مقالة مميزة"
             },
             "icon": "sicon-layout",
             "path": "home.featured-article",
+            "image": "https://cdn.salla.network/images/themes/raed/preview-images/main-links.png?v=1.1",
             "fields": [
                 {
                     "type": "static",
@@ -19645,13 +19686,14 @@
             ]
         },
         {
-            "key": "premium-structured-027",
+            "key": "1d1142b6-b04d-4dbc-9f5b-cc73a8c99b62",
             "title": {
                 "en": "12 · Signup — Newsletter CTA",
                 "ar": "12 · تسجيل — دعوة للنشرة"
             },
             "icon": "sicon-layout",
             "path": "home.newsletter",
+            "image": "https://cdn.salla.network/images/themes/raed/preview-images/main-links.png?v=1.1",
             "fields": [
                 {
                     "type": "static",
@@ -20151,13 +20193,14 @@
             ]
         },
         {
-            "key": "premium-structured-028",
+            "key": "7d4238e1-2fa4-4694-b872-9106aeaba2e7",
             "title": {
                 "en": "10 · Content — Rich Text",
                 "ar": "10 · محتوى — نص منسق"
             },
             "icon": "sicon-layout",
             "path": "home.rich-text",
+            "image": "https://cdn.salla.network/images/themes/raed/preview-images/main-links.png?v=1.1",
             "fields": [
                 {
                     "type": "static",
@@ -20657,13 +20700,14 @@
             ]
         },
         {
-            "key": "premium-structured-029",
+            "key": "a3cacf84-71c8-4cc5-9389-5a4b3dded2d8",
             "title": {
                 "en": "10 · Content — Editorial Text",
                 "ar": "10 · محتوى — نص تحريري"
             },
             "icon": "sicon-layout",
             "path": "home.editorial-text",
+            "image": "https://cdn.salla.network/images/themes/raed/preview-images/main-links.png?v=1.1",
             "fields": [
                 {
                     "type": "static",
@@ -21163,13 +21207,14 @@
             ]
         },
         {
-            "key": "premium-structured-030",
+            "key": "6c318dde-2797-4d65-b0cd-8cab3650db56",
             "title": {
                 "en": "13 · Interactive — Comparison Table",
                 "ar": "13 · تفاعلي — جدول مقارنة"
             },
             "icon": "sicon-layout",
             "path": "home.comparison-table",
+            "image": "https://cdn.salla.network/images/themes/raed/preview-images/main-links.png?v=1.1",
             "fields": [
                 {
                     "type": "static",
@@ -21669,13 +21714,14 @@
             ]
         },
         {
-            "key": "premium-structured-031",
+            "key": "3d03ec30-ffda-4186-8055-c8781c44c8c3",
             "title": {
                 "en": "13 · Interactive — Tabs",
                 "ar": "13 · تفاعلي — تبويبات"
             },
             "icon": "sicon-layout",
             "path": "home.tabs",
+            "image": "https://cdn.salla.network/images/themes/raed/preview-images/main-links.png?v=1.1",
             "fields": [
                 {
                     "type": "static",
@@ -22175,13 +22221,14 @@
             ]
         },
         {
-            "key": "premium-structured-032",
+            "key": "6b4901bd-1b0e-4c2a-8fc0-472205be5df3",
             "title": {
                 "en": "13 · Interactive — Accordion",
                 "ar": "13 · تفاعلي — أكورديون"
             },
             "icon": "sicon-layout",
             "path": "home.accordion",
+            "image": "https://cdn.salla.network/images/themes/raed/preview-images/main-links.png?v=1.1",
             "fields": [
                 {
                     "type": "static",
@@ -22681,13 +22728,14 @@
             ]
         },
         {
-            "key": "premium-structured-033",
+            "key": "1d4ca866-aeab-4cf3-8292-60b2aa39ac20",
             "title": {
                 "en": "11 · Business — Statistics",
                 "ar": "11 · أعمال — إحصائيات"
             },
             "icon": "sicon-layout",
             "path": "home.statistics",
+            "image": "https://cdn.salla.network/images/themes/raed/preview-images/main-links.png?v=1.1",
             "fields": [
                 {
                     "type": "static",
@@ -23187,13 +23235,14 @@
             ]
         },
         {
-            "key": "premium-structured-034",
+            "key": "08c3bb54-cb3d-4dea-8ef0-9055d569a9fb",
             "title": {
                 "en": "11 · Business — Team Members",
                 "ar": "11 · أعمال — فريق العمل"
             },
             "icon": "sicon-layout",
             "path": "home.team-members",
+            "image": "https://cdn.salla.network/images/themes/raed/preview-images/main-links.png?v=1.1",
             "fields": [
                 {
                     "type": "static",
@@ -23693,13 +23742,14 @@
             ]
         },
         {
-            "key": "premium-structured-035",
+            "key": "c89321c5-ca6c-44fb-92da-5918ba3566fa",
             "title": {
                 "en": "11 · Business — Contact Information",
                 "ar": "11 · أعمال — معلومات التواصل"
             },
             "icon": "sicon-layout",
             "path": "home.contact-information",
+            "image": "https://cdn.salla.network/images/themes/raed/preview-images/main-links.png?v=1.1",
             "fields": [
                 {
                     "type": "static",
@@ -24199,13 +24249,14 @@
             ]
         },
         {
-            "key": "premium-structured-036",
+            "key": "7ef1e61a-7bb7-4bae-812b-2c1f9d4ccaa8",
             "title": {
                 "en": "11 · Business — Store Locations",
                 "ar": "11 · أعمال — فروع المتجر"
             },
             "icon": "sicon-layout",
             "path": "home.store-locations",
+            "image": "https://cdn.salla.network/images/themes/raed/preview-images/main-links.png?v=1.1",
             "fields": [
                 {
                     "type": "static",
@@ -24705,13 +24756,14 @@
             ]
         },
         {
-            "key": "premium-structured-037",
+            "key": "c982e2f9-e9e9-4ec8-bb39-4b501f136cab",
             "title": {
                 "en": "11 · Business — Opening Hours",
                 "ar": "11 · أعمال — ساعات العمل"
             },
             "icon": "sicon-layout",
             "path": "home.opening-hours",
+            "image": "https://cdn.salla.network/images/themes/raed/preview-images/main-links.png?v=1.1",
             "fields": [
                 {
                     "type": "static",
