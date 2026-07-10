@@ -1,5 +1,7 @@
 <div id="top"></div>
 
+> Development status: premium-system work is maintained on `feat/premium-theme-system`. Run `pnpm production` for deterministic safelist/CSS/asset builds. See `THEME_EDITOR_GUIDE.md`, `LIVE_PREVIEW_GUIDE.md`, and `LIVE_QA_REPORT.md` for merchant usage and release status.
+
 # ✨ Premium Salla Theme — “Editorial Luxe”
 
 > A world-class, premium ecommerce theme for the **Salla** platform, built on the
