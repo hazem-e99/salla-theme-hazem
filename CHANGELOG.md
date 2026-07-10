@@ -49,6 +49,12 @@
 - Added only semantic `product-gallery` and `product-purchase` hooks; preserved the gallery ID, product form, option includes, price-update nodes, sticky bar, wishlist SDK calls, add-product component, hooks, and all existing classes.
 - Reset every layout to a full-width mobile flow while retaining the established sticky mobile add-to-cart behavior.
 
+### Collection page layouts
+
+- Implemented Editorial Collection, Commerce Grid, Sidebar Filters, and Full Width Minimal compositions.
+- Preserved `#filters-menu`, filter trigger/close selectors, sort ID, products-list component and filter-result attribute used by `products.js` and Salla.
+- Kept filters available in every desktop and mobile composition; Full Width Minimal moves the filter component above the product grid instead of hiding functionality.
+
 <!-- ============================================================= -->
 <!-- PREMIUM REDESIGN (fork by hazem-e99) — Editorial Luxe          -->
 <!-- Entries below the upstream banner document this fork's work.   -->
