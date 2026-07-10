@@ -10,6 +10,12 @@
 - Replaced the stale project audit and added a contract-first implementation roadmap and typography guide.
 - Production build passes with 0 errors; known Sass import and global CSS size warnings remain tracked for the performance phase.
 
+### Header compositions
+
+- Implemented Editorial Centered, Classic Commerce, Minimal Transparent, Mega Navigation, and Compact Sticky as distinct responsive compositions.
+- Preserved the existing menu custom element, mobile burger target, search/account/cart components, sticky JavaScript classes, scope and localization controls.
+- Desktop composition changes collapse to the proven mobile header grid where appropriate; Compact Sticky keeps a purpose-built 56 px mobile/desktop rail.
+
 <!-- ============================================================= -->
 <!-- PREMIUM REDESIGN (fork by hazem-e99) — Editorial Luxe          -->
 <!-- Entries below the upstream banner document this fork's work.   -->
