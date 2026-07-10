@@ -7,6 +7,16 @@
 
 ## ✨ Premium Redesign — Unreleased
 
+### Phase 7 — Performance
+- Added CDN `preconnect` + `dns-prefetch` to warm the connection for
+  fonts/icons/assets before they are requested (faster FCP).
+- Investigated the ~730 KiB `app.css`: the bulk is Salla's
+  `safe-list-css.txt` (84 KiB of class names) that force-generates the
+  utilities Salla's runtime-injected web components depend on. Removing
+  it would leave those components unstyled, so it is intentionally kept.
+  Our own token/component CSS adds only a small delta. Documented in
+  PROJECT_ANALYSIS.md rather than pursued destructively.
+
 ### Phase 6 — Motion & Accessibility
 - Added `05-utilities/_a11y.scss`: global `prefers-reduced-motion` guard
   that neutralizes all animations/transitions/smooth-scroll (covers the

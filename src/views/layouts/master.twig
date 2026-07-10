@@ -56,6 +56,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {# Perf: warm up the CDN connection early for fonts/icons/assets. #}
+    <link rel="preconnect" href="https://cdn.salla.sa" crossorigin>
+    <link rel="dns-prefetch" href="https://cdn.salla.sa">
+
     {{ theme.settings.set('placeholder', 'images/placeholder.png') }}
 
     <script defer data-cfasync="false" crossorigin="anonymous" src="{{ 'product-card.js'|asset }}"></script>
