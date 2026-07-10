@@ -1,0 +1,39 @@
+<premium-cart-drawer
+  id="premium-cart-drawer"
+  class="premium-cart-drawer"
+  data-cart-url="{{ link('cart') }}"
+  data-home-url="{{ link('/') }}"
+  data-title="{{ trans('blocks.header.cart') }}"
+  data-loading="{{ theme.is_rtl ? 'جارٍ تحميل السلة…' : 'Loading cart…' }}"
+  data-empty="{{ trans('pages.cart.empty_cart') }}"
+  data-continue="{{ trans('common.elements.back_home') }}"
+  data-checkout="{{ trans('pages.cart.complete_order') }}"
+  data-subtotal="{{ trans('pages.cart.total') }}"
+  data-remove="{{ theme.is_rtl ? 'إزالة' : 'Remove' }}"
+  data-error="{{ theme.is_rtl ? 'تعذر تحميل السلة. حاول مرة أخرى.' : 'The cart could not be loaded. Please try again.' }}"
+  data-free-shipping="{{ trans('pages.cart.free_shipping') }}"
+  data-free-shipping-success="{{ trans('pages.cart.has_free_shipping')|striptags }}"
+  data-free-shipping-remaining="{{ trans('pages.cart.free_shipping_alert', {'amount': '{amount}'})|striptags }}"
+  hidden>
+  <div class="premium-cart-drawer__backdrop" data-cart-drawer-close></div>
+  <section class="premium-cart-drawer__panel" role="dialog" aria-modal="true" aria-labelledby="premium-cart-drawer-title" tabindex="-1">
+    <header class="premium-cart-drawer__header">
+      <h2 id="premium-cart-drawer-title">{{ trans('blocks.header.cart') }}</h2>
+      <button type="button" class="premium-icon-button" data-cart-drawer-close aria-label="{{ theme.is_rtl ? 'إغلاق السلة' : 'Close cart' }}">
+        <i class="sicon-cancel" aria-hidden="true"></i>
+      </button>
+    </header>
+    <div class="premium-cart-drawer__status" role="status" aria-live="polite"></div>
+    <div class="premium-cart-drawer__body"></div>
+    <footer class="premium-cart-drawer__footer" hidden>
+      <div class="premium-cart-drawer__shipping" hidden>
+        <div class="premium-cart-drawer__shipping-copy"></div>
+        <div class="premium-cart-drawer__progress" role="progressbar" aria-valuemin="0" aria-valuemax="100"><span></span></div>
+      </div>
+      <div class="premium-cart-drawer__subtotal"><span></span><strong data-cart-drawer-total></strong></div>
+      <a class="premium-cart-drawer__checkout" href="{{ link('cart') }}">{{ trans('pages.cart.complete_order') }}</a>
+      <button type="button" class="premium-cart-drawer__continue" data-cart-drawer-close>{{ trans('common.elements.back_home') }}</button>
+    </footer>
+  </section>
+</premium-cart-drawer>
+<script defer src="{{ 'cart-drawer.js'|asset }}"></script>
