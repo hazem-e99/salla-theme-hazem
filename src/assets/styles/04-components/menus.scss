@@ -220,7 +220,8 @@
 	  }
 
 	  img{
-		@apply w-12 h-12 object-cover bg-[#f5f7f9] pointer-events-none;
+		@apply w-12 h-12 object-cover pointer-events-none;
+		background: var(--surface-sunken);
 	  }
 
       a span{
