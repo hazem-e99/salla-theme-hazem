@@ -147,7 +147,10 @@
 {# Twilight Components #}
 <salla-offer-modal></salla-offer-modal>
 <salla-search></salla-search>
-{% component 'cart.drawer' %}
+{# `ignore missing` guards the whole storefront from a blank page if this
+   template is ever unresolvable in a given environment -- see
+   src/views/components/cart/drawer.twig for the actual implementation. #}
+{% include 'components.cart.drawer' ignore missing %}
 <salla-login-modal></salla-login-modal>
 {% if store.scope %}
     <salla-scopes selection="{{ store.scope.display_as == 'popup' ? 'mandatory' : 'optional' }}"></salla-scopes>
