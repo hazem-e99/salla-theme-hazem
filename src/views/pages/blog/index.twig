@@ -180,7 +180,7 @@
                     </salla-infinite-scroll>
 
                     {% hook 'blog:index.items.end' %}
-                {% elseif not slides|length %}
+                {% else %}
                     <div class="no-content-placeholder">
                         <i class="sicon-inbox icon"></i>
                         <p>{{ trans('pages.blog_categories.no_articles') }}</p>
