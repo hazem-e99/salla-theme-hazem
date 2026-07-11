@@ -133,8 +133,13 @@ class PremiumCartDrawer extends HTMLElement {
     remove.textContent = this.dataset.remove;
     remove.addEventListener('click', async () => {
       remove.disabled = true;
-      await salla.cart.deleteItem(item.id);
-      await this.load();
+      try {
+        await salla.cart.deleteItem(item.id);
+        await this.load();
+      } catch (error) {
+        remove.disabled = false;
+        salla.log('Premium cart drawer failed to remove item', error);
+      }
     });
     controls.append(remove);
     details.append(title);
