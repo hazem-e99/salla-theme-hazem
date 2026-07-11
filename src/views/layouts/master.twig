@@ -73,12 +73,18 @@
 
 
     <script data-cfasync="false">
-        window.header_is_sticky = "{{theme.settings.get('header_is_sticky', 'Default Value')}}"
-        window.imageZoom = "{{theme.settings.get('imageZoom')}}"
+        {#
+          These are real booleans in theme.settings -- json_encode so JS gets
+          true/false, not the string "true"/"false" (which is always truthy
+          and previously made every one of these toggles impossible to
+          disable from the Theme Editor).
+        #}
+        window.header_is_sticky = {{ theme.settings.get('header_is_sticky', true) | json_encode }}
+        window.imageZoom = {{ theme.settings.get('imageZoom', false) | json_encode }}
         window.can_access_wallet = {{ user.can_access_wallet | json_encode }}
-        window.enable_more_menu = "{{ theme.settings.get('enable_more_menu', true) }}"
-        window.enable_add_product_toast = "{{ theme.settings.get('enable_add_product_toast', true) }}"
-        window.notify_when_available_in_card = "{{ theme.settings.get('notify_when_available_in_card', true) }}"
+        window.enable_more_menu = {{ theme.settings.get('enable_more_menu', true) | json_encode }}
+        window.enable_add_product_toast = {{ theme.settings.get('enable_add_product_toast', true) | json_encode }}
+        window.notify_when_available_in_card = {{ theme.settings.get('notify_when_available_in_card', true) | json_encode }}
     </script>
     
     {% hook 'head:start' %}
