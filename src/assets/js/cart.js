@@ -111,7 +111,7 @@ class Cart extends BasePage {
         app.freeShippingMsg.innerHTML = isFree
             ? salla.lang.get('pages.cart.has_free_shipping')
             : salla.lang.get('pages.cart.free_shipping_alert', { amount: salla.money(cartData.free_shipping_bar.remaining) });
-        app.freeShippingBar.children[0].style.width = cartData.free_shipping_bar.percent + '%';
+        app.freeShippingBar.querySelector('.js-free-shipping-progress').style.width = cartData.free_shipping_bar.percent + '%';
 
     }
 
