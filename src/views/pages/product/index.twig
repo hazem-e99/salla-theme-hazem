@@ -42,8 +42,22 @@
 		{% endif %}
 
 		<div class="main-content collection-main flex-1 w-full {{ filters ? 'ltr:lg:ml-8 rtl:lg:mr-8' : '' }}">
+			{% if category and category.image %}
+				<div class="collection-banner">
+					<img src="{{ category.image }}" alt="{{ category.name|default(page.title) }}" width="1600" height="480" loading="eager">
+				</div>
+			{% endif %}
 			<div class="collection-head mb-8 sm:mb-12 pb-6 border-b border-line flex justify-between items-end gap-4">
-				<h1 class="collection-title text-balance" id="page-main-title">{{ page.title|raw }}</h1>
+				<div class="collection-head__text">
+					<h1 class="collection-title text-balance" id="page-main-title">{{ page.title|raw }}</h1>
+					{% if category and category.sub_categories|length %}
+						<nav class="collection-subcategories">
+							{% for sub in category.sub_categories %}
+								<a href="{{ sub.url }}">{{ sub.name }}</a>
+							{% endfor %}
+						</nav>
+					{% endif %}
+				</div>
 				<div class="flex items-center space-x-4 rtl:space-x-reverse shrink-0">
 					{% if filters %}
 						<a href="#filters-menu" class="filters-trigger collection-filter-btn lg:hidden" aria-label="{{ trans('pages.categories.filter') }}">
