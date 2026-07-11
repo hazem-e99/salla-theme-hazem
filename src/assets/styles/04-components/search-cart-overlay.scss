@@ -49,9 +49,20 @@ html.has-cart-drawer { overflow: hidden; }
 .s-search-results { display: grid; gap: .25rem; padding-block: var(--space-3); }
 .s-search-product { display: grid; grid-template-columns: 4.5rem minmax(0, 1fr); gap: var(--space-4); min-block-size: 5.5rem; padding: .65rem; border-radius: var(--radius-md); }
 .s-search-product:hover, .s-search-product:focus-visible, .s-search-product:focus-within { background: var(--surface-sunken); outline: none; }
+.s-search-product-image-container { inline-size: 4.5rem; block-size: 4.5rem; flex-shrink: 0; }
 .s-search-product-image { inline-size: 4.5rem; block-size: 4.5rem; border-radius: var(--radius-sm); object-fit: cover; }
+.s-search-product-details { display: grid; align-content: center; gap: .25rem; min-inline-size: 0; }
 .s-search-product-title { color: var(--color-ink); font-weight: var(--weight-semibold); }
+.s-search-product-price { color: var(--color-ink); font-weight: var(--weight-semibold); font-variant-numeric: tabular-nums; }
+.s-search-product-regular-price { color: var(--color-ink-muted); text-decoration: line-through; font-size: .85em; margin-inline-start: var(--space-2); }
+.s-search-product-not-available { color: var(--color-out-of-stock); font-size: var(--text-caption); }
 .s-search-no-results { padding-block: 4rem; text-align: center; color: var(--color-muted); }
+.s-search-no-results-placeholder { display: block; margin-inline: auto; margin-block-end: var(--space-4); font-size: 2.5rem; color: var(--color-line-strong); }
+
+/* Dormant unless a call site passes show-action, but styled defensively
+   so it matches the editorial identity the moment it's enabled. */
+.s-search-action { border-radius: var(--radius-md); background: var(--color-ink); color: #fff; font-weight: var(--weight-semibold); }
+.s-search-action-oval { border-radius: var(--radius-full); }
 
 @media (max-width: 639px) {
   .s-search-modal .s-modal-wrapper, .s-search-modal .s-modal-spacer, .s-search-modal .s-modal-body { inline-size: 100%; block-size: 100%; max-block-size: none; margin: 0; border-radius: 0; }
