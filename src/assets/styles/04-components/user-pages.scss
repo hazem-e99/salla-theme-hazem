@@ -67,7 +67,7 @@
       &-icon {
         @apply mb-1;
         i {
-          color: #7c8082;
+          color: var(--color-ink-muted);
           @apply text-xl;
         }
       }
