@@ -1,0 +1,189 @@
+/* ==========================================================================
+   DESIGN TOKENS  —  single source of truth  ("ATELIER" editorial identity)
+   --------------------------------------------------------------------------
+   Zara / COS editorial DNA: monochrome ink-on-paper, extreme whitespace,
+   sharp corners (radius 0 by default), near-flat elevation, tiny wide-tracked
+   type. The merchant's runtime color is used as RARE punctuation only
+   (a single underline / one hover state), never as flat fills.
+
+   Everything downstream (SCSS + Tailwind) consumes these custom properties.
+   Do not hardcode design values elsewhere; add/adjust here.
+
+   Salla injects --color-primary / -dark / -light / -reverse at runtime in
+   layouts/master.twig. We LAYER on top: neutrals, surfaces, semantics, type,
+   spacing, radius, shadow, motion, and usage tokens around it.
+
+   See DESIGN_SYSTEM.md for the rationale behind every value.
+   ========================================================================== */
+
+:root {
+  /* --- Brand / accent (merchant-driven, consumed) -----------------------
+     Fallbacks only apply if Salla does not inject; master.twig normally
+     overrides --color-primary et al. after this file loads.               */
+  --color-primary-fallback: #111111;
+  --color-primary-tint: color-mix(in srgb, var(--color-primary, var(--color-primary-fallback)) 8%, #fff);
+  --color-primary-tint-strong: color-mix(in srgb, var(--color-primary, var(--color-primary-fallback)) 16%, #fff);
+
+  /* --- Ink & cool paper-neutral scale (theme-owned) --------------------
+     Editorial monochrome: pure paper, deep ink, restrained cool greys.   */
+  --color-ink: #111111;
+  --color-ink-soft: #383838;
+  --color-ink-muted: #6b6b6b;
+  --color-line: #e6e4e0;
+  --color-line-strong: #cfccc6;
+
+  --neutral-50:  #fbfbfa;
+  --neutral-100: #f4f3f1;
+  --neutral-200: #e6e4e0;
+  --neutral-300: #d3d0cb;
+  --neutral-400: #a8a5a0;
+  --neutral-500: #7c7a77;
+  --neutral-600: #5c5a56;
+  --neutral-700: #3f3d3a;
+  --neutral-800: #262523;
+  --neutral-900: #111111;
+
+  /* --- Surfaces --------------------------------------------------------- */
+  --surface-canvas:  var(--neutral-50);
+  --surface-raised:  #ffffff;
+  --surface-sunken:  var(--neutral-100);
+  --surface-inverse: var(--neutral-900);
+
+  /* --- Semantic --------------------------------------------------------- */
+  --color-success:      #2f7d5b;
+  --color-success-soft: #e7f1ec;
+  --color-warning:      #b8791b;
+  --color-warning-soft: #fbf1e1;
+  --color-danger:       #b23a2e;
+  --color-danger-soft:  #f7e7e4;
+  --color-info:         #3a5b8c;
+  --color-sale:         var(--color-danger);
+
+  /* --- Typography: families -------------------------------------------- */
+  /* Display defaults to the merchant font to keep RTL/Arabic pristine.
+     A theme setting can opt into a true serif via --font-display override. */
+  --font-body:    var(--font-main), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-display: var(--font-main), Georgia, "Times New Roman", serif;
+  --font-mono:    ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* --- Typography: fluid scale ----------------------------------------- */
+  --text-display:  clamp(2.5rem, 1.6rem + 4vw, 4.5rem);
+  --text-h1:       clamp(2rem, 1.4rem + 2.6vw, 3rem);
+  --text-h2:       clamp(1.6rem, 1.2rem + 1.8vw, 2.25rem);
+  --text-h3:       clamp(1.3rem, 1.05rem + 1vw, 1.6rem);
+  --text-h4:       clamp(1.15rem, 1rem + 0.5vw, 1.3rem);
+  --text-body-lg:  1.125rem;
+  --text-body:     1rem;
+  --text-body-sm:  0.875rem;
+  --text-caption:  0.75rem;
+  --text-eyebrow:  0.6875rem;
+
+  /* --- Typography: weight / tracking / leading ------------------------- */
+  --weight-regular:  400;
+  --weight-medium:   500;
+  --weight-semibold: 600;
+  --weight-bold:     700;
+
+  /* Editorial tracking: display runs tight, labels run very wide. */
+  --tracking-tight:   -0.03em;
+  --tracking-normal:  0;
+  --tracking-wide:    0.14em;   /* uppercase labels / eyebrows */
+  --tracking-widest:  0.22em;   /* wordmark, spaced micro-labels */
+
+  --leading-tight:   1.05;
+  --leading-snug:    1.25;
+  --leading-normal:  1.65;
+  --leading-relaxed: 1.9;
+
+  /* --- Spacing (8px base, 4px half-steps) ------------------------------ */
+  --space-0:  0;
+  --space-px: 1px;
+  --space-1:  0.25rem;  /* 4  */
+  --space-2:  0.5rem;   /* 8  */
+  --space-3:  0.75rem;  /* 12 */
+  --space-4:  1rem;     /* 16 */
+  --space-5:  1.25rem;  /* 20 */
+  --space-6:  1.5rem;   /* 24 */
+  --space-8:  2rem;     /* 32 */
+  --space-10: 2.5rem;   /* 40 */
+  --space-12: 3rem;     /* 48 */
+  --space-16: 4rem;     /* 64 */
+  --space-20: 5rem;     /* 80 */
+  --space-24: 6rem;     /* 96 */
+  --space-32: 8rem;     /* 128 */
+
+  /* Extreme editorial whitespace: larger section rhythm. */
+  --section-y:  clamp(4.5rem, 3rem + 7vw, 10rem);
+  --block-gap:  var(--space-24);
+
+  /* --- Radius (SHARP editorial corners; near-zero by default) ---------
+     Kept token names for compatibility, but values collapse toward 0.
+     radius-full still available for the rare pill/avatar.               */
+  --radius-none: 0;
+  --radius-xs:   0;
+  --radius-sm:   0;
+  --radius-md:   1px;
+  --radius-lg:   2px;
+  --radius-xl:   2px;
+  --radius-2xl:  3px;
+  --radius-full: 9999px;
+
+  /* --- Shadow / elevation (editorial = near-flat) ---------------------
+     Almost no shadow. Depth comes from whitespace and hairlines, not
+     drop-shadows. Focus ring stays crisp for a11y.                      */
+  --shadow-none: none;
+  --shadow-xs:   none;
+  --shadow-sm:   0 1px 0 rgba(17, 17, 17, 0.04);
+  --shadow-md:   0 6px 24px -12px rgba(17, 17, 17, 0.14);
+  --shadow-lg:   0 24px 60px -24px rgba(17, 17, 17, 0.18);
+  --shadow-focus: 0 0 0 2px var(--surface-canvas), 0 0 0 4px var(--color-ink);
+
+  /* --- Border ----------------------------------------------------------- */
+  --border-width:        1px;
+  --border-width-strong: 2px;
+  --border-color:        var(--color-line);
+  --border-color-strong: var(--color-line-strong);
+  --hairline:            1px solid var(--color-line);
+
+  /* --- Opacity ---------------------------------------------------------- */
+  --opacity-disabled: 0.45;
+  --opacity-muted:    0.7;
+  --opacity-hover:    0.85;
+  --opacity-overlay:  0.5;
+
+  /* --- Motion ----------------------------------------------------------- */
+  --ease-standard:   cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-emphasized: cubic-bezier(0.2, 0, 0, 1);
+  --ease-elastic:    cubic-bezier(0.55, 0, 0.1, 1);
+  --duration-fast:   150ms;
+  --duration-base:   250ms;
+  --duration-slow:   400ms;
+  --transition-base: all var(--duration-base) var(--ease-standard);
+
+  /* --- Container -------------------------------------------------------- */
+  --container-max:    1280px;
+  --container-narrow: 768px;
+  --container-wide:   1536px;
+  --container-pad:    clamp(1rem, 0.5rem + 2vw, 2.5rem);
+
+  /* --- Z-index ---------------------------------------------------------- */
+  --z-base:    0;
+  --z-raised:  10;
+  --z-sticky:  20;
+  --z-header:  30;
+  --z-drawer:  40;
+  --z-overlay: 50;
+  --z-modal:   60;
+  --z-toast:   70;
+  --z-max:     9999;
+}
+
+/* Respect reduced-motion globally as a baseline quality floor.
+   Individual components may still opt into essential motion. */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-fast: 0ms;
+    --duration-base: 0ms;
+    --duration-slow: 0ms;
+  }
+}

@@ -165,6 +165,82 @@
   }
 }
 
+/* ==========================================================================
+   PRODUCT PAGE — "ATELIER" editorial treatment
+   Restyles the existing single.twig structure (layout + Salla components
+   + JS hooks preserved). Sparse, tiny wide-tracked labels, bold minimal
+   price, sharp surfaces, hairline separations.
+   ========================================================================== */
+.container--product-details{
+  padding-top: var(--space-6);
+
+  // The info panel sits on paper; give it editorial breathing room.
+  .main-content{
+    section,
+    .sticky-product-bar{
+      background: transparent !important;
+      border-radius: 0 !important;
+    }
+
+    // hairline separations instead of grey card fills
+    .product__description{
+      border-top: var(--border-width) solid var(--color-line);
+      border-bottom: var(--border-width) solid var(--color-line);
+      padding-block: var(--space-6);
+      margin-block: var(--space-6);
+    }
+  }
+
+  // Price: large, ink, tabular
+  .price-wrapper .total-price{
+    font-family: var(--font-body);
+    font-weight: var(--weight-semibold);
+    font-size: var(--text-h3) !important;
+    color: var(--color-ink) !important;
+    font-variant-numeric: tabular-nums;
+  }
+  .price-wrapper .before-price{
+    color: var(--color-ink-muted);
+    text-decoration: line-through;
+  }
+  .price_is_on_sale .total-price{ color: var(--color-sale) !important; }
+
+  // Form labels: tiny, uppercase, wide-tracked
+  .form-label{
+    font-size: var(--text-eyebrow);
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    color: var(--color-ink-muted);
+  }
+}
+
+// Gallery: sharp corners, editorial framing
+.details-slider,
+.image-slider{
+  border-radius: 0 !important;
+  .swiper-slide img{ border-radius: 0 !important; }
+}
+
+/* Primary CTA (add to cart) — bold sharp ink block, wide tracking.
+   Targets the internal Salla button; keeps all component behaviour. */
+.sticky-product-bar__btn{
+  .s-button-element,
+  .s-button-primary{
+    border-radius: 0 !important;
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    font-size: var(--text-body-sm);
+    font-weight: var(--weight-semibold);
+    padding-block: var(--space-4);
+    background: var(--color-ink) !important;
+    border-color: var(--color-ink) !important;
+    color: #fff !important;
+    transition: opacity var(--duration-base) var(--ease-standard);
+
+    &:hover{ opacity: var(--opacity-hover); }
+  }
+}
+
 // Tabs fix
 .s-tabs-header * {
   pointer-events: auto !important;
@@ -308,7 +384,8 @@ salla-add-product-button[product-status="out-and-notify"],
   @apply justify-start gap-2.5;
 
   h4{
-    @apply text-red-800;
+    color: var(--color-ink);
+    font-variant-numeric: tabular-nums;
   }
 }
 
@@ -347,6 +424,115 @@ salla-add-product-button[product-status="out-and-notify"],
   @apply opacity-100;
 }
 
+/* ==========================================================================
+   PRODUCT CARD — "ATELIER" editorial rebuild
+   Zara/COS DNA: no card chrome, image is the hero, tiny quiet type beneath.
+   Actions (add-to-cart) stay accessible but recede until hover on desktop.
+   Rendered by product-card.js — markup contract & Salla components untouched.
+   ========================================================================== */
+.s-product-card-entry{
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none !important;
+  transition: none;
+
+  &:hover{ box-shadow: none; }
+}
+
+/* Media: tall editorial aspect, full-bleed, sits on a paper tile */
+.s-product-card-image,
+.s-product-card-image-full{
+  position: relative;
+  overflow: hidden;
+  border-radius: 0;
+  background: var(--neutral-100);
+  aspect-ratio: 3 / 4;
+
+  img{
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+    transition: transform 1.2s var(--ease-emphasized), opacity var(--duration-slow) var(--ease-standard);
+    will-change: transform;
+  }
+
+  /* Respect the merchant's fit setting: JS puts -cover/-contain on the img.
+     Only default to cover when neither is specified. */
+  img.s-product-card-image-cover   { object-fit: cover; }
+  img.s-product-card-image-contain { object-fit: contain; }
+  img:not([class*="s-product-card-image-"]) { object-fit: cover; }
+}
+@media (prefers-reduced-motion: no-preference){
+  .s-product-card-entry:hover .s-product-card-image img,
+  .s-product-card-entry:hover .s-product-card-image-full img{
+    transform: scale(1.05);
+  }
+}
+
+/* Content: quiet, tiny, generously spaced beneath the image */
+.s-product-card-content{
+  padding-top: var(--space-4);
+  text-align: start;
+}
+.s-product-card-content-title{
+  font-family: var(--font-body);
+  font-size: var(--text-body-sm);
+  font-weight: var(--weight-regular);
+  letter-spacing: 0.01em;
+  color: var(--color-ink);
+  line-height: var(--leading-snug);
+
+  a:hover{ color: var(--color-ink-muted); }
+}
+.s-product-card-content-subtitle{
+  font-size: var(--text-caption);
+  color: var(--color-ink-muted);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+}
+.s-product-card-price,
+.s-product-card-content-sub h4{
+  font-size: var(--text-body-sm);
+  font-weight: var(--weight-medium);
+  color: var(--color-ink);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Wishlist: minimal ink glyph, no button chrome */
+.s-product-card-wishlist-btn{
+  z-index: var(--z-raised);
+  background: transparent !important;
+  border: 0 !important;
+  color: var(--color-ink);
+  box-shadow: none !important;
+  transition: opacity var(--duration-base) var(--ease-standard), transform var(--duration-base) var(--ease-standard);
+
+  &:hover{ transform: scale(1.1); }
+}
+
+/* Add-to-cart: understated, recedes until hover — but ONLY on devices
+   that actually support hover (never hide it on touch). ---------------- */
+.s-product-card-content-footer{
+  margin-top: var(--space-3);
+}
+@media (hover: hover) and (min-width: 768px){
+  .s-product-card-content-footer{
+    opacity: 0;
+    transform: translateY(6px);
+    transition: opacity var(--duration-base) var(--ease-standard), transform var(--duration-base) var(--ease-standard);
+  }
+  .s-product-card-entry:hover .s-product-card-content-footer{
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* Keyboard users: reveal actions when focus enters the card */
+.s-product-card-entry:focus-within .s-product-card-content-footer{
+  opacity: 1;
+  transform: translateY(0);
+}
+
 
 // Horizontal card
 .s-product-card-horizontal{
@@ -370,16 +556,22 @@ salla-add-product-button[product-status="out-and-notify"],
 }
 
 .s-product-card-promotion-title{
-  @apply bg-red-800 text-white;
+  background: var(--color-sale);
+  color: #fff;
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-wide);
 }
 
 .s-product-card-sale-price {
   h4{
-    @apply text-red-800 #{!important};
+    color: var(--color-sale) !important;
+    font-variant-numeric: tabular-nums;
   }
 
   span{
     @apply text-inherit;
+    text-decoration: line-through;
+    color: var(--color-ink-muted);
   }
 }
 

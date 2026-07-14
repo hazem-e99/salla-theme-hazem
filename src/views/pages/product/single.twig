@@ -82,6 +82,31 @@
 | product.currency                       | string                      |                                                                        |
 #}
 {% extends "layouts.master" %}
+
+{% block head_scripts %}
+    {# Additive Product structured data (schema.org) for SEO rich results.
+       Uses only existing product variables; does not alter any rendering. #}
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org/",
+      "@type": "Product",
+      "name": {{ product.name|json_encode|raw }},
+      "image": {{ product.image.url|default('')|json_encode|raw }},
+      "description": {{ product.subtitle|default(product.name)|json_encode|raw }},
+      "sku": {{ product.sku|default('')|json_encode|raw }},
+      {% if product.brand.name %}"brand": { "@type": "Brand", "name": {{ product.brand.name|json_encode|raw }} },{% endif %}
+      {% if product.rating and product.rating.count %}"aggregateRating": { "@type": "AggregateRating", "ratingValue": "{{ product.rating.stars }}", "reviewCount": "{{ product.rating.count }}" },{% endif %}
+      "offers": {
+        "@type": "Offer",
+        "url": {{ product.url|json_encode|raw }},
+        "priceCurrency": {{ product.currency|default('SAR')|json_encode|raw }},
+        "price": "{{ product.price }}",
+        "availability": "{{ product.is_out_of_stock ? 'https://schema.org/OutOfStock' : 'https://schema.org/InStock' }}"
+      }
+    }
+    </script>
+{% endblock %}
+
 {% block content %}
     {% if theme.settings.get('product_show_breadcrumbs', true) %}
       <div class="container container--breadcrumbs">
@@ -206,10 +231,10 @@
                     </div>
                 {% endif %}
 
-                <h1 class="text-xl md:text-2xl leading-10 font-bold mb-6 text-gray-800">{{ product.name }}</h1>
+                <h1 class="type-h1 text-balance mb-4 text-ink">{{ product.name }}</h1>
 
                 {% if product.subtitle %}
-                    <h2 class="product-entry__sub-title text-sm text-gray-500 leading-6 mb-2.5">
+                    <h2 class="product-entry__sub-title type-subheading mb-4">
                         {{ product.subtitle }}
                     </h2>
                 {% endif %}
@@ -223,16 +248,16 @@
                     <small class="color-grey">{{ trans('pages.products.tax_included') }}</small>
                 {% endif %}
                 {# Price #}
-                <div class="flex whitespace-nowrap gap-4 items-center">
-                  <div class="{{ product.is_on_sale ? '' : 'hidden' }} space-x-2 rtl:space-x-reverse whitespace-nowrap">
-                      <p class="text-red-800 font-bold text-xl inline-block">{{product.sale_price|money}}</p>
-                      <span class="text-gray-500 line-through">{{product.regular_price|money}}</span>
+                <div class="flex whitespace-nowrap gap-4 items-center my-2">
+                  <div class="u-price {{ product.is_on_sale ? 'u-price--sale' : 'hidden' }} whitespace-nowrap">
+                      <span class="u-price__current">{{product.sale_price|money}}</span>
+                      <span class="u-price__original">{{product.regular_price|money}}</span>
                   </div>
-                  <div class="gap-4 {{ product.is_on_sale ? 'hidden' : 'flex' }}">
-                      {% if product.starting_price %} 
-                          <span class="">{{ trans('pages.products.starting_price') }}</span>
-                      {% endif %} 
-                          <p class=" font-bold text-xl inline-block"> {{product.starting_price ? product.starting_price|money : product.price|money }}</p>
+                  <div class="u-price {{ product.is_on_sale ? 'hidden' : '' }}">
+                      {% if product.starting_price %}
+                          <span class="u-price__from">{{ trans('pages.products.starting_price') }}</span>
+                      {% endif %}
+                          <span class="u-price__current"> {{product.starting_price ? product.starting_price|money : product.price|money }}</span>
                   </div>
                 </div>
 
@@ -362,15 +387,15 @@
                             </label>
 
                             <div class="flex whitespace-nowrap price-wrapper gap-4 items-center">
-                              <div class="{{ product.is_on_sale ? '' : 'hidden' }} price_is_on_sale space-x-2 rtl:space-x-reverse whitespace-nowrap">
-                                <h2 class="total-price text-red-800 font-bold text-xl inline-block">{{product.sale_price|money}}</h2>
-                                <span class="before-price text-gray-500 line-through">{{product.regular_price|money}}</span>
+                              <div class="u-price {{ product.is_on_sale ? 'u-price--sale' : 'hidden' }} price_is_on_sale whitespace-nowrap">
+                                <h2 class="total-price u-price__current inline-block">{{product.sale_price|money}}</h2>
+                                <span class="before-price u-price__original">{{product.regular_price|money}}</span>
                               </div>
-                              <div class="starting-or-normal-price gap-4 {{ product.is_on_sale ? 'hidden' : 'flex' }}">
-                                {% if product.starting_price %} 
-                                  <span class="starting-price-title">{{ trans('pages.products.starting_price') }}</span>
-                                {% endif %} 
-                                <h2 class="total-price font-bold text-xl inline-block"> {{product.starting_price ? product.starting_price|money : product.price|money }}</h2>
+                              <div class="starting-or-normal-price u-price {{ product.is_on_sale ? 'hidden' : '' }}">
+                                {% if product.starting_price %}
+                                  <span class="starting-price-title u-price__from">{{ trans('pages.products.starting_price') }}</span>
+                                {% endif %}
+                                <h2 class="total-price u-price__current inline-block"> {{product.starting_price ? product.starting_price|money : product.price|money }}</h2>
                               </div>
                             </div>
 

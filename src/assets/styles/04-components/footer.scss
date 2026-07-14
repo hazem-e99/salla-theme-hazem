@@ -1,49 +1,101 @@
+/* ==========================================================================
+   FOOTER  —  Editorial Luxe
+   Token-driven, supports merchant dark/light toggle (body.footer-is-dark /
+   .footer-is-light). Salla components (menu, contacts, social, payments,
+   apps-icons, trust-badges) are styled around, never altered.
+   ========================================================================== */
 
 .store-footer {
-  @apply relative bg-darker text-white mt-8 sm:mt-16;
+  position: relative;
+  margin-top: var(--section-y);
+  background: var(--surface-inverse);
+  color: rgba(255, 255, 255, 0.82);
 
-  a{
-    @apply transition-opacity hover:opacity-75;
+  a {
+    transition: opacity var(--duration-base) var(--ease-standard),
+                color var(--duration-base) var(--ease-standard);
+    &:hover { opacity: var(--opacity-hover); }
   }
 
-  &__inner{
-    @apply bg-dark py-8 lg:py-16 border-b border-dashed border-b-white/10;
-  }  
+  &__inner {
+    padding-block: var(--space-16);
+    border-bottom: var(--border-width) solid rgba(255, 255, 255, 0.08);
 
-  h3{
-    @apply text-lg font-bold mb-3 lg:mb-5;
+    @screen lg { padding-block: var(--space-20); }
+  }
+
+  /* Store name — spaced editorial wordmark */
+  h2 {
+    color: #fff;
+    margin-bottom: var(--space-5);
+    font-family: var(--font-display);
+    letter-spacing: var(--tracking-widest);
+    text-transform: uppercase;
+    font-size: var(--text-h4);
+  }
+
+  /* Section labels — tiny, wide, quiet */
+  h3 {
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: var(--space-5);
+    font-size: var(--text-eyebrow);
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+  }
+
+  /* Salla menu links inside the footer */
+  salla-menu a,
+  salla-contacts a {
+    color: rgba(255, 255, 255, 0.72);
+    &:hover { color: #fff; opacity: 1; }
   }
 
   .social-link {
-    @apply border rounded-full w-8 h-8 justify-center flex items-center hover:opacity-75 transition duration-300 text-sm
+    @apply w-9 h-9 justify-center flex items-center transition;
+    border: var(--border-width) solid rgba(255, 255, 255, 0.18);
+    border-radius: var(--radius-full);
+    font-size: var(--text-body-sm);
+    &:hover { border-color: rgba(255, 255, 255, 0.5); opacity: 1; }
   }
 
-  .contact-social{
-    @apply mt-5 pt-5 border-t border-white/10;
-
-    ul {
-      @apply mb-0;
-    }
+  .contact-social {
+    margin-top: var(--space-5);
+    padding-top: var(--space-5);
+    border-top: var(--border-width) solid rgba(255, 255, 255, 0.08);
+    ul { margin-bottom: 0; }
   }
 
+  /* ── Light variant (merchant toggle) ─────────────────────────────── */
   .footer-is-light & {
-    @apply bg-gray-50 text-gray-700;
+    background: var(--surface-canvas);
+    color: var(--color-ink-soft);
 
     .store-footer__inner {
-      @apply bg-gray-100 border-b-gray-200;
+      background: transparent;
+      border-bottom-color: var(--color-line);
     }
+
+    h2 { color: var(--color-ink); }
+    h3 { color: var(--color-ink-muted); }
+
+    salla-menu a,
+    salla-contacts a { color: var(--color-ink-soft); &:hover { color: var(--color-ink); } }
 
     .social-link {
-      @apply border-gray-300;
+      border-color: var(--color-line-strong);
+      color: var(--color-ink-soft);
+      &:hover { border-color: var(--color-ink); }
     }
 
-    .contact-social{
-      @apply border-gray-100;
-    }
+    .contact-social { border-top-color: var(--color-line); }
   }
 }
 
+.copyright-text {
+  color: rgba(255, 255, 255, 0.55);
+  font-size: var(--text-caption);
 
-.copyright-text p{
-  @apply text-gray-700;
+  .footer-is-light & { color: var(--color-ink-muted); }
+
+  p { color: inherit; }
 }

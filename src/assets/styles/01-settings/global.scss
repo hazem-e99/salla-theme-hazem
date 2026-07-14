@@ -6,19 +6,22 @@ $main-text-color: var(--main-text-color);
 
 :root {
   --infinte-color: #c9c9c9;
-  --main-text-color: #231f1e;
-  --main-text-color-dark: #2b2d34;
+  --main-text-color: var(--color-ink);
+  --main-text-color-dark: var(--neutral-800);
 
-  /* current */
-  --color-primary: #5cd5c4;
-  --color-primary: #414042;
-  --color-primary-d: #272628;
-  --color-primary-l: #676668;
-  --color-primary-reverse: #ff6767;
-  --color-text: #7c8082;
-  --bg-gray: #c6c7ce1a;
-  --color-grey: #f5f7f9;
-  --color-light-grey: #eeeeee;
+  /* Brand primary is injected at runtime by layouts/master.twig (Salla).
+     These are ONLY design-time fallbacks so the theme never renders broken
+     in preview; the single self-overriding declaration (D1) is removed. */
+  --color-primary: #14110f;          /* fallback graphite; overridden at runtime */
+  --color-primary-d: var(--neutral-800);
+  --color-primary-l: var(--neutral-600);
+  --color-primary-reverse: #ffffff;
+
+  /* Legacy aliases kept for backward compatibility, now token-backed */
+  --color-text: var(--color-ink-muted);
+  --bg-gray: var(--neutral-100);
+  --color-grey: var(--neutral-100);
+  --color-light-grey: var(--neutral-200);
   /* font-size */
   --font-sm: 0.8685714286rem;
   /* font-family: ; */

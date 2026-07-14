@@ -1,54 +1,84 @@
 /*
   Block Title
 */
+/* ATELIER editorial section block: extreme whitespace + centered,
+   tiny, wide-tracked headings (COS/Zara). */
 .s-block{
+  margin-block: var(--section-y);
+
   &__title{
-    @apply center-between mb-4 md:mb-8;
+    @apply flex flex-col items-center text-center;
+    margin-bottom: var(--space-12);
+    gap: var(--space-2);
+    position: relative;
 
-    .right-side{
-      @apply rtl:pl-8 ltr:pr-8;
-    }
+    .right-side{ padding: 0; }
 
-    h2{ 
-      @apply text-lg font-bold relative leading-[1.2];
+    /* Uppercase, letter-spaced, understated — the image is the hero */
+    h2{
+      font-family: var(--font-body);
+      font-size: var(--text-h4);
+      font-weight: var(--weight-semibold);
+      line-height: var(--leading-snug);
+      letter-spacing: var(--tracking-wide);
+      text-transform: uppercase;
+      color: var(--color-ink);
     }
 
     p{
-      @apply text-sm opacity-60 mt-2 line-clamp-1 sm:line-clamp-2 rtl:md:pl-16 ltr:md:pr-16;
+      @apply line-clamp-2 max-w-xl;
+      font-size: var(--text-body-sm);
+      color: var(--color-ink-muted);
+      letter-spacing: 0.01em;
     }
 
     &-nav{
-      @apply hidden sm:flex ltr:flex-row-reverse rtl:space-x-reverse space-x-2.5 rtl:mr-6 ltr:ml-6;
+      @apply hidden sm:flex ltr:flex-row-reverse rtl:space-x-reverse space-x-2.5;
+      position: absolute;
+      top: 0;
+      right: 0;
+
+      [dir="rtl"] &{ right: auto; left: 0; }
     }
   }
 
+  /* "View all" — quiet ink link with an underline reveal */
   &__display-all{
-    @apply inline-flex items-center gap-2 text-sm font-bold opacity-80 hover:opacity-100;
+    @apply inline-flex items-center gap-2;
+    font-size: var(--text-eyebrow);
+    font-weight: var(--weight-semibold);
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    color: var(--color-ink);
+    padding-bottom: 2px;
+    border-bottom: 1px solid var(--color-ink);
+    transition: gap var(--duration-base) var(--ease-standard), opacity var(--duration-base) var(--ease-standard);
 
-    i{
-      @apply ltr:rotate-180 inline-block;
-    }
+    &:hover{ gap: var(--space-3); opacity: var(--opacity-hover); }
+
+    i{ @apply ltr:rotate-180 inline-block; }
   }
 }
 
 /*
-  Main slider
+  Main slider — full-bleed editorial hero
 */
 .s-block--hero-slider{
+  margin-block: 0;              // hero hugs the header, no top gap
+  margin-bottom: var(--section-y);
+
   .swiper-slide{
-    @apply h-80 sm:h-96 lg:h-116 xl:h-132 relative bg-gray-800;
+    position: relative;
+    height: clamp(28rem, 70vh, 52rem);   // tall, immersive
+    background: var(--neutral-100);
 
-    .swiper-lazy{
-      &:after{
-        @apply content-[''] absolute transition top-0 bg-black/60 w-full h-full;
-      }
+    // Editorial: only a soft bottom scrim for text legibility, not a
+    // full dark wash over the imagery.
+    .swiper-lazy:after,
+    .overlay-bg:after{
+      @apply content-[''] absolute top-0 w-full h-full;
+      background: linear-gradient(to top, rgba(17,17,17,0.28) 0%, rgba(17,17,17,0) 45%);
     }
-
-	.overlay-bg{
-		&:after{
-		  @apply content-[''] absolute top-0 bg-black/60 w-full h-full;
-		}
-	  }
   }
 }
 
@@ -73,12 +103,25 @@
   }
 }
 
-/* Square Banner Block */
+/* Square Banner Block — editorial framed tiles */
 .banner-entry{
-  @apply h-[200px] bg-gray-100 text-white text-center p-3 xs:p-4 rounded-md overflow-hidden relative bg-cover bg-no-repeat bg-center;
+  @apply text-white text-center overflow-hidden relative bg-cover bg-no-repeat bg-center;
+  height: clamp(16rem, 34vw, 26rem);
+  background-color: var(--neutral-100);
+  border-radius: 0;
+  padding: var(--space-6);
+
+  /* Premium restrained image zoom on hover (background-position stays center).
+     Applies to any <img> inside the banner. */
+  img{
+    transition: transform var(--duration-slow) var(--ease-emphasized);
+  }
+  @media (min-width: 768px) and (prefers-reduced-motion: no-preference){
+    &:hover img{ transform: scale(1.05); }
+  }
 
   article{
-    @apply flex flex-col items-center justify-center h-full p-2.5 
+    @apply flex flex-col items-center justify-center h-full p-2.5
   }
   
   &.square-photos h3{

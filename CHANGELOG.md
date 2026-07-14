@@ -1,5 +1,129 @@
 # Changelog
 
+<!-- ============================================================= -->
+<!-- PREMIUM REDESIGN (fork by hazem-e99) — Editorial Luxe          -->
+<!-- Entries below the upstream banner document this fork's work.   -->
+<!-- ============================================================= -->
+
+## ✨ Premium Redesign — Unreleased
+
+### V2 — "Atelier" full editorial identity (complete visual transformation)
+A ground-up visual identity replacing the polished-Twilight look with a
+Zara/COS editorial system. **Business logic, Salla components, and all JS
+hooks preserved; only the visual layer is rebuilt.**
+
+- **Tokens**: monochrome ink-on-paper palette, sharp corners (radius → ~0
+  store-wide, incl. Tailwind built-ins), near-flat elevation, wide tracking,
+  much larger section rhythm (extreme whitespace).
+- **Header**: markup + SCSS rebuilt into a 3-column bar with a centered,
+  letter-spaced wordmark, slim ink utility strip, hairline-only main bar,
+  inline search, minimal ink icon buttons. Sticky contract + components kept.
+- **Product card**: borderless, image-led 3:4 media, tiny quiet type, minimal
+  ink wishlist glyph; add-to-cart recedes until hover (hover-capable ≥768px
+  only — never hidden on touch; revealed on focus for keyboard).
+- **Home**: full-bleed immersive hero (soft bottom scrim, no dark wash),
+  centered tiny uppercase section titles, taller framed editorial banners.
+- **Product page**: hairline separations instead of grey card fills, large
+  ink tabular price, uppercase micro-labels, sharp gallery, bold ink CTA.
+  All price-update JS hooks preserved.
+- **Collection**: editorial serif title + hairline head, borderless sort
+  select, minimal filter trigger, sparser grid rhythm.
+- **Footer & buttons**: spaced uppercase headings; sharp uppercase
+  wide-tracked buttons with an ink primary.
+- Verified all JS-critical selectors (cart price hooks, product-card render
+  classes, `#mainnav`/`#mobile-menu`/`custom-main-menu` sticky + mobile-menu
+  flow) remain intact.
+
+### Phase 8 — Documentation & Handover
+- Added `ARCHITECTURE.md` (how the theme is built & why), `THEME_STRUCTURE.md`
+  (full file map + contracts), and a premium fork section atop `README.md`
+  (kept the upstream Raed setup guide as the platform authority).
+- Verified all JS asset references in Twig map to real webpack entries
+  (no broken references); all locale/config JSON validated.
+
+### Phase 7 — Performance
+- Added CDN `preconnect` + `dns-prefetch` to warm the connection for
+  fonts/icons/assets before they are requested (faster FCP).
+- Investigated the ~730 KiB `app.css`: the bulk is Salla's
+  `safe-list-css.txt` (84 KiB of class names) that force-generates the
+  utilities Salla's runtime-injected web components depend on. Removing
+  it would leave those components unstyled, so it is intentionally kept.
+  Our own token/component CSS adds only a small delta. Documented in
+  PROJECT_ANALYSIS.md rather than pursued destructively.
+
+### Phase 6 — Motion & Accessibility
+- Added `05-utilities/_a11y.scss`: global `prefers-reduced-motion` guard
+  that neutralizes all animations/transitions/smooth-scroll (covers the
+  legacy keyframes in animations.scss) while preserving opacity end-states.
+- Added a keyboard skip-to-content link (visually hidden until focused →
+  jumps to `<main id="main-content">`), with `skip_to_content` strings
+  added to both `ar.json` and `en.json` so `trans()` always resolves.
+- Secondary text now uses the AA-compliant `--color-ink-muted`
+  (≈4.7:1 on canvas). Combined with the Phase-3 `:focus-visible` ring,
+  this closes the main WCAG gaps (2.4.7 focus, reduced motion, contrast).
+
+### Phase 5 — Product Card, Product Page, Collection & SEO
+- Product card (renders via product-card.js, markup contract untouched):
+  premium hover lift + hairline, signature quiet image-zoom (reduced-motion
+  aware), refined blur wishlist button, tokenized sale/promotion colors
+  (`--color-sale` replaces muddy `red-800`); fixed semantically-wrong red
+  on "starting price".
+- Product page: display-serif `<h1>`, unified `.u-price` presentation for
+  both price blocks (all JS hooks `.total-price`/`.before-price`/
+  `.price_is_on_sale`/`.starting-or-normal-price` preserved), added
+  Product JSON-LD (schema.org) via head_scripts for rich results.
+- Collection page: editorial `<h1>`, `.u-chip` filter trigger, tokenized
+  sort label. `<salla-filters>`/`<salla-products-list>` untouched.
+
+### Phase 4 — Header, Footer & Home Blocks
+- Footer: token-driven premium layout for both merchant dark/light modes;
+  refined hairlines, spacing rhythm, corrected heading hierarchy; removed
+  dead trailing markup; polished copyright/payments bar.
+- Header: main-nav on raised surface with hairline; elevated sticky-pinned
+  state (token shadow, z-header); premium cart/user icon buttons with
+  primary-tint hover.
+- Home blocks: elevated the shared `.s-block__title` (display-serif heading
+  + accent hairline underline) so all 21 blocks upgrade at once; premium
+  `__display-all` link with gap animation; restrained image-zoom on hover
+  for square banners (reduced-motion aware).
+- RTL: fixed logical-property lowering (postcss flattened
+  `inset/padding/border-inline-start` to physical `left`); added explicit
+  `[dir=rtl]` mirrors for the block accent underline and `.prose-editorial`.
+
+### Phase 3 — Core Component Library
+- Added `04-components/_ui-kit.scss`: token-driven primitives —
+  `section-title`, `u-badge`, `u-discount-badge`, `u-stock`, `u-chip`,
+  `u-price`, `u-rating`, `u-skeleton`, `u-card`, `u-empty`, `u-trust`,
+  `u-newsletter`, `u-divider`. All namespaced, opt-in, no collisions.
+- Restored accessible keyboard focus ring (`:focus-visible` +
+  `--shadow-focus`) globally and on `.btn`, reversing the globally
+  disabled outline (WCAG 2.4.7) without affecting mouse/touch users.
+- Added `COMPONENTS.md` documenting the library and the Salla components
+  we style around but never reimplement.
+
+### Phase 2 — Typography System
+- Added `01-settings/_typography.scss`: role-based type system (`display`, `h1–h4`,
+  `subheading`, `body-lg/body/sm`, `caption`, `eyebrow`, `label`, `button`, `price`)
+  built on the design tokens, plus `.prose-editorial` long-form styles and
+  `text-balance`/`text-pretty` helpers. Opt-in utilities — base heading styles
+  unchanged, so no regression.
+- Applied to product page `<h1>` (display serif + balanced wrap) and corrected the
+  footer heading hierarchy (a11y).
+
+### Phase 1 — Design Token Foundation
+- Added `01-settings/_tokens.scss`: single source of truth for color (warm-neutral
+  scale, surfaces, semantic), typography, spacing (8px), radius, elevation, motion,
+  z-index, container; global `prefers-reduced-motion` guard.
+- Fixed the self-overriding `--color-primary` declaration (theme was accidentally grey).
+- Extended `tailwind.config.js` with token-backed, non-colliding utilities.
+
+### Phase 0 — Analysis & Docs
+- `PROJECT_ANALYSIS.md`, `IMPLEMENTATION_PLAN.md`, `DESIGN_SYSTEM.md`.
+
+---
+
+# Upstream (Salla Theme Raed) Changelog
+
 On this page, you will find all about Salla's Theme Raed updates, including frequent updates, bug fixes, new features, and deprecated elements. We will be displaying only released updates on [Theme Read's ChangeLog](https://github.com/SallaApp/theme-raed/blob/master/CHANGELOG.md) here on GitHub
 
 > 📝 Note

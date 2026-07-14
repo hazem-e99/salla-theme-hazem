@@ -1,0 +1,47 @@
+/* ==========================================================================
+   ACCESSIBILITY UTILITIES
+   Global reduced-motion guard + skip link. Complements the per-component
+   :focus-visible ring in _ui-kit.scss.
+   ========================================================================== */
+
+/* ── Global reduced-motion guard ───────────────────────────────────────
+   Respect the user's OS-level "reduce motion" setting as a baseline
+   quality floor. Neutralizes animations/transitions/smooth-scroll across
+   the theme (including the many keyframe animations in animations.scss),
+   while preserving opacity end-states so nothing stays invisible.        */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  html { scroll-behavior: auto !important; }
+}
+
+/* ── Skip to content link ──────────────────────────────────────────────
+   Visually hidden until focused; lets keyboard users jump past the header
+   straight to <main id="main-content">.                                  */
+.skip-to-content {
+  position: absolute;
+  top: var(--space-2);
+  inset-inline-start: var(--space-2);
+  z-index: var(--z-max);
+  padding: var(--space-3) var(--space-5);
+  background: var(--color-ink);
+  color: #fff;
+  border-radius: var(--radius-sm);
+  font-size: var(--text-body-sm);
+  font-weight: var(--weight-semibold);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-150%);
+  transition: transform var(--duration-base) var(--ease-standard);
+
+  &:focus {
+    transform: translateY(0);
+    outline: none;
+  }
+}
